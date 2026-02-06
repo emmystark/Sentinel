@@ -8,7 +8,8 @@ from contextlib import asynccontextmanager
 import uvicorn
 
 from config import Config, get_supabase, get_user_id
-from services.scheduler_service import initialize_scheduler, stop_scheduler
+
+
 
 
 load_dotenv()
@@ -21,11 +22,9 @@ logger = logging.getLogger(__name__)
 async def lifespan(app: FastAPI):
     # Startup
     logger.info("Backend starting up...")
-    initialize_scheduler()
     yield
     # Shutdown
     logger.info("Backend shutting down...")
-    stop_scheduler()
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -76,7 +75,7 @@ async def http_exception_handler(request, exc):
 if __name__ == "__main__":
     uvicorn.run(
         app,
-        host="localhost",
+        host="0.0.0.0",
         port=Config.BACKEND_PORT,
         log_level="info"
     )

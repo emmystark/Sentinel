@@ -1,4 +1,10 @@
+<<<<<<< HEAD
+<<<<<<<< HEAD:finetuned-chatbot/src/app/components/SentinelModals.jsx
 'use client'
+========
+>>>>>>>> parent of e44c349 (configured-backend-properly):sentinel/src/app/components/SentinelModals.jsx
+=======
+>>>>>>> parent of e44c349 (configured-backend-properly)
 import React, { useState } from 'react';
 import styles from './styles/SentinelModals.module.css';
 

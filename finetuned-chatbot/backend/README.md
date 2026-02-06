@@ -13,9 +13,9 @@ This is the Python/FastAPI version of the Sentinel backend, replacing the origin
 
 ### Installation
 
-1. **Navigate to the backend directory:**
+1. **Navigate to the backend-py directory:**
 ```bash
-cd finetuned-chatbot/backend
+cd finetuned-chatbot/backend-py
 ```
 
 2. **Create a virtual environment:**
@@ -51,7 +51,7 @@ Server will start on http://localhost:3000 (or custom `BACKEND_PORT`)
 ## 🏗️ Project Structure
 
 ```
-backend/
+backend-py/
 ├── main.py                 # FastAPI app initialization
 ├── requirements.txt        # Python dependencies
 ├── .env                    # Environment configuration

@@ -7,7 +7,7 @@ import os
 import json
 import httpx
 
-HF_TOKEN = os.getenv('HF_TOKEN', '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')
+HF_TOKEN = os.getenv('HF_TOKEN', '')
 MODEL_ID = "Qwen/Qwen2.5-7B-Instruct:together"
 API_URL = "https://router.huggingface.co/v1/chat/completions"
 
