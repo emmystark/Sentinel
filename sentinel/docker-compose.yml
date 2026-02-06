@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  sentinel-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: sentinel-backend
+    ports:
+      - "3000:3000"
+    environment:
+      - BACKEND_PORT=3000
+      - FRONTEND_URL=${FRONTEND_URL:-http://localhost:3001}
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_WEBHOOK_URL=${TELEGRAM_WEBHOOK_URL}
+      - ENVIRONMENT=${ENVIRONMENT:-development}
+    volumes:
+      - ./backend:/app
+    networks:
+      - sentinel-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+
+  # Optional: Add this section if you also have a Next.js frontend
+  # sentinel-frontend:
+  #   build:
+  #     context: ./finetuned-chatbot
+  #     dockerfile: Dockerfile
+  #   container_name: sentinel-frontend
+  #   ports:
+  #     - "3001:3000"
+  #   environment:
+  #     - NEXT_PUBLIC_API_URL=http://sentinel-backend:3000
+  #   depends_on:
+  #     - sentinel-backend
+  #   networks:
+  #     - sentinel-network
+  #   restart: unless-stopped
+
+networks:
+  sentinel-network:
+    driver: bridge
