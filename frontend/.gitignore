@@ -1,0 +1,49 @@
+# =========================
+# Environment variables
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Node / Frontend
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.next/
+out/
+dist/
+build/
+
+# Turbopack / Next cache
+.next/cache/
+.next/dev/
+.next/static/
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+.idea/
+.vscode/
+
+# =========================
+# Logs & temp
+# =========================
+*.log
+tmp/
+.cache/

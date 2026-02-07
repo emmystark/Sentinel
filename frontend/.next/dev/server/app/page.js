@@ -1,7 +1,7 @@
 var R=require("../chunks/ssr/[turbopack]_runtime.js")("server/app/page.js")
 R.c("server/chunks/ssr/09f82_next_dist_9c3467b4._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__0426b81d._.js")
-R.c("server/chunks/ssr/09f82_next_dist_a24d8443._.js")
+R.c("server/chunks/ssr/09f82_dcd02dad._.js")
 R.c("server/chunks/ssr/[externals]__e8a2741f._.js")
 R.c("server/chunks/ssr/sep_Sentinel_frontend_src_app_4565fbca._.js")
 R.c("server/chunks/ssr/09f82_next_dist_client_components_builtin_global-error_a67a5648.js")
