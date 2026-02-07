@@ -14,7 +14,7 @@ from pathlib import Path
 from datetime import datetime
 
 # Configuration
-BACKEND_URL = os.getenv('BACKEND_URL', 'http://localhost:8000')
+BACKEND_URL = os.getenv('BACKEND_URL', 'https://sentinel-pchb.onrender.com')
 USER_ID = f"test-user-{int(time.time())}"
 HF_TOKEN = os.getenv('HF_TOKEN', '')
 

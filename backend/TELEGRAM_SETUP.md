@@ -99,7 +99,7 @@ TELEGRAM_WEBHOOK_URL=https://your-ngrok-url-or-domain.com/api/telegram/webhook
 
 ```bash
 # 1. Verify bot
-curl http://localhost:8000/api/telegram/verify
+curl https://sentinel-pchb.onrender.com/api/telegram/verify
 
 # 2. Check webhook setup
 curl -X GET "https://api.telegram.org/bot8337875351:AAFfygVA3F9RLOJ2I5bndQYa0SJrsBpn4aU/getWebhookInfo"
@@ -180,7 +180,7 @@ curl -X POST https://api.telegram.org/bot{TOKEN}/sendMessage \
   }'
 
 # Simulate incoming message
-curl -X POST http://localhost:8000/api/telegram/webhook \
+curl -X POST https://sentinel-pchb.onrender.com/api/telegram/webhook \
   -H "Content-Type: application/json" \
   -d '{
     "update_id": 123456,

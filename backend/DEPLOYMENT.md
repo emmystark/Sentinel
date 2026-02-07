@@ -72,7 +72,7 @@ gunicorn -w 4 -k uvicorn.workers.UvicornWorker app:app
 
 ```bash
 # Direct link (for testing):
-curl -X POST http://localhost:8000/api/telegram/link-direct-admin \
+curl -X POST https://sentinel-pchb.onrender.com/api/telegram/link-direct-admin \
   -H "Content-Type: application/json" \
   -d '{
     "telegram_id": 7873003581,
@@ -112,7 +112,7 @@ curl https://api.telegram.org/bot{TOKEN}/setWebhook \
 
 ### Step 3: Verify Bot
 ```bash
-curl http://localhost:8000/api/telegram/verify
+curl https://sentinel-pchb.onrender.com/api/telegram/verify
 ```
 
 ---
