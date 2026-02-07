@@ -47,3 +47,4 @@ env/
 *.log
 tmp/
 .cache/
+.vercel

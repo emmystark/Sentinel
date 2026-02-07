@@ -27,7 +27,7 @@ interface UserProfile {
 }
 
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://sentinel-pchb.onrender.com';
 
 export default function Dashboard() {
   const [activeModal, setActiveModal] = useState<string | null>(null);
