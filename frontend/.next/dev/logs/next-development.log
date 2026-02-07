@@ -1,0 +1,2054 @@
+[00:00:03.826] Server  LOG     ✓ Ready in 3.3s
+[00:00:59.137] Browser ERROR   ./sep/Sentinel/frontend/src/app/page.tsx:877:15
+Parsing ecmascript source code failed
+  875 |       </main>
+  876 |
+> 877 |       <button className={styles.fab} onClick={() => openModal('add')}>
+      |               ^^^^^^^^^
+  878 |         <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+  879 |           <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+  880 |         </svg>
+
+Expected ';', '}' or <eof>
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+[00:00:59.137] Browser ERROR   ./sep/Sentinel/frontend/src/app/page.tsx:714:8
+Parsing ecmascript source code failed
+  712 |           {error}
+  713 |         </div> */}
+> 714 |       )}
+      |        ^
+  715 |
+  716 |       <main className={styles.mainContent}>
+  717 |         <div className={styles.healthScore}>
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+[00:00:59.137] Browser ERROR   Failed to fetch RSC payload for http://localhost:3001/. Falling back to browser navigation. {}
+[00:00:59.137] Browser ERROR   Failed to fetch RSC payload for http://localhost:3001/. Falling back to browser navigation. {}
+[00:01:01.053] Server  LOG     ○ Compiling / ...
+[00:01:10.207] Browser ERROR   API Error: {'message': 'invalid input syntax for type uuid: "default-user"', 'code': '22P02', 'hint': None, 'details': None}
+[00:07:04.766] Server  ERROR   ⨯ ./sep/Sentinel/frontend/src/lib/supabase.ts:1:1
+Module not found: Can't resolve '@supabase/supabase-js'
+> 1 | import { createClient } from '@supabase/supabase-js';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  4 | const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.844] Server  ERROR   ⨯ ./sep/Sentinel/frontend/src/lib/supabase.ts:1:1
+Module not found: Can't resolve '@supabase/supabase-js'
+> 1 | import { createClient } from '@supabase/supabase-js';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  4 | const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.851] Server  ERROR   ⨯ ./sep/Sentinel/frontend/src/lib/supabase.ts:1:1
+Module not found: Can't resolve '@supabase/supabase-js'
+> 1 | import { createClient } from '@supabase/supabase-js';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  4 | const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.855] Server  ERROR   ⨯ ./sep/Sentinel/frontend/src/lib/supabase.ts:1:1
+Module not found: Can't resolve '@supabase/supabase-js'
+> 1 | import { createClient } from '@supabase/supabase-js';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  4 | const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.856] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.857] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.858] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.862] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/error-boundary.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/error-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.863] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/errors/root-error-boundary.js:12:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/errors/root-error-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.864] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/layout-router.js:15:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/layout-router.js [Client Component Browser]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/client/components/layout-router.js [Server Component]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/server/app-render/entry-base.js [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.865] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:32:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.866] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/lib/console.js:23:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/lib/console.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/use-error-handler.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.866] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.867] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/on-recoverable-error.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/on-recoverable-error.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.867] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/client-entry.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.868] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/client-entry.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/client-entry.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.869] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:23:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.870] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/stitched-error.js:35:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/stitched-error.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.872] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/use-error-handler.js:31:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/use-error-handler.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.872] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/app-router-context.shared-runtime.js:36:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/app-router-context.shared-runtime.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.874] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/format-webpack-messages.js:33:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/format-webpack-messages.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.878] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/head-manager-context.shared-runtime.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/head-manager-context.shared-runtime.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.880] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js:12:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.881] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js:12:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.882] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/layout-router.js:16:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/layout-router.js [Client Component Browser]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/client/components/layout-router.js [Server Component]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/server/app-render/entry-base.js [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.883] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/navigation.js:85:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/navigation.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/redirect-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.890] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/redirect-boundary.js:24:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/redirect-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.891] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/render-from-template-context.js:12:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/render-from-template-context.js [Client Component Browser]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/client/components/render-from-template-context.js [Server Component]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/server/app-render/entry-base.js [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.891] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/use-action-queue.js:23:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/use-action-queue.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router-instance.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.893] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/router/utils/format-url.js:48:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Server Component:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/router/utils/format-url.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/server/server-utils.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/lib/metadata/get-metadata-route.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:04.894] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/server-inserted-html.shared-runtime.js:24:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/server-inserted-html.shared-runtime.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/navigation.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/redirect-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.188] Server  ERROR   ⨯ ./sep/Sentinel/frontend/src/lib/supabase.ts:1:1
+Module not found: Can't resolve '@supabase/supabase-js'
+> 1 | import { createClient } from '@supabase/supabase-js';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  4 | const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.190] Server  ERROR   ⨯ ./sep/Sentinel/frontend/src/lib/supabase.ts:1:1
+Module not found: Can't resolve '@supabase/supabase-js'
+> 1 | import { createClient } from '@supabase/supabase-js';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  4 | const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.192] Server  ERROR   ⨯ ./sep/Sentinel/frontend/src/lib/supabase.ts:1:1
+Module not found: Can't resolve '@supabase/supabase-js'
+> 1 | import { createClient } from '@supabase/supabase-js';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  4 | const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.193] Server  ERROR   ⨯ ./sep/Sentinel/frontend/src/lib/supabase.ts:1:1
+Module not found: Can't resolve '@supabase/supabase-js'
+> 1 | import { createClient } from '@supabase/supabase-js';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  4 | const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.194] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.194] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.196] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.197] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/error-boundary.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/error-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.197] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/errors/root-error-boundary.js:12:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/errors/root-error-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.198] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/layout-router.js:15:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/layout-router.js [Client Component Browser]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/client/components/layout-router.js [Server Component]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/server/app-render/entry-base.js [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.198] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:32:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.199] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/lib/console.js:23:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/lib/console.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/use-error-handler.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.200] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.202] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/on-recoverable-error.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/on-recoverable-error.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.208] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/client-entry.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.208] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/client-entry.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/client-entry.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.227] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:23:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.277] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/stitched-error.js:35:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/stitched-error.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.278] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/use-error-handler.js:31:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/use-error-handler.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.284] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/app-router-context.shared-runtime.js:36:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/app-router-context.shared-runtime.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.288] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/format-webpack-messages.js:33:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/format-webpack-messages.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.288] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/head-manager-context.shared-runtime.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/head-manager-context.shared-runtime.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.289] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js:12:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.289] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js:12:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.290] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/layout-router.js:16:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/layout-router.js [Client Component Browser]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/client/components/layout-router.js [Server Component]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/server/app-render/entry-base.js [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.290] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/navigation.js:85:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/navigation.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/redirect-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.291] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/redirect-boundary.js:24:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/redirect-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.291] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/render-from-template-context.js:12:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/render-from-template-context.js [Client Component Browser]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/client/components/render-from-template-context.js [Server Component]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/server/app-render/entry-base.js [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.292] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/use-action-queue.js:23:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/use-action-queue.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router-instance.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.292] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/router/utils/format-url.js:48:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Server Component:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/router/utils/format-url.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/server/server-utils.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/lib/metadata/get-metadata-route.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.292] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/server-inserted-html.shared-runtime.js:24:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/server-inserted-html.shared-runtime.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/navigation.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/redirect-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.301] Server  ERROR   ⨯ ./sep/Sentinel/frontend/src/lib/supabase.ts:1:1
+Module not found: Can't resolve '@supabase/supabase-js'
+> 1 | import { createClient } from '@supabase/supabase-js';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  4 | const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.302] Server  ERROR   ⨯ ./sep/Sentinel/frontend/src/lib/supabase.ts:1:1
+Module not found: Can't resolve '@supabase/supabase-js'
+> 1 | import { createClient } from '@supabase/supabase-js';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  4 | const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.303] Server  ERROR   ⨯ ./sep/Sentinel/frontend/src/lib/supabase.ts:1:1
+Module not found: Can't resolve '@supabase/supabase-js'
+> 1 | import { createClient } from '@supabase/supabase-js';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  4 | const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.307] Server  ERROR   ⨯ ./sep/Sentinel/frontend/src/lib/supabase.ts:1:1
+Module not found: Can't resolve '@supabase/supabase-js'
+> 1 | import { createClient } from '@supabase/supabase-js';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  4 | const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.308] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.309] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.310] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.311] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/error-boundary.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/error-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.311] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/errors/root-error-boundary.js:12:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/errors/root-error-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.311] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/layout-router.js:15:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/layout-router.js [Client Component Browser]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/client/components/layout-router.js [Server Component]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/server/app-render/entry-base.js [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.312] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:32:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.312] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/lib/console.js:23:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/lib/console.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/use-error-handler.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.312] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.313] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/on-recoverable-error.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/on-recoverable-error.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.313] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/client-entry.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.313] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/client-entry.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/client-entry.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.314] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:23:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.314] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/stitched-error.js:35:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/stitched-error.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.314] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/use-error-handler.js:31:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/use-error-handler.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.315] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/app-router-context.shared-runtime.js:36:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/app-router-context.shared-runtime.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.319] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/format-webpack-messages.js:33:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/format-webpack-messages.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.321] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/head-manager-context.shared-runtime.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/head-manager-context.shared-runtime.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.322] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js:12:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.322] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js:12:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.323] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/layout-router.js:16:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/layout-router.js [Client Component Browser]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/client/components/layout-router.js [Server Component]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/server/app-render/entry-base.js [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.323] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/navigation.js:85:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/navigation.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/redirect-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.323] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/redirect-boundary.js:24:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/redirect-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.323] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/render-from-template-context.js:12:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/render-from-template-context.js [Client Component Browser]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/client/components/render-from-template-context.js [Server Component]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/server/app-render/entry-base.js [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.324] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/use-action-queue.js:23:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/use-action-queue.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router-instance.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.324] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/router/utils/format-url.js:48:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Server Component:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/router/utils/format-url.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/server/server-utils.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/lib/metadata/get-metadata-route.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.325] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/server-inserted-html.shared-runtime.js:24:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/server-inserted-html.shared-runtime.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/navigation.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/redirect-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.332] Server  ERROR   ⨯ ./sep/Sentinel/frontend/src/lib/supabase.ts:1:1
+Module not found: Can't resolve '@supabase/supabase-js'
+> 1 | import { createClient } from '@supabase/supabase-js';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  4 | const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.336] Server  ERROR   ⨯ ./sep/Sentinel/frontend/src/lib/supabase.ts:1:1
+Module not found: Can't resolve '@supabase/supabase-js'
+> 1 | import { createClient } from '@supabase/supabase-js';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  4 | const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.348] Server  ERROR   ⨯ ./sep/Sentinel/frontend/src/lib/supabase.ts:1:1
+Module not found: Can't resolve '@supabase/supabase-js'
+> 1 | import { createClient } from '@supabase/supabase-js';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  4 | const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.381] Server  ERROR   ⨯ ./sep/Sentinel/frontend/src/lib/supabase.ts:1:1
+Module not found: Can't resolve '@supabase/supabase-js'
+> 1 | import { createClient } from '@supabase/supabase-js';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  4 | const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/lib/supabase.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/hooks/useAuth.ts [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.384] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.386] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.387] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.388] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/error-boundary.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/error-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.416] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/errors/root-error-boundary.js:12:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/errors/root-error-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.416] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/layout-router.js:15:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/layout-router.js [Client Component Browser]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/client/components/layout-router.js [Server Component]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/server/app-render/entry-base.js [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.417] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:32:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.423] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/lib/console.js:23:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/lib/console.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/use-error-handler.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.424] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.424] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/on-recoverable-error.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/on-recoverable-error.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.425] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/client-entry.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.425] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/client-entry.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/client-entry.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.425] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:23:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.425] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/stitched-error.js:35:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/stitched-error.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.426] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/use-error-handler.js:31:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/next-devtools/userspace/app/errors/use-error-handler.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.426] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/app-router-context.shared-runtime.js:36:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/app-router-context.shared-runtime.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.427] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/format-webpack-messages.js:33:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/format-webpack-messages.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.427] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/head-manager-context.shared-runtime.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/head-manager-context.shared-runtime.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.428] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js:12:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.428] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js:12:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.430] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/layout-router.js:16:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/layout-router.js [Client Component Browser]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/client/components/layout-router.js [Server Component]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/server/app-render/entry-base.js [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.431] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/navigation.js:85:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/navigation.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/redirect-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.431] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/redirect-boundary.js:24:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/redirect-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.432] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/render-from-template-context.js:12:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/render-from-template-context.js [Client Component Browser]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/client/components/render-from-template-context.js [Server Component]
+    ./sep/Sentinel/frontend/node_modules/next/dist/esm/server/app-render/entry-base.js [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.432] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/client/components/use-action-queue.js:23:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/use-action-queue.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router-instance.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.432] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/router/utils/format-url.js:48:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Server Component:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/router/utils/format-url.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/server/server-utils.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/lib/metadata/get-metadata-route.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.432] Server  ERROR   ⨯ ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/server-inserted-html.shared-runtime.js:24:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/sep/Sentinel/frontend/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/node_modules/next/dist/shared/lib/server-inserted-html.shared-runtime.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/navigation.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/redirect-boundary.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/components/app-router.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-index.js
+    ./sep/Sentinel/frontend/node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:07:05.602] Server  LOG     ✓ Compiled in 9s
