@@ -19,7 +19,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tesseract-ocr \
     libtesseract-dev \
     curl \
+    tesseract-ocr \
+    tesseract-ocr-eng \
+    libgl1-mesa-glx \
     && rm -rf /var/lib/apt/lists/*
+
+ 
 
 # Copy requirements first for better layer caching
 COPY requirements.txt .
@@ -44,3 +49,6 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
 
 # Run application with gunicorn + uvicorn for production
 CMD ["gunicorn", "--workers", "4", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8000", "app:app"]
+
+
+

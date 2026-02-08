@@ -19,3 +19,7 @@ opik
 litellm
 gunicorn
 tesseract
+fastapi
+uvicorn[standard]
+pytesseract  
+pillow
