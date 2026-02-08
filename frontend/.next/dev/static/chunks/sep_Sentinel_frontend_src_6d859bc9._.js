@@ -141,14 +141,18 @@ function SignupPage() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
-            padding: '20px'
+            background: 'linear-gradient(-45deg, #1e3c72, #2a5298, #1a1a2e, #16213e)',
+            backgroundSize: '400% 400%',
+            animation: 'gradient 15s ease infinite',
+            padding: '20px',
+            position: 'relative',
+            overflow: 'hidden'
         },
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             style: {
                 width: '100%',
                 maxWidth: '400px',
-                background: 'rgba(30,41,59,0.8)',
+                background: 'radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)',
                 borderRadius: '16px',
                 padding: '32px',
                 border: '1px solid rgba(255,255,255,0.1)'
@@ -156,7 +160,7 @@ function SignupPage() {
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     style: {
-                        marginBottom: '32px',
+                        marginBottom: '36px',
                         textAlign: 'center'
                     },
                     children: [
@@ -178,38 +182,46 @@ function SignupPage() {
                             alt: ""
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                            lineNumber: 133,
+                            lineNumber: 138,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                            className: "login-title",
                             style: {
                                 color: '#fff',
-                                fontSize: '24px',
-                                marginBottom: '4px',
-                                fontWeight: '700'
+                                fontSize: '32px',
+                                marginBottom: '8px',
+                                fontWeight: '800',
+                                background: 'linear-gradient(135deg, #fff 0%, #e0e7ff 100%)',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent',
+                                backgroundClip: 'text'
                             },
                             children: "Sentinel"
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                            lineNumber: 147,
+                            lineNumber: 152,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "login-subtitle",
                             style: {
                                 color: '#94a3b8',
-                                fontSize: '13px',
-                                margin: 0
+                                fontSize: '16px',
+                                margin: 0,
+                                fontWeight: '400',
+                                letterSpacing: '0.3px'
                             },
-                            children: "Financial management simplified"
+                            children: "Smart financial management"
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                            lineNumber: 153,
+                            lineNumber: 163,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                    lineNumber: 129,
+                    lineNumber: 134,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -221,7 +233,7 @@ function SignupPage() {
                     children: "Create account"
                 }, void 0, false, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                    lineNumber: 159,
+                    lineNumber: 172,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -233,7 +245,7 @@ function SignupPage() {
                     children: "Join Sentinel to track expenses and save smarter"
                 }, void 0, false, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                    lineNumber: 164,
+                    lineNumber: 177,
                     columnNumber: 9
                 }, this),
                 error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -249,7 +261,7 @@ function SignupPage() {
                     children: error
                 }, void 0, false, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                    lineNumber: 170,
+                    lineNumber: 183,
                     columnNumber: 19
                 }, this),
                 success && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -265,7 +277,7 @@ function SignupPage() {
                     children: success
                 }, void 0, false, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                    lineNumber: 182,
+                    lineNumber: 195,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -294,7 +306,7 @@ function SignupPage() {
                             }
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                            lineNumber: 199,
+                            lineNumber: 212,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -316,7 +328,7 @@ function SignupPage() {
                             }
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                            lineNumber: 208,
+                            lineNumber: 221,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -346,7 +358,7 @@ function SignupPage() {
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                                    lineNumber: 220,
+                                    lineNumber: 233,
                                     columnNumber: 13
                                 }, this),
                                 password && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -361,13 +373,13 @@ function SignupPage() {
                                     children: passwordStrength
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                                    lineNumber: 231,
+                                    lineNumber: 244,
                                     columnNumber: 26
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                            lineNumber: 217,
+                            lineNumber: 230,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -390,7 +402,7 @@ function SignupPage() {
                             }
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                            lineNumber: 242,
+                            lineNumber: 255,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -410,13 +422,13 @@ function SignupPage() {
                             children: loading ? 'Creating account...' : 'Sign up'
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                            lineNumber: 251,
+                            lineNumber: 264,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                    lineNumber: 194,
+                    lineNumber: 207,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -435,7 +447,7 @@ function SignupPage() {
                             }
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                            lineNumber: 272,
+                            lineNumber: 285,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -446,7 +458,7 @@ function SignupPage() {
                             children: "or"
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                            lineNumber: 277,
+                            lineNumber: 290,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -457,13 +469,13 @@ function SignupPage() {
                             }
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                            lineNumber: 281,
+                            lineNumber: 294,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                    lineNumber: 266,
+                    lineNumber: 279,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -486,19 +498,19 @@ function SignupPage() {
                             children: "Sign in"
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                            lineNumber: 317,
+                            lineNumber: 330,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-                    lineNumber: 310,
+                    lineNumber: 323,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/sep/Sentinel/frontend/src/app/signup/page.tsx",
-            lineNumber: 121,
+            lineNumber: 125,
             columnNumber: 7
         }, this)
     }, void 0, false, {

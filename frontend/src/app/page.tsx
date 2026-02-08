@@ -1065,13 +1065,83 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {loading && (
-          <div style={{ textAlign: 'center', padding: '20px', color: '#888' }}>
-            Loading...
-          </div>
-        )}
+        {/* Loading skeletons for sections */}
+        {loading ? (
+          <>
+            {/* Activity skeleton */}
+            <div className={styles.todaysActivity}>
+              <h2 className={styles.sectionTitle}>Today&apos;s Activity</h2>
+              <div className={styles.activityCards}>
+                {[1, 2, 3, 4, 5].map(i => (
+                  <div key={i} className={styles.activityCard} style={{
+                    opacity: 0.6,
+                    background: 'linear-gradient(90deg, rgba(59,130,246,0.05) 0%, rgba(59,130,246,0.1) 50%, rgba(59,130,246,0.05) 100%)',
+                    backgroundSize: '200% 100%',
+                    animation: 'shimmer 2s infinite'
+                  }}>
+                    <div className={styles.activityIcon} style={{
+                      background: 'rgba(59, 130, 246, 0.1)',
+                      borderRadius: '50%',
+                      width: '40px',
+                      height: '40px'
+                    }} />
+                    <div className={styles.activityDetails} style={{flex: 1}}>
+                      <div className={styles.activityName} style={{
+                        background: 'rgba(59, 130, 246, 0.1)',
+                        height: '14px',
+                        borderRadius: '4px',
+                        marginBottom: '8px',
+                        width: '120px'
+                      }} />
+                      <div className={styles.activityAmount} style={{
+                        background: 'rgba(59, 130, 246, 0.1)',
+                        height: '16px',
+                        borderRadius: '4px',
+                        marginBottom: '4px',
+                        width: '80px'
+                      }} />
+                      <div className={styles.activityCategory} style={{
+                        background: 'rgba(59, 130, 246, 0.1)',
+                        height: '12px',
+                        borderRadius: '4px',
+                        width: '60px'
+                      }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-        {!loading && transactions.length > 0 && (
+            {/* Category breakdown skeleton */}
+            <div className={styles.categoryBreakdown}>
+              <h2 className={styles.sectionTitle}>Category Breakdown</h2>
+              <div className={styles.breakdownCards} style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+                gap: '12px'
+              }}>
+                {[1, 2, 3, 4].map(i => (
+                  <div key={i} style={{
+                    background: 'linear-gradient(90deg, rgba(59,130,246,0.05) 0%, rgba(59,130,246,0.1) 50%, rgba(59,130,246,0.05) 100%)',
+                    backgroundSize: '200% 100%',
+                    animation: 'shimmer 2s infinite',
+                    padding: '16px',
+                    borderRadius: '8px',
+                    height: '100px',
+                    opacity: 0.6
+                  }} />
+                ))}
+              </div>
+            </div>
+
+            <style>{`
+              @keyframes shimmer {
+                0% { background-position: -200% 0; }
+                100% { background-position: 200% 0; }
+              }
+            `}</style>
+          </>
+        ) : transactions.length > 0 ? (
           <>
             <div className={styles.todaysActivity}>
               <h2 className={styles.sectionTitle}>Today&apos;s Activity</h2>
@@ -1125,9 +1195,7 @@ export default function Dashboard() {
               </div>
             </div>
           </>
-        )}
-
-        {!loading && transactions.length === 0 && (
+        ) : (
           <div style={{ textAlign: 'center', padding: '40px 20px', color: '#888' }}>
             <p>No transactions yet. Click the + button to add one!</p>
           </div>

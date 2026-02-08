@@ -15,7 +15,6 @@ httpx
 openai
 pytesseract
 python-multipart
-google-generativeai
 opik
 litellm
 gunicorn

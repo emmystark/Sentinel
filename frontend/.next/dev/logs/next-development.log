@@ -591,3 +591,567 @@ Import traces:
 [01:13:33.260] Browser LOG     ✅ Transactions set in state, total: 0
 [01:13:33.260] Browser LOG     💡 No transactions available, using default tip
 [01:13:33.260] Browser LOG     💡 No transactions available, using default tip
+[01:20:46.756] Browser LOG     Auth ready, fetching profile and transactions...
+[01:20:46.758] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:20:46.758] Browser LOG     📊 Fetching transactions from API...
+[01:20:46.758] Browser LOG     🔵 API Call: GET /api/transactions
+[01:20:46.758] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:20:48.988] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:20:49.483] Browser LOG     ✅ API Success: GET /api/auth/profile {"email":"user@example.com","fixed_bills":30000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"Demo User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":20000,"telegram_connected":false}
+[01:20:50.238] Browser LOG     ✅ API Success: GET /api/transactions []
+[01:20:50.238] Browser LOG     📦 Raw transaction data received: []
+[01:20:50.239] Browser LOG     ✅ Successfully fetched 0 transactions from database
+[01:20:50.248] Browser LOG     ✅ Transactions set in state, total: 0
+[01:20:50.305] Browser LOG     💡 No transactions available, using default tip
+[01:20:51.537] Browser LOG     Auth ready, fetching profile and transactions...
+[01:20:51.537] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:20:51.537] Browser LOG     📊 Fetching transactions from API...
+[01:20:51.537] Browser LOG     🔵 API Call: GET /api/transactions
+[01:20:51.537] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:20:51.537] Browser LOG     Auth ready, fetching profile and transactions...
+[01:20:51.537] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:20:51.537] Browser LOG     📊 Fetching transactions from API...
+[01:20:51.537] Browser LOG     🔵 API Call: GET /api/transactions
+[01:20:51.537] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:20:53.205] Browser LOG     ✅ API Success: GET /api/auth/profile {"email":"user@example.com","fixed_bills":30000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"Demo User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":20000,"telegram_connected":false}
+[01:20:53.960] Browser LOG     ✅ API Success: GET /api/auth/profile {"email":"user@example.com","fixed_bills":30000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"Demo User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":20000,"telegram_connected":false}
+[01:20:54.388] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:20:54.784] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:20:54.887] Browser LOG     ✅ API Success: GET /api/transactions []
+[01:20:54.887] Browser LOG     📦 Raw transaction data received: []
+[01:20:54.887] Browser LOG     ✅ Successfully fetched 0 transactions from database
+[01:20:54.887] Browser LOG     ✅ Transactions set in state, total: 0
+[01:20:54.988] Browser LOG     💡 No transactions available, using default tip
+[01:20:55.558] Browser LOG     ✅ API Success: GET /api/transactions []
+[01:20:55.558] Browser LOG     📦 Raw transaction data received: []
+[01:20:55.558] Browser LOG     ✅ Successfully fetched 0 transactions from database
+[01:20:55.558] Browser LOG     ✅ Transactions set in state, total: 0
+[01:20:55.659] Browser LOG     💡 No transactions available, using default tip
+[01:32:24.159] Browser LOG     Auth ready, fetching profile and transactions...
+[01:32:24.161] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:32:24.161] Browser LOG     📊 Fetching transactions from API...
+[01:32:24.161] Browser LOG     🔵 API Call: GET /api/transactions
+[01:32:24.161] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:32:26.270] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:32:26.271] Browser LOG     ✅ API Success: GET /api/auth/profile {"email":"user@example.com","fixed_bills":30000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"Demo User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":20000,"telegram_connected":false}
+[01:32:27.050] Browser LOG     ✅ API Success: GET /api/transactions []
+[01:32:27.050] Browser LOG     📦 Raw transaction data received: []
+[01:32:27.050] Browser LOG     ✅ Successfully fetched 0 transactions from database
+[01:32:27.050] Browser LOG     ✅ Transactions set in state, total: 0
+[01:32:27.151] Browser LOG     💡 No transactions available, using default tip
+[01:35:27.795] Browser LOG     Auth ready, fetching profile and transactions...
+[01:35:27.795] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:35:27.796] Browser LOG     📊 Fetching transactions from API...
+[01:35:27.796] Browser LOG     🔵 API Call: GET /api/transactions
+[01:35:27.796] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:35:27.796] Browser LOG     Auth ready, fetching profile and transactions...
+[01:35:27.796] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:35:27.796] Browser LOG     📊 Fetching transactions from API...
+[01:35:27.796] Browser LOG     🔵 API Call: GET /api/transactions
+[01:35:27.796] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:35:31.772] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:35:32.654] Browser LOG     ✅ API Success: GET /api/auth/profile {"email":"user@example.com","fixed_bills":30000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"Demo User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":20000,"telegram_connected":false}
+[01:35:32.654] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:35:32.969] Browser LOG     ✅ API Success: GET /api/transactions []
+[01:35:32.969] Browser LOG     📦 Raw transaction data received: []
+[01:35:32.969] Browser LOG     ✅ Successfully fetched 0 transactions from database
+[01:35:32.969] Browser LOG     ✅ Transactions set in state, total: 0
+[01:35:33.326] Browser LOG     💡 No transactions available, using default tip
+[01:35:33.326] Browser LOG     ✅ API Success: GET /api/transactions []
+[01:35:33.326] Browser LOG     📦 Raw transaction data received: []
+[01:35:33.326] Browser LOG     ✅ Successfully fetched 0 transactions from database
+[01:35:33.326] Browser LOG     ✅ Transactions set in state, total: 0
+[01:35:33.326] Browser LOG     ✅ API Success: GET /api/auth/profile {"email":"user@example.com","fixed_bills":30000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"Demo User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":20000,"telegram_connected":false}
+[01:35:33.326] Browser LOG     💡 No transactions available, using default tip
+[01:41:49.551] Server  LOG     ✓ Compiled in 2s
+[01:42:40.208] Server  LOG     ✓ Compiled in 798ms
+[01:43:56.004] Server  LOG     ✓ Compiled in 64ms
+[01:43:59.125] Server  LOG     ✓ Compiled in 41ms
+[01:44:10.569] Server  LOG     ✓ Compiled in 3.6s
+[01:46:07.486] Browser ERROR   ./sep/Sentinel/frontend/src/app/page.tsx:1198:10
+Parsing ecmascript source code failed
+  1196 |             </div>
+  1197 |           </>
+> 1198 |         )}
+       |          ^
+  1199 |
+  1200 |         {!loading && transactions.length === 0 && (
+  1201 |           <div style={{ textAlign: 'center', padding: '40px 20px', color: '#888' }}>
+
+Expected '</', got '}'
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+[01:46:07.486] Browser ERROR   ./sep/Sentinel/frontend/src/app/page.tsx:1198:10
+Parsing ecmascript source code failed
+  1196 |             </div>
+  1197 |           </>
+> 1198 |         )}
+       |          ^
+  1199 |
+  1200 |         {!loading && transactions.length === 0 && (
+  1201 |           <div style={{ textAlign: 'center', padding: '40px 20px', color: '#888' }}>
+
+Expected '</', got '}'
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+[01:46:07.486] Browser ERROR   ./sep/Sentinel/frontend/src/app/page.tsx:1198:10
+Parsing ecmascript source code failed
+  1196 |             </div>
+  1197 |           </>
+> 1198 |         )}
+       |          ^
+  1199 |
+  1200 |         {!loading && transactions.length === 0 && (
+  1201 |           <div style={{ textAlign: 'center', padding: '40px 20px', color: '#888' }}>
+
+Expected '</', got '}'
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+[01:46:07.486] Browser ERROR   ./sep/Sentinel/frontend/src/app/page.tsx:1198:10
+Parsing ecmascript source code failed
+  1196 |             </div>
+  1197 |           </>
+> 1198 |         )}
+       |          ^
+  1199 |
+  1200 |         {!loading && transactions.length === 0 && (
+  1201 |           <div style={{ textAlign: 'center', padding: '40px 20px', color: '#888' }}>
+
+Expected '</', got '}'
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+[01:46:07.486] Browser ERROR   ./sep/Sentinel/frontend/src/app/page.tsx:1198:10
+Parsing ecmascript source code failed
+  1196 |             </div>
+  1197 |           </>
+> 1198 |         )}
+       |          ^
+  1199 |
+  1200 |         {!loading && transactions.length === 0 && (
+  1201 |           <div style={{ textAlign: 'center', padding: '40px 20px', color: '#888' }}>
+
+Expected '</', got '}'
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+[01:46:07.486] Browser ERROR   ./sep/Sentinel/frontend/src/app/page.tsx:1198:10
+Parsing ecmascript source code failed
+  1196 |             </div>
+  1197 |           </>
+> 1198 |         )}
+       |          ^
+  1199 |
+  1200 |         {!loading && transactions.length === 0 && (
+  1201 |           <div style={{ textAlign: 'center', padding: '40px 20px', color: '#888' }}>
+
+Expected '</', got '}'
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+[01:46:07.486] Browser ERROR   ./sep/Sentinel/frontend/src/app/page.tsx:1200:9
+Parsing ecmascript source code failed
+  1198 |         )
+  1199 |
+> 1200 |         {!loading && transactions.length === 0 && (
+       |         ^
+  1201 |           <div style={{ textAlign: 'center', padding: '40px 20px', color: '#888' }}>
+  1202 |             <p>No transactions yet. Click the + button to add one!</p>
+  1203 |           </div>
+
+Expected '</', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+[01:46:07.486] Browser ERROR   ./sep/Sentinel/frontend/src/app/page.tsx:1200:10
+Parsing ecmascript source code failed
+  1198 |         ) : (
+  1199 |
+> 1200 |         {!loading && transactions.length === 0 && (
+       |          ^
+  1201 |           <div style={{ textAlign: 'center', padding: '40px 20px', color: '#888' }}>
+  1202 |             <p>No transactions yet. Click the + button to add one!</p>
+  1203 |           </div>
+
+Expected '</', got '!'
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/page.tsx [Server Component]
+[01:46:44.541] Browser LOG     Auth ready, fetching profile and transactions...
+[01:46:44.541] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:46:44.541] Browser LOG     📊 Fetching transactions from API...
+[01:46:44.541] Browser LOG     🔵 API Call: GET /api/transactions
+[01:46:44.541] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:46:44.541] Browser LOG     Auth ready, fetching profile and transactions...
+[01:46:44.541] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:46:44.541] Browser LOG     📊 Fetching transactions from API...
+[01:46:44.541] Browser LOG     🔵 API Call: GET /api/transactions
+[01:46:44.541] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:46:44.541] Browser LOG     Auth ready, fetching profile and transactions...
+[01:46:44.541] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:46:44.541] Browser LOG     📊 Fetching transactions from API...
+[01:46:44.541] Browser LOG     🔵 API Call: GET /api/transactions
+[01:46:44.541] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:46:48.420] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:46:48.707] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:46:49.018] Browser LOG     ✅ API Success: GET /api/auth/profile {"email":"user@example.com","fixed_bills":30000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"Demo User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":20000,"telegram_connected":false}
+[01:46:49.381] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:46:49.490] Browser LOG     ✅ API Success: GET /api/auth/profile {"email":"user@example.com","fixed_bills":30000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"Demo User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":20000,"telegram_connected":false}
+[01:46:51.529] Browser LOG     ✅ API Success: GET /api/transactions []
+[01:46:51.529] Browser LOG     📦 Raw transaction data received: []
+[01:46:51.529] Browser LOG     ✅ Successfully fetched 0 transactions from database
+[01:46:51.529] Browser LOG     ✅ Transactions set in state, total: 0
+[01:46:51.529] Browser LOG     ✅ API Success: GET /api/auth/profile {"email":"user@example.com","fixed_bills":30000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"Demo User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":20000,"telegram_connected":false}
+[01:46:51.529] Browser LOG     💡 No transactions available, using default tip
+[01:46:51.529] Browser LOG     ✅ API Success: GET /api/transactions []
+[01:46:51.529] Browser LOG     📦 Raw transaction data received: []
+[01:46:51.529] Browser LOG     ✅ Successfully fetched 0 transactions from database
+[01:46:51.529] Browser LOG     ✅ Transactions set in state, total: 0
+[01:46:51.631] Browser LOG     💡 No transactions available, using default tip
+[01:46:51.747] Browser LOG     ✅ API Success: GET /api/transactions []
+[01:46:51.747] Browser LOG     📦 Raw transaction data received: []
+[01:46:51.747] Browser LOG     ✅ Successfully fetched 0 transactions from database
+[01:46:51.747] Browser LOG     ✅ Transactions set in state, total: 0
+[01:46:51.848] Browser LOG     💡 No transactions available, using default tip
+[01:46:58.273] Browser LOG     Auth ready, fetching profile and transactions...
+[01:46:58.273] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:46:58.273] Browser LOG     📊 Fetching transactions from API...
+[01:46:58.273] Browser LOG     🔵 API Call: GET /api/transactions
+[01:46:58.273] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:46:59.220] Browser LOG     ✅ API Success: GET /api/auth/profile {"email":"user@example.com","fixed_bills":30000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"Demo User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":20000,"telegram_connected":false}
+[01:46:59.691] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:47:00.130] Browser LOG     ✅ API Success: GET /api/transactions []
+[01:47:00.130] Browser LOG     📦 Raw transaction data received: []
+[01:47:00.130] Browser LOG     ✅ Successfully fetched 0 transactions from database
+[01:47:00.130] Browser LOG     ✅ Transactions set in state, total: 0
+[01:47:00.245] Browser LOG     💡 No transactions available, using default tip
+[01:47:03.918] Browser LOG     Auth ready, fetching profile and transactions...
+[01:47:03.918] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:47:03.918] Browser LOG     📊 Fetching transactions from API...
+[01:47:03.918] Browser LOG     🔵 API Call: GET /api/transactions
+[01:47:03.918] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:47:05.217] Browser LOG     ✅ API Success: GET /api/auth/profile {"email":"user@example.com","fixed_bills":30000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"Demo User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":20000,"telegram_connected":false}
+[01:47:05.416] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:47:05.987] Browser LOG     ✅ API Success: GET /api/transactions []
+[01:47:05.987] Browser LOG     📦 Raw transaction data received: []
+[01:47:05.987] Browser LOG     ✅ Successfully fetched 0 transactions from database
+[01:47:05.987] Browser LOG     ✅ Transactions set in state, total: 0
+[01:47:06.088] Browser LOG     💡 No transactions available, using default tip
+[01:47:16.295] Browser LOG     Auth ready, fetching profile and transactions...
+[01:47:16.295] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:47:16.295] Browser LOG     📊 Fetching transactions from API...
+[01:47:16.295] Browser LOG     🔵 API Call: GET /api/transactions
+[01:47:16.295] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:47:17.733] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:47:17.912] Browser LOG     ✅ API Success: GET /api/auth/profile {"email":"user@example.com","fixed_bills":30000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"Demo User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":20000,"telegram_connected":false}
+[01:47:18.502] Browser LOG     ✅ API Success: GET /api/transactions []
+[01:47:18.502] Browser LOG     📦 Raw transaction data received: []
+[01:47:18.502] Browser LOG     ✅ Successfully fetched 0 transactions from database
+[01:47:18.502] Browser LOG     ✅ Transactions set in state, total: 0
+[01:47:18.641] Browser LOG     💡 No transactions available, using default tip
+[01:47:18.652] Browser LOG     Auth ready, fetching profile and transactions...
+[01:47:18.652] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:47:18.652] Browser LOG     📊 Fetching transactions from API...
+[01:47:18.652] Browser LOG     🔵 API Call: GET /api/transactions
+[01:47:18.652] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:47:20.142] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:47:20.309] Browser LOG     ✅ API Success: GET /api/auth/profile {"email":"user@example.com","fixed_bills":30000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"Demo User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":20000,"telegram_connected":false}
+[01:47:21.084] Browser LOG     ✅ API Success: GET /api/transactions []
+[01:47:21.084] Browser LOG     📦 Raw transaction data received: []
+[01:47:21.084] Browser LOG     ✅ Successfully fetched 0 transactions from database
+[01:47:21.084] Browser LOG     ✅ Transactions set in state, total: 0
+[01:47:21.184] Browser LOG     💡 No transactions available, using default tip
+[01:48:13.268] Browser LOG     Auth ready, fetching profile and transactions...
+[01:48:13.268] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:48:13.268] Browser LOG     📊 Fetching transactions from API...
+[01:48:13.268] Browser LOG     🔵 API Call: GET /api/transactions
+[01:48:13.268] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:48:13.268] Browser LOG     Auth ready, fetching profile and transactions...
+[01:48:13.268] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:48:13.268] Browser LOG     📊 Fetching transactions from API...
+[01:48:13.268] Browser LOG     🔵 API Call: GET /api/transactions
+[01:48:13.268] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:48:15.360] Browser LOG     ✅ API Success: GET /api/auth/profile {"email":"user@example.com","fixed_bills":30000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"Demo User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":20000,"telegram_connected":false}
+[01:48:16.691] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:48:16.885] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:48:16.885] Browser LOG     ✅ API Success: GET /api/auth/profile {"email":"user@example.com","fixed_bills":30000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"Demo User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":20000,"telegram_connected":false}
+[01:48:17.347] Browser LOG     ✅ API Success: GET /api/transactions []
+[01:48:17.347] Browser LOG     📦 Raw transaction data received: []
+[01:48:17.347] Browser LOG     ✅ Successfully fetched 0 transactions from database
+[01:48:17.348] Browser LOG     ✅ Transactions set in state, total: 0
+[01:48:17.452] Browser LOG     💡 No transactions available, using default tip
+[01:48:17.590] Browser LOG     ✅ API Success: GET /api/transactions []
+[01:48:17.591] Browser LOG     📦 Raw transaction data received: []
+[01:48:17.591] Browser LOG     ✅ Successfully fetched 0 transactions from database
+[01:48:17.591] Browser LOG     ✅ Transactions set in state, total: 0
+[01:48:17.690] Browser LOG     💡 No transactions available, using default tip
+[01:49:51.006] Server  LOG     ✓ Compiled in 1146ms
+[01:50:50.847] Server  LOG     ✓ Compiled in 1157ms
+[01:50:50.958] Browser ERROR   ./sep/Sentinel/frontend/src/app/signup/page.tsx:395:6
+Parsing ecmascript source code failed
+  393 |       </div>
+  394 |
+> 395 |     </div>
+      |      ^^^^^
+  396 |
+  397 |   );
+  398 | }
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Server Component]
+[01:50:59.600] Browser ERROR   ./sep/Sentinel/frontend/src/app/signup/page.tsx:395:6
+Parsing ecmascript source code failed
+  393 |       </div>
+  394 |
+> 395 |     </div>
+      |      ^^^^^
+  396 |     </div>
+  397 |     </div>
+  398 |
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Server Component]
+[01:51:02.331] Browser ERROR   ./sep/Sentinel/frontend/src/app/signup/page.tsx:395:6
+Parsing ecmascript source code failed
+  393 |       </div>
+  394 |
+> 395 |     </div>
+      |      ^^^^^
+  396 |     </div>
+  397 |
+  398 |   );
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Server Component]
+[01:51:32.488] Browser ERROR   ./sep/Sentinel/frontend/src/app/signup/page.tsx:394:8
+Parsing ecmascript source code failed
+  392 |         </p>
+  393 |       </div>
+> 394 |       </div>
+      |        ^^^^^
+  395 |
+  396 |     </div>
+  397 |     </div>
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Server Component]
+[01:51:32.488] Browser ERROR   ./sep/Sentinel/frontend/src/app/signup/page.tsx:394:8
+Parsing ecmascript source code failed
+  392 |         </p>
+  393 |       </div>
+> 394 |       </div>
+      |        ^^^^^
+  395 |
+  396 |     </div>
+  397 |
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Server Component]
+[01:52:03.458] Server  LOG     ✓ Compiled in 1961ms
+[01:52:06.207] Server  LOG     ✓ Compiled in 38ms
+[01:52:11.614] Server  LOG     ✓ Compiled in 113ms
+[01:52:20.843] Server  LOG     ✓ Compiled in 53ms
+[01:52:30.611] Browser ERROR   ./sep/Sentinel/frontend/src/app/signup/page.tsx:308:6
+Parsing ecmascript source code failed
+  306 |       </div>
+  307 |
+> 308 |     </div>
+      |      ^^^^^
+  309 |
+  310 |   );
+  311 | }
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Server Component]
+[01:52:30.611] Browser ERROR   ./sep/Sentinel/frontend/src/app/signup/page.tsx:308:6
+Parsing ecmascript source code failed
+  306 |       </div>
+  307 |
+> 308 |     </div>
+      |      ^^^^^
+  309 |
+  310 |   );
+  311 | }
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Server Component]
+[01:52:30.611] Browser ERROR   ./sep/Sentinel/frontend/src/app/signup/page.tsx:308:6
+Parsing ecmascript source code failed
+  306 |       </div>
+  307 |
+> 308 |     </div>
+      |      ^^^^^
+  309 |
+  310 |   );
+  311 | }
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Server Component]
+[01:52:30.611] Browser ERROR   ./sep/Sentinel/frontend/src/app/signup/page.tsx:308:6
+Parsing ecmascript source code failed
+  306 |       </div>
+  307 |
+> 308 |     </div>
+      |      ^^^^^
+  309 |
+  310 |   );
+  311 | }
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Client Component Browser]
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Client Component SSR]
+    ./sep/Sentinel/frontend/src/app/signup/page.tsx [Server Component]
+[01:52:52.873] Server  LOG     ✓ Compiled in 151ms
+[01:53:00.666] Server  LOG     ✓ Compiled in 146ms
+[01:53:12.655] Server  LOG     ✓ Compiled in 293ms
+[01:55:16.021] Server  LOG     ✓ Compiled in 126ms
+[01:55:17.970] Server  LOG     ✓ Compiled in 36ms
+[01:55:43.168] Server  LOG     ✓ Compiled in 112ms
+[01:55:46.631] Server  LOG     ✓ Compiled in 145ms
+[01:56:04.247] Server  LOG     ✓ Compiled in 459ms
+[01:56:05.770] Server  LOG     ✓ Compiled in 107ms
+[01:56:17.765] Browser LOG     Auth ready, fetching profile and transactions...
+[01:56:17.765] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:56:17.765] Browser LOG     📊 Fetching transactions from API...
+[01:56:17.765] Browser LOG     🔵 API Call: GET /api/transactions
+[01:56:17.765] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:56:17.765] Browser LOG     Auth ready, fetching profile and transactions...
+[01:56:17.765] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:56:17.765] Browser LOG     📊 Fetching transactions from API...
+[01:56:17.765] Browser LOG     🔵 API Call: GET /api/transactions
+[01:56:17.765] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:56:19.943] Browser LOG     ✅ API Success: GET /api/auth/profile {"email":"user@example.com","fixed_bills":30000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"Demo User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":20000,"telegram_connected":false}
+[01:56:20.080] Browser LOG     ✅ API Success: GET /api/auth/profile {"email":"user@example.com","fixed_bills":30000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"Demo User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":20000,"telegram_connected":false}
+[01:56:20.503] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:56:20.711] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:56:21.802] Browser LOG     ✅ API Success: GET /api/transactions []
+[01:56:21.802] Browser LOG     📦 Raw transaction data received: []
+[01:56:21.802] Browser LOG     ✅ Successfully fetched 0 transactions from database
+[01:56:21.802] Browser LOG     ✅ Transactions set in state, total: 0
+[01:56:21.904] Browser LOG     💡 No transactions available, using default tip
+[01:56:22.021] Browser LOG     ✅ API Success: GET /api/transactions []
+[01:56:22.021] Browser LOG     📦 Raw transaction data received: []
+[01:56:22.021] Browser LOG     ✅ Successfully fetched 0 transactions from database
+[01:56:22.021] Browser LOG     ✅ Transactions set in state, total: 0
+[01:56:22.124] Browser LOG     💡 No transactions available, using default tip

@@ -90,23 +90,6 @@ def extract_text_from_image(image_source: str) -> str:
         return ""
 
 
-# Gemini Vision fallback for OCR
-async def _analyze_receipt_with_gemini(image_source: str) -> Dict[str, Any]:
-    """
-    Fallback: Analyze receipt using Gemini Vision API when Tesseract fails.
-    This provides a more reliable alternative for receipt parsing.
-    """
-    try:
-        from services.gemini_service import parse_receipt
-        logger.info("Using Gemini Vision as fallback for receipt parsing...")
-        extracted_data = await parse_receipt(image_source)
-        logger.info(f"Gemini extracted: merchant='{extracted_data.get('merchant')}', amount={extracted_data.get('amount')}")
-        return extracted_data
-    except Exception as e:
-        logger.error(f"Gemini Vision fallback also failed: {e}")
-        return _get_default_extraction()
-
-
 # Categories for expense classification
 CATEGORIES = [
     "Food", "Transport", "Entertainment", "Shopping", 
@@ -137,9 +120,8 @@ async def parse_receipt_with_qwen(image_source: str) -> Dict[str, Any]:
         ocr_text = extract_text_from_image(image_source)
         
         if not ocr_text or len(ocr_text.strip()) < 10:
-            logger.warning("OCR extraction failed or returned minimal text, trying Gemini Vision...")
-            # Fallback to Gemini Vision API
-            return await _analyze_receipt_with_gemini(image_source)
+            logger.warning("OCR extraction failed or returned minimal text, returning defaults")
+            return _get_default_extraction()
         
         logger.info(f"OCR extracted text ({len(ocr_text)} chars): {ocr_text[:300]}...")
         
