@@ -832,3 +832,222 @@ Import traces:
 [00:32:05.079] Browser LOG     📊 Fetching transactions from API...
 [00:32:05.080] Browser LOG     🔵 API Call: GET /api/transactions
 [00:32:05.080] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:54:13.109] Browser ERROR   ❌ API Error: Load failed
+[00:54:13.114] Browser WARN    Could not fetch profile: {}
+[00:54:13.115] Browser ERROR   ❌ API Error: Load failed
+[00:54:13.115] Browser ERROR   ❌ Failed to fetch transactions: {}
+[00:54:13.115] Browser ERROR   ❌ API Error: Load failed
+[00:54:13.115] Browser ERROR   ❌ API Error: Load failed
+[00:54:13.115] Browser WARN    Could not fetch profile: {}
+[00:54:13.115] Browser ERROR   ❌ API Error: Load failed
+[00:54:13.115] Browser ERROR   ❌ Failed to fetch transactions: {}
+[00:54:13.115] Browser ERROR   ❌ API Error: Load failed
+[00:54:13.115] Browser ERROR   ❌ API Error: Load failed
+[00:54:13.115] Browser WARN    Could not fetch profile: {}
+[00:54:13.115] Browser ERROR   ❌ API Error: Load failed
+[00:54:13.115] Browser ERROR   ❌ Failed to fetch transactions: {}
+[00:54:13.115] Browser ERROR   ❌ API Error: Load failed
+[00:54:13.115] Browser ERROR   ❌ API Error: Load failed
+[00:54:13.116] Browser WARN    Could not fetch profile: {}
+[00:54:13.116] Browser ERROR   ❌ API Error: Load failed
+[00:54:13.116] Browser ERROR   ❌ Failed to fetch transactions: {}
+[00:54:13.116] Browser ERROR   ❌ API Error: Load failed
+[00:54:13.116] Browser WARN    Telegram integration not available (optional): {}
+[00:54:13.116] Browser WARN    Telegram integration not available (optional): {}
+[00:54:13.116] Browser WARN    Telegram integration not available (optional): {}
+[00:54:13.116] Browser WARN    Telegram integration not available (optional): {}
+[00:54:13.116] Browser WARN    Telegram integration not available (optional): {}
+[00:54:13.116] Browser WARN    Telegram integration not available (optional): {}
+[00:54:13.116] Browser WARN    Telegram integration not available (optional): {}
+[00:54:13.116] Browser LOG     ⚠️ Keeping previous transactions: 3
+[00:54:13.116] Browser LOG     ⚠️ Keeping previous transactions: 3
+[00:54:13.116] Browser LOG     ⚠️ Keeping previous transactions: 3
+[00:54:13.116] Browser LOG     ⚠️ Keeping previous transactions: 3
+[00:54:13.116] Browser LOG     ⚠️ Keeping previous transactions: 3
+[00:54:13.116] Browser LOG     ⚠️ Keeping previous transactions: 3
+[00:54:13.116] Browser LOG     ⚠️ Keeping previous transactions: 3
+[00:54:13.116] Browser LOG     ⚠️ Keeping previous transactions: 3
+[00:54:13.116] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:54:13.116] Browser LOG     Auth ready, fetching profile and transactions...
+[00:54:13.116] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:54:13.116] Browser LOG     📊 Fetching transactions from API...
+[00:54:13.116] Browser LOG     🔵 API Call: GET /api/transactions
+[00:54:13.116] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:54:13.116] Browser LOG     Auth ready, fetching profile and transactions...
+[00:54:13.116] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:54:13.116] Browser LOG     📊 Fetching transactions from API...
+[00:54:13.117] Browser LOG     🔵 API Call: GET /api/transactions
+[00:54:13.117] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:12:01.315] Browser WARN    Telegram integration not available (optional): {}
+[01:12:01.317] Browser WARN    Telegram integration not available (optional): {}
+[01:12:01.318] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:12:01.318] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:12:01.318] Browser LOG     ✅ API Success: GET /api/auth/profile {"created_at":"2026-02-08T07:42:12.910943+00:00","email":"nkememmanuel5505@gmail.com","fixed_bills":0,"id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d","monthly_income":190000,"name":"Nkereuwem Emmanuel","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-02-08T18:21:34.568894+00:00"}
+[01:12:01.318] Browser LOG     ✅ API Success: GET /api/auth/profile {"created_at":"2026-02-08T07:42:12.910943+00:00","email":"nkememmanuel5505@gmail.com","fixed_bills":0,"id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d","monthly_income":190000,"name":"Nkereuwem Emmanuel","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-02-08T18:21:34.568894+00:00"}
+[01:12:01.318] Browser LOG     Profile and transactions loaded, regenerating tips...
+[01:12:03.777] Browser LOG     Auth ready, fetching profile and transactions...
+[01:12:03.777] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:12:03.778] Browser LOG     📊 Fetching transactions from API...
+[01:12:03.778] Browser LOG     🔵 API Call: GET /api/transactions
+[01:12:03.778] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:12:03.778] Browser LOG     Auth ready, fetching profile and transactions...
+[01:12:03.778] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:12:03.778] Browser LOG     📊 Fetching transactions from API...
+[01:12:03.778] Browser LOG     🔵 API Call: GET /api/transactions
+[01:12:03.778] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:12:03.778] Browser LOG     Auth ready, fetching profile and transactions...
+[01:12:03.778] Browser LOG     🔵 API Call: GET /api/auth/profile
+[01:12:03.778] Browser LOG     📊 Fetching transactions from API...
+[01:12:03.778] Browser LOG     🔵 API Call: GET /api/transactions
+[01:12:03.778] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[01:12:05.809] Browser LOG     ✅ API Success: GET /api/transactions [{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T18:27:45.149047+00:00","currency":"USD","date":"2026-02-08T18:27:45.121+00:00","description":"spend and save","id":"494389e5-da93-4b4b-800e-3215d878d7fa","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:47.561905+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T18:27:08.955136+00:00","currency":"NGN","date":"2026-02-08T18:27:08.905+00:00","description":"drugs","id":"54ca200f-7bf2-4ad4-8c78-2be3cd8bf78a","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:11.157+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":50000,"category":"Transport","created_at":"2026-02-08T18:21:54.101762+00:00","currency":"NGN","date":"2026-02-08T18:21:53.073+00:00","description":"","id":"4ba61020-dbee-4590-aeb4-4546ff663694","merchant":"gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:21:57.933926+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"}]
+[01:12:05.810] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T18:27:45.149047+00:00","currency":"USD","date":"2026-02-08T18:27:45.121+00:00","description":"spend and save","id":"494389e5-da93-4b4b-800e-3215d878d7fa","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:47.561905+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T18:27:08.955136+00:00","currency":"NGN","date":"2026-02-08T18:27:08.905+00:00","description":"drugs","id":"54ca200f-7bf2-4ad4-8c78-2be3cd8bf78a","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:11.157+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":50000,"category":"Transport","created_at":"2026-02-08T18:21:54.101762+00:00","currency":"NGN","date":"2026-02-08T18:21:53.073+00:00","description":"","id":"4ba61020-dbee-4590-aeb4-4546ff663694","merchant":"gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:21:57.933926+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"}]
+[01:12:05.810] Browser LOG     ✅ Successfully fetched 3 transactions from database
+[01:12:05.810] Browser LOG     ✅ Transactions set in state, total: 3
+[01:12:05.810] Browser LOG     Profile and transactions loaded, regenerating tips...
+[01:12:05.810] Browser LOG     ✅ API Success: GET /api/transactions [{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T18:27:45.149047+00:00","currency":"USD","date":"2026-02-08T18:27:45.121+00:00","description":"spend and save","id":"494389e5-da93-4b4b-800e-3215d878d7fa","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:47.561905+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T18:27:08.955136+00:00","currency":"NGN","date":"2026-02-08T18:27:08.905+00:00","description":"drugs","id":"54ca200f-7bf2-4ad4-8c78-2be3cd8bf78a","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:11.157+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":50000,"category":"Transport","created_at":"2026-02-08T18:21:54.101762+00:00","currency":"NGN","date":"2026-02-08T18:21:53.073+00:00","description":"","id":"4ba61020-dbee-4590-aeb4-4546ff663694","merchant":"gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:21:57.933926+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"}]
+[01:12:05.810] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T18:27:45.149047+00:00","currency":"USD","date":"2026-02-08T18:27:45.121+00:00","description":"spend and save","id":"494389e5-da93-4b4b-800e-3215d878d7fa","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:47.561905+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T18:27:08.955136+00:00","currency":"NGN","date":"2026-02-08T18:27:08.905+00:00","description":"drugs","id":"54ca200f-7bf2-4ad4-8c78-2be3cd8bf78a","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:11.157+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":50000,"category":"Transport","created_at":"2026-02-08T18:21:54.101762+00:00","currency":"NGN","date":"2026-02-08T18:21:53.073+00:00","description":"","id":"4ba61020-dbee-4590-aeb4-4546ff663694","merchant":"gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:21:57.933926+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"}]
+[01:12:05.810] Browser LOG     ✅ Successfully fetched 3 transactions from database
+[01:12:05.810] Browser LOG     ✅ Transactions set in state, total: 3
+[01:12:05.810] Browser LOG     Profile and transactions loaded, regenerating tips...
+[01:12:05.810] Browser LOG     💡 Generating AI tips for 3 transactions...
+[01:12:05.810] Browser LOG     🔵 API Call: POST /api/ai/health-tips
+[01:12:05.810] Browser LOG     💡 Generating AI tips for 3 transactions...
+[01:12:05.810] Browser LOG     🔵 API Call: POST /api/ai/health-tips
+[01:12:08.543] Browser LOG     ✅ API Success: POST /api/ai/health-tips {"success":true,"tips":["💰 Your highest spending is in Transport: ₦50,000. Look for ways to optimize this category.","📝 Track at least 10-15 transactions for better spending pattern analysis.","Good diversification across 3 spending categories."]}
+[01:12:11.410] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:12:11.740] Browser LOG     ✅ API Success: GET /api/auth/profile {"created_at":"2026-02-08T07:42:12.910943+00:00","email":"nkememmanuel5505@gmail.com","fixed_bills":0,"id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d","monthly_income":190000,"name":"Nkereuwem Emmanuel","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-02-08T18:21:34.568894+00:00"}
+[01:12:11.740] Browser LOG     ✅ API Success: GET /api/transactions [{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T18:27:45.149047+00:00","currency":"USD","date":"2026-02-08T18:27:45.121+00:00","description":"spend and save","id":"494389e5-da93-4b4b-800e-3215d878d7fa","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:47.561905+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T18:27:08.955136+00:00","currency":"NGN","date":"2026-02-08T18:27:08.905+00:00","description":"drugs","id":"54ca200f-7bf2-4ad4-8c78-2be3cd8bf78a","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:11.157+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":50000,"category":"Transport","created_at":"2026-02-08T18:21:54.101762+00:00","currency":"NGN","date":"2026-02-08T18:21:53.073+00:00","description":"","id":"4ba61020-dbee-4590-aeb4-4546ff663694","merchant":"gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:21:57.933926+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"}]
+[01:12:11.740] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T18:27:45.149047+00:00","currency":"USD","date":"2026-02-08T18:27:45.121+00:00","description":"spend and save","id":"494389e5-da93-4b4b-800e-3215d878d7fa","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:47.561905+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T18:27:08.955136+00:00","currency":"NGN","date":"2026-02-08T18:27:08.905+00:00","description":"drugs","id":"54ca200f-7bf2-4ad4-8c78-2be3cd8bf78a","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:11.157+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":50000,"category":"Transport","created_at":"2026-02-08T18:21:54.101762+00:00","currency":"NGN","date":"2026-02-08T18:21:53.073+00:00","description":"","id":"4ba61020-dbee-4590-aeb4-4546ff663694","merchant":"gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:21:57.933926+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"}]
+[01:12:11.740] Browser LOG     ✅ Successfully fetched 3 transactions from database
+[01:12:11.740] Browser LOG     ✅ Transactions set in state, total: 3
+[01:12:11.740] Browser LOG     ✅ API Success: GET /api/transactions [{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T18:27:45.149047+00:00","currency":"USD","date":"2026-02-08T18:27:45.121+00:00","description":"spend and save","id":"494389e5-da93-4b4b-800e-3215d878d7fa","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:47.561905+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T18:27:08.955136+00:00","currency":"NGN","date":"2026-02-08T18:27:08.905+00:00","description":"drugs","id":"54ca200f-7bf2-4ad4-8c78-2be3cd8bf78a","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:11.157+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":50000,"category":"Transport","created_at":"2026-02-08T18:21:54.101762+00:00","currency":"NGN","date":"2026-02-08T18:21:53.073+00:00","description":"","id":"4ba61020-dbee-4590-aeb4-4546ff663694","merchant":"gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:21:57.933926+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"}]
+[01:12:11.740] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T18:27:45.149047+00:00","currency":"USD","date":"2026-02-08T18:27:45.121+00:00","description":"spend and save","id":"494389e5-da93-4b4b-800e-3215d878d7fa","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:47.561905+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T18:27:08.955136+00:00","currency":"NGN","date":"2026-02-08T18:27:08.905+00:00","description":"drugs","id":"54ca200f-7bf2-4ad4-8c78-2be3cd8bf78a","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:11.157+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":50000,"category":"Transport","created_at":"2026-02-08T18:21:54.101762+00:00","currency":"NGN","date":"2026-02-08T18:21:53.073+00:00","description":"","id":"4ba61020-dbee-4590-aeb4-4546ff663694","merchant":"gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:21:57.933926+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"}]
+[01:12:11.740] Browser LOG     ✅ Successfully fetched 3 transactions from database
+[01:12:11.740] Browser LOG     ✅ Transactions set in state, total: 3
+[01:12:11.740] Browser LOG     Profile and transactions loaded, regenerating tips...
+[01:12:11.740] Browser LOG     💡 Generating AI tips for 3 transactions...
+[01:12:11.740] Browser LOG     🔵 API Call: POST /api/ai/health-tips
+[01:12:11.740] Browser LOG     💡 Generating AI tips for 3 transactions...
+[01:12:11.740] Browser LOG     🔵 API Call: POST /api/ai/health-tips
+[01:12:13.842] Browser LOG     ✅ API Success: POST /api/ai/health-tips {"success":true,"tips":["Good job! You're spending only 27% of your income.","💰 Your highest spending is in Transport: ₦50,000. Look for ways to optimize this category.","📝 Track at least 10-15 transactions for better spending pattern analysis.","Good diversification across 3 spending categories."]}
+[01:12:13.843] Browser LOG     ✅ API Success: GET /api/transactions [{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T18:27:45.149047+00:00","currency":"USD","date":"2026-02-08T18:27:45.121+00:00","description":"spend and save","id":"494389e5-da93-4b4b-800e-3215d878d7fa","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:47.561905+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T18:27:08.955136+00:00","currency":"NGN","date":"2026-02-08T18:27:08.905+00:00","description":"drugs","id":"54ca200f-7bf2-4ad4-8c78-2be3cd8bf78a","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:11.157+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":50000,"category":"Transport","created_at":"2026-02-08T18:21:54.101762+00:00","currency":"NGN","date":"2026-02-08T18:21:53.073+00:00","description":"","id":"4ba61020-dbee-4590-aeb4-4546ff663694","merchant":"gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:21:57.933926+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"}]
+[01:12:13.843] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T18:27:45.149047+00:00","currency":"USD","date":"2026-02-08T18:27:45.121+00:00","description":"spend and save","id":"494389e5-da93-4b4b-800e-3215d878d7fa","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:47.561905+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T18:27:08.955136+00:00","currency":"NGN","date":"2026-02-08T18:27:08.905+00:00","description":"drugs","id":"54ca200f-7bf2-4ad4-8c78-2be3cd8bf78a","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:11.157+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":50000,"category":"Transport","created_at":"2026-02-08T18:21:54.101762+00:00","currency":"NGN","date":"2026-02-08T18:21:53.073+00:00","description":"","id":"4ba61020-dbee-4590-aeb4-4546ff663694","merchant":"gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:21:57.933926+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"}]
+[01:12:13.843] Browser LOG     ✅ Successfully fetched 3 transactions from database
+[01:12:13.843] Browser LOG     ✅ Transactions set in state, total: 3
+[01:12:13.843] Browser LOG     Profile and transactions loaded, regenerating tips...
+[01:12:13.843] Browser LOG     💡 Generating AI tips for 3 transactions...
+[01:12:13.843] Browser LOG     🔵 API Call: POST /api/ai/health-tips
+[01:12:15.281] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:12:15.281] Browser LOG     ✅ API Success: POST /api/ai/health-tips {"success":true,"tips":["Good job! You're spending only 27% of your income.","💰 Your highest spending is in Transport: ₦50,000. Look for ways to optimize this category.","📝 Track at least 10-15 transactions for better spending pattern analysis.","Good diversification across 3 spending categories."]}
+[01:12:15.281] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[01:12:15.281] Browser LOG     ✅ API Success: GET /api/auth/profile {"created_at":"2026-02-08T07:42:12.910943+00:00","email":"nkememmanuel5505@gmail.com","fixed_bills":0,"id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d","monthly_income":190000,"name":"Nkereuwem Emmanuel","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-02-08T18:21:34.568894+00:00"}
+[01:12:15.281] Browser LOG     Profile and transactions loaded, regenerating tips...
+[01:12:15.281] Browser LOG     ✅ API Success: GET /api/auth/profile {"created_at":"2026-02-08T07:42:12.910943+00:00","email":"nkememmanuel5505@gmail.com","fixed_bills":0,"id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d","monthly_income":190000,"name":"Nkereuwem Emmanuel","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-02-08T18:21:34.568894+00:00"}
+[01:12:15.281] Browser LOG     ✅ API Success: POST /api/ai/health-tips {"success":true,"tips":["Good job! You're spending only 27% of your income.","💰 Your highest spending is in Transport: ₦50,000. Look for ways to optimize this category.","📝 Track at least 10-15 transactions for better spending pattern analysis.","Good diversification across 3 spending categories."]}
+[01:12:15.281] Browser LOG     Profile and transactions loaded, regenerating tips...
+[01:12:16.632] Browser LOG     ✅ API Success: POST /api/ai/health-tips {"success":true,"tips":["💰 Your highest spending is in Transport: ₦50,000. Look for ways to optimize this category.","📝 Track at least 10-15 transactions for better spending pattern analysis.","Good diversification across 3 spending categories."]}
+[04:19:57.213] Browser LOG     ✅ API Success: GET /api/transactions [{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T14:50:58.457741+00:00","currency":"NGN","date":"2026-02-08T14:50:58.401+00:00","description":"drugs","id":"09445c0b-b251-4c86-8b0e-cc00fd498e98","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T14:51:02.645593+00:00","user_id":"4c67362c-818a-447d-bd33-ca06b76249db"},{"ai_categorized":false,"amount":1000000,"category":"Food","created_at":"2026-02-08T14:32:50.204602+00:00","currency":"NGN","date":"2026-02-08T14:32:50.149+00:00","description":"","id":"b155ff5d-b5d3-421e-a9c4-8e9726273b69","merchant":"Gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T14:32:52.519946+00:00","user_id":"4c67362c-818a-447d-bd33-ca06b76249db"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T14:19:26.900433+00:00","currency":"NGN","date":"2026-02-08T14:19:26.829+00:00","description":"drugs","id":"ae1af0d7-07e1-424d-a685-7341fef8dc39","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T14:19:29.135101+00:00","user_id":"4c67362c-818a-447d-bd33-ca06b76249db"}]
+[04:19:57.213] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T14:50:58.457741+00:00","currency":"NGN","date":"2026-02-08T14:50:58.401+00:00","description":"drugs","id":"09445c0b-b251-4c86-8b0e-cc00fd498e98","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T14:51:02.645593+00:00","user_id":"4c67362c-818a-447d-bd33-ca06b76249db"},{"ai_categorized":false,"amount":1000000,"category":"Food","created_at":"2026-02-08T14:32:50.204602+00:00","currency":"NGN","date":"2026-02-08T14:32:50.149+00:00","description":"","id":"b155ff5d-b5d3-421e-a9c4-8e9726273b69","merchant":"Gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T14:32:52.519946+00:00","user_id":"4c67362c-818a-447d-bd33-ca06b76249db"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T14:19:26.900433+00:00","currency":"NGN","date":"2026-02-08T14:19:26.829+00:00","description":"drugs","id":"ae1af0d7-07e1-424d-a685-7341fef8dc39","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T14:19:29.135101+00:00","user_id":"4c67362c-818a-447d-bd33-ca06b76249db"}]
+[04:19:57.213] Browser LOG     ✅ Successfully fetched 3 transactions from database
+[04:19:57.213] Browser LOG     ✅ Transactions set in state, total: 3
+[04:19:57.213] Browser LOG     ✅ API Success: GET /api/auth/profile {"created_at":"2026-02-08T14:14:40.636049+00:00","email":"nkereuwememmanueliboro5@gmail.com","fixed_bills":20000,"id":"4c67362c-818a-447d-bd33-ca06b76249db","monthly_income":3000000,"name":"Emmanuel Nkereuwem","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":500000,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-02-08T14:34:46.581901+00:00"}
+[04:19:57.213] Browser LOG     ✅ API Success: GET /api/auth/profile {"created_at":"2026-02-08T14:14:40.636049+00:00","email":"nkereuwememmanueliboro5@gmail.com","fixed_bills":20000,"id":"4c67362c-818a-447d-bd33-ca06b76249db","monthly_income":3000000,"name":"Emmanuel Nkereuwem","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":500000,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-02-08T14:34:46.581901+00:00"}
+[04:19:57.213] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[04:19:57.213] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[04:19:57.213] Browser LOG     Auth ready, fetching profile and transactions...
+[04:19:57.213] Browser LOG     🔵 API Call: GET /api/auth/profile
+[04:19:57.213] Browser LOG     📊 Fetching transactions from API...
+[04:19:57.213] Browser LOG     🔵 API Call: GET /api/transactions
+[04:19:57.213] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[04:19:57.213] Browser LOG     Profile and transactions loaded, regenerating tips...
+[04:19:57.213] Browser LOG     💡 Generating AI tips for 3 transactions...
+[04:19:57.213] Browser LOG     🔵 API Call: POST /api/ai/health-tips
+[04:19:57.213] Browser ERROR   ❌ API Error: Load failed
+[04:19:57.213] Browser ERROR   ❌ Failed to fetch transactions: {}
+[04:19:57.213] Browser ERROR   ❌ API Error: Load failed
+[04:19:57.213] Browser ERROR   ❌ Failed to fetch transactions: {}
+[04:19:57.213] Browser LOG     ⚠️ Keeping previous transactions: 3
+[04:19:57.213] Browser LOG     ⚠️ Keeping previous transactions: 3
+[04:19:57.213] Browser LOG     ⚠️ Keeping previous transactions: 3
+[04:19:57.213] Browser LOG     ⚠️ Keeping previous transactions: 3
+[04:19:57.213] Browser ERROR   ❌ API Error: Load failed
+[04:19:57.213] Browser WARN    Could not fetch profile: {}
+[04:19:57.213] Browser ERROR   ❌ API Error: Load failed
+[04:19:57.213] Browser ERROR   ❌ Failed to fetch transactions: {}
+[04:19:57.213] Browser WARN    Telegram integration not available (optional): {}
+[04:19:57.213] Browser ERROR   ❌ API Error: Load failed
+[04:19:57.213] Browser ERROR   ❌ API Error: Load failed
+[04:19:57.213] Browser ERROR   Failed to generate tips: {}
+[04:19:57.213] Browser LOG     Auth ready, fetching profile and transactions...
+[04:19:57.213] Browser LOG     🔵 API Call: GET /api/auth/profile
+[04:19:57.213] Browser LOG     📊 Fetching transactions from API...
+[04:19:57.213] Browser LOG     🔵 API Call: GET /api/transactions
+[04:19:57.213] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[04:19:57.213] Browser LOG     ⚠️ Keeping previous transactions: 3
+[04:19:57.213] Browser LOG     ⚠️ Keeping previous transactions: 3
+[04:19:57.213] Browser ERROR   ❌ API Error: Load failed
+[04:19:57.213] Browser WARN    Could not fetch profile: {}
+[04:19:57.213] Browser ERROR   ❌ API Error: Load failed
+[04:19:57.213] Browser ERROR   ❌ Failed to fetch transactions: {}
+[04:19:57.213] Browser WARN    Telegram integration not available (optional): {}
+[04:19:57.213] Browser ERROR   ❌ API Error: Load failed
+[04:19:57.213] Browser LOG     Profile and transactions loaded, regenerating tips...
+[04:19:57.213] Browser LOG     ⚠️ Keeping previous transactions: 3
+[04:19:57.213] Browser LOG     ⚠️ Keeping previous transactions: 3
+[04:19:57.213] Browser LOG     Auth ready, fetching profile and transactions...
+[04:19:57.214] Browser LOG     🔵 API Call: GET /api/auth/profile
+[04:19:57.214] Browser LOG     📊 Fetching transactions from API...
+[04:19:57.214] Browser LOG     🔵 API Call: GET /api/transactions
+[04:19:57.214] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[04:19:57.214] Browser LOG     Profile and transactions loaded, regenerating tips...
+[04:19:57.214] Browser ERROR   ❌ API Error: Load failed
+[04:19:57.214] Browser WARN    Could not fetch profile: {}
+[04:19:57.214] Browser ERROR   ❌ API Error: Load failed
+[04:19:57.214] Browser ERROR   ❌ Failed to fetch transactions: {}
+[04:19:57.214] Browser LOG     Profile and transactions loaded, regenerating tips...
+[04:19:57.214] Browser LOG     ⚠️ Keeping previous transactions: 3
+[04:19:57.214] Browser LOG     ⚠️ Keeping previous transactions: 3
+[04:19:57.214] Browser WARN    Telegram integration not available (optional): {}
+[04:19:57.214] Browser ERROR   ❌ API Error: Load failed
+[04:19:57.818] Browser LOG     Auth ready, fetching profile and transactions...
+[04:19:57.818] Browser LOG     🔵 API Call: GET /api/auth/profile
+[04:19:57.818] Browser LOG     📊 Fetching transactions from API...
+[04:19:57.818] Browser LOG     🔵 API Call: GET /api/transactions
+[04:19:57.818] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[04:19:57.818] Browser ERROR   ❌ API Error: Load failed
+[04:19:57.818] Browser WARN    Could not fetch profile: {}
+[04:19:57.818] Browser ERROR   ❌ API Error: Load failed
+[04:19:57.818] Browser ERROR   ❌ Failed to fetch transactions: {}
+[04:19:57.818] Browser LOG     Profile and transactions loaded, regenerating tips...
+[04:19:57.818] Browser LOG     ⚠️ Keeping previous transactions: 3
+[04:19:57.818] Browser LOG     ⚠️ Keeping previous transactions: 3
+[04:19:57.818] Browser WARN    Telegram integration not available (optional): {}
+[04:19:57.818] Browser ERROR   ❌ API Error: Load failed
+[04:19:58.457] Browser LOG     Auth ready, fetching profile and transactions...
+[04:19:58.457] Browser LOG     🔵 API Call: GET /api/auth/profile
+[04:19:58.457] Browser LOG     📊 Fetching transactions from API...
+[04:19:58.457] Browser LOG     🔵 API Call: GET /api/transactions
+[04:19:58.457] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[04:19:58.457] Browser LOG     Auth ready, fetching profile and transactions...
+[04:19:58.457] Browser LOG     🔵 API Call: GET /api/auth/profile
+[04:19:58.457] Browser LOG     📊 Fetching transactions from API...
+[04:19:58.457] Browser LOG     🔵 API Call: GET /api/transactions
+[04:19:58.457] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[04:20:04.826] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[04:20:04.826] Browser LOG     ✅ API Success: GET /api/auth/profile {"created_at":"2026-02-08T07:42:12.910943+00:00","email":"nkememmanuel5505@gmail.com","fixed_bills":0,"id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d","monthly_income":190000,"name":"Nkereuwem Emmanuel","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-02-08T18:21:34.568894+00:00"}
+[04:20:05.520] Browser LOG     ✅ API Success: GET /api/transactions [{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T18:27:45.149047+00:00","currency":"USD","date":"2026-02-08T18:27:45.121+00:00","description":"spend and save","id":"494389e5-da93-4b4b-800e-3215d878d7fa","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:47.561905+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T18:27:08.955136+00:00","currency":"NGN","date":"2026-02-08T18:27:08.905+00:00","description":"drugs","id":"54ca200f-7bf2-4ad4-8c78-2be3cd8bf78a","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:11.157+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":50000,"category":"Transport","created_at":"2026-02-08T18:21:54.101762+00:00","currency":"NGN","date":"2026-02-08T18:21:53.073+00:00","description":"","id":"4ba61020-dbee-4590-aeb4-4546ff663694","merchant":"gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:21:57.933926+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"}]
+[04:20:05.520] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T18:27:45.149047+00:00","currency":"USD","date":"2026-02-08T18:27:45.121+00:00","description":"spend and save","id":"494389e5-da93-4b4b-800e-3215d878d7fa","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:47.561905+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T18:27:08.955136+00:00","currency":"NGN","date":"2026-02-08T18:27:08.905+00:00","description":"drugs","id":"54ca200f-7bf2-4ad4-8c78-2be3cd8bf78a","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:11.157+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":50000,"category":"Transport","created_at":"2026-02-08T18:21:54.101762+00:00","currency":"NGN","date":"2026-02-08T18:21:53.073+00:00","description":"","id":"4ba61020-dbee-4590-aeb4-4546ff663694","merchant":"gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:21:57.933926+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"}]
+[04:20:05.520] Browser LOG     ✅ Successfully fetched 3 transactions from database
+[04:20:05.520] Browser LOG     ✅ Transactions set in state, total: 3
+[04:20:05.520] Browser LOG     Profile and transactions loaded, regenerating tips...
+[04:20:05.520] Browser LOG     💡 Generating AI tips for 3 transactions...
+[04:20:05.520] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[04:20:06.876] Browser LOG     ✅ API Success: GET /api/transactions [{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T18:27:45.149047+00:00","currency":"USD","date":"2026-02-08T18:27:45.121+00:00","description":"spend and save","id":"494389e5-da93-4b4b-800e-3215d878d7fa","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:47.561905+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T18:27:08.955136+00:00","currency":"NGN","date":"2026-02-08T18:27:08.905+00:00","description":"drugs","id":"54ca200f-7bf2-4ad4-8c78-2be3cd8bf78a","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:11.157+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":50000,"category":"Transport","created_at":"2026-02-08T18:21:54.101762+00:00","currency":"NGN","date":"2026-02-08T18:21:53.073+00:00","description":"","id":"4ba61020-dbee-4590-aeb4-4546ff663694","merchant":"gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:21:57.933926+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"}]
+[04:20:06.876] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T18:27:45.149047+00:00","currency":"USD","date":"2026-02-08T18:27:45.121+00:00","description":"spend and save","id":"494389e5-da93-4b4b-800e-3215d878d7fa","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:47.561905+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T18:27:08.955136+00:00","currency":"NGN","date":"2026-02-08T18:27:08.905+00:00","description":"drugs","id":"54ca200f-7bf2-4ad4-8c78-2be3cd8bf78a","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:27:11.157+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"},{"ai_categorized":false,"amount":50000,"category":"Transport","created_at":"2026-02-08T18:21:54.101762+00:00","currency":"NGN","date":"2026-02-08T18:21:53.073+00:00","description":"","id":"4ba61020-dbee-4590-aeb4-4546ff663694","merchant":"gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T18:21:57.933926+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"}]
+[04:20:06.876] Browser LOG     ✅ Successfully fetched 3 transactions from database
+[04:20:06.876] Browser LOG     ✅ Transactions set in state, total: 3
+[04:20:06.876] Browser LOG     Profile and transactions loaded, regenerating tips...
+[04:20:06.876] Browser LOG     ✅ API Success: GET /api/auth/profile {"created_at":"2026-02-08T07:42:12.910943+00:00","email":"nkememmanuel5505@gmail.com","fixed_bills":0,"id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d","monthly_income":190000,"name":"Nkereuwem Emmanuel","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-02-08T18:21:34.568894+00:00"}
+[04:20:06.876] Browser LOG     Profile and transactions loaded, regenerating tips...
+[04:20:06.876] Browser LOG     💡 Generating AI tips for 3 transactions...
