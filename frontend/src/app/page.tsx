@@ -27,7 +27,7 @@ interface UserProfile {
 }
 
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://sentinel-pchb.onrender.com';
 
 export default function Dashboard() {
   const { user, loading: authLoading, signOut, accessToken } = useAuth();
@@ -1749,12 +1749,9 @@ useEffect(() => {
               </div>
                 <br />
                 <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
+              
+              
+                
               <button className={styles.analyzeButton} onClick={handleAddTransaction} disabled={loading}>
                 {loading ? 'Processing...' : 'Analyze & Log'}
               </button>
