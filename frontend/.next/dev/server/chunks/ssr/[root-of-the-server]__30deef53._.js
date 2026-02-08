@@ -184,7 +184,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$
 ;
 ;
 ;
-const BACKEND_URL = ("TURBOPACK compile-time value", "http://localhost:8000") || 'http://localhost:8000';
+const BACKEND_URL = ("TURBOPACK compile-time value", "https://sentinel-pchb.onrender.com") || 'https://sentinel-pchb.onrender.com';
 function Dashboard() {
     const { user, loading: authLoading, signOut, accessToken } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$hooks$2f$useAuth$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useAuth"])();
     const userId = user?.id ?? 'default-user';
