@@ -2480,8 +2480,6 @@ function Dashboard() {
                                         marginTop: '1rem',
                                         transition: 'all 0.2s'
                                     },
-                                    onMouseEnter: (e)=>e.target.style.background = 'rgba(239, 68, 68, 0.1)',
-                                    onMouseLeave: (e)=>e.target.style.background = 'transparent',
                                     children: "Logout"
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
