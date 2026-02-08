@@ -2856,3 +2856,8 @@ Import traces:
 [02:28:25.826] Browser LOG     ✅ API Success: POST /api/ai/health-tips {"success":true,"tips":["Good job! You're spending only 33% of your income.","💰 Your highest spending is in Food: ₦1,000,000. Look for ways to optimize this category.","✅ Great! You can save ₦1,977,000 this month, exceeding your goal of ₦500,000.","📝 Track at least 10-15 transactions for better spending pattern analysis.","🎯 Consider diversifying your spending across more categories for better budgeting.","Your fixed bills are 1% of income - well managed!"]}
 [02:52:22.781] Server  LOG       Reload env: .env
 [02:52:24.502] Server  LOG     ✓ Compiled in 1528ms
+[02:53:19.597] Server  LOG       Reload env: .env
+[02:53:37.699] Server  LOG       Reload env: .env
+[02:54:10.784] Server  LOG       Reload env: .env
+[02:54:12.013] Server  LOG       Reload env: .env
+[02:54:22.902] Server  LOG       Reload env: .env
