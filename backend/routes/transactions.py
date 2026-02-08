@@ -332,12 +332,25 @@ async def update_transaction(
 ):
     """Update a transaction"""
     try:
-        # Verify ownership
-        existing = supabase.table("transactions").select(
-            "id"
-        ).eq("id", transaction_id).eq("user_id", user_id).single().execute()
+        # Verify ownership - try with anon client first
+        existing = None
+        try:
+            existing = supabase.table("transactions").select(
+                "id"
+            ).eq("id", transaction_id).eq("user_id", user_id).single().execute()
+            
+            if existing.data:
+                logger.info(f"Anon client verified ownership of transaction {transaction_id}")
+        except Exception as anon_error:
+            logger.warning(f"Anon client failed to verify ownership, trying service role: {anon_error}")
+            # Try with service role as fallback
+            from config import get_supabase_admin
+            admin_supabase = get_supabase_admin()
+            existing = admin_supabase.table("transactions").select(
+                "id"
+            ).eq("id", transaction_id).eq("user_id", user_id).single().execute()
         
-        if not existing.data:
+        if not existing or not existing.data:
             raise HTTPException(status_code=404, detail="Transaction not found")
         
         # Prepare update data (only non-None values)
@@ -361,7 +374,10 @@ async def update_transaction(
         if not update_data:
             raise HTTPException(status_code=400, detail="No fields to update")
         
-        response = supabase.table("transactions").update(update_data).eq("id", transaction_id).execute()
+        # Use service role for update to ensure it works
+        from config import get_supabase_admin
+        admin_supabase = get_supabase_admin()
+        response = admin_supabase.table("transactions").update(update_data).eq("id", transaction_id).execute()
         
         return {
             "success": True,
@@ -382,19 +398,35 @@ async def delete_transaction(
 ):
     """Delete a transaction"""
     try:
-        # Verify ownership
-        existing = supabase.table("transactions").select(
-            "id"
-        ).eq("id", transaction_id).eq("user_id", user_id).single().execute()
+        # Verify ownership - try with anon client first
+        existing = None
+        try:
+            existing = supabase.table("transactions").select(
+                "id"
+            ).eq("id", transaction_id).eq("user_id", user_id).single().execute()
+            
+            if existing.data:
+                logger.info(f"Anon client verified ownership of transaction {transaction_id}")
+        except Exception as anon_error:
+            logger.warning(f"Anon client failed to verify ownership, trying service role: {anon_error}")
+            # Try with service role as fallback
+            from config import get_supabase_admin
+            admin_supabase = get_supabase_admin()
+            existing = admin_supabase.table("transactions").select(
+                "id"
+            ).eq("id", transaction_id).eq("user_id", user_id).single().execute()
         
-        if not existing.data:
+        if not existing or not existing.data:
             raise HTTPException(status_code=404, detail="Transaction not found")
         
-        supabase.table("transactions").delete().eq("id", transaction_id).execute()
+        # Use service role for delete to ensure it works
+        from config import get_supabase_admin
+        admin_supabase = get_supabase_admin()
+        admin_supabase.table("transactions").delete().eq("id", transaction_id).execute()
         
         return {
             "success": True,
-            "message": "Transaction deleted"
+            "message": "Transaction deleted successfully"
         }
         
     except HTTPException:

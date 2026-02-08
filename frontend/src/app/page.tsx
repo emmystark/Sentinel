@@ -27,7 +27,7 @@ interface UserProfile {
 }
 
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://sentinel-pchb.onrender.com';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000';
 
 export default function Dashboard() {
   const { user, loading: authLoading, signOut, accessToken } = useAuth();
@@ -708,28 +708,108 @@ export default function Dashboard() {
     }
   };
 
+
+
+  const [healthCalculating, setHealthCalculating] = useState(false);
+
+// ADD THIS USEEFFECT (after other useEffects):
+// Async health score calculation - doesn't block UI
+useEffect(() => {
+  if (transactions.length > 0 && userProfile && profileLoaded) {
+    setHealthCalculating(true);
+    
+    // Calculate asynchronously to prevent UI blocking
+    setTimeout(() => {
+      calculateHealthScore(transactions, userProfile.monthlyIncome);
+      setHealthCalculating(false);
+    }, 50); // 50ms delay for smooth transition
+  }
+}, [transactions, userProfile, profileLoaded]);
+
+
+
+
+
   const handleDeleteTransaction = async () => {
-    if (selectedTransaction && selectedTransaction.id) {
-      if (confirm('Are you sure you want to delete this transaction?')) {
-        setLoading(true);
-        try {
-          await apiCall(`/api/transactions/${selectedTransaction.id}`, 'DELETE');
-          const updatedTransactions = transactions.filter(t => t.id !== selectedTransaction.id);
-          setTransactions(updatedTransactions);
-          
-          // Recalculate health score
-          if (userProfile) {
-            calculateHealthScore(updatedTransactions, userProfile.monthlyIncome);
-          }
-          closeModal();
-        } catch (err) {
-          console.error('Failed to delete transaction:', err);
-        } finally {
-          setLoading(false);
-        }
-      }
+  if (!selectedTransaction || !selectedTransaction.id) {
+    console.error('No transaction selected');
+    return;
+  }
+
+  // Native confirm dialog
+  if (!confirm(`Are you sure you want to delete this transaction?\n\nMerchant: ${selectedTransaction.merchant}\nAmount: ${getCurrencySymbol(selectedTransaction.currency || 'NGN')}${Math.abs(selectedTransaction.amount)}`)) {
+    return;
+  }
+
+  setLoading(true);
+  console.log('🗑️ Deleting transaction:', selectedTransaction.id);
+
+  try {
+    // Call delete API
+    const response = await apiCall(`/api/transactions/${selectedTransaction.id}`, 'DELETE');
+    
+    console.log('✅ Delete response:', response);
+
+    // Remove from local state
+    const updatedTransactions = transactions.filter(t => t.id !== selectedTransaction.id);
+    setTransactions(updatedTransactions);
+
+    // Recalculate health score
+    if (userProfile) {
+      calculateHealthScore(updatedTransactions, userProfile.monthlyIncome);
     }
-  };
+
+    // Show success message
+    const tempAlert = document.createElement('div');
+    tempAlert.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #4ade80;
+      color: white;
+      padding: 16px 24px;
+      border-radius: 8px;
+      z-index: 9999;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      font-weight: 500;
+    `;
+    tempAlert.textContent = '✅ Transaction deleted successfully!';
+    document.body.appendChild(tempAlert);
+
+    setTimeout(() => {
+      tempAlert.remove();
+    }, 3000);
+
+    closeModal();
+
+  } catch (err) {
+    console.error('❌ Failed to delete transaction:', err);
+    
+    // Show error message
+    const tempAlert = document.createElement('div');
+    tempAlert.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #ef4444;
+      color: white;
+      padding: 16px 24px;
+      border-radius: 8px;
+      z-index: 9999;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      font-weight: 500;
+    `;
+    tempAlert.textContent = `❌ Failed to delete: ${err instanceof Error ? err.message : 'Unknown error'}`;
+    document.body.appendChild(tempAlert);
+
+    setTimeout(() => {
+      tempAlert.remove();
+    }, 4000);
+
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleAddTransaction = async () => {
     setOperationLoading(true);  // Use operationLoading for transaction operations
@@ -914,19 +994,14 @@ export default function Dashboard() {
           <img src="./logo.png" height={25} width={60} alt="" />
         </div>
         <div className={styles.headerRight}>
-          {user && (
-            <button onClick={signOut} style={{ background: 'none', border: 'none', color: '#94a3b8', fontSize: '13px', cursor: 'pointer', marginRight: '8px' }}>
-              Logout
-            </button>
-          )}
           {/* {!user && (
             <Link href="/login" style={{ color: '#60a5fa', fontSize: '14px', textDecoration: 'none', marginRight: '8px' }}>Login</Link>
           )} */}
-          {telegramVerified && (
+          {/* {telegramVerified && (
             <div className={styles.telegramStatus}>
               Telegram: Connected ✓
             </div>
-          )}
+          )} */}
           <div className={styles.userAvatar} onClick={() => openModal('profile')}>
             <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
@@ -950,67 +1025,112 @@ export default function Dashboard() {
 
       <main className={styles.mainContent}>
         <div className={styles.healthScore}>
-          {authLoading || loading || !profileLoaded ? (
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              paddingTop: '40px',
-              paddingBottom: '40px'
-            }}>
-              <div style={{
-                width: '60px',
-                height: '60px',
-                borderRadius: '50%',
-                border: '3px solid rgba(59, 130, 246, 0.2)',
-                borderTop: '3px solid #3b82f6',
-                animation: 'spin 0.8s linear infinite',
-                marginBottom: '16px'
-              }} />
-              <p style={{ color: '#94a3b8', fontSize: '14px', textAlign: 'center' }}>Calculating your financial health...</p>
-              <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-            </div>
-          ) : (
-            <>
-          <div className={styles.scoreRing}>
-            <svg className={styles.ringSvg} viewBox="0 0 200 200">
-              <defs>
-                <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor={healthScore > 70 ? '#4ade80' : healthScore > 50 ? '#eab308' : '#ef4444'} />
-                  <stop offset="100%" stopColor={healthScore > 70 ? '#3b82f6' : healthScore > 50 ? '#f97316' : '#dc2626'} />
-                </linearGradient>
-              </defs>
-              <circle cx="100" cy="100" r="85" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="8" />
-              <circle 
-                cx="100" 
-                cy="100" 
-                r="85" 
-                fill="none" 
-                stroke="url(#ringGradient)" 
-                strokeWidth="8" 
-                strokeLinecap="round" 
-                strokeDasharray={`${(healthScore / 100) * 534} 534`}
-                strokeDashoffset="0"
-                transform="rotate(-90 100 100)"
-                style={{ transition: 'stroke-dasharray 0.5s ease' }}
-              />
-            </svg>
-            <div className={styles.scoreContent}>
-              <div className={styles.scoreNumber}>{healthScore}</div>
-              <div className={styles.scoreLabel}>Financial Health:</div>
-              <div className={styles.scoreStatus}>{healthStatus}</div>
-            </div>
+  {/* ALWAYS show ring - no conditional rendering! */}
+  <div className={styles.scoreRing}>
+    <svg className={styles.ringSvg} viewBox="0 0 200 200">
+      <defs>
+        <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor={healthScore > 70 ? '#4ade80' : healthScore > 50 ? '#eab308' : '#ef4444'} />
+          <stop offset="100%" stopColor={healthScore > 70 ? '#3b82f6' : healthScore > 50 ? '#f97316' : '#dc2626'} />
+        </linearGradient>
+      </defs>
+      {/* Background ring */}
+      <circle 
+        cx="100" 
+        cy="100" 
+        r="85" 
+        fill="none" 
+        stroke="rgba(255,255,255,0.1)" 
+        strokeWidth="8" 
+      />
+      {/* Animated progress ring */}
+      <circle 
+        cx="100" 
+        cy="100" 
+        r="85" 
+        fill="none" 
+        stroke={healthCalculating ? "rgba(59, 130, 246, 0.3)" : "url(#ringGradient)"}
+        strokeWidth="8" 
+        strokeLinecap="round" 
+        strokeDasharray={`${(healthScore / 100) * 534} 534`}
+        strokeDashoffset="0"
+        transform="rotate(-90 100 100)"
+        style={{ 
+          transition: 'stroke-dasharray 0.8s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.3s ease'
+        }}
+      />
+    </svg>
+    
+    <div className={styles.scoreContent}>
+      {healthCalculating || authLoading ? (
+        <>
+          <div className={styles.scoreNumber} style={{ 
+            animation: 'pulse 1.5s ease-in-out infinite',
+            opacity: 0.5 
+          }}>
+            --
           </div>
-          <p className={styles.stabilityMessage}>
-            {healthScore === 0 ? 'Start adding transactions to build your profile.' :
-             healthScore > 70 ? 'Excellent! Your spending is well-controlled.' : 
-             healthScore > 50 ? 'Stable. Your pace is within a reasonable range.' :
-             'Fair. Consider reducing discretionary spending.'}
-          </p>
-            </>
-          )}
-        </div>
+          <div className={styles.scoreLabel}>Calculating...</div>
+          <div className={styles.scoreStatus} style={{ fontSize: '0.85rem', color: '#60a5fa' }}>
+            Analyzing your finances
+          </div>
+        </>
+      ) : (
+        <>
+          <div className={styles.scoreNumber} style={{
+            animation: healthScore > 0 ? 'fadeInScale 0.5s ease-out' : 'none'
+          }}>
+            {healthScore}
+          </div>
+          <div className={styles.scoreLabel}>Financial Health:</div>
+          <div className={styles.scoreStatus}>{healthStatus}</div>
+        </>
+      )}
+    </div>
+  </div>
+  
+  <p className={styles.stabilityMessage}>
+    {healthCalculating || authLoading ? (
+      <span style={{ opacity: 0.6 }}>Building your financial profile...</span>
+    ) : healthScore === 0 ? (
+      'Start adding transactions to build your profile.'
+    ) : healthScore > 70 ? (
+      'Excellent! Your spending is well-controlled.'
+    ) : healthScore > 50 ? (
+      'Stable. Your pace is within a reasonable range.'
+    ) : (
+      'Fair. Consider reducing discretionary spending.'
+    )}
+  </p>
+</div>
+
+{/* // ADD THESE KEYFRAMES TO YOUR INLINE <style> TAG: */}
+<style>{`
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+  }
+  
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+`}</style>
 
         {/* AI Tips Section */}
         {aiTips.length > 0 && (
@@ -1202,16 +1322,24 @@ export default function Dashboard() {
         )}
       </main>
 
-      <button className={styles.fab} onClick={() => openModal('add')}>
-        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-        </svg>
-      </button>
-
+      {/* Bottom Navigation Bar */}
       <div className={styles.bottomNav}>
-        <div style={{ cursor: 'pointer', fontSize: '20px' }} onClick={() => openModal('chatbot')} title="Financial Advisor">
-         <img src="./image.png" width={60} height={20} alt="" />
+        <div 
+          style={{ cursor: 'pointer', fontSize: '20px' }} 
+          onClick={() => openModal('chatbot')} 
+          title="Financial Advisor"
+        >
+          <img src="./image.png" width={60} height={20} alt="Financial Advisor" />
         </div>
+        <button 
+          className={styles.fab} 
+          onClick={() => openModal('add')}
+          title="Add Transaction"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+          </svg>
+        </button>
       </div>
 
       {/* Profile & Settings Modal */}
@@ -1318,6 +1446,29 @@ export default function Dashboard() {
               </div>
 
               <button className={styles.saveButton} onClick={handleSaveProfile}>Save Changes</button>
+              
+              {user && (
+                <button 
+                  onClick={signOut} 
+                  style={{ 
+                    width: '100%', 
+                    background: 'transparent', 
+                    border: '2px solid #ef4444', 
+                    color: '#ef4444', 
+                    padding: '0.875rem',
+                    borderRadius: '12px',
+                    cursor: 'pointer',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    marginTop: '1rem',
+                    transition: 'all 0.2s'
+                  }}
+                  onMouseEnter={(e) => e.target.style.background = 'rgba(239, 68, 68, 0.1)'}
+                  onMouseLeave={(e) => e.target.style.background = 'transparent'}
+                >
+                  Logout
+                </button>
+              )}
             </div>
           </div>
         </div>

@@ -2,7 +2,6 @@
 "[project]/sep/Sentinel/frontend/src/app/components/styles/Dashboard.module.css [app-client] (css module)", ((__turbopack_context__) => {
 
 __turbopack_context__.v({
-  "actionRow": "Dashboard-module__Viygfq__actionRow",
   "activityAmount": "Dashboard-module__Viygfq__activityAmount",
   "activityCard": "Dashboard-module__Viygfq__activityCard",
   "activityCards": "Dashboard-module__Viygfq__activityCards",
@@ -22,21 +21,16 @@ __turbopack_context__.v({
   "breakdownHeader": "Dashboard-module__Viygfq__breakdownHeader",
   "breakdownIcon": "Dashboard-module__Viygfq__breakdownIcon",
   "breakdownName": "Dashboard-module__Viygfq__breakdownName",
-  "button": "Dashboard-module__Viygfq__button",
-  "buttonGrid": "Dashboard-module__Viygfq__buttonGrid",
   "buttonRow": "Dashboard-module__Viygfq__buttonRow",
   "categoryBreakdown": "Dashboard-module__Viygfq__categoryBreakdown",
   "closeButton": "Dashboard-module__Viygfq__closeButton",
   "consoleLine": "Dashboard-module__Viygfq__consoleLine",
   "consoleOutput": "Dashboard-module__Viygfq__consoleOutput",
-  "dateSelect": "Dashboard-module__Viygfq__dateSelect",
   "dateTime": "Dashboard-module__Viygfq__dateTime",
   "debugTag": "Dashboard-module__Viygfq__debugTag",
   "deleteButton": "Dashboard-module__Viygfq__deleteButton",
-  "demoButton": "Dashboard-module__Viygfq__demoButton",
   "disconnectButton": "Dashboard-module__Viygfq__disconnectButton",
   "editButton": "Dashboard-module__Viygfq__editButton",
-  "emoji": "Dashboard-module__Viygfq__emoji",
   "fab": "Dashboard-module__Viygfq__fab",
   "fieldIcon": "Dashboard-module__Viygfq__fieldIcon",
   "formGroup": "Dashboard-module__Viygfq__formGroup",
@@ -58,12 +52,10 @@ __turbopack_context__.v({
   "infoTag": "Dashboard-module__Viygfq__infoTag",
   "input": "Dashboard-module__Viygfq__input",
   "insightBox": "Dashboard-module__Viygfq__insightBox",
-  "label": "Dashboard-module__Viygfq__label",
   "logo": "Dashboard-module__Viygfq__logo",
   "logoIcon": "Dashboard-module__Viygfq__logoIcon",
   "logoText": "Dashboard-module__Viygfq__logoText",
   "mainContent": "Dashboard-module__Viygfq__mainContent",
-  "micButton": "Dashboard-module__Viygfq__micButton",
   "modal": "Dashboard-module__Viygfq__modal",
   "modalBody": "Dashboard-module__Viygfq__modalBody",
   "modalHeader": "Dashboard-module__Viygfq__modalHeader",
@@ -72,12 +64,10 @@ __turbopack_context__.v({
   "navIcon": "Dashboard-module__Viygfq__navIcon",
   "profileAvatar": "Dashboard-module__Viygfq__profileAvatar",
   "profileEmail": "Dashboard-module__Viygfq__profileEmail",
-  "profileItem": "Dashboard-module__Viygfq__profileItem",
   "profileName": "Dashboard-module__Viygfq__profileName",
   "profileSection": "Dashboard-module__Viygfq__profileSection",
   "ringSvg": "Dashboard-module__Viygfq__ringSvg",
   "saveButton": "Dashboard-module__Viygfq__saveButton",
-  "scanButton": "Dashboard-module__Viygfq__scanButton",
   "scoreContent": "Dashboard-module__Viygfq__scoreContent",
   "scoreLabel": "Dashboard-module__Viygfq__scoreLabel",
   "scoreNumber": "Dashboard-module__Viygfq__scoreNumber",
@@ -95,9 +85,6 @@ __turbopack_context__.v({
   "todaysActivity": "Dashboard-module__Viygfq__todaysActivity",
   "traceId": "Dashboard-module__Viygfq__traceId",
   "traceTag": "Dashboard-module__Viygfq__traceTag",
-  "transactionAmount": "Dashboard-module__Viygfq__transactionAmount",
-  "transactionItem": "Dashboard-module__Viygfq__transactionItem",
-  "transactionList": "Dashboard-module__Viygfq__transactionList",
   "updateButton": "Dashboard-module__Viygfq__updateButton",
   "userAvatar": "Dashboard-module__Viygfq__userAvatar",
   "wideModal": "Dashboard-module__Viygfq__wideModal",
@@ -232,7 +219,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-const BACKEND_URL = ("TURBOPACK compile-time value", "https://sentinel-pchb.onrender.com") || 'https://sentinel-pchb.onrender.com';
+const BACKEND_URL = ("TURBOPACK compile-time value", "http://localhost:8000") || 'http://localhost:8000';
 function Dashboard() {
     _s();
     const { user, loading: authLoading, signOut, accessToken } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$hooks$2f$useAuth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"])();
@@ -902,25 +889,92 @@ function Dashboard() {
             }
         }
     };
-    const handleDeleteTransaction = async ()=>{
-        if (selectedTransaction && selectedTransaction.id) {
-            if (confirm('Are you sure you want to delete this transaction?')) {
-                setLoading(true);
-                try {
-                    await apiCall(`/api/transactions/${selectedTransaction.id}`, 'DELETE');
-                    const updatedTransactions_0 = transactions.filter((t_2)=>t_2.id !== selectedTransaction.id);
-                    setTransactions(updatedTransactions_0);
-                    // Recalculate health score
-                    if (userProfile) {
-                        calculateHealthScore(updatedTransactions_0, userProfile.monthlyIncome);
+    const [healthCalculating, setHealthCalculating] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    // ADD THIS USEEFFECT (after other useEffects):
+    // Async health score calculation - doesn't block UI
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "Dashboard.useEffect": ()=>{
+            if (transactions.length > 0 && userProfile && profileLoaded) {
+                setHealthCalculating(true);
+                // Calculate asynchronously to prevent UI blocking
+                setTimeout({
+                    "Dashboard.useEffect": ()=>{
+                        calculateHealthScore(transactions, userProfile.monthlyIncome);
+                        setHealthCalculating(false);
                     }
-                    closeModal();
-                } catch (err_10) {
-                    console.error('Failed to delete transaction:', err_10);
-                } finally{
-                    setLoading(false);
-                }
+                }["Dashboard.useEffect"], 50); // 50ms delay for smooth transition
             }
+        }
+    }["Dashboard.useEffect"], [
+        transactions,
+        userProfile,
+        profileLoaded
+    ]);
+    const handleDeleteTransaction = async ()=>{
+        if (!selectedTransaction || !selectedTransaction.id) {
+            console.error('No transaction selected');
+            return;
+        }
+        // Native confirm dialog
+        if (!confirm(`Are you sure you want to delete this transaction?\n\nMerchant: ${selectedTransaction.merchant}\nAmount: ${getCurrencySymbol(selectedTransaction.currency || 'NGN')}${Math.abs(selectedTransaction.amount)}`)) {
+            return;
+        }
+        setLoading(true);
+        console.log('🗑️ Deleting transaction:', selectedTransaction.id);
+        try {
+            // Call delete API
+            const response_3 = await apiCall(`/api/transactions/${selectedTransaction.id}`, 'DELETE');
+            console.log('✅ Delete response:', response_3);
+            // Remove from local state
+            const updatedTransactions_0 = transactions.filter((t_2)=>t_2.id !== selectedTransaction.id);
+            setTransactions(updatedTransactions_0);
+            // Recalculate health score
+            if (userProfile) {
+                calculateHealthScore(updatedTransactions_0, userProfile.monthlyIncome);
+            }
+            // Show success message
+            const tempAlert_2 = document.createElement('div');
+            tempAlert_2.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #4ade80;
+      color: white;
+      padding: 16px 24px;
+      border-radius: 8px;
+      z-index: 9999;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      font-weight: 500;
+    `;
+            tempAlert_2.textContent = '✅ Transaction deleted successfully!';
+            document.body.appendChild(tempAlert_2);
+            setTimeout(()=>{
+                tempAlert_2.remove();
+            }, 3000);
+            closeModal();
+        } catch (err_10) {
+            console.error('❌ Failed to delete transaction:', err_10);
+            // Show error message
+            const tempAlert_1 = document.createElement('div');
+            tempAlert_1.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #ef4444;
+      color: white;
+      padding: 16px 24px;
+      border-radius: 8px;
+      z-index: 9999;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      font-weight: 500;
+    `;
+            tempAlert_1.textContent = `❌ Failed to delete: ${err_10 instanceof Error ? err_10.message : 'Unknown error'}`;
+            document.body.appendChild(tempAlert_1);
+            setTimeout(()=>{
+                tempAlert_1.remove();
+            }, 4000);
+        } finally{
+            setLoading(false);
         }
     };
     const handleAddTransaction = async ()=>{
@@ -943,7 +997,7 @@ function Dashboard() {
             // Use manually selected category (user choice takes priority)
             let category_0 = newTransaction.category;
             // Create transaction
-            const response_3 = await apiCall('/api/transactions', 'POST', {
+            const response_4 = await apiCall('/api/transactions', 'POST', {
                 merchant: merchant,
                 amount: Math.abs(amount),
                 category: category_0,
@@ -952,7 +1006,7 @@ function Dashboard() {
                 date: new Date().toISOString()
             });
             // Extract the actual transaction object from response
-            const transaction_0 = response_3.transaction || response_3;
+            const transaction_0 = response_4.transaction || response_4;
             // Add to local state
             const newTx = {
                 ...transaction_0,
@@ -970,20 +1024,20 @@ function Dashboard() {
                 calculateHealthScore(updatedTransactions_1, userProfile.monthlyIncome);
             }
             // Show success message and close modal
-            const tempAlert_1 = document.createElement('div');
-            tempAlert_1.style.position = 'fixed';
-            tempAlert_1.style.top = '20px';
-            tempAlert_1.style.right = '20px';
-            tempAlert_1.style.backgroundColor = '#4ade80';
-            tempAlert_1.style.color = 'white';
-            tempAlert_1.style.padding = '16px 24px';
-            tempAlert_1.style.borderRadius = '8px';
-            tempAlert_1.style.zIndex = '9999';
-            tempAlert_1.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
-            tempAlert_1.textContent = 'Transaction added successfully!';
-            document.body.appendChild(tempAlert_1);
+            const tempAlert_3 = document.createElement('div');
+            tempAlert_3.style.position = 'fixed';
+            tempAlert_3.style.top = '20px';
+            tempAlert_3.style.right = '20px';
+            tempAlert_3.style.backgroundColor = '#4ade80';
+            tempAlert_3.style.color = 'white';
+            tempAlert_3.style.padding = '16px 24px';
+            tempAlert_3.style.borderRadius = '8px';
+            tempAlert_3.style.zIndex = '9999';
+            tempAlert_3.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            tempAlert_3.textContent = 'Transaction added successfully!';
+            document.body.appendChild(tempAlert_3);
             setTimeout(()=>{
-                tempAlert_1.remove();
+                tempAlert_3.remove();
             }, 3000);
             closeModal();
         } catch (err_11) {
@@ -1032,7 +1086,7 @@ function Dashboard() {
                             children: "🔐"
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 822,
+                            lineNumber: 887,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -1043,7 +1097,7 @@ function Dashboard() {
                             children: "Please Log In"
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 826,
+                            lineNumber: 891,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1055,7 +1109,7 @@ function Dashboard() {
                             children: "You need to be authenticated to access your dashboard"
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 830,
+                            lineNumber: 895,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1073,23 +1127,23 @@ function Dashboard() {
                             children: "Go to Login"
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 835,
+                            lineNumber: 900,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                    lineNumber: 818,
+                    lineNumber: 883,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                lineNumber: 811,
+                lineNumber: 876,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-            lineNumber: 810,
+            lineNumber: 875,
             columnNumber: 12
         }, this);
     }
@@ -1139,7 +1193,7 @@ function Dashboard() {
                             }
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 881,
+                            lineNumber: 946,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1152,7 +1206,7 @@ function Dashboard() {
                             children: "Loading your dashboard..."
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 890,
+                            lineNumber: 955,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
@@ -1163,23 +1217,23 @@ function Dashboard() {
             `
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 898,
+                            lineNumber: 963,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                    lineNumber: 874,
+                    lineNumber: 939,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                lineNumber: 861,
+                lineNumber: 926,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-            lineNumber: 854,
+            lineNumber: 919,
             columnNumber: 12
         }, this);
     }
@@ -1198,74 +1252,48 @@ function Dashboard() {
                             alt: ""
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 912,
+                            lineNumber: 977,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                        lineNumber: 909,
+                        lineNumber: 974,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].headerRight,
-                        children: [
-                            user && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                onClick: signOut,
-                                style: {
-                                    background: 'none',
-                                    border: 'none',
-                                    color: '#94a3b8',
-                                    fontSize: '13px',
-                                    cursor: 'pointer',
-                                    marginRight: '8px'
-                                },
-                                children: "Logout"
-                            }, void 0, false, {
-                                fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                lineNumber: 915,
-                                columnNumber: 20
-                            }, this),
-                            telegramVerified && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].telegramStatus,
-                                children: "Telegram: Connected ✓"
-                            }, void 0, false, {
-                                fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                lineNumber: 928,
-                                columnNumber: 32
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].userAvatar,
-                                onClick: ()=>openModal('profile'),
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                    viewBox: "0 0 24 24",
-                                    fill: "currentColor",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                        d: "M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                                    }, void 0, false, {
-                                        fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 933,
-                                        columnNumber: 15
-                                    }, this)
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].userAvatar,
+                            onClick: ()=>openModal('profile'),
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                viewBox: "0 0 24 24",
+                                fill: "currentColor",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                    d: "M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 932,
-                                    columnNumber: 13
+                                    lineNumber: 990,
+                                    columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                lineNumber: 931,
-                                columnNumber: 11
+                                lineNumber: 989,
+                                columnNumber: 13
                             }, this)
-                        ]
-                    }, void 0, true, {
+                        }, void 0, false, {
+                            fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                            lineNumber: 988,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                        lineNumber: 914,
+                        lineNumber: 979,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                lineNumber: 908,
+                lineNumber: 973,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -1273,189 +1301,219 @@ function Dashboard() {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].healthScore,
-                        children: authLoading || loading || !profileLoaded ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            style: {
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                paddingTop: '40px',
-                                paddingBottom: '40px'
-                            },
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    style: {
-                                        width: '60px',
-                                        height: '60px',
-                                        borderRadius: '50%',
-                                        border: '3px solid rgba(59, 130, 246, 0.2)',
-                                        borderTop: '3px solid #3b82f6',
-                                        animation: 'spin 0.8s linear infinite',
-                                        marginBottom: '16px'
-                                    }
-                                }, void 0, false, {
-                                    fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 962,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    style: {
-                                        color: '#94a3b8',
-                                        fontSize: '14px',
-                                        textAlign: 'center'
-                                    },
-                                    children: "Calculating your financial health..."
-                                }, void 0, false, {
-                                    fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 971,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
-                                    children: `@keyframes spin { to { transform: rotate(360deg); } }`
-                                }, void 0, false, {
-                                    fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 976,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 954,
-                            columnNumber: 55
-                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].scoreRing,
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                            className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].ringSvg,
-                                            viewBox: "0 0 200 200",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("defs", {
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("linearGradient", {
-                                                        id: "ringGradient",
-                                                        x1: "0%",
-                                                        y1: "0%",
-                                                        x2: "100%",
-                                                        y2: "100%",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
-                                                                offset: "0%",
-                                                                stopColor: healthScore > 70 ? '#4ade80' : healthScore > 50 ? '#eab308' : '#ef4444'
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                                lineNumber: 982,
-                                                                columnNumber: 19
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
-                                                                offset: "100%",
-                                                                stopColor: healthScore > 70 ? '#3b82f6' : healthScore > 50 ? '#f97316' : '#dc2626'
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                                lineNumber: 983,
-                                                                columnNumber: 19
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                        lineNumber: 981,
-                                                        columnNumber: 17
-                                                    }, this)
-                                                }, void 0, false, {
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].scoreRing,
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].ringSvg,
+                                        viewBox: "0 0 200 200",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("defs", {
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("linearGradient", {
+                                                    id: "ringGradient",
+                                                    x1: "0%",
+                                                    y1: "0%",
+                                                    x2: "100%",
+                                                    y2: "100%",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
+                                                            offset: "0%",
+                                                            stopColor: healthScore > 70 ? '#4ade80' : healthScore > 50 ? '#eab308' : '#ef4444'
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                                                            lineNumber: 1016,
+                                                            columnNumber: 11
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
+                                                            offset: "100%",
+                                                            stopColor: healthScore > 70 ? '#3b82f6' : healthScore > 50 ? '#f97316' : '#dc2626'
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                                                            lineNumber: 1017,
+                                                            columnNumber: 11
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 980,
-                                                    columnNumber: 15
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                                                    cx: "100",
-                                                    cy: "100",
-                                                    r: "85",
-                                                    fill: "none",
-                                                    stroke: "rgba(255,255,255,0.1)",
-                                                    strokeWidth: "8"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 986,
-                                                    columnNumber: 15
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                                                    cx: "100",
-                                                    cy: "100",
-                                                    r: "85",
-                                                    fill: "none",
-                                                    stroke: "url(#ringGradient)",
-                                                    strokeWidth: "8",
-                                                    strokeLinecap: "round",
-                                                    strokeDasharray: `${healthScore / 100 * 534} 534`,
-                                                    strokeDashoffset: "0",
-                                                    transform: "rotate(-90 100 100)",
-                                                    style: {
-                                                        transition: 'stroke-dasharray 0.5s ease'
-                                                    }
-                                                }, void 0, false, {
-                                                    fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 987,
-                                                    columnNumber: 15
+                                                    lineNumber: 1015,
+                                                    columnNumber: 9
                                                 }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 979,
-                                            columnNumber: 13
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].scoreContent,
+                                            }, void 0, false, {
+                                                fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                                                lineNumber: 1014,
+                                                columnNumber: 7
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                                                cx: "100",
+                                                cy: "100",
+                                                r: "85",
+                                                fill: "none",
+                                                stroke: "rgba(255,255,255,0.1)",
+                                                strokeWidth: "8"
+                                            }, void 0, false, {
+                                                fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                                                lineNumber: 1021,
+                                                columnNumber: 7
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                                                cx: "100",
+                                                cy: "100",
+                                                r: "85",
+                                                fill: "none",
+                                                stroke: healthCalculating ? "rgba(59, 130, 246, 0.3)" : "url(#ringGradient)",
+                                                strokeWidth: "8",
+                                                strokeLinecap: "round",
+                                                strokeDasharray: `${healthScore / 100 * 534} 534`,
+                                                strokeDashoffset: "0",
+                                                transform: "rotate(-90 100 100)",
+                                                style: {
+                                                    transition: 'stroke-dasharray 0.8s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.3s ease'
+                                                }
+                                            }, void 0, false, {
+                                                fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                                                lineNumber: 1023,
+                                                columnNumber: 7
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                                        lineNumber: 1013,
+                                        columnNumber: 5
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].scoreContent,
+                                        children: healthCalculating || authLoading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].scoreNumber,
+                                                    style: {
+                                                        animation: 'pulse 1.5s ease-in-out infinite',
+                                                        opacity: 0.5
+                                                    },
+                                                    children: "--"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                                                    lineNumber: 1030,
+                                                    columnNumber: 11
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].scoreLabel,
+                                                    children: "Calculating..."
+                                                }, void 0, false, {
+                                                    fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                                                    lineNumber: 1036,
+                                                    columnNumber: 11
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].scoreStatus,
+                                                    style: {
+                                                        fontSize: '0.85rem',
+                                                        color: '#60a5fa'
+                                                    },
+                                                    children: "Analyzing your finances"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                                                    lineNumber: 1037,
+                                                    columnNumber: 11
+                                                }, this)
+                                            ]
+                                        }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].scoreNumber,
+                                                    style: {
+                                                        animation: healthScore > 0 ? 'fadeInScale 0.5s ease-out' : 'none'
+                                                    },
                                                     children: healthScore
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 992,
-                                                    columnNumber: 15
+                                                    lineNumber: 1044,
+                                                    columnNumber: 11
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].scoreLabel,
                                                     children: "Financial Health:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 993,
-                                                    columnNumber: 15
+                                                    lineNumber: 1049,
+                                                    columnNumber: 11
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].scoreStatus,
                                                     children: healthStatus
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 994,
-                                                    columnNumber: 15
+                                                    lineNumber: 1050,
+                                                    columnNumber: 11
                                                 }, this)
                                             ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 991,
-                                            columnNumber: 13
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 978,
-                                    columnNumber: 11
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].stabilityMessage,
-                                    children: healthScore === 0 ? 'Start adding transactions to build your profile.' : healthScore > 70 ? 'Excellent! Your spending is well-controlled.' : healthScore > 50 ? 'Stable. Your pace is within a reasonable range.' : 'Fair. Consider reducing discretionary spending.'
+                                        }, void 0, true)
+                                    }, void 0, false, {
+                                        fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                                        lineNumber: 1028,
+                                        columnNumber: 5
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                                lineNumber: 1012,
+                                columnNumber: 3
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].stabilityMessage,
+                                children: healthCalculating || authLoading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    style: {
+                                        opacity: 0.6
+                                    },
+                                    children: "Building your financial profile..."
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 997,
-                                    columnNumber: 11
-                                }, this)
-                            ]
-                        }, void 0, true)
+                                    lineNumber: 1056,
+                                    columnNumber: 41
+                                }, this) : healthScore === 0 ? 'Start adding transactions to build your profile.' : healthScore > 70 ? 'Excellent! Your spending is well-controlled.' : healthScore > 50 ? 'Stable. Your pace is within a reasonable range.' : 'Fair. Consider reducing discretionary spending.'
+                            }, void 0, false, {
+                                fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                                lineNumber: 1055,
+                                columnNumber: 3
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                        lineNumber: 1010,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
+                        children: `
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+  }
+  
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+`
                     }, void 0, false, {
                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                        lineNumber: 953,
-                        columnNumber: 9
+                        lineNumber: 1063,
+                        columnNumber: 7
                     }, this),
                     aiTips.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         style: {
@@ -1483,7 +1541,7 @@ function Dashboard() {
                                         children: "Financial Tip"
                                     }, void 0, false, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1017,
+                                        lineNumber: 1104,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1506,7 +1564,7 @@ function Dashboard() {
                                                 children: "← Prev"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1026,
+                                                lineNumber: 1113,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1522,7 +1580,7 @@ function Dashboard() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1037,
+                                                lineNumber: 1124,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1539,19 +1597,19 @@ function Dashboard() {
                                                 children: "Next →"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1044,
+                                                lineNumber: 1131,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1022,
+                                        lineNumber: 1109,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                lineNumber: 1011,
+                                lineNumber: 1098,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1563,18 +1621,18 @@ function Dashboard() {
                                 children: aiTips[currentTipIndex]
                             }, void 0, false, {
                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                lineNumber: 1057,
+                                lineNumber: 1144,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                        lineNumber: 1004,
+                        lineNumber: 1091,
                         columnNumber: 31
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                        lineNumber: 1065,
+                        lineNumber: 1152,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1588,7 +1646,7 @@ function Dashboard() {
                                         children: "Spending Overview"
                                     }, void 0, false, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1068,
+                                        lineNumber: 1155,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1599,13 +1657,13 @@ function Dashboard() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1069,
+                                        lineNumber: 1156,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                lineNumber: 1067,
+                                lineNumber: 1154,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1617,12 +1675,12 @@ function Dashboard() {
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1072,
+                                    lineNumber: 1159,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                lineNumber: 1071,
+                                lineNumber: 1158,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1637,7 +1695,7 @@ function Dashboard() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1077,
+                                        lineNumber: 1164,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1648,7 +1706,7 @@ function Dashboard() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1078,
+                                        lineNumber: 1165,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1660,13 +1718,13 @@ function Dashboard() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1079,
+                                        lineNumber: 1166,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                lineNumber: 1076,
+                                lineNumber: 1163,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1681,18 +1739,18 @@ function Dashboard() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1082,
+                                    lineNumber: 1169,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                lineNumber: 1081,
+                                lineNumber: 1168,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                        lineNumber: 1066,
+                        lineNumber: 1153,
                         columnNumber: 9
                     }, this),
                     loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -1705,7 +1763,7 @@ function Dashboard() {
                                         children: "Today's Activity"
                                     }, void 0, false, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1090,
+                                        lineNumber: 1177,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1735,7 +1793,7 @@ function Dashboard() {
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                        lineNumber: 1098,
+                                                        lineNumber: 1185,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1755,7 +1813,7 @@ function Dashboard() {
                                                                 }
                                                             }, void 0, false, {
                                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                                lineNumber: 1107,
+                                                                lineNumber: 1194,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1769,7 +1827,7 @@ function Dashboard() {
                                                                 }
                                                             }, void 0, false, {
                                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                                lineNumber: 1114,
+                                                                lineNumber: 1201,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1782,30 +1840,30 @@ function Dashboard() {
                                                                 }
                                                             }, void 0, false, {
                                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                                lineNumber: 1121,
+                                                                lineNumber: 1208,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                        lineNumber: 1104,
+                                                        lineNumber: 1191,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, i, true, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1092,
+                                                lineNumber: 1179,
                                                 columnNumber: 43
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1091,
+                                        lineNumber: 1178,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                lineNumber: 1089,
+                                lineNumber: 1176,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1816,7 +1874,7 @@ function Dashboard() {
                                         children: "Category Breakdown"
                                     }, void 0, false, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1134,
+                                        lineNumber: 1221,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1843,18 +1901,18 @@ function Dashboard() {
                                                 }
                                             }, i_0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1140,
+                                                lineNumber: 1227,
                                                 columnNumber: 42
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1135,
+                                        lineNumber: 1222,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                lineNumber: 1133,
+                                lineNumber: 1220,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
@@ -1866,7 +1924,7 @@ function Dashboard() {
             `
                             }, void 0, false, {
                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                lineNumber: 1152,
+                                lineNumber: 1239,
                                 columnNumber: 13
                             }, this)
                         ]
@@ -1880,7 +1938,7 @@ function Dashboard() {
                                         children: "Today's Activity"
                                     }, void 0, false, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1160,
+                                        lineNumber: 1247,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1894,7 +1952,7 @@ function Dashboard() {
                                                         children: transaction_1.icon
                                                     }, void 0, false, {
                                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                        lineNumber: 1163,
+                                                        lineNumber: 1250,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1905,7 +1963,7 @@ function Dashboard() {
                                                                 children: transaction_1.merchant
                                                             }, void 0, false, {
                                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                                lineNumber: 1165,
+                                                                lineNumber: 1252,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1916,7 +1974,7 @@ function Dashboard() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                                lineNumber: 1166,
+                                                                lineNumber: 1253,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1928,30 +1986,30 @@ function Dashboard() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                                lineNumber: 1167,
+                                                                lineNumber: 1254,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                        lineNumber: 1164,
+                                                        lineNumber: 1251,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, transaction_1.id, true, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1162,
+                                                lineNumber: 1249,
                                                 columnNumber: 64
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1161,
+                                        lineNumber: 1248,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                lineNumber: 1159,
+                                lineNumber: 1246,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1962,7 +2020,7 @@ function Dashboard() {
                                         children: "Category Breakdown"
                                     }, void 0, false, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1174,
+                                        lineNumber: 1261,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1986,7 +2044,7 @@ function Dashboard() {
                                                         children: icons_0[category_1] || '$'
                                                     }, void 0, false, {
                                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                        lineNumber: 1188,
+                                                        lineNumber: 1275,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2000,7 +2058,7 @@ function Dashboard() {
                                                                         children: category_1
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                                        lineNumber: 1191,
+                                                                        lineNumber: 1278,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2011,13 +2069,13 @@ function Dashboard() {
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                                        lineNumber: 1192,
+                                                                        lineNumber: 1279,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                                lineNumber: 1190,
+                                                                lineNumber: 1277,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2029,36 +2087,36 @@ function Dashboard() {
                                                                     }
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                                    lineNumber: 1195,
+                                                                    lineNumber: 1282,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                                lineNumber: 1194,
+                                                                lineNumber: 1281,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                        lineNumber: 1189,
+                                                        lineNumber: 1276,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, category_1, true, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1187,
+                                                lineNumber: 1274,
                                                 columnNumber: 22
                                             }, this);
                                         })
                                     }, void 0, false, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1175,
+                                        lineNumber: 1262,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                lineNumber: 1173,
+                                lineNumber: 1260,
                                 columnNumber: 13
                             }, this)
                         ]
@@ -2072,72 +2130,75 @@ function Dashboard() {
                             children: "No transactions yet. Click the + button to add one!"
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 1209,
+                            lineNumber: 1296,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                        lineNumber: 1204,
+                        lineNumber: 1291,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                lineNumber: 952,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].fab,
-                onClick: ()=>openModal('add'),
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                    viewBox: "0 0 24 24",
-                    fill: "currentColor",
-                    width: "24",
-                    height: "24",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                        d: "M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
-                    }, void 0, false, {
-                        fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                        lineNumber: 1215,
-                        columnNumber: 11
-                    }, this)
-                }, void 0, false, {
-                    fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                    lineNumber: 1214,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                lineNumber: 1213,
+                lineNumber: 1009,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].bottomNav,
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    style: {
-                        cursor: 'pointer',
-                        fontSize: '20px'
-                    },
-                    onClick: ()=>openModal('chatbot'),
-                    title: "Financial Advisor",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                        src: "./image.png",
-                        width: 60,
-                        height: 20,
-                        alt: ""
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            cursor: 'pointer',
+                            fontSize: '20px'
+                        },
+                        onClick: ()=>openModal('chatbot'),
+                        title: "Financial Advisor",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                            src: "./image.png",
+                            width: 60,
+                            height: 20,
+                            alt: "Financial Advisor"
+                        }, void 0, false, {
+                            fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                            lineNumber: 1306,
+                            columnNumber: 11
+                        }, this)
                     }, void 0, false, {
                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                        lineNumber: 1224,
-                        columnNumber: 10
+                        lineNumber: 1302,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].fab,
+                        onClick: ()=>openModal('add'),
+                        title: "Add Transaction",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                            viewBox: "0 0 24 24",
+                            fill: "currentColor",
+                            width: "24",
+                            height: "24",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                d: "M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+                            }, void 0, false, {
+                                fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                                lineNumber: 1310,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                            lineNumber: 1309,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                        lineNumber: 1308,
+                        columnNumber: 9
                     }, this)
-                }, void 0, false, {
-                    fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                    lineNumber: 1220,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
+                ]
+            }, void 0, true, {
                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                lineNumber: 1219,
+                lineNumber: 1301,
                 columnNumber: 7
             }, this),
             activeModal === 'profile' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2154,7 +2215,7 @@ function Dashboard() {
                                     children: "Profile & Settings"
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1232,
+                                    lineNumber: 1319,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2163,13 +2224,13 @@ function Dashboard() {
                                     children: "✕"
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1233,
+                                    lineNumber: 1320,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 1231,
+                            lineNumber: 1318,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2187,17 +2248,17 @@ function Dashboard() {
                                                     d: "M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1239,
+                                                    lineNumber: 1326,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1238,
+                                                lineNumber: 1325,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1237,
+                                            lineNumber: 1324,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -2205,7 +2266,7 @@ function Dashboard() {
                                             children: userProfile.name
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1242,
+                                            lineNumber: 1329,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2213,13 +2274,13 @@ function Dashboard() {
                                             children: userProfile.email
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1243,
+                                            lineNumber: 1330,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1236,
+                                    lineNumber: 1323,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2233,12 +2294,12 @@ function Dashboard() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1248,
+                                                lineNumber: 1335,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1247,
+                                            lineNumber: 1334,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2253,13 +2314,13 @@ function Dashboard() {
                                             defaultValue: userProfile.monthlyIncome
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1250,
+                                            lineNumber: 1337,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1246,
+                                    lineNumber: 1333,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2273,12 +2334,12 @@ function Dashboard() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1258,
+                                                lineNumber: 1345,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1257,
+                                            lineNumber: 1344,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2293,13 +2354,13 @@ function Dashboard() {
                                             defaultValue: userProfile.fixedBills
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1260,
+                                            lineNumber: 1347,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1256,
+                                    lineNumber: 1343,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2313,12 +2374,12 @@ function Dashboard() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1268,
+                                                lineNumber: 1355,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1267,
+                                            lineNumber: 1354,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2333,13 +2394,13 @@ function Dashboard() {
                                             defaultValue: userProfile.savingsGoal
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1270,
+                                            lineNumber: 1357,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1266,
+                                    lineNumber: 1353,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2349,7 +2410,7 @@ function Dashboard() {
                                             children: "Telegram Connection"
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1277,
+                                            lineNumber: 1364,
                                             columnNumber: 17
                                         }, this),
                                         telegramVerified ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -2362,7 +2423,7 @@ function Dashboard() {
                                                     children: "Connected"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1279,
+                                                    lineNumber: 1366,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2373,7 +2434,7 @@ function Dashboard() {
                                                     children: 'Send expense messages like "Chicken Republic 4500" to log transactions'
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1284,
+                                                    lineNumber: 1371,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2382,7 +2443,7 @@ function Dashboard() {
                                                     children: "Disconnect"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1288,
+                                                    lineNumber: 1375,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
@@ -2396,7 +2457,7 @@ function Dashboard() {
                                                     children: "Connect Telegram to log expenses via chat"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1290,
+                                                    lineNumber: 1377,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2409,7 +2470,7 @@ function Dashboard() {
                                                     children: "Open Telegram Bot"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1296,
+                                                    lineNumber: 1383,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2430,7 +2491,7 @@ function Dashboard() {
                                                             }
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1305,
+                                                            lineNumber: 1392,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2440,13 +2501,13 @@ function Dashboard() {
                                                             children: telegramLinking ? 'Linking...' : 'Link'
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1310,
+                                                            lineNumber: 1397,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1302,
+                                                    lineNumber: 1389,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
@@ -2454,7 +2515,7 @@ function Dashboard() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1276,
+                                    lineNumber: 1363,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2463,24 +2524,47 @@ function Dashboard() {
                                     children: "Save Changes"
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1317,
+                                    lineNumber: 1404,
                                     columnNumber: 15
+                                }, this),
+                                user && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: signOut,
+                                    style: {
+                                        width: '100%',
+                                        background: 'transparent',
+                                        border: '2px solid #ef4444',
+                                        color: '#ef4444',
+                                        padding: '0.875rem',
+                                        borderRadius: '12px',
+                                        cursor: 'pointer',
+                                        fontSize: '1rem',
+                                        fontWeight: '600',
+                                        marginTop: '1rem',
+                                        transition: 'all 0.2s'
+                                    },
+                                    onMouseEnter: (e_5)=>e_5.target.style.background = 'rgba(239, 68, 68, 0.1)',
+                                    onMouseLeave: (e_6)=>e_6.target.style.background = 'transparent',
+                                    children: "Logout"
+                                }, void 0, false, {
+                                    fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
+                                    lineNumber: 1406,
+                                    columnNumber: 24
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 1235,
+                            lineNumber: 1322,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                    lineNumber: 1230,
+                    lineNumber: 1317,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                lineNumber: 1229,
+                lineNumber: 1316,
                 columnNumber: 37
             }, this),
             activeModal === 'developer' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2488,7 +2572,7 @@ function Dashboard() {
                 onClick: closeModal,
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: `${__TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].modal} ${__TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].wideModal}`,
-                    onClick: (e_5)=>e_5.stopPropagation(),
+                    onClick: (e_7)=>e_7.stopPropagation(),
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].modalHeader,
@@ -2497,7 +2581,7 @@ function Dashboard() {
                                     children: "Developer Console / Opik Trace Log"
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1326,
+                                    lineNumber: 1429,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2506,13 +2590,13 @@ function Dashboard() {
                                     children: "✕"
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1327,
+                                    lineNumber: 1430,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 1325,
+                            lineNumber: 1428,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2528,7 +2612,7 @@ function Dashboard() {
                                                 children: "[21:35:01]"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1332,
+                                                lineNumber: 1435,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2536,20 +2620,20 @@ function Dashboard() {
                                                 children: "INFO:"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1333,
+                                                lineNumber: 1436,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 children: "Webhook received from Telegram user @User123."
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1334,
+                                                lineNumber: 1437,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1331,
+                                        lineNumber: 1434,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2560,7 +2644,7 @@ function Dashboard() {
                                                 children: "[21:35:02]"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1337,
+                                                lineNumber: 1440,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2568,20 +2652,20 @@ function Dashboard() {
                                                 children: "TRACE:"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1338,
+                                                lineNumber: 1441,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 children: "Agent receiving image payload for analysis."
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1339,
+                                                lineNumber: 1442,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1336,
+                                        lineNumber: 1439,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2592,7 +2676,7 @@ function Dashboard() {
                                                 children: "[21:35:04]"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1342,
+                                                lineNumber: 1445,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2600,20 +2684,20 @@ function Dashboard() {
                                                 children: "TRACE:"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1343,
+                                                lineNumber: 1446,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 children: "Vision API parsing receipt successful. Extracted: Merchant='Chicken Republic', Amount=4500."
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1344,
+                                                lineNumber: 1447,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1341,
+                                        lineNumber: 1444,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2624,7 +2708,7 @@ function Dashboard() {
                                                 children: "[21:35:05]"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1347,
+                                                lineNumber: 1450,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2632,20 +2716,20 @@ function Dashboard() {
                                                 children: "INFO:"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1348,
+                                                lineNumber: 1451,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 children: "Risk Analysis Engine triggered. Current Daily Utilization: 85%."
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1349,
+                                                lineNumber: 1452,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1346,
+                                        lineNumber: 1449,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2656,7 +2740,7 @@ function Dashboard() {
                                                 children: "[21:35:05]"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1352,
+                                                lineNumber: 1455,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2664,20 +2748,20 @@ function Dashboard() {
                                                 children: "TRACE:"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1353,
+                                                lineNumber: 1456,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 children: "Opik Trace ID: #99282 logged for AI reasoning chain."
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1354,
+                                                lineNumber: 1457,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1351,
+                                        lineNumber: 1454,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2688,7 +2772,7 @@ function Dashboard() {
                                                 children: "[21:35:06]"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1357,
+                                                lineNumber: 1460,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2696,20 +2780,20 @@ function Dashboard() {
                                                 children: "INFO:"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1358,
+                                                lineNumber: 1461,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 children: "Transaction saved to Supabase. Dashboard updated."
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1359,
+                                                lineNumber: 1462,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1356,
+                                        lineNumber: 1459,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2720,7 +2804,7 @@ function Dashboard() {
                                                 children: "[21:35:07]"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1362,
+                                                lineNumber: 1465,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2728,42 +2812,42 @@ function Dashboard() {
                                                 children: "DEBUG:"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1363,
+                                                lineNumber: 1466,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 children: "Cron job for Daily Vibe Check scheduled for 22:00."
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1364,
+                                                lineNumber: 1467,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1361,
+                                        lineNumber: 1464,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                lineNumber: 1330,
+                                lineNumber: 1433,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 1329,
+                            lineNumber: 1432,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                    lineNumber: 1324,
+                    lineNumber: 1427,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                lineNumber: 1323,
+                lineNumber: 1426,
                 columnNumber: 39
             }, this),
             activeModal === 'transaction' && selectedTransaction && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2771,7 +2855,7 @@ function Dashboard() {
                 onClick: closeModal,
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].modal,
-                    onClick: (e_6)=>e_6.stopPropagation(),
+                    onClick: (e_8)=>e_8.stopPropagation(),
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].modalHeader,
@@ -2780,7 +2864,7 @@ function Dashboard() {
                                     children: "Transaction Detail"
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1375,
+                                    lineNumber: 1478,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2789,13 +2873,13 @@ function Dashboard() {
                                     children: "✕"
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1376,
+                                    lineNumber: 1479,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 1374,
+                            lineNumber: 1477,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2808,26 +2892,26 @@ function Dashboard() {
                                             children: "Merchant"
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1380,
+                                            lineNumber: 1483,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                             type: "text",
                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].input,
                                             value: selectedTransaction.merchant,
-                                            onChange: (e_7)=>setSelectedTransaction({
+                                            onChange: (e_9)=>setSelectedTransaction({
                                                     ...selectedTransaction,
-                                                    merchant: e_7.target.value
+                                                    merchant: e_9.target.value
                                                 })
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1381,
+                                            lineNumber: 1484,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1379,
+                                    lineNumber: 1482,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2837,15 +2921,15 @@ function Dashboard() {
                                             children: "Amount"
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1388,
+                                            lineNumber: 1491,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                             type: "text",
                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].input,
                                             value: `${getCurrencySymbol(selectedTransaction.currency || 'NGN')}${Math.abs(selectedTransaction.amount).toLocaleString()}`,
-                                            onChange: (e_8)=>{
-                                                const value = e_8.target.value.replace(/[₦$€£¥C$A$₹RShKES\u20b5,GHS]/g, '');
+                                            onChange: (e_10)=>{
+                                                const value = e_10.target.value.replace(/[₦$€£¥C$A$₹RShKES\u20b5,GHS]/g, '');
                                                 setSelectedTransaction({
                                                     ...selectedTransaction,
                                                     amount: -Math.abs(parseFloat(value) || 0)
@@ -2853,13 +2937,13 @@ function Dashboard() {
                                             }
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1389,
+                                            lineNumber: 1492,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1387,
+                                    lineNumber: 1490,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2869,15 +2953,15 @@ function Dashboard() {
                                             children: "Currency"
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1399,
+                                            lineNumber: 1502,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].select,
                                             value: selectedTransaction.currency || 'NGN',
-                                            onChange: (e_9)=>setSelectedTransaction({
+                                            onChange: (e_11)=>setSelectedTransaction({
                                                     ...selectedTransaction,
-                                                    currency: e_9.target.value
+                                                    currency: e_11.target.value
                                                 }),
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2885,7 +2969,7 @@ function Dashboard() {
                                                     children: "NGN (₦)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1404,
+                                                    lineNumber: 1507,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2893,7 +2977,7 @@ function Dashboard() {
                                                     children: "USD ($)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1405,
+                                                    lineNumber: 1508,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2901,7 +2985,7 @@ function Dashboard() {
                                                     children: "EUR (€)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1406,
+                                                    lineNumber: 1509,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2909,7 +2993,7 @@ function Dashboard() {
                                                     children: "GBP (£)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1407,
+                                                    lineNumber: 1510,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2917,7 +3001,7 @@ function Dashboard() {
                                                     children: "JPY (¥)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1408,
+                                                    lineNumber: 1511,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2925,7 +3009,7 @@ function Dashboard() {
                                                     children: "CAD (C$)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1409,
+                                                    lineNumber: 1512,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2933,7 +3017,7 @@ function Dashboard() {
                                                     children: "AUD (A$)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1410,
+                                                    lineNumber: 1513,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2941,7 +3025,7 @@ function Dashboard() {
                                                     children: "INR (₹)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1411,
+                                                    lineNumber: 1514,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2949,7 +3033,7 @@ function Dashboard() {
                                                     children: "ZAR (R)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1412,
+                                                    lineNumber: 1515,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2957,7 +3041,7 @@ function Dashboard() {
                                                     children: "KES (Sh)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1413,
+                                                    lineNumber: 1516,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2965,19 +3049,19 @@ function Dashboard() {
                                                     children: "GHS (₵)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1414,
+                                                    lineNumber: 1517,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1400,
+                                            lineNumber: 1503,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1398,
+                                    lineNumber: 1501,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2990,26 +3074,26 @@ function Dashboard() {
                                                     children: "Date"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1420,
+                                                    lineNumber: 1523,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                     type: "text",
                                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].input,
                                                     value: selectedTransaction.date,
-                                                    onChange: (e_10)=>setSelectedTransaction({
+                                                    onChange: (e_12)=>setSelectedTransaction({
                                                             ...selectedTransaction,
-                                                            date: e_10.target.value
+                                                            date: e_12.target.value
                                                         })
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1421,
+                                                    lineNumber: 1524,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1419,
+                                            lineNumber: 1522,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3019,89 +3103,89 @@ function Dashboard() {
                                                     children: "Category"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1427,
+                                                    lineNumber: 1530,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].select,
                                                     value: selectedTransaction.category,
-                                                    onChange: (e_11)=>setSelectedTransaction({
+                                                    onChange: (e_13)=>setSelectedTransaction({
                                                             ...selectedTransaction,
-                                                            category: e_11.target.value
+                                                            category: e_13.target.value
                                                         }),
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                             children: "Transport"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1432,
+                                                            lineNumber: 1535,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                             children: "Food"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1433,
+                                                            lineNumber: 1536,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                             children: "Entertainment"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1434,
+                                                            lineNumber: 1537,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                             children: "Shopping"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1435,
+                                                            lineNumber: 1538,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                             children: "Bills"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1436,
+                                                            lineNumber: 1539,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                             children: "Utilities"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1437,
+                                                            lineNumber: 1540,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                             children: "Health"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1438,
+                                                            lineNumber: 1541,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                             children: "Education"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1439,
+                                                            lineNumber: 1542,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1428,
+                                                    lineNumber: 1531,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1426,
+                                            lineNumber: 1529,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1418,
+                                    lineNumber: 1521,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3111,7 +3195,7 @@ function Dashboard() {
                                             children: "AI Insight (Opik Trace)"
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1445,
+                                            lineNumber: 1548,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3126,7 +3210,7 @@ function Dashboard() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1446,
+                                            lineNumber: 1549,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3137,13 +3221,13 @@ function Dashboard() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1447,
+                                            lineNumber: 1550,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1444,
+                                    lineNumber: 1547,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3156,7 +3240,7 @@ function Dashboard() {
                                             children: loading ? 'Updating...' : 'Update Transaction'
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1451,
+                                            lineNumber: 1554,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3166,30 +3250,30 @@ function Dashboard() {
                                             children: loading ? 'Deleting...' : 'Delete'
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1454,
+                                            lineNumber: 1557,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1450,
+                                    lineNumber: 1553,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 1378,
+                            lineNumber: 1481,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                    lineNumber: 1373,
+                    lineNumber: 1476,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                lineNumber: 1372,
+                lineNumber: 1475,
                 columnNumber: 64
             }, this),
             activeModal === 'add' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3197,7 +3281,7 @@ function Dashboard() {
                 onClick: closeModal,
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: `${__TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].modal} ${__TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].wideModal}`,
-                    onClick: (e_12)=>e_12.stopPropagation(),
+                    onClick: (e_14)=>e_14.stopPropagation(),
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].modalHeader,
@@ -3206,7 +3290,7 @@ function Dashboard() {
                                     children: "Add Transaction"
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1466,
+                                    lineNumber: 1569,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3215,13 +3299,13 @@ function Dashboard() {
                                     children: "✕"
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1467,
+                                    lineNumber: 1570,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 1465,
+                            lineNumber: 1568,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3244,7 +3328,7 @@ function Dashboard() {
                                             children: "Scan Receipt (Optional)"
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1478,
+                                            lineNumber: 1581,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3255,7 +3339,7 @@ function Dashboard() {
                                             children: "Upload a bank receipt or receipt image - AI will extract merchant, amount, and category"
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1482,
+                                            lineNumber: 1585,
                                             columnNumber: 17
                                         }, this),
                                         receiptPreview && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3274,7 +3358,7 @@ function Dashboard() {
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1490,
+                                                    lineNumber: 1593,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3295,19 +3379,19 @@ function Dashboard() {
                                                     children: "Clear"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1496,
+                                                    lineNumber: 1599,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1487,
+                                            lineNumber: 1590,
                                             columnNumber: 36
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                             type: "file",
                                             accept: "image/*",
-                                            onChange: (e_13)=>e_13.target.files && handleReceiptUpload(e_13.target.files[0]),
+                                            onChange: (e_15)=>e_15.target.files && handleReceiptUpload(e_15.target.files[0]),
                                             style: {
                                                 padding: '10px',
                                                 borderRadius: '4px',
@@ -3316,7 +3400,7 @@ function Dashboard() {
                                             }
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1513,
+                                            lineNumber: 1616,
                                             columnNumber: 17
                                         }, this),
                                         scannedData && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3331,7 +3415,7 @@ function Dashboard() {
                                             children: "Receipt scanned! Fields auto-filled below."
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1520,
+                                            lineNumber: 1623,
                                             columnNumber: 33
                                         }, this),
                                         loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3346,13 +3430,13 @@ function Dashboard() {
                                             children: "Scanning receipt..."
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1531,
+                                            lineNumber: 1634,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1471,
+                                    lineNumber: 1574,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3366,7 +3450,7 @@ function Dashboard() {
                                     children: "— OR ENTER MANUALLY —"
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1544,
+                                    lineNumber: 1647,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3376,18 +3460,18 @@ function Dashboard() {
                                         placeholder: "e.g., 'Spent 5k on fuel at Shell gas station'",
                                         rows: 3,
                                         value: newTransaction.description,
-                                        onChange: (e_14)=>setNewTransaction({
+                                        onChange: (e_16)=>setNewTransaction({
                                                 ...newTransaction,
-                                                description: e_14.target.value
+                                                description: e_16.target.value
                                             })
                                     }, void 0, false, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1555,
+                                        lineNumber: 1658,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1554,
+                                    lineNumber: 1657,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3397,7 +3481,7 @@ function Dashboard() {
                                             children: "Merchant"
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1562,
+                                            lineNumber: 1665,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -3405,19 +3489,19 @@ function Dashboard() {
                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].input,
                                             placeholder: "e.g., Shell Gas Station",
                                             value: newTransaction.merchant,
-                                            onChange: (e_15)=>setNewTransaction({
+                                            onChange: (e_17)=>setNewTransaction({
                                                     ...newTransaction,
-                                                    merchant: e_15.target.value
+                                                    merchant: e_17.target.value
                                                 })
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1563,
+                                            lineNumber: 1666,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1561,
+                                    lineNumber: 1664,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3430,7 +3514,7 @@ function Dashboard() {
                                                     children: "Amount"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1571,
+                                                    lineNumber: 1674,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -3438,19 +3522,19 @@ function Dashboard() {
                                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].input,
                                                     placeholder: "5000",
                                                     value: newTransaction.amount,
-                                                    onChange: (e_16)=>setNewTransaction({
+                                                    onChange: (e_18)=>setNewTransaction({
                                                             ...newTransaction,
-                                                            amount: e_16.target.value
+                                                            amount: e_18.target.value
                                                         })
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1572,
+                                                    lineNumber: 1675,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1570,
+                                            lineNumber: 1673,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3460,15 +3544,15 @@ function Dashboard() {
                                                     children: "Category"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1578,
+                                                    lineNumber: 1681,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].select,
                                                     value: newTransaction.category,
-                                                    onChange: (e_17)=>setNewTransaction({
+                                                    onChange: (e_19)=>setNewTransaction({
                                                             ...newTransaction,
-                                                            category: e_17.target.value
+                                                            category: e_19.target.value
                                                         }),
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3476,7 +3560,7 @@ function Dashboard() {
                                                             children: "🍔 Food & Dining"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1583,
+                                                            lineNumber: 1686,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3484,7 +3568,7 @@ function Dashboard() {
                                                             children: "🚗 Transport"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1584,
+                                                            lineNumber: 1687,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3492,7 +3576,7 @@ function Dashboard() {
                                                             children: "🎬 Entertainment"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1585,
+                                                            lineNumber: 1688,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3500,7 +3584,7 @@ function Dashboard() {
                                                             children: "🛍️ Shopping"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1586,
+                                                            lineNumber: 1689,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3508,7 +3592,7 @@ function Dashboard() {
                                                             children: "📄 Bills & Utilities"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1587,
+                                                            lineNumber: 1690,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3516,7 +3600,7 @@ function Dashboard() {
                                                             children: "⚕️ Health & Medical"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1588,
+                                                            lineNumber: 1691,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3524,7 +3608,7 @@ function Dashboard() {
                                                             children: "📚 Education"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1589,
+                                                            lineNumber: 1692,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3532,19 +3616,19 @@ function Dashboard() {
                                                             children: "$ Other"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1590,
+                                                            lineNumber: 1693,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1579,
+                                                    lineNumber: 1682,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1577,
+                                            lineNumber: 1680,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3554,15 +3638,15 @@ function Dashboard() {
                                                     children: "Currency"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1594,
+                                                    lineNumber: 1697,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].select,
                                                     value: newTransaction.currency,
-                                                    onChange: (e_18)=>setNewTransaction({
+                                                    onChange: (e_20)=>setNewTransaction({
                                                             ...newTransaction,
-                                                            currency: e_18.target.value
+                                                            currency: e_20.target.value
                                                         }),
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3570,7 +3654,7 @@ function Dashboard() {
                                                             children: "NGN (₦) - Nigerian Naira"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1599,
+                                                            lineNumber: 1702,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3578,7 +3662,7 @@ function Dashboard() {
                                                             children: "USD ($) - US Dollar"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1600,
+                                                            lineNumber: 1703,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3586,7 +3670,7 @@ function Dashboard() {
                                                             children: "EUR (€) - Euro"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1601,
+                                                            lineNumber: 1704,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3594,7 +3678,7 @@ function Dashboard() {
                                                             children: "GBP (£) - British Pound"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1602,
+                                                            lineNumber: 1705,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3602,7 +3686,7 @@ function Dashboard() {
                                                             children: "JPY (¥) - Japanese Yen"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1603,
+                                                            lineNumber: 1706,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3610,7 +3694,7 @@ function Dashboard() {
                                                             children: "CAD (C$) - Canadian Dollar"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1604,
+                                                            lineNumber: 1707,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3618,7 +3702,7 @@ function Dashboard() {
                                                             children: "AUD (A$) - Australian Dollar"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1605,
+                                                            lineNumber: 1708,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3626,7 +3710,7 @@ function Dashboard() {
                                                             children: "INR (₹) - Indian Rupee"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1606,
+                                                            lineNumber: 1709,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3634,7 +3718,7 @@ function Dashboard() {
                                                             children: "ZAR (R) - South African Rand"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1607,
+                                                            lineNumber: 1710,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3642,7 +3726,7 @@ function Dashboard() {
                                                             children: "KES (Sh) - Kenyan Shilling"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1608,
+                                                            lineNumber: 1711,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3650,65 +3734,65 @@ function Dashboard() {
                                                             children: "GHS (₵) - Ghanaian Cedi"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1609,
+                                                            lineNumber: 1712,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1595,
+                                                    lineNumber: 1698,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1593,
+                                            lineNumber: 1696,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1569,
+                                    lineNumber: 1672,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1613,
+                                    lineNumber: 1716,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1614,
+                                    lineNumber: 1717,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1615,
+                                    lineNumber: 1718,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1616,
+                                    lineNumber: 1719,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1617,
+                                    lineNumber: 1720,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1618,
+                                    lineNumber: 1721,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1619,
+                                    lineNumber: 1722,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1620,
+                                    lineNumber: 1723,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3718,24 +3802,24 @@ function Dashboard() {
                                     children: loading ? 'Processing...' : 'Analyze & Log'
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1621,
+                                    lineNumber: 1724,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 1469,
+                            lineNumber: 1572,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                    lineNumber: 1464,
+                    lineNumber: 1567,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                lineNumber: 1463,
+                lineNumber: 1566,
                 columnNumber: 33
             }, this),
             activeModal === 'chatbot' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3743,7 +3827,7 @@ function Dashboard() {
                 onClick: closeModal,
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: `${__TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].modal} ${__TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].wideModal}`,
-                    onClick: (e_19)=>e_19.stopPropagation(),
+                    onClick: (e_21)=>e_21.stopPropagation(),
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].modalHeader,
@@ -3757,7 +3841,7 @@ function Dashboard() {
                                             children: "Sentinel Financial Advisor"
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1633,
+                                            lineNumber: 1736,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3769,13 +3853,13 @@ function Dashboard() {
                                             children: "AI-powered personalized financial guidance"
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1636,
+                                            lineNumber: 1739,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1632,
+                                    lineNumber: 1735,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3784,13 +3868,13 @@ function Dashboard() {
                                     children: "✕"
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1642,
+                                    lineNumber: 1745,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 1631,
+                            lineNumber: 1734,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3828,7 +3912,7 @@ function Dashboard() {
                                                     children: transactions.length
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1666,
+                                                    lineNumber: 1769,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3839,13 +3923,13 @@ function Dashboard() {
                                                     children: "Transactions"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1673,
+                                                    lineNumber: 1776,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1662,
+                                            lineNumber: 1765,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3867,7 +3951,7 @@ function Dashboard() {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1682,
+                                                    lineNumber: 1785,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3878,13 +3962,13 @@ function Dashboard() {
                                                     children: "Spending"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1689,
+                                                    lineNumber: 1792,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1678,
+                                            lineNumber: 1781,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3905,7 +3989,7 @@ function Dashboard() {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1698,
+                                                    lineNumber: 1801,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3916,19 +4000,19 @@ function Dashboard() {
                                                     children: "of Income"
                                                 }, void 0, false, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1705,
+                                                    lineNumber: 1808,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1694,
+                                            lineNumber: 1797,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1652,
+                                    lineNumber: 1755,
                                     columnNumber: 43
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3957,7 +4041,7 @@ function Dashboard() {
                                                 children: "💬"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1729,
+                                                lineNumber: 1832,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3969,7 +4053,7 @@ function Dashboard() {
                                                 children: "Sentinel Financial Advisor"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1733,
+                                                lineNumber: 1836,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3981,7 +4065,7 @@ function Dashboard() {
                                                 children: "Ask me anything about your spending habits!"
                                             }, void 0, false, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1740,
+                                                lineNumber: 1843,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3997,40 +4081,40 @@ function Dashboard() {
                                                         children: '"How can I save more?"'
                                                     }, void 0, false, {
                                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                        lineNumber: 1754,
+                                                        lineNumber: 1857,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                         children: '"Is my food spending high?"'
                                                     }, void 0, false, {
                                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                        lineNumber: 1755,
+                                                        lineNumber: 1858,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                         children: '"Where should I cut back?"'
                                                     }, void 0, false, {
                                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                        lineNumber: 1756,
+                                                        lineNumber: 1859,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                         children: '"What\'s my spending ratio?"'
                                                     }, void 0, false, {
                                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                        lineNumber: 1757,
+                                                        lineNumber: 1860,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1747,
+                                                lineNumber: 1850,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                        lineNumber: 1724,
+                                        lineNumber: 1827,
                                         columnNumber: 46
                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                         children: [
@@ -4058,7 +4142,7 @@ function Dashboard() {
                                                             children: "★"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1767,
+                                                            lineNumber: 1870,
                                                             columnNumber: 52
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4076,7 +4160,7 @@ function Dashboard() {
                                                             children: msg.content
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1780,
+                                                            lineNumber: 1883,
                                                             columnNumber: 25
                                                         }, this),
                                                         msg.role === 'user' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4094,13 +4178,13 @@ function Dashboard() {
                                                             children: "👤"
                                                         }, void 0, false, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1793,
+                                                            lineNumber: 1896,
                                                             columnNumber: 49
                                                         }, this)
                                                     ]
                                                 }, idx, true, {
                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                    lineNumber: 1760,
+                                                    lineNumber: 1863,
                                                     columnNumber: 53
                                                 }, this)),
                                             chatLoading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4126,7 +4210,7 @@ function Dashboard() {
                                                         children: "★"
                                                     }, void 0, false, {
                                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                        lineNumber: 1815,
+                                                        lineNumber: 1918,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4152,7 +4236,7 @@ function Dashboard() {
                                                                     children: "●"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                                    lineNumber: 1839,
+                                                                    lineNumber: 1942,
                                                                     columnNumber: 29
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4163,7 +4247,7 @@ function Dashboard() {
                                                                     children: "●"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                                    lineNumber: 1843,
+                                                                    lineNumber: 1946,
                                                                     columnNumber: 29
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4174,31 +4258,31 @@ function Dashboard() {
                                                                     children: "●"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                                    lineNumber: 1847,
+                                                                    lineNumber: 1950,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                            lineNumber: 1835,
+                                                            lineNumber: 1938,
                                                             columnNumber: 27
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                        lineNumber: 1827,
+                                                        lineNumber: 1930,
                                                         columnNumber: 25
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                                lineNumber: 1808,
+                                                lineNumber: 1911,
                                                 columnNumber: 37
                                             }, this)
                                         ]
                                     }, void 0, true)
                                 }, void 0, false, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1713,
+                                    lineNumber: 1816,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4211,9 +4295,9 @@ function Dashboard() {
                                             type: "text",
                                             placeholder: chatLoading ? 'Waiting for response...' : 'Ask Sentinel about your finances...',
                                             value: chatInput,
-                                            onChange: (e_20)=>setChatInput(e_20.target.value),
-                                            onKeyPress: (e_21)=>{
-                                                if (e_21.key === 'Enter' && !chatLoading && chatInput.trim()) {
+                                            onChange: (e_22)=>setChatInput(e_22.target.value),
+                                            onKeyPress: (e_23)=>{
+                                                if (e_23.key === 'Enter' && !chatLoading && chatInput.trim()) {
                                                     handleChatSubmit();
                                                 }
                                             },
@@ -4230,17 +4314,17 @@ function Dashboard() {
                                                 outline: 'none',
                                                 transition: 'all 0.2s'
                                             },
-                                            onFocus: (e_22)=>{
-                                                e_22.currentTarget.style.borderColor = '#3b82f6';
-                                                e_22.currentTarget.style.backgroundColor = '#0f172a';
+                                            onFocus: (e_24)=>{
+                                                e_24.currentTarget.style.borderColor = '#3b82f6';
+                                                e_24.currentTarget.style.backgroundColor = '#0f172a';
                                             },
-                                            onBlur: (e_23)=>{
-                                                e_23.currentTarget.style.borderColor = '#334155';
-                                                e_23.currentTarget.style.backgroundColor = '#1e293b';
+                                            onBlur: (e_25)=>{
+                                                e_25.currentTarget.style.borderColor = '#334155';
+                                                e_25.currentTarget.style.backgroundColor = '#1e293b';
                                             }
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1862,
+                                            lineNumber: 1965,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4261,13 +4345,13 @@ function Dashboard() {
                                             children: chatLoading ? '⏳' : '→'
                                         }, void 0, false, {
                                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                            lineNumber: 1884,
+                                            lineNumber: 1987,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1858,
+                                    lineNumber: 1961,
                                     columnNumber: 15
                                 }, this),
                                 chatMessages.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4284,24 +4368,24 @@ function Dashboard() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                                    lineNumber: 1901,
+                                    lineNumber: 2004,
                                     columnNumber: 43
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 1645,
+                            lineNumber: 1748,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                    lineNumber: 1630,
+                    lineNumber: 1733,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                lineNumber: 1629,
+                lineNumber: 1732,
                 columnNumber: 37
             }, this),
             operationLoading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4339,7 +4423,7 @@ function Dashboard() {
                             }
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 1934,
+                            lineNumber: 2037,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4351,7 +4435,7 @@ function Dashboard() {
                             children: "Processing..."
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 1943,
+                            lineNumber: 2046,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
@@ -4362,28 +4446,28 @@ function Dashboard() {
             `
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                            lineNumber: 1950,
+                            lineNumber: 2053,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                    lineNumber: 1927,
+                    lineNumber: 2030,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-                lineNumber: 1914,
+                lineNumber: 2017,
                 columnNumber: 28
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/sep/Sentinel/frontend/src/app/page.tsx",
-        lineNumber: 907,
+        lineNumber: 972,
         columnNumber: 10
     }, this);
 }
-_s(Dashboard, "BpyAPd/JJi1ODEZQXkAgmcF2jyc=", false, function() {
+_s(Dashboard, "50ErHOSiWGJ9BC/8F/zXYg1E4wY=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$hooks$2f$useAuth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"]
     ];

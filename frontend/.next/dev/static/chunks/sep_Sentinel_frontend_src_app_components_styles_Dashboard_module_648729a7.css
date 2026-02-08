@@ -1,224 +1,4 @@
 /* [project]/sep/Sentinel/frontend/src/app/components/styles/Dashboard.module.css [app-client] (css) */
-.Dashboard-module__Viygfq__stabilityMessage {
-  color: #fffc;
-  font-size: 1rem;
-}
-
-.Dashboard-module__Viygfq__fuelGauge {
-  background: #ffffff0d;
-  border: 1px solid #ffffff1a;
-  border-radius: 16px;
-  margin-bottom: 2rem;
-  padding: 2rem;
-}
-
-.Dashboard-module__Viygfq__gaugeHeader {
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  display: flex;
-}
-
-.Dashboard-module__Viygfq__gaugeTitle {
-  color: #fff;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.Dashboard-module__Viygfq__gaugeAmount {
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.Dashboard-module__Viygfq__gaugeBar {
-  background: #ffffff1a;
-  border-radius: 6px;
-  height: 12px;
-  margin-bottom: 1rem;
-  overflow: hidden;
-}
-
-.Dashboard-module__Viygfq__gaugeFill {
-  background: linear-gradient(90deg, #06b6d4 0%, #f97316 100%);
-  border-radius: 6px;
-  height: 100%;
-  transition: width .3s;
-}
-
-.Dashboard-module__Viygfq__gaugeLabels {
-  color: #ffffffb3;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  font-size: .9rem;
-  display: flex;
-}
-
-.Dashboard-module__Viygfq__gaugeLeft, .Dashboard-module__Viygfq__gaugeCenter, .Dashboard-module__Viygfq__gaugeRight {
-  color: #ffffffb3;
-}
-
-.Dashboard-module__Viygfq__gaugeTime {
-  text-align: center;
-  color: #fff9;
-  font-size: .85rem;
-}
-
-.Dashboard-module__Viygfq__todaysActivity, .Dashboard-module__Viygfq__categoryBreakdown {
-  margin-bottom: 2rem;
-}
-
-.Dashboard-module__Viygfq__sectionTitle {
-  color: #fff;
-  margin-bottom: 1.5rem;
-  font-size: 1.3rem;
-  font-weight: 600;
-}
-
-.Dashboard-module__Viygfq__activityCards {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
-  margin-bottom: 2rem;
-  display: grid;
-}
-
-.Dashboard-module__Viygfq__activityCard {
-  background: #ffffff0d;
-  border: 1px solid #ffffff1a;
-  border-radius: 12px;
-  gap: 1rem;
-  padding: 1.5rem;
-  display: flex;
-}
-
-.Dashboard-module__Viygfq__activityIcon {
-  font-size: 2.5rem;
-}
-
-.Dashboard-module__Viygfq__activityDetails {
-  flex: 1;
-}
-
-.Dashboard-module__Viygfq__activityName {
-  color: #fff;
-  margin-bottom: .5rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.Dashboard-module__Viygfq__activityAmount {
-  color: #3b82f6;
-  margin-bottom: .5rem;
-  font-size: 1.3rem;
-  font-weight: bold;
-}
-
-.Dashboard-module__Viygfq__activityCategory {
-  color: #fff9;
-  font-size: .85rem;
-}
-
-.Dashboard-module__Viygfq__breakdownCards {
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1rem;
-  display: grid;
-}
-
-.Dashboard-module__Viygfq__breakdownCard {
-  background: #ffffff0d;
-  border: 1px solid #ffffff1a;
-  border-radius: 12px;
-  gap: 1rem;
-  padding: 1.5rem;
-  display: flex;
-}
-
-.Dashboard-module__Viygfq__breakdownIcon {
-  font-size: 2rem;
-}
-
-.Dashboard-module__Viygfq__breakdownDetails {
-  flex: 1;
-}
-
-.Dashboard-module__Viygfq__breakdownHeader {
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  display: flex;
-}
-
-.Dashboard-module__Viygfq__breakdownName {
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.Dashboard-module__Viygfq__breakdownAmount {
-  color: #3b82f6;
-  font-size: 1.1rem;
-  font-weight: bold;
-}
-
-.Dashboard-module__Viygfq__breakdownBar {
-  background: #ffffff1a;
-  border-radius: 4px;
-  height: 8px;
-  overflow: hidden;
-}
-
-.Dashboard-module__Viygfq__breakdownFill {
-  background: linear-gradient(90deg, #4ade80, #3b82f6);
-  border-radius: 4px;
-  height: 100%;
-  transition: width .3s;
-}
-
-.Dashboard-module__Viygfq__fab {
-  color: #fff;
-  cursor: pointer;
-  background: linear-gradient(135deg, #3b82f6, #06b6d4);
-  border: none;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  width: 60px;
-  height: 60px;
-  transition: transform .2s;
-  display: flex;
-  position: fixed;
-  bottom: 100px;
-  right: 2rem;
-  box-shadow: 0 4px 20px #3b82f680;
-}
-
-.Dashboard-module__Viygfq__bottomNav {
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  background: #0a1628f2;
-  border-top: 1px solid #ffffff1a;
-  justify-content: center;
-  padding: 1rem;
-  display: flex;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-@media (max-width: 768px) {
-  .Dashboard-module__Viygfq__header, .Dashboard-module__Viygfq__mainContent {
-    padding: 1rem;
-  }
-
-  .Dashboard-module__Viygfq__activityCards, .Dashboard-module__Viygfq__breakdownCards {
-    grid-template-columns: 1fr;
-  }
-
-  .Dashboard-module__Viygfq__fab {
-    bottom: 80px;
-    right: 1rem;
-  }
-}
-
 .Dashboard-module__Viygfq__app {
   background: linear-gradient(135deg, #0a1628 0%, #1a2642 100%);
   min-height: 100vh;
@@ -352,28 +132,184 @@
   font-weight: 600;
 }
 
-.Dashboard-module__Viygfq__buttonGrid {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+.Dashboard-module__Viygfq__stabilityMessage {
+  color: #fffc;
+  font-size: 1rem;
+}
+
+.Dashboard-module__Viygfq__fuelGauge {
+  background: #ffffff0d;
+  border: 1px solid #ffffff1a;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  padding: 2rem;
+}
+
+.Dashboard-module__Viygfq__gaugeHeader {
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.Dashboard-module__Viygfq__gaugeTitle {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.Dashboard-module__Viygfq__gaugeAmount {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.Dashboard-module__Viygfq__gaugeBar {
+  background: #ffffff1a;
+  border-radius: 6px;
+  height: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.Dashboard-module__Viygfq__gaugeFill {
+  background: linear-gradient(90deg, #06b6d4 0%, #f97316 100%);
+  border-radius: 6px;
+  height: 100%;
+  transition: width .3s;
+}
+
+.Dashboard-module__Viygfq__gaugeLabels {
+  color: #ffffffb3;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: .9rem;
+  display: flex;
+}
+
+.Dashboard-module__Viygfq__gaugeLeft, .Dashboard-module__Viygfq__gaugeCenter, .Dashboard-module__Viygfq__gaugeRight {
+  color: #ffffffb3;
+}
+
+.Dashboard-module__Viygfq__gaugeTime {
+  text-align: center;
+  color: #fff9;
+  font-size: .85rem;
+}
+
+.Dashboard-module__Viygfq__todaysActivity, .Dashboard-module__Viygfq__categoryBreakdown {
+  margin-bottom: 2rem;
+}
+
+.Dashboard-module__Viygfq__sectionTitle {
+  color: #fff;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.Dashboard-module__Viygfq__activityCards {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1rem;
-  margin-top: 2rem;
+  margin-bottom: 2rem;
   display: grid;
 }
 
-.Dashboard-module__Viygfq__demoButton {
-  color: #fff;
+.Dashboard-module__Viygfq__activityCard {
   cursor: pointer;
   background: #ffffff0d;
-  border: 1px solid #fff3;
+  border: 1px solid #ffffff1a;
   border-radius: 12px;
+  gap: 1rem;
   padding: 1.5rem;
-  font-size: 1rem;
-  transition: all .3s;
+  transition: all .2s;
+  display: flex;
 }
 
-.Dashboard-module__Viygfq__demoButton:hover {
-  background: #ffffff1a;
-  border-color: #3b82f6;
+.Dashboard-module__Viygfq__activityCard:hover {
+  background: #ffffff14;
   transform: translateY(-2px);
+}
+
+.Dashboard-module__Viygfq__activityIcon {
+  font-size: 2.5rem;
+}
+
+.Dashboard-module__Viygfq__activityDetails {
+  flex: 1;
+}
+
+.Dashboard-module__Viygfq__activityName {
+  color: #fff;
+  margin-bottom: .5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.Dashboard-module__Viygfq__activityAmount {
+  color: #3b82f6;
+  margin-bottom: .5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.Dashboard-module__Viygfq__activityCategory {
+  color: #fff9;
+  font-size: .85rem;
+}
+
+.Dashboard-module__Viygfq__breakdownCards {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+  display: grid;
+}
+
+.Dashboard-module__Viygfq__breakdownCard {
+  background: #ffffff0d;
+  border: 1px solid #ffffff1a;
+  border-radius: 12px;
+  gap: 1rem;
+  padding: 1.5rem;
+  display: flex;
+}
+
+.Dashboard-module__Viygfq__breakdownIcon {
+  font-size: 2rem;
+}
+
+.Dashboard-module__Viygfq__breakdownDetails {
+  flex: 1;
+}
+
+.Dashboard-module__Viygfq__breakdownHeader {
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.Dashboard-module__Viygfq__breakdownName {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.Dashboard-module__Viygfq__breakdownAmount {
+  color: #3b82f6;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.Dashboard-module__Viygfq__breakdownBar {
+  background: #ffffff1a;
+  border-radius: 4px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.Dashboard-module__Viygfq__breakdownFill {
+  background: linear-gradient(90deg, #4ade80, #3b82f6);
+  border-radius: 4px;
+  height: 100%;
+  transition: width .3s;
 }
 
 .Dashboard-module__Viygfq__fab {
@@ -383,15 +319,14 @@
   background: linear-gradient(135deg, #3b82f6, #06b6d4);
   border: none;
   border-radius: 50%;
+  flex-shrink: 0;
   justify-content: center;
   align-items: center;
   width: 60px;
   height: 60px;
   transition: transform .2s;
   display: flex;
-  position: fixed;
-  bottom: 100px;
-  right: 2rem;
+  position: relative;
   box-shadow: 0 4px 20px #3b82f680;
 }
 
@@ -405,7 +340,8 @@
   z-index: 50;
   background: #0a1628f2;
   border-top: 1px solid #ffffff1a;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   padding: 1rem;
   display: flex;
   position: fixed;
@@ -585,13 +521,6 @@
   font-size: 1.1rem;
 }
 
-.Dashboard-module__Viygfq__telegramSection .Dashboard-module__Viygfq__telegramStatus {
-  background: none;
-  margin-bottom: 1rem;
-  padding: 0;
-  font-size: 1rem;
-}
-
 .Dashboard-module__Viygfq__disconnectButton {
   color: #fffc;
   cursor: pointer;
@@ -626,46 +555,6 @@
   transform: translateY(-2px);
 }
 
-.Dashboard-module__Viygfq__consoleOutput {
-  background: #0006;
-  border: 1px solid #ffffff1a;
-  border-radius: 8px;
-  max-height: 500px;
-  padding: 1.5rem;
-  font-family: Courier New, monospace;
-  font-size: .9rem;
-  overflow-y: auto;
-}
-
-.Dashboard-module__Viygfq__consoleLine {
-  color: #fff;
-  margin-bottom: .75rem;
-  line-height: 1.6;
-}
-
-.Dashboard-module__Viygfq__timestamp {
-  color: #ffffff80;
-  margin-right: .5rem;
-}
-
-.Dashboard-module__Viygfq__infoTag {
-  color: #3b82f6;
-  margin-right: .5rem;
-  font-weight: bold;
-}
-
-.Dashboard-module__Viygfq__traceTag {
-  color: #06b6d4;
-  margin-right: .5rem;
-  font-weight: bold;
-}
-
-.Dashboard-module__Viygfq__debugTag {
-  color: #a855f7;
-  margin-right: .5rem;
-  font-weight: bold;
-}
-
 .Dashboard-module__Viygfq__formGroup {
   margin-bottom: 1.5rem;
 }
@@ -673,7 +562,6 @@
 .Dashboard-module__Viygfq__formRow {
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  height: 30px;
   display: grid;
 }
 
@@ -686,6 +574,7 @@
 
 .Dashboard-module__Viygfq__input, .Dashboard-module__Viygfq__select {
   color: #fff;
+  box-sizing: border-box;
   background: #ffffff0d;
   border: 1px solid #fff3;
   border-radius: 8px;
@@ -703,6 +592,30 @@
 .Dashboard-module__Viygfq__select option {
   color: #fff;
   background: #1a2642;
+}
+
+.Dashboard-module__Viygfq__textarea {
+  color: #fff;
+  resize: vertical;
+  box-sizing: border-box;
+  background: #ffffff0d;
+  border: 1px solid #fff3;
+  border-radius: 12px;
+  width: 100%;
+  padding: 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color .2s;
+}
+
+.Dashboard-module__Viygfq__textarea:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+.Dashboard-module__Viygfq__textareaGroup {
+  margin-bottom: 1.5rem;
+  position: relative;
 }
 
 .Dashboard-module__Viygfq__insightBox {
@@ -771,91 +684,6 @@
   background: #ef44441a;
 }
 
-.Dashboard-module__Viygfq__textareaGroup {
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-
-.Dashboard-module__Viygfq__textarea {
-  color: #fff;
-  resize: vertical;
-  background: #ffffff0d;
-  border: 1px solid #fff3;
-  border-radius: 12px;
-  width: 100%;
-  padding: 1rem;
-  font-family: inherit;
-  font-size: 1rem;
-  transition: border-color .2s;
-}
-
-.Dashboard-module__Viygfq__textarea:focus {
-  border-color: #3b82f6;
-  outline: none;
-}
-
-.Dashboard-module__Viygfq__textarea::placeholder {
-  color: #fff6;
-}
-
-.Dashboard-module__Viygfq__micButton {
-  cursor: pointer;
-  background: #ffffff1a;
-  border: none;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  font-size: 1.2rem;
-  transition: background .2s;
-  display: flex;
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-}
-
-.Dashboard-module__Viygfq__micButton:hover {
-  background: #fff3;
-}
-
-.Dashboard-module__Viygfq__actionRow {
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-}
-
-.Dashboard-module__Viygfq__scanButton {
-  color: #fff;
-  cursor: pointer;
-  background: #ffffff0d;
-  border: 1px solid #fff3;
-  border-radius: 12px;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  gap: .5rem;
-  padding: .875rem;
-  font-size: 1rem;
-  transition: all .2s;
-  display: flex;
-}
-
-.Dashboard-module__Viygfq__scanButton:hover {
-  background: #ffffff1a;
-  border-color: #3b82f6;
-}
-
-.Dashboard-module__Viygfq__dateSelect {
-  color: #fff;
-  cursor: pointer;
-  background: #ffffff0d;
-  border: 1px solid #fff3;
-  border-radius: 12px;
-  padding: .875rem 1rem;
-  font-size: 1rem;
-}
-
 .Dashboard-module__Viygfq__analyzeButton {
   color: #fff;
   cursor: pointer;
@@ -873,11 +701,99 @@
   transform: translateY(-2px);
 }
 
+.Dashboard-module__Viygfq__consoleOutput {
+  background: #0006;
+  border: 1px solid #ffffff1a;
+  border-radius: 8px;
+  max-height: 500px;
+  padding: 1.5rem;
+  font-family: Courier New, monospace;
+  font-size: .9rem;
+  overflow-y: auto;
+}
+
+.Dashboard-module__Viygfq__consoleLine {
+  color: #fff;
+  margin-bottom: .75rem;
+  line-height: 1.6;
+}
+
+.Dashboard-module__Viygfq__timestamp {
+  color: #ffffff80;
+  margin-right: .5rem;
+}
+
+.Dashboard-module__Viygfq__infoTag {
+  color: #3b82f6;
+  margin-right: .5rem;
+  font-weight: bold;
+}
+
+.Dashboard-module__Viygfq__traceTag {
+  color: #06b6d4;
+  margin-right: .5rem;
+  font-weight: bold;
+}
+
+.Dashboard-module__Viygfq__debugTag {
+  color: #a855f7;
+  margin-right: .5rem;
+  font-weight: bold;
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .Dashboard-module__Viygfq__header {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .Dashboard-module__Viygfq__mainContent {
+    padding: 1.5rem;
+  }
+
+  .Dashboard-module__Viygfq__scoreRing {
+    width: 220px;
+    height: 220px;
+  }
+
+  .Dashboard-module__Viygfq__scoreNumber {
+    font-size: 3.5rem;
+  }
+
+  .Dashboard-module__Viygfq__activityCards, .Dashboard-module__Viygfq__breakdownCards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .Dashboard-module__Viygfq__formRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .Dashboard-module__Viygfq__modal, .Dashboard-module__Viygfq__wideModal {
+    max-width: 90vw;
+  }
+
+  .Dashboard-module__Viygfq__fab {
+    width: 56px;
+    height: 56px;
+  }
+}
+
 @media (max-width: 768px) {
+  .Dashboard-module__Viygfq__userAvatar {
+    float: right;
+    position: relative;
+    top: -50px;
+    left: 90%;
+  }
+
   .Dashboard-module__Viygfq__header {
     flex-wrap: wrap;
     gap: .5rem;
     padding: 1rem;
+  }
+
+  .Dashboard-module__Viygfq__logoText {
+    font-size: 1.25rem;
   }
 
   .Dashboard-module__Viygfq__headerRight {
@@ -886,15 +802,57 @@
     width: 100%;
   }
 
+  .Dashboard-module__Viygfq__telegramStatus {
+    padding: .4rem .8rem;
+    font-size: .8rem;
+  }
+
   .Dashboard-module__Viygfq__dateTime {
     display: none;
   }
 
   .Dashboard-module__Viygfq__mainContent {
-    gap: 1rem;
     max-width: 100%;
     padding: 1rem;
     overflow-x: hidden;
+  }
+
+  .Dashboard-module__Viygfq__healthScore {
+    margin-bottom: 2rem;
+  }
+
+  .Dashboard-module__Viygfq__scoreRing {
+    width: 200px;
+    height: 200px;
+  }
+
+  .Dashboard-module__Viygfq__scoreNumber {
+    font-size: 3rem;
+  }
+
+  .Dashboard-module__Viygfq__scoreLabel {
+    font-size: .8rem;
+  }
+
+  .Dashboard-module__Viygfq__scoreStatus {
+    font-size: 1rem;
+  }
+
+  .Dashboard-module__Viygfq__fuelGauge {
+    padding: 1.5rem;
+  }
+
+  .Dashboard-module__Viygfq__gaugeTitle {
+    font-size: 1rem;
+  }
+
+  .Dashboard-module__Viygfq__gaugeAmount {
+    font-size: 1.25rem;
+  }
+
+  .Dashboard-module__Viygfq__activityCards, .Dashboard-module__Viygfq__breakdownCards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .Dashboard-module__Viygfq__modal {
@@ -910,6 +868,18 @@
     max-width: 95vw !important;
   }
 
+  .Dashboard-module__Viygfq__modalHeader {
+    padding: 1rem;
+  }
+
+  .Dashboard-module__Viygfq__modalHeader h2 {
+    font-size: 1.25rem;
+  }
+
+  .Dashboard-module__Viygfq__modalBody {
+    padding: 1.5rem;
+  }
+
   .Dashboard-module__Viygfq__formRow {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -917,66 +887,18 @@
 
   .Dashboard-module__Viygfq__buttonRow {
     flex-direction: column;
-    gap: .5rem;
+    gap: .75rem;
   }
 
   .Dashboard-module__Viygfq__fab {
     width: 50px;
     height: 50px;
-    font-size: 24px;
-    bottom: 80px;
-    right: 1rem;
   }
 
-  .Dashboard-module__Viygfq__healthScore {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .Dashboard-module__Viygfq__scoreRing, .Dashboard-module__Viygfq__scoreRing svg {
-    width: 150px;
-    height: 150px;
-  }
-
-  .Dashboard-module__Viygfq__scoreNumber {
-    font-size: 28px;
-  }
-
-  .Dashboard-module__Viygfq__activityCards, .Dashboard-module__Viygfq__breakdownCards, .Dashboard-module__Viygfq__buttonGrid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .Dashboard-module__Viygfq__transactionList {
-    gap: .75rem;
-  }
-
-  .Dashboard-module__Viygfq__transactionItem {
-    gap: .75rem;
-    padding: .75rem;
-  }
-
-  .Dashboard-module__Viygfq__textarea, .Dashboard-module__Viygfq__input, .Dashboard-module__Viygfq__select, .Dashboard-module__Viygfq__button {
+  .Dashboard-module__Viygfq__textarea, .Dashboard-module__Viygfq__input, .Dashboard-module__Viygfq__select {
     min-height: 44px;
     padding: .75rem;
     font-size: 16px;
-  }
-
-  .Dashboard-module__Viygfq__formGroup {
-    gap: .5rem;
-  }
-
-  .Dashboard-module__Viygfq__modalHeader {
-    padding: 1rem;
-    font-size: 18px;
-  }
-
-  .Dashboard-module__Viygfq__profileSection {
-    gap: 1rem;
-  }
-
-  .Dashboard-module__Viygfq__profileItem {
-    padding: 1rem;
   }
 }
 
@@ -987,15 +909,17 @@
 
   .Dashboard-module__Viygfq__header {
     flex-direction: column;
+    align-items: flex-start;
     padding: .75rem;
   }
 
   .Dashboard-module__Viygfq__logo {
-    min-width: 50px;
+    width: 100%;
   }
 
   .Dashboard-module__Viygfq__headerRight {
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
   }
@@ -1005,33 +929,96 @@
     height: 32px;
   }
 
+  .Dashboard-module__Viygfq__userAvatar svg {
+    width: 18px;
+    height: 18px;
+  }
+
   .Dashboard-module__Viygfq__mainContent {
-    flex-direction: column;
-    gap: .75rem;
     padding: .75rem;
   }
 
   .Dashboard-module__Viygfq__healthScore {
     border-radius: 12px;
+    margin-bottom: 1.5rem;
     padding: 1rem;
   }
 
-  .Dashboard-module__Viygfq__scoreRing, .Dashboard-module__Viygfq__scoreRing svg {
-    width: 120px;
-    height: 120px;
+  .Dashboard-module__Viygfq__scoreRing {
+    width: 160px;
+    height: 160px;
   }
 
   .Dashboard-module__Viygfq__scoreNumber {
-    font-size: 24px;
+    font-size: 2.5rem;
   }
 
-  .Dashboard-module__Viygfq__scoreStatus {
-    font-size: 12px;
+  .Dashboard-module__Viygfq__scoreLabel {
+    font-size: .75rem;
   }
 
-  .Dashboard-module__Viygfq__activityCards, .Dashboard-module__Viygfq__breakdownCards, .Dashboard-module__Viygfq__buttonGrid {
-    grid-template-columns: 1fr;
-    gap: .75rem;
+  .Dashboard-module__Viygfq__scoreStatus, .Dashboard-module__Viygfq__stabilityMessage {
+    font-size: .9rem;
+  }
+
+  .Dashboard-module__Viygfq__fuelGauge {
+    padding: 1.25rem;
+  }
+
+  .Dashboard-module__Viygfq__gaugeTitle {
+    font-size: .9rem;
+  }
+
+  .Dashboard-module__Viygfq__gaugeAmount {
+    font-size: 1.1rem;
+  }
+
+  .Dashboard-module__Viygfq__gaugeBar {
+    height: 8px;
+  }
+
+  .Dashboard-module__Viygfq__gaugeLabels {
+    font-size: .75rem;
+  }
+
+  .Dashboard-module__Viygfq__sectionTitle {
+    font-size: 1.1rem;
+  }
+
+  .Dashboard-module__Viygfq__activityCard {
+    padding: 1rem;
+  }
+
+  .Dashboard-module__Viygfq__activityIcon {
+    font-size: 2rem;
+  }
+
+  .Dashboard-module__Viygfq__activityName {
+    font-size: .95rem;
+  }
+
+  .Dashboard-module__Viygfq__activityAmount {
+    font-size: 1.1rem;
+  }
+
+  .Dashboard-module__Viygfq__activityCategory {
+    font-size: .75rem;
+  }
+
+  .Dashboard-module__Viygfq__breakdownCard {
+    padding: 1rem;
+  }
+
+  .Dashboard-module__Viygfq__breakdownIcon {
+    font-size: 1.75rem;
+  }
+
+  .Dashboard-module__Viygfq__breakdownName {
+    font-size: .95rem;
+  }
+
+  .Dashboard-module__Viygfq__breakdownAmount {
+    font-size: 1rem;
   }
 
   .Dashboard-module__Viygfq__modal {
@@ -1049,72 +1036,131 @@
 
   .Dashboard-module__Viygfq__modalOverlay {
     align-items: flex-end;
+    padding: 0;
   }
 
   .Dashboard-module__Viygfq__modalHeader {
-    padding: .75rem;
-    font-size: 16px;
+    padding: .75rem 1rem;
+  }
+
+  .Dashboard-module__Viygfq__modalHeader h2 {
+    font-size: 1.1rem;
+  }
+
+  .Dashboard-module__Viygfq__closeButton {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
   }
 
   .Dashboard-module__Viygfq__modalBody {
     max-height: 80vh;
-    padding: .75rem;
+    padding: 1rem;
     overflow-y: auto;
   }
 
-  .Dashboard-module__Viygfq__textarea, .Dashboard-module__Viygfq__input, .Dashboard-module__Viygfq__select, .Dashboard-module__Viygfq__button {
-    width: 100%;
-    min-height: 44px;
-    padding: .75rem;
-    font-size: 16px;
-  }
-
-  .Dashboard-module__Viygfq__formGroup {
-    width: 100%;
-    margin: 0;
-  }
-
-  .Dashboard-module__Viygfq__label {
-    font-size: 13px;
+  .Dashboard-module__Viygfq__formGroup label {
+    font-size: .85rem;
   }
 
   .Dashboard-module__Viygfq__fab {
     width: 48px;
     height: 48px;
-    bottom: 70px;
-    right: .75rem;
   }
 
-  .Dashboard-module__Viygfq__transactionList {
+  .Dashboard-module__Viygfq__fab svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .Dashboard-module__Viygfq__profileAvatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .Dashboard-module__Viygfq__profileAvatar svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .Dashboard-module__Viygfq__profileName {
+    font-size: 1.25rem;
+  }
+
+  .Dashboard-module__Viygfq__settingField {
+    flex-direction: column;
+    align-items: flex-start;
     gap: .5rem;
+    padding: .75rem 1rem;
   }
 
-  .Dashboard-module__Viygfq__transactionItem {
-    gap: .5rem;
-    padding: .5rem;
-    font-size: 13px;
-  }
-
-  .Dashboard-module__Viygfq__transactionAmount {
-    font-size: 14px;
-  }
-
-  .Dashboard-module__Viygfq__emoji {
-    font-size: 20px;
+  .Dashboard-module__Viygfq__settingField label, .Dashboard-module__Viygfq__editButton {
+    width: 100%;
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (max-height: 500px) and (orientation: landscape) {
+  .Dashboard-module__Viygfq__scoreRing {
+    width: 140px;
+    height: 140px;
+  }
+
+  .Dashboard-module__Viygfq__scoreNumber {
+    font-size: 2rem;
+  }
+
+  .Dashboard-module__Viygfq__modal {
+    max-height: 95vh;
+  }
+
+  .Dashboard-module__Viygfq__modalBody {
+    max-height: 70vh;
+  }
+}
+
+.Dashboard-module__Viygfq__app {
+  padding-bottom: 100px !important;
+}
+
+.Dashboard-module__Viygfq__mainContent {
+  min-height: 100vh;
+  padding-bottom: 20px !important;
+  overflow-y: visible !important;
+}
+
+@media (max-width: 768px) {
+  .Dashboard-module__Viygfq__app {
+    min-height: 100vh;
+    overflow-y: auto;
+    padding-bottom: 120px !important;
+  }
+
   .Dashboard-module__Viygfq__mainContent {
-    gap: 1.5rem;
+    min-height: calc(100vh - 150px);
+    padding: 1rem;
+    position: relative;
+    top: -20px;
+    padding-bottom: 20px !important;
   }
 
-  .Dashboard-module__Viygfq__activityCards, .Dashboard-module__Viygfq__breakdownCards {
-    grid-template-columns: 1fr 1fr;
+  .Dashboard-module__Viygfq__bottomNav {
+    padding-bottom: env(safe-area-inset-bottom, .5rem);
+    position: fixed;
+    bottom: 0;
   }
+}
 
-  .Dashboard-module__Viygfq__modal, .Dashboard-module__Viygfq__wideModal {
-    max-width: 90vw;
+.Dashboard-module__Viygfq__todaysActivity, .Dashboard-module__Viygfq__categoryBreakdown, .Dashboard-module__Viygfq__fuelGauge {
+  visibility: visible;
+  opacity: 1;
+  width: 100%;
+  margin-bottom: 2rem;
+  display: block;
+}
+
+@supports (padding: max(0px)) {
+  .Dashboard-module__Viygfq__app {
+    padding-bottom: max(140px, calc(80px + env(safe-area-inset-bottom)));
   }
 }
 
