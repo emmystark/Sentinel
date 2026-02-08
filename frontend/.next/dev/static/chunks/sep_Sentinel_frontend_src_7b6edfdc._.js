@@ -122,35 +122,84 @@ function LoginPage() {
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             style: {
                 width: '100%',
-                maxWidth: '400px',
-                background: 'rgba(30,41,59,0.8)',
-                borderRadius: '16px',
-                padding: '32px',
-                border: '1px solid rgba(255,255,255,0.1)'
+                maxWidth: '420px',
+                background: 'rgba(15, 23, 42, 0.9)',
+                borderRadius: '12px',
+                padding: '40px 32px',
+                border: '1px solid rgba(255,255,255,0.08)',
+                boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)'
             },
             children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     style: {
-                        color: '#fff',
-                        fontSize: '1.5rem',
-                        marginBottom: '8px'
+                        marginBottom: '32px',
+                        textAlign: 'center'
                     },
-                    children: "Sign in to Sentinel"
-                }, void 0, false, {
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                            src: "./logo.png",
+                            style: {
+                                width: '48px',
+                                height: '48px',
+                                background: 'white',
+                                borderRadius: '50%',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                margin: '0 auto 16px',
+                                fontWeight: 'bold',
+                                color: '#fff',
+                                fontSize: '20px'
+                            },
+                            alt: ""
+                        }, void 0, false, {
+                            fileName: "[project]/sep/Sentinel/frontend/src/app/login/page.tsx",
+                            lineNumber: 107,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                            style: {
+                                color: '#fff',
+                                fontSize: '24px',
+                                marginBottom: '4px',
+                                fontWeight: '700'
+                            },
+                            children: "Sentinel"
+                        }, void 0, false, {
+                            fileName: "[project]/sep/Sentinel/frontend/src/app/login/page.tsx",
+                            lineNumber: 121,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            style: {
+                                color: '#94a3b8',
+                                fontSize: '13px',
+                                margin: 0
+                            },
+                            children: "Financial management simplified"
+                        }, void 0, false, {
+                            fileName: "[project]/sep/Sentinel/frontend/src/app/login/page.tsx",
+                            lineNumber: 127,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/login/page.tsx",
-                    lineNumber: 102,
+                    lineNumber: 103,
                     columnNumber: 9
                 }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                     style: {
-                        color: '#94a3b8',
-                        fontSize: '14px',
-                        marginBottom: '24px'
+                        color: '#fff',
+                        fontSize: '18px',
+                        marginBottom: '24px',
+                        fontWeight: '600',
+                        textAlign: 'center'
                     },
-                    children: "Track expenses and reach your savings goals"
+                    children: "Sign in to your account"
                 }, void 0, false, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/login/page.tsx",
-                    lineNumber: 107,
+                    lineNumber: 133,
                     columnNumber: 9
                 }, this),
                 error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -166,7 +215,7 @@ function LoginPage() {
                     children: error
                 }, void 0, false, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/login/page.tsx",
-                    lineNumber: 113,
+                    lineNumber: 141,
                     columnNumber: 19
                 }, this),
                 success && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -182,7 +231,7 @@ function LoginPage() {
                     children: success
                 }, void 0, false, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/login/page.tsx",
-                    lineNumber: 125,
+                    lineNumber: 153,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -212,7 +261,7 @@ function LoginPage() {
                             }
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/login/page.tsx",
-                            lineNumber: 142,
+                            lineNumber: 170,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -235,7 +284,7 @@ function LoginPage() {
                             }
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/login/page.tsx",
-                            lineNumber: 151,
+                            lineNumber: 179,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -255,13 +304,13 @@ function LoginPage() {
                             children: loading ? 'Signing in...' : 'Sign in'
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/login/page.tsx",
-                            lineNumber: 160,
+                            lineNumber: 188,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/login/page.tsx",
-                    lineNumber: 137,
+                    lineNumber: 165,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -280,7 +329,7 @@ function LoginPage() {
                             }
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/login/page.tsx",
-                            lineNumber: 181,
+                            lineNumber: 209,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -291,7 +340,7 @@ function LoginPage() {
                             children: "or"
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/login/page.tsx",
-                            lineNumber: 186,
+                            lineNumber: 214,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -302,13 +351,13 @@ function LoginPage() {
                             }
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/login/page.tsx",
-                            lineNumber: 190,
+                            lineNumber: 218,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/login/page.tsx",
-                    lineNumber: 175,
+                    lineNumber: 203,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -331,13 +380,13 @@ function LoginPage() {
                             children: "Sign up"
                         }, void 0, false, {
                             fileName: "[project]/sep/Sentinel/frontend/src/app/login/page.tsx",
-                            lineNumber: 226,
+                            lineNumber: 254,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/sep/Sentinel/frontend/src/app/login/page.tsx",
-                    lineNumber: 219,
+                    lineNumber: 247,
                     columnNumber: 9
                 }, this)
             ]

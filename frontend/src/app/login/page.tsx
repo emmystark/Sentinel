@@ -91,14 +91,32 @@ export default function LoginPage() {
     }}>
       <div style={{
         width: '100%',
-        maxWidth: '400px',
-        background: 'rgba(30,41,59,0.8)',
-        borderRadius: '16px',
-        padding: '32px',
-        border: '1px solid rgba(255,255,255,0.1)'
+        maxWidth: '420px',
+        background: 'rgba(15, 23, 42, 0.9)',
+        borderRadius: '12px',
+        padding: '40px 32px',
+        border: '1px solid rgba(255,255,255,0.08)',
+        boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)'
       }}>
-        <h1 style={{ color: '#fff', fontSize: '1.5rem', marginBottom: '8px' }}>Sign in to Sentinel</h1>
-        <p style={{ color: '#94a3b8', fontSize: '14px', marginBottom: '24px' }}>Track expenses and reach your savings goals</p>
+        <div style={{ marginBottom: '32px', textAlign: 'center' }}>
+          <img src="./logo.png" style={{
+            width: '48px',
+            height: '48px',
+            background: 'white',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            margin: '0 auto 16px',
+            fontWeight: 'bold',
+            color: '#fff',
+            fontSize: '20px'
+          }} alt="" />
+
+          <h1 style={{ color: '#fff', fontSize: '24px', marginBottom: '4px', fontWeight: '700' }}>Sentinel</h1>
+          <p style={{ color: '#94a3b8', fontSize: '13px', margin: 0 }}>Financial management simplified</p>
+        </div>
+        <h2 style={{ color: '#fff', fontSize: '18px', marginBottom: '24px', fontWeight: '600', textAlign: 'center' }}>Sign in to your account</h2>
 
         {error && (
           <div style={{ 

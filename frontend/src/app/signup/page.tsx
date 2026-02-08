@@ -124,6 +124,24 @@ export default function SignupPage() {
         padding: '32px',
         border: '1px solid rgba(255,255,255,0.1)'
       }}>
+        <div style={{ marginBottom: '32px', textAlign: 'center' }}>
+          <img src="./logo.png" style={{
+            width: '48px',
+            height: '48px',
+            background: 'white',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            margin: '0 auto 16px',
+            fontWeight: 'bold',
+            color: '#fff',
+            fontSize: '20px'
+          }} alt="" />
+
+          <h1 style={{ color: '#fff', fontSize: '24px', marginBottom: '4px', fontWeight: '700' }}>Sentinel</h1>
+          <p style={{ color: '#94a3b8', fontSize: '13px', margin: 0 }}>Financial management simplified</p>
+        </div>
         <h1 style={{ color: '#fff', fontSize: '1.5rem', marginBottom: '8px' }}>Create account</h1>
         <p style={{ color: '#94a3b8', fontSize: '14px', marginBottom: '24px' }}>Join Sentinel to track expenses and save smarter</p>
 

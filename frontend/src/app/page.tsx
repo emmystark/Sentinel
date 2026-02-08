@@ -950,6 +950,29 @@ export default function Dashboard() {
 
       <main className={styles.mainContent}>
         <div className={styles.healthScore}>
+          {authLoading || loading || !profileLoaded ? (
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              paddingTop: '40px',
+              paddingBottom: '40px'
+            }}>
+              <div style={{
+                width: '60px',
+                height: '60px',
+                borderRadius: '50%',
+                border: '3px solid rgba(59, 130, 246, 0.2)',
+                borderTop: '3px solid #3b82f6',
+                animation: 'spin 0.8s linear infinite',
+                marginBottom: '16px'
+              }} />
+              <p style={{ color: '#94a3b8', fontSize: '14px', textAlign: 'center' }}>Calculating your financial health...</p>
+              <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+            </div>
+          ) : (
+            <>
           <div className={styles.scoreRing}>
             <svg className={styles.ringSvg} viewBox="0 0 200 200">
               <defs>
@@ -985,6 +1008,8 @@ export default function Dashboard() {
              healthScore > 50 ? 'Stable. Your pace is within a reasonable range.' :
              'Fair. Consider reducing discretionary spending.'}
           </p>
+            </>
+          )}
         </div>
 
         {/* AI Tips Section */}
