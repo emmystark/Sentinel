@@ -25,7 +25,7 @@ load_dotenv()
 
 class SentinelSetup:
     def __init__(self):
-        self.backend_url = os.getenv("BACKEND_URL", "http://localhost:8000")
+        self.backend_url = os.getenv("BACKEND_URL", "https://sentinel-o0yb.onrender.com")
         self.supabase_url = os.getenv("SUPABASE_URL", "")
         self.supabase_key = os.getenv("SUPABASE_KEY", "")
         self.telegram_token = os.getenv("TELEGRAM_BOT_TOKEN", "")

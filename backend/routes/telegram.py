@@ -469,7 +469,7 @@ async def setup_telegram_webhook(request_body: dict = None):
         }
     
     # Get webhook URL from env or defaults
-    webhook_url = os.getenv("BACKEND_WEBHOOK_URL", "http://localhost:8000")
+    webhook_url = os.getenv("BACKEND_WEBHOOK_URL", "https://sentinel-o0yb.onrender.com")
     full_webhook_url = f"{webhook_url}/api/telegram/webhook"
     
     try:

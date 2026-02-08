@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
-BACKEND_URL = os.getenv("BACKEND_WEBHOOK_URL", "http://localhost:8000")
+BACKEND_URL = os.getenv("BACKEND_WEBHOOK_URL", "https://sentinel-o0yb.onrender.com")
 TELEGRAM_API = os.getenv("TELEGRAM_API_BASE_URL", "https://api.telegram.org")
 
 def setup_webhook():
@@ -164,11 +164,11 @@ Usage:
 
 Environment Variables Required:
   TELEGRAM_BOT_TOKEN        - Your Telegram bot token from @BotFather
-  BACKEND_WEBHOOK_URL       - Base URL of your backend (e.g., http://localhost:8000)
+  BACKEND_WEBHOOK_URL       - Base URL of your backend (e.g., https://sentinel-o0yb.onrender.com)
 
 Example:
   export TELEGRAM_BOT_TOKEN="123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11"
-  export BACKEND_WEBHOOK_URL="http://localhost:8000"
+  export BACKEND_WEBHOOK_URL="https://sentinel-o0yb.onrender.com"
   python setup_telegram_webhook.py setup
             """)
             sys.exit(0)
