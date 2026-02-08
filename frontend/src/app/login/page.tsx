@@ -41,7 +41,7 @@ export default function LoginPage() {
       }
       
       if (data?.user) {
-        setSuccess('✅ Login successful! Redirecting...');
+        setSuccess('Login successful! Redirecting...');
         setTimeout(() => {
           router.push('/');
           router.refresh();
@@ -70,7 +70,7 @@ export default function LoginPage() {
         setError(authError.message || 'Google sign-in failed');
         return;
       }
-      setSuccess('✅ Redirecting to Google...');
+      setSuccess('Redirecting to Google...');
     } catch (err: unknown) {
       const errorMsg = err instanceof Error ? err.message : 'Google sign-in failed';
       setError(errorMsg);

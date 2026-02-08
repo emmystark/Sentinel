@@ -1,16 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD:sentinel/src/app/components/SentinelModals.jsx
-=======
+
 'use client'
->>>>>>> c2e364b (completed with ocr implementation)
-=======
-<<<<<<<< HEAD:finetuned-chatbot/src/app/components/SentinelModals.jsx
-'use client'
-========
->>>>>>>> parent of e44c349 (configured-backend-properly):sentinel/src/app/components/SentinelModals.jsx
-=======
->>>>>>> parent of e44c349 (configured-backend-properly)
->>>>>>> ebeac1b (properly-staged-now):finetuned-chatbot/src/app/components/SentinelModals.jsx
 import React, { useState } from 'react';
 import styles from './styles/SentinelModals.module.css';
 
@@ -109,7 +98,7 @@ export default function SentinelModals() {
 
               <div className={styles.settingField}>
                 <label>
-                  <span className={styles.fieldIcon}>💰</span>
+                  <span className={styles.fieldIcon}>$</span>
                   <span>Monthly Income: ₦300,000</span>
                 </label>
                 <button className={styles.editButton}>✏️</button>
@@ -125,7 +114,7 @@ export default function SentinelModals() {
 
               <div className={styles.settingField}>
                 <label>
-                  <span className={styles.fieldIcon}>🎯</span>
+                  <span className={styles.fieldIcon}>#</span>
                   <span>Savings Goal: ₦50,000</span>
                 </label>
                 <button className={styles.editButton}>✏️</button>

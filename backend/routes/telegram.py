@@ -449,3 +449,133 @@ async def check_telegram_link(telegram_id: str, supabase = Depends(get_supabase)
         return {"linked": is_linked}
     except Exception as e:
         return {"linked": False}
+
+
+@router.post("/setup-webhook")
+async def setup_telegram_webhook(request_body: dict = None):
+    """
+    Setup Telegram webhook for production.
+    Call this endpoint once after deploying to production.
+    
+    Example:
+    POST /api/telegram/setup-webhook
+    
+    Response shows webhook configuration status
+    """
+    if not BOT_TOKEN:
+        return {
+            "success": False,
+            "error": "Telegram bot not configured (BOT_TOKEN not set)"
+        }
+    
+    # Get webhook URL from env or defaults
+    webhook_url = os.getenv("BACKEND_WEBHOOK_URL", "https://sentinel-pchb.onrender.com")
+    full_webhook_url = f"{webhook_url}/api/telegram/webhook"
+    
+    try:
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            response = await client.post(
+                f"{TELEGRAM_API}/bot{BOT_TOKEN}/setWebhook",
+                json={
+                    "url": full_webhook_url,
+                    "allowed_updates": ["message", "callback_query"]
+                }
+            )
+            
+            if response.status_code == 200:
+                result = response.json()
+                if result.get("ok"):
+                    logger.info(f"✅ Telegram webhook configured: {full_webhook_url}")
+                    
+                    # Also get webhook info to confirm
+                    info_response = await client.get(
+                        f"{TELEGRAM_API}/bot{BOT_TOKEN}/getWebhookInfo"
+                    )
+                    
+                    webhook_info = {}
+                    if info_response.status_code == 200:
+                        info_data = info_response.json()
+                        if info_data.get("ok"):
+                            webhook_info = info_data.get("result", {})
+                    
+                    return {
+                        "success": True,
+                        "message": "Webhook configured successfully",
+                        "webhook_url": full_webhook_url,
+                        "webhook_info": {
+                            "url": webhook_info.get("url"),
+                            "pending_updates": webhook_info.get("pending_update_count", 0),
+                            "last_error": webhook_info.get("last_error_message")
+                        }
+                    }
+                else:
+                    error_msg = result.get("description", "Unknown error")
+                    logger.error(f"Webhook setup error: {error_msg}")
+                    return {
+                        "success": False,
+                        "error": error_msg
+                    }
+            else:
+                logger.error(f"Telegram API error {response.status_code}")
+                return {
+                    "success": False,
+                    "error": f"Telegram API returned {response.status_code}",
+                    "detail": response.text
+                }
+                
+    except httpx.ConnectError as e:
+        logger.error(f"Cannot connect to Telegram API: {e}")
+        return {
+            "success": False,
+            "error": "Cannot connect to Telegram API",
+            "detail": str(e)
+        }
+    except Exception as e:
+        logger.error(f"Webhook setup error: {e}")
+        return {
+            "success": False,
+            "error": str(e)
+        }
+
+
+@router.get("/webhook-info")
+async def get_webhook_info():
+    """Get current webhook information and status"""
+    if not BOT_TOKEN:
+        return {
+            "configured": False,
+            "error": "Bot token not set"
+        }
+    
+    try:
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            response = await client.get(
+                f"{TELEGRAM_API}/bot{BOT_TOKEN}/getWebhookInfo"
+            )
+            
+            if response.status_code == 200:
+                result = response.json()
+                if result.get("ok"):
+                    info = result.get("result", {})
+                    return {
+                        "configured": True,
+                        "webhook": {
+                            "url": info.get("url", "Not set"),
+                            "has_custom_certificate": info.get("has_custom_certificate", False),
+                            "pending_update_count": info.get("pending_update_count", 0),
+                            "last_error_message": info.get("last_error_message"),
+                            "last_error_date": info.get("last_error_date")
+                        }
+                    }
+            
+            return {
+                "configured": False,
+                "error": "Could not get webhook info"
+            }
+            
+    except Exception as e:
+        logger.error(f"Error getting webhook info: {e}")
+        return {
+            "configured": False,
+            "error": str(e)
+        }

@@ -162,7 +162,13 @@ CRITICAL INSTRUCTIONS:
             if extracted_data:
                 # Validate and ensure required fields
                 extracted_data = _validate_extraction(extracted_data)
-                logger.info(f"Receipt parsed successfully: merchant='{extracted_data.get('merchant')}', amount={extracted_data.get('amount')}")
+                
+                # Ensure items are converted to description
+                items = extracted_data.get("items", [])
+                if items and isinstance(items, list):
+                    extracted_data["description"] = ", ".join(str(item) for item in items if item)
+                
+                logger.info(f"Receipt parsed successfully: merchant='{extracted_data.get('merchant')}', amount={extracted_data.get('amount')}, category={extracted_data.get('category')}")
                 return extracted_data
             else:
                 logger.warning("Failed to parse JSON from Qwen response")

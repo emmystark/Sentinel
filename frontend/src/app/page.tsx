@@ -27,21 +27,17 @@ interface UserProfile {
 }
 
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://sentinel-pchb.onrender.com';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000';
 
 export default function Dashboard() {
+  const { user, loading: authLoading, signOut, accessToken } = useAuth();
+  const userId = user?.id ?? 'default-user';
+  
   const [activeModal, setActiveModal] = useState<string | null>(null);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [selectedTransaction, setSelectedTransaction] = useState<Transaction | null>(null);
-  const [userProfile, setUserProfile] = useState<UserProfile>({
-    name: 'user',
-    email: 'user@example.com',
-    monthlyIncome: 300000,
-    fixedBills: 100000,
-    savingsGoal: 50000,
-    telegramConnected: true,
-    telegramUsername: '@User123'
-  });
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+  const [profileLoaded, setProfileLoaded] = useState(false);
   const [newTransaction, setNewTransaction] = useState({
     description: '',
     merchant: '',
@@ -54,9 +50,8 @@ export default function Dashboard() {
   const [receiptPreview, setReceiptPreview] = useState<string | null>(null);
   const [scannedData, setScannedData] = useState<any>(null);
   const [loading, setLoading] = useState(false);
+  const [operationLoading, setOperationLoading] = useState(false);  // FOR specific operations only
   const [error, setError] = useState<string | null>(null);
-  const { user, userId: authUserId, signOut } = useAuth();
-  const userId = authUserId || 'default-user';
   const [healthScore, setHealthScore] = useState(0);
   const [healthStatus, setHealthStatus] = useState('Building Profile');
   const [aiTips, setAiTips] = useState<string[]>([]);
@@ -73,35 +68,63 @@ export default function Dashboard() {
   const [chatLoading, setChatLoading] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
 
-  // Fetch profile from API
+  // Fetch profile from API - per user
   const fetchProfile = async () => {
+    if (!user?.id || !accessToken) return;
     try {
-      const res = await fetch(`${BACKEND_URL}/api/auth/profile`, { headers: { 'user-id': userId } });
-      if (res.ok) {
-        const p = await res.json();
-        setUserProfile({
-          name: p.name || 'User',
-          email: p.email || '',
-          monthlyIncome: Number(p.monthly_income) || 0,
-          fixedBills: Number(p.fixed_bills) || 0,
-          savingsGoal: Number(p.savings_goal) || 0,
-          telegramConnected: !!p.telegram_chat_id,
-          telegramUsername: p.telegram_username ? `@${p.telegram_username}` : ''
-        });
-      }
+      const p = await apiCall('/api/auth/profile', 'GET');
+      setUserProfile({
+        name: p.name || (user.email?.split('@')[0] || 'User'),
+        email: p.email || user.email || '',
+        monthlyIncome: Number(p.monthly_income) || 0,
+        fixedBills: Number(p.fixed_bills) || 0,
+        savingsGoal: Number(p.savings_goal) || 0,
+        telegramConnected: !!p.telegram_chat_id,
+        telegramUsername: p.telegram_username ? `@${p.telegram_username}` : ''
+      });
     } catch (e) {
       console.warn('Could not fetch profile:', e);
+      // Fallback for new users - create profile with 0 amounts
+      setUserProfile({
+        name: user.email?.split('@')[0] || 'User',
+        email: user.email || '',
+        monthlyIncome: 0,
+        fixedBills: 0,
+        savingsGoal: 0,
+        telegramConnected: false,
+        telegramUsername: ''
+      });
+    } finally {
+      setProfileLoaded(true);
     }
   };
 
-  // Fetch transactions on mount
+  // Fetch transactions and profile on user load
   useEffect(() => {
+    if (authLoading || !user || !accessToken) return; // Wait for auth and token to load
+    
+    console.log('Auth ready, fetching profile and transactions...');
     fetchProfile();
-    fetchTransactions();
-    generateAiTips();
+    fetchTransactions(); // This will call generateAiTips after fetching
     verifyTelegramConnection();
     setCurrentTime(new Date().toLocaleTimeString());
-  }, []);
+    
+    // Update time every second
+    const timer = setInterval(() => {
+      setCurrentTime(new Date().toLocaleTimeString());
+    }, 1000);
+    
+    return () => clearInterval(timer);
+  }, [user, authLoading, accessToken]);
+
+  // After transactions are loaded, regenerate tips with profile data
+  useEffect(() => {
+    if (transactions.length > 0 && userProfile && profileLoaded) {
+      console.log('Profile and transactions loaded, regenerating tips...');
+      // Give AI tips a second to be generated from fetchTransactions
+      // This ensures we have both transactions and profile data
+    }
+  }, [transactions, userProfile, profileLoaded]);
 
   // Verify Telegram: bot status + user link status
   const verifyTelegramConnection = async () => {
@@ -119,8 +142,8 @@ export default function Dashboard() {
       }
       const linked = !!(settingsRes && (settingsRes as { telegram_chat_id?: number }).telegram_chat_id);
       setTelegramVerified(linked);
-      if (linked) {
-        setUserProfile(prev => ({ ...prev, telegramConnected: true, telegramUsername: prev.telegramUsername || '@linked' }));
+      if (linked && userProfile) {
+        setUserProfile(prev => prev ? { ...prev, telegramConnected: true, telegramUsername: prev.telegramUsername || '@linked' } : null);
       }
     } catch (err) {
       setTelegramVerified(false);
@@ -142,7 +165,7 @@ export default function Dashboard() {
       const res = await apiCall('/api/telegram/link-with-code', 'POST', { code });
       if (res.success) {
         setTelegramVerified(true);
-        setUserProfile(prev => ({ ...prev, telegramConnected: true, telegramUsername: res.telegram_username ? `@${res.telegram_username}` : '@linked' }));
+        setUserProfile(prev => prev ? { ...prev, telegramConnected: true, telegramUsername: res.telegram_username ? `@${res.telegram_username}` : '@linked' } : null);
         setTelegramLinkCode('');
         
         // Show success message
@@ -203,7 +226,15 @@ export default function Dashboard() {
       }
 
       const categoryTotals = calculateCategoryTotals();
-      const response = await apiCall('/api/ai/health-tips', 'GET');
+      
+      // Generate dynamic tips based on user spending patterns
+      const response = await apiCall('/api/ai/health-tips', 'POST', {
+        transactions: transactions,
+        monthlyIncome: userProfile?.monthlyIncome || 0,
+        fixedBills: userProfile?.fixedBills || 0,
+        savingsGoal: userProfile?.savingsGoal || 0,
+        categoryTotals: categoryTotals
+      });
 
       setAiTips(response.tips || ['Keep tracking your expenses!']);
       setCurrentTipIndex(0);
@@ -215,7 +246,7 @@ export default function Dashboard() {
 
   // Financial advisor chatbot - Enhanced handler
   const handleChatSubmit = async () => {
-    if (!chatInput.trim() || chatLoading) return;
+    if (!chatInput.trim() || chatLoading || !userProfile) return;
 
     const userMessage = chatInput;
     setChatInput('');
@@ -308,7 +339,7 @@ export default function Dashboard() {
 
   // Scan receipt image using AI
   const scanReceipt = async (file: File) => {
-    setLoading(true);
+    setOperationLoading(true);  // Use operationLoading for receipt scanning
     try {
       const reader = new FileReader();
       reader.onloadend = async () => {
@@ -356,7 +387,7 @@ export default function Dashboard() {
       setError('Error processing receipt');
       console.error('Upload error:', err);
     } finally {
-      setLoading(false);
+      setOperationLoading(false);
     }
   };
 
@@ -413,7 +444,7 @@ export default function Dashboard() {
     setHealthStatus(status);
   };
 
-  // API helper function
+  // API helper function - IMPROVED
   const apiCall = async (endpoint: string, method: string = 'GET', body?: object) => {
     try {
       setError(null);
@@ -421,7 +452,8 @@ export default function Dashboard() {
         method,
         headers: {
           'Content-Type': 'application/json',
-          'user-id': userId
+          // Use Authorization header with Bearer token if available
+          ...(accessToken ? { 'Authorization': `Bearer ${accessToken}` } : { 'user-id': userId })
         }
       };
 
@@ -429,41 +461,107 @@ export default function Dashboard() {
         options.body = JSON.stringify(body);
       }
 
+      console.log(`🔵 API Call: ${method} ${endpoint}`);
       const response = await fetch(`${BACKEND_URL}${endpoint}`, options);
       
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'API request failed');
+        let errorData;
+        try {
+          errorData = await response.json();
+        } catch {
+          errorData = { error: `HTTP ${response.status}` };
+        }
+        console.error(`❌ API Error ${response.status}:`, errorData);
+        throw new Error(errorData.detail || errorData.error || 'API request failed');
       }
 
-      return await response.json();
+      const data = await response.json();
+      console.log(`✅ API Success: ${method} ${endpoint}`, data);
+      return data;
     } catch (err) {
       const message = err instanceof Error ? err.message : 'An error occurred';
       setError(message);
-      console.error('API Error:', message);
+      console.error('❌ API Error:', message);
       throw err;
     }
   };
 
-  // Fetch all transactions
+  // Fetch all transactions - IMPROVED
   const fetchTransactions = async () => {
-    setLoading(true);
     try {
-      const data = await apiCall('/api/transactions');
+      if (!accessToken) {
+        console.warn('⚠️ No access token available, skipping transaction fetch');
+        setTransactions([]);
+        return;
+      }
+      
+      console.log('📊 Fetching transactions from API...');
+      const data = await apiCall('/api/transactions', 'GET');
+      
+      console.log('📦 Raw transaction data received:', data);
+      
+      // Handle different response formats
+      let transactionArray: any[] = [];
+      
+      if (Array.isArray(data)) {
+        // Direct array response
+        transactionArray = data;
+      } else if (data && Array.isArray(data.transactions)) {
+        // Wrapped in transactions property
+        transactionArray = data.transactions;
+      } else if (data && Array.isArray(data.data)) {
+        // Wrapped in data property
+        transactionArray = data.data;
+      } else if (data && typeof data === 'object') {
+        // Single transaction object
+        transactionArray = [data];
+      } else {
+        console.warn('⚠️ Unexpected transaction data format:', data);
+        setTransactions([]);
+        return;
+      }
+      
+      console.log(`✅ Successfully fetched ${transactionArray.length} transactions from database`);
+      
       // Convert to display format with icons
-      const formattedData = data.map((t: any) => ({
-        ...t,
-        icon: getCategoryIcon(t.category),
-        // Ensure amount is negative for display
-        amount: t.amount > 0 ? -t.amount : t.amount
+      const formattedData = transactionArray.map((t: any) => ({
+        id: t.id || t.transaction_id || String(Math.random()),
+        merchant: t.merchant || 'Unknown Merchant',
+        amount: t.amount > 0 ? -t.amount : t.amount, // Ensure negative for display
+        category: t.category || 'Other',
+        icon: getCategoryIcon(t.category || 'Other'),
+        date: t.date || t.created_at || new Date().toISOString(),
+        description: t.description || '',
+        ai_categorized: t.ai_categorized || false,
+        currency: t.currency || 'NGN'
       }));
+      
       setTransactions(formattedData);
+      console.log('✅ Transactions set in state, total:', formattedData.length);
+      
       // Calculate health score based on spending
-      calculateHealthScore(formattedData, userProfile.monthlyIncome);
+      if (userProfile) {
+        calculateHealthScore(formattedData, userProfile.monthlyIncome);
+      }
+      
+      // Generate tips after transactions are loaded
+      setTimeout(() => {
+        if (formattedData.length > 0) {
+          console.log('💡 Generating AI tips for', formattedData.length, 'transactions...');
+          generateAiTips();
+        } else {
+          console.log('💡 No transactions available, using default tip');
+          setAiTips(['Start logging expenses to get personalized financial tips!']);
+        }
+      }, 100);
+      
     } catch (err) {
-      console.error('Failed to fetch transactions:', err);
-    } finally {
-      setLoading(false);
+      console.error('❌ Failed to fetch transactions:', err);
+      // Don't clear transactions on error - keep previous data if available
+      setTransactions(prev => {
+        console.log('⚠️ Keeping previous transactions:', prev?.length || 0);
+        return prev || [];
+      });
     }
   };
 
@@ -517,16 +615,51 @@ export default function Dashboard() {
   };
 
   const handleSaveProfile = async () => {
+    if (!userProfile) return;
+    setOperationLoading(true);
     try {
-      await apiCall('/api/auth/profile', 'PUT', {
+      const result = await apiCall('/api/auth/profile', 'PUT', {
         name: userProfile.name,
         monthly_income: userProfile.monthlyIncome,
         fixed_bills: userProfile.fixedBills,
         savings_goal: userProfile.savingsGoal
       });
-      closeModal();
+      
+      if (result.success) {
+        // Update local state with confirmed data from backend
+        setUserProfile(prev => prev ? {
+          ...prev,
+          monthlyIncome: result.profile?.monthly_income ?? prev.monthlyIncome,
+          fixedBills: result.profile?.fixed_bills ?? prev.fixedBills,
+          savingsGoal: result.profile?.savings_goal ?? prev.savingsGoal,
+          name: result.profile?.name ?? prev.name
+        } : null);
+        
+        // Show success message
+        const tempAlert = document.createElement('div');
+        tempAlert.style.position = 'fixed';
+        tempAlert.style.top = '20px';
+        tempAlert.style.right = '20px';
+        tempAlert.style.backgroundColor = '#4ade80';
+        tempAlert.style.color = 'white';
+        tempAlert.style.padding = '16px 24px';
+        tempAlert.style.borderRadius = '8px';
+        tempAlert.style.zIndex = '9999';
+        tempAlert.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+        tempAlert.textContent = 'Profile updated successfully!';
+        document.body.appendChild(tempAlert);
+        
+        setTimeout(() => {
+          tempAlert.remove();
+        }, 3000);
+        
+        closeModal();
+      }
     } catch (err) {
       console.error('Failed to save profile:', err);
+      setError('Failed to save profile. Please try again.');
+    } finally {
+      setOperationLoading(false);
     }
   };
 
@@ -536,9 +669,11 @@ export default function Dashboard() {
   };
 
   const handleEditProfile = (field: string, newValue: number) => {
+    if (!userProfile) return;
     setUserProfile({ ...userProfile, [field]: newValue });
     // Recalculate health score with new profile data
-    calculateHealthScore(transactions, newValue === userProfile.monthlyIncome ? userProfile.monthlyIncome : newValue);
+    const newIncome = field === 'monthlyIncome' ? newValue : userProfile.monthlyIncome;
+    calculateHealthScore(transactions, newIncome);
   };
 
   const handleUpdateTransaction = async () => {
@@ -561,7 +696,9 @@ export default function Dashboard() {
         setTransactions(updatedTransactions);
         
         // Recalculate health score
-        calculateHealthScore(updatedTransactions, userProfile.monthlyIncome);
+        if (userProfile) {
+          calculateHealthScore(updatedTransactions, userProfile.monthlyIncome);
+        }
         closeModal();
       } catch (err) {
         console.error('Failed to update transaction:', err);
@@ -581,7 +718,9 @@ export default function Dashboard() {
           setTransactions(updatedTransactions);
           
           // Recalculate health score
-          calculateHealthScore(updatedTransactions, userProfile.monthlyIncome);
+          if (userProfile) {
+            calculateHealthScore(updatedTransactions, userProfile.monthlyIncome);
+          }
           closeModal();
         } catch (err) {
           console.error('Failed to delete transaction:', err);
@@ -593,7 +732,7 @@ export default function Dashboard() {
   };
 
   const handleAddTransaction = async () => {
-    setLoading(true);
+    setOperationLoading(true);  // Use operationLoading for transaction operations
     setError('');
     try {
       const merchant = newTransaction.merchant?.trim() || '';
@@ -602,30 +741,21 @@ export default function Dashboard() {
       // Validation: need both merchant and amount
       if (!merchant) {
         setError('Merchant name is required. Type or upload a receipt with it clearly visible.');
-        setLoading(false);
+        setOperationLoading(false);
         return;
       }
 
       if (!amount || amount <= 0) {
         setError('Amount must be greater than 0. Type or upload a receipt with the amount clearly visible.');
-        setLoading(false);
+        setOperationLoading(false);
         return;
       }
 
-      // Call AI endpoint to categorize if needed
+      // Use manually selected category (user choice takes priority)
       let category = newTransaction.category;
-      try {
-        const categoryResult = await apiCall('/api/ai/categorize', 'POST', {
-          merchant: merchant,
-          description: newTransaction.description
-        });
-        category = categoryResult.category;
-      } catch (err) {
-        console.warn('Could not categorize, using selected category:', err);
-      }
 
       // Create transaction
-      const transaction = await apiCall('/api/transactions', 'POST', {
+      const response = await apiCall('/api/transactions', 'POST', {
         merchant: merchant,
         amount: Math.abs(amount),
         category,
@@ -634,23 +764,48 @@ export default function Dashboard() {
         date: new Date().toISOString()
       });
 
+      // Extract the actual transaction object from response
+      const transaction = response.transaction || response;
+      
       // Add to local state
       const newTx = { 
         ...transaction, 
         icon: getCategoryIcon(transaction.category), 
-        amount: -Math.abs(amount) 
+        amount: transaction.amount ? (transaction.amount > 0 ? -transaction.amount : transaction.amount) : -Math.abs(amount)
       };
       const updatedTransactions = [newTx, ...transactions];
       setTransactions(updatedTransactions);
       
+      console.log('Transaction added successfully:', newTx);
+      
       // Recalculate health score
-      calculateHealthScore(updatedTransactions, userProfile.monthlyIncome);
+      if (userProfile) {
+        calculateHealthScore(updatedTransactions, userProfile.monthlyIncome);
+      }
+
+      // Show success message and close modal
+      const tempAlert = document.createElement('div');
+      tempAlert.style.position = 'fixed';
+      tempAlert.style.top = '20px';
+      tempAlert.style.right = '20px';
+      tempAlert.style.backgroundColor = '#4ade80';
+      tempAlert.style.color = 'white';
+      tempAlert.style.padding = '16px 24px';
+      tempAlert.style.borderRadius = '8px';
+      tempAlert.style.zIndex = '9999';
+      tempAlert.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+      tempAlert.textContent = 'Transaction added successfully!';
+      document.body.appendChild(tempAlert);
+      
+      setTimeout(() => {
+        tempAlert.remove();
+      }, 3000);
 
       closeModal();
     } catch (err) {
       console.error('Failed to add transaction:', err);
     } finally {
-      setLoading(false);
+      setOperationLoading(false);
     }
   };
 
@@ -667,8 +822,88 @@ export default function Dashboard() {
 
   const categoryTotals = calculateCategoryTotals();
   const totalSpent = transactions.reduce((sum, t) => sum + Math.abs(t.amount), 0);
-  const dailyLimit = 5000;
+  const dailyLimit = userProfile?.monthlyIncome || 5000;
   const remaining = dailyLimit - totalSpent;
+
+  // Show login screen if not authenticated
+  if (!user && !authLoading) {
+    return (
+      <div className={styles.app}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', backgroundColor: '#0f172a' }}>
+          <div style={{ textAlign: 'center', color: '#e2e8f0' }}>
+            <div style={{ fontSize: '48px', marginBottom: '20px' }}>🔐</div>
+            <h1 style={{ fontSize: '28px', marginBottom: '10px' }}>Please Log In</h1>
+            <p style={{ fontSize: '14px', color: '#94a3b8', marginBottom: '20px' }}>You need to be authenticated to access your dashboard</p>
+            <Link href="/login" style={{
+              display: 'inline-block',
+              padding: '12px 24px',
+              backgroundColor: '#3b82f6',
+              color: 'white',
+              borderRadius: '8px',
+              textDecoration: 'none',
+              fontSize: '14px',
+              fontWeight: 'bold'
+            }}>
+              Go to Login
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Show loading while auth and profile load - with proper spinner
+  if (authLoading || !profileLoaded || !userProfile) {
+    return (
+      <div className={styles.app} style={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        height: '100vh', 
+        backgroundColor: '#0f172a' 
+      }}>
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.6)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 10000,
+          backdropFilter: 'blur(2px)'
+        }}>
+          <div style={{
+            textAlign: 'center',
+            backgroundColor: '#1e293b',
+            padding: '40px',
+            borderRadius: '16px',
+            border: '1px solid rgba(255,255,255,0.1)'
+          }}>
+            <div style={{
+              width: '60px',
+              height: '60px',
+              margin: '0 auto 20px',
+              borderRadius: '50%',
+              border: '3px solid rgba(59, 130, 246, 0.2)',
+              borderTop: '3px solid #3b82f6',
+              animation: 'spin 0.8s linear infinite'
+            }}/>
+            <p style={{ color: '#e2e8f0', fontSize: '16px', fontWeight: '500', margin: 0 }}>
+              Loading your dashboard...
+            </p>
+            <style>{`
+              @keyframes spin {
+                to { transform: rotate(360deg); }
+              }
+            `}</style>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.app}>
@@ -849,7 +1084,7 @@ export default function Dashboard() {
                   };
                   return (
                     <div key={category} className={styles.breakdownCard}>
-                      <div className={styles.breakdownIcon}>{icons[category] || '💰'}</div>
+                      <div className={styles.breakdownIcon}>{icons[category] || '$'}</div>
                       <div className={styles.breakdownDetails}>
                         <div className={styles.breakdownHeader}>
                           <span className={styles.breakdownName}>{category}</span>
@@ -1231,6 +1466,23 @@ export default function Dashboard() {
                   />
                 </div>
                 <div className={styles.formGroup}>
+                  <label>Category</label>
+                  <select 
+                    className={styles.select}
+                    value={newTransaction.category}
+                    onChange={(e) => setNewTransaction({...newTransaction, category: e.target.value})}
+                  >
+                    <option value="Food">🍔 Food & Dining</option>
+                    <option value="Transport">🚗 Transport</option>
+                    <option value="Entertainment">🎬 Entertainment</option>
+                    <option value="Shopping">🛍️ Shopping</option>
+                    <option value="Bills">📄 Bills & Utilities</option>
+                    <option value="Health">⚕️ Health & Medical</option>
+                    <option value="Education">📚 Education</option>
+                    <option value="Other">$ Other</option>
+                  </select>
+                </div>
+                <div className={styles.formGroup}>
                   <label>Currency</label>
                   <select 
                     className={styles.select}
@@ -1251,6 +1503,12 @@ export default function Dashboard() {
                   </select>
                 </div>
               </div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
                 <br />
                 <br />
               <button className={styles.analyzeButton} onClick={handleAddTransaction} disabled={loading}>
@@ -1344,10 +1602,10 @@ export default function Dashboard() {
                       fontSize: '12px',
                       color: '#60a5fa'
                     }}>
-                      <p>📊 "How can I save more?"</p>
-                      <p>📈 "Is my food spending high?"</p>
-                      <p>💰 "Where should I cut back?"</p>
-                      <p>🎯 "What's my spending ratio?"</p>
+                      <p>"How can I save more?"</p>
+                      <p>"Is my food spending high?"</p>
+                      <p>"Where should I cut back?"</p>
+                      <p>"What's my spending ratio?"</p>
                     </div>
                   </div>
                 ) : (
@@ -1502,10 +1760,53 @@ export default function Dashboard() {
                   color: '#666',
                   textAlign: 'center'
                 }}>
-                  💡 Advice based on {transactions.length} transactions
+                  Advice based on {transactions.length} transactions
                 </div>
               )}
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Interactive Loading Overlay - Only for specific operations */}
+      {operationLoading && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.6)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 10000,
+          backdropFilter: 'blur(2px)'
+        }}>
+          <div style={{
+            textAlign: 'center',
+            backgroundColor: '#1e293b',
+            padding: '40px',
+            borderRadius: '16px',
+            border: '1px solid rgba(255,255,255,0.1)'
+          }}>
+            <div style={{
+              width: '60px',
+              height: '60px',
+              margin: '0 auto 20px',
+              borderRadius: '50%',
+              border: '3px solid rgba(59, 130, 246, 0.2)',
+              borderTop: '3px solid #3b82f6',
+              animation: 'spin 0.8s linear infinite'
+            }}/>
+            <p style={{ color: '#e2e8f0', fontSize: '16px', fontWeight: '500' }}>
+              Processing...
+            </p>
+            <style>{`
+              @keyframes spin {
+                to { transform: rotate(360deg); }
+              }
+            `}</style>
           </div>
         </div>
       )}

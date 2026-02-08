@@ -37,14 +37,15 @@ export default function SignupPage() {
 
     setLoading(true);
     try {
+      // Sign up without email verification
       const { data, error: authError } = await supabase?.auth.signUp({
         email,
         password,
         options: { 
           data: { 
-            name: name || email.split('@')[0],
-            email_verified: false
-          } 
+            name: name || email.split('@')[0]
+          },
+          emailRedirectTo: undefined
         }
       }) ?? { data: null, error: new Error('Supabase not configured') };
       
@@ -54,7 +55,18 @@ export default function SignupPage() {
       }
       
       if (data?.user) {
-        setSuccess('✅ Account created! Please check your email to verify. Redirecting...');
+        // Auto-login after signup
+        const { error: loginError } = await supabase?.auth.signInWithPassword({
+          email,
+          password
+        }) ?? { error: new Error('Auto-login failed') };
+        
+        if (loginError) {
+          setSuccess('Account created! Logging you in...');
+        } else {
+          setSuccess('Account created! Redirecting to dashboard...');
+        }
+        
         setTimeout(() => {
           router.push('/');
           router.refresh();
@@ -83,7 +95,7 @@ export default function SignupPage() {
         setError(authError.message || 'Google sign-up failed');
         return;
       }
-      setSuccess('✅ Redirecting to Google...');
+      setSuccess('Redirecting to Google...');
     } catch (err: unknown) {
       const errorMsg = err instanceof Error ? err.message : 'Google sign-up failed';
       setError(errorMsg);

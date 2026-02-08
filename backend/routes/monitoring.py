@@ -10,7 +10,7 @@ from collections import defaultdict, deque
 import json
 
 from config import get_user_id
-from services.opik_service import get_opik_monitor, OPIK_AVAILABLE
+from services.opik_service import OPIK_AVAILABLE
 
 router = APIRouter(tags=["monitoring"])
 logger = logging.getLogger(__name__)

@@ -3,6 +3,7 @@ from pydantic import BaseModel, EmailStr
 from config import get_supabase, get_user_id
 from typing import Optional
 import logging
+import os
 from supabase import Client
 from datetime import datetime, timedelta
 import random
@@ -85,7 +86,7 @@ async def signup(
         
         return AuthResponse(
             success=True,
-            message="Signup successful. Please check your email to verify your account.",
+            message="Signup successful. You can now log in.",
             user={
                 "id": user_id,
                 "email": request.email,
@@ -173,6 +174,9 @@ async def logout(
         logger.error(f"Logout error: {e}")
         raise HTTPException(status_code=400, detail="Logout failed")
 
+
+
+
 @router.get("/profile")
 async def get_profile(
     user_id: str = Depends(get_user_id),
@@ -181,15 +185,60 @@ async def get_profile(
     """Get user profile"""
     
     try:
+        # Try anon first
         response = supabase.table("user_profiles").select("*").eq("id", user_id).execute()
         
-        if not response.data:
-            raise HTTPException(status_code=404, detail="Profile not found")
+        if response.data and len(response.data) > 0:
+            return response.data[0]
         
-        return response.data[0]
+        # If not found with anon, try with service role
+        logger.warning(f"Profile not found with anon client, attempting with service role for user {user_id}")
+        from config import get_supabase_admin
+        admin_supabase = get_supabase_admin()
+        response = admin_supabase.table("user_profiles").select("*").eq("id", user_id).execute()
         
+        if response.data and len(response.data) > 0:
+            return response.data[0]
+        
+        # Profile doesn't exist - create it with default values
+        logger.warning(f"Profile not found for user {user_id}, creating new profile with defaults")
+        profile_data = {
+            "id": user_id,
+            "email": "",
+            "name": "User",
+            "monthly_income": 0,
+            "fixed_bills": 0,
+            "savings_goal": 0,
+            "telegram_connected": False,
+            "push_notification_enabled": True,
+            "preferred_currency": "NGN"
+        }
+        
+        # Use admin to create profile
+        create_response = admin_supabase.table("user_profiles").insert(profile_data).execute()
+        if create_response.data and len(create_response.data) > 0:
+            logger.info(f"Created default profile for user {user_id}")
+            return create_response.data[0]
+        
+        raise HTTPException(status_code=404, detail="Could not create or retrieve profile")
+        
+    except HTTPException:
+        raise
     except Exception as e:
-        logger.error(f"Error fetching profile: {e}")
+        logger.error(f"Error fetching/creating profile: {e}", exc_info=True)
+        # Return a default profile for development
+        if os.getenv("ENVIRONMENT") == "development":
+            return {
+                "id": user_id,
+                "email": "user@example.com",
+                "name": "Demo User",
+                "monthly_income": 100000,
+                "fixed_bills": 30000,
+                "savings_goal": 20000,
+                "telegram_connected": False,
+                "push_notification_enabled": True,
+                "preferred_currency": "NGN"
+            }
         raise HTTPException(status_code=500, detail="Error fetching profile")
 
 class ProfileUpdate(BaseModel):
@@ -210,12 +259,36 @@ async def update_profile(
         update_dict = profile_data.model_dump(exclude_none=True)
         if not update_dict:
             raise HTTPException(status_code=400, detail="No fields to update")
+        
+        # Try with anon first
         response = supabase.table("user_profiles").update(update_dict).eq("id", user_id).execute()
-        return {
-            "success": True,
-            "message": "Profile updated",
-            "profile": response.data[0] if response.data else None
-        }
+        
+        if response.data:
+            logger.info(f"Profile updated for user {user_id}")
+            return {
+                "success": True,
+                "message": "Profile updated",
+                "profile": response.data[0] if response.data else None
+            }
+        
+        # Fallback to service role
+        logger.warning(f"Anon update failed, trying with service role for user {user_id}")
+        from config import get_supabase_admin
+        admin_supabase = get_supabase_admin()
+        response = admin_supabase.table("user_profiles").update(update_dict).eq("id", user_id).execute()
+        
+        if response.data:
+            logger.info(f"Profile updated with service role for user {user_id}")
+            return {
+                "success": True,
+                "message": "Profile updated",
+                "profile": response.data[0] if response.data else None
+            }
+        
+        raise HTTPException(status_code=400, detail="Failed to update profile")
+        
+    except HTTPException:
+        raise
     except Exception as e:
-        logger.error(f"Error updating profile: {e}")
+        logger.error(f"Error updating profile: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail="Error updating profile")

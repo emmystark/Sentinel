@@ -904,10 +904,14 @@
 @media (max-width: 768px) {
   .header {
     padding: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
   .headerRight {
     gap: 0.75rem;
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .dateTime {
@@ -916,22 +920,253 @@
 
   .mainContent {
     padding: 1rem;
+    gap: 1rem;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   .modal {
-    max-width: 95%;
+    max-width: 95vw !important;
+    width: 95vw !important;
+    max-height: 95vh !important;
+    overflow-y: auto;
+    margin: auto;
+  }
+
+  .wideModal {
+    max-width: 95vw !important;
+    width: 95vw !important;
   }
 
   .formRow {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .buttonRow {
     flex-direction: column;
+    gap: 0.5rem;
   }
 
   .fab {
     bottom: 80px;
     right: 1rem;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .healthScore {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .scoreRing {
+    width: 150px;
+    height: 150px;
+  }
+
+  .scoreRing svg {
+    width: 150px;
+    height: 150px;
+  }
+
+  .scoreNumber {
+    font-size: 28px;
+  }
+
+  .activityCards,
+  .breakdownCards,
+  .buttonGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .transactionList {
+    gap: 0.75rem;
+  }
+
+  .transactionItem {
+    padding: 0.75rem;
+    gap: 0.75rem;
+  }
+
+  .textarea,
+  .input,
+  .select,
+  .button {
+    font-size: 16px;
+    padding: 0.75rem;
+    min-height: 44px;
+  }
+
+  .formGroup {
+    gap: 0.5rem;
+  }
+
+  .modalHeader {
+    padding: 1rem;
+    font-size: 18px;
+  }
+
+  .profileSection {
+    gap: 1rem;
+  }
+
+  .profileItem {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding-bottom: 70px;
+  }
+
+  .header {
+    padding: 0.75rem;
+    flex-direction: column;
+  }
+
+  .logo {
+    min-width: 50px;
+  }
+
+  .headerRight {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .userAvatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .mainContent {
+    padding: 0.75rem;
+    gap: 0.75rem;
+    flex-direction: column;
+  }
+
+  .healthScore {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .scoreRing {
+    width: 120px;
+    height: 120px;
+  }
+
+  .scoreRing svg {
+    width: 120px;
+    height: 120px;
+  }
+
+  .scoreNumber {
+    font-size: 24px;
+  }
+
+  .scoreStatus {
+    font-size: 12px;
+  }
+
+  .activityCards,
+  .breakdownCards,
+  .buttonGrid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .modal {
+    max-width: 100vw !important;
+    width: 100vw !important;
+    max-height: 100vh !important;
+    border-radius: 16px 16px 0 0;
+    margin: 0;
+  }
+
+  .wideModal {
+    max-width: 100vw !important;
+    width: 100vw !important;
+  }
+
+  .modalOverlay {
+    align-items: flex-end;
+  }
+
+  .modalHeader {
+    padding: 0.75rem;
+    font-size: 16px;
+  }
+
+  .modalBody {
+    padding: 0.75rem;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .textarea,
+  .input,
+  .select,
+  .button {
+    font-size: 16px;
+    padding: 0.75rem;
+    min-height: 44px;
+    width: 100%;
+  }
+
+  .formGroup {
+    width: 100%;
+    margin: 0;
+  }
+
+  .label {
+    font-size: 13px;
+  }
+
+  .fab {
+    width: 48px;
+    height: 48px;
+    bottom: 70px;
+    right: 0.75rem;
+  }
+
+  .transactionList {
+    gap: 0.5rem;
+  }
+
+  .transactionItem {
+    padding: 0.5rem;
+    gap: 0.5rem;
+    font-size: 13px;
+  }
+
+  .transactionAmount {
+    font-size: 14px;
+  }
+
+  .emoji {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .mainContent {
+    gap: 1.5rem;
+  }
+
+  .activityCards,
+  .breakdownCards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .modal {
+    max-width: 90vw;
+  }
+
+  .wideModal {
+    max-width: 90vw;
   }
 }

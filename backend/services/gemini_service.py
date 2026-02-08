@@ -55,7 +55,7 @@ Return this exact JSON structure:
 {
     "merchant": "store/restaurant name",
     "amount": total_amount_as_number,
-    "currency": "USD",
+    "currency": "NGN",
     "date": "YYYY-MM-DD or null",
     "items": ["item1", "item2"],
     "category": "Food/Transport/Entertainment/Shopping/Bills/Utilities/Health/Education/Other"
@@ -64,7 +64,14 @@ Return this exact JSON structure:
 CRITICAL RULES:
 1. merchant: Extract the business name (required)
 2. amount: Extract the TOTAL (not subtotal). Must be a number, not null.
-3. currency: Usually USD, EUR, GBP, etc.
+3. currency: IMPORTANT - Detect currency from receipt:
+   - Look for: ₦, Naira, NGN, N (Nigerian currency symbol/text) → Use "NGN"
+   - Look for: $, USD, US Dollar → Use "USD"
+   - Look for: €, EUR, Euro → Use "EUR"
+   - Look for: £, GBP, British Pound → Use "GBP"
+   - Look for: ¥, CNY/JPY → Use "CNY" or "JPY"
+   - If no currency symbol found → DEFAULT TO "NGN"
+   - Only use 3-letter ISO 4217 currency codes
 4. date: Extract date if visible, else null
 5. items: List what was purchased
 6. category: Based on merchant type, pick the best matching category
@@ -87,7 +94,7 @@ Return ONLY JSON, no explanations or markdown."""
             extracted_data = {
                 "merchant": "Unknown",
                 "amount": 0,
-                "currency": "USD",
+                "currency": "NGN",
                 "date": None,
                 "items": [],
                 "category": "Other"
@@ -96,7 +103,7 @@ Return ONLY JSON, no explanations or markdown."""
         # Validate and ensure required fields exist
         extracted_data.setdefault("merchant", "Unknown Merchant")
         extracted_data.setdefault("amount", 0)
-        extracted_data.setdefault("currency", "USD")
+        extracted_data.setdefault("currency", "NGN")  # Default to Nigerian Naira
         extracted_data.setdefault("date", None)
         extracted_data.setdefault("items", [])
         extracted_data.setdefault("category", "Other")

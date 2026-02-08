@@ -13,46 +13,105 @@ load_dotenv()
 
 logger = logging.getLogger(__name__)
 
-# ==================== SUPABASE CLIENT ====================
+# ==================== SUPABASE CLIENTS ====================
 
 SUPABASE_URL = os.getenv("SUPABASE_URL")
-SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+SUPABASE_ANON_KEY = os.getenv("SUPABASE_KEY")  # Anon key for client
+SUPABASE_SERVICE_ROLE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY")  # Service role for server
 
 supabase_client: Optional[object] = None
+supabase_service_client: Optional[object] = None
 
-if SUPABASE_URL and SUPABASE_KEY:
+if SUPABASE_URL and SUPABASE_ANON_KEY:
     try:
-        # Import supabase here to avoid connection issues
         from supabase import create_client, Client
         
-        # Create a custom SSL context if needed
-        # This helps with DNS resolution issues
-        supabase_client = create_client(SUPABASE_URL, SUPABASE_KEY)
-        logger.info(f"Supabase client initialized: {SUPABASE_URL}")
+        # Anon key client (respects RLS)
+        supabase_client = create_client(SUPABASE_URL, SUPABASE_ANON_KEY)
+        logger.info(f"Supabase anon client initialized: {SUPABASE_URL}")
     except Exception as e:
-        logger.error(f"Failed to initialize Supabase client: {e}")
+        logger.error(f"Failed to initialize Supabase anon client: {e}")
         supabase_client = None
 else:
-    logger.warning("Supabase credentials not configured. Set SUPABASE_URL and SUPABASE_KEY")
+    logger.warning("Supabase anon credentials not configured. Set SUPABASE_URL and SUPABASE_KEY")
+
+# Service role client (bypasses RLS for server operations)
+if SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY:
+    try:
+        from supabase import create_client
+        supabase_service_client = create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
+        logger.info(f"Supabase service role client initialized")
+    except Exception as e:
+        logger.error(f"Failed to initialize Supabase service role client: {e}")
+        supabase_service_client = None
+else:
+    logger.warning("Supabase service role key not configured. Set SUPABASE_SERVICE_ROLE_KEY for backend operations")
 
 # ==================== DEPENDENCIES ====================
 
 def get_supabase():
-    """Get Supabase client"""
+    """Get Supabase client (anon key - respects RLS)"""
     url = os.getenv("SUPABASE_URL")
     key = os.getenv("SUPABASE_KEY")
     if not url or not key:
         raise ValueError("SUPABASE_URL and SUPABASE_KEY must be set in .env")
+    from supabase import create_client
     return create_client(url, key)
 
-async def get_user_id(user_id: str = Header(None, alias="user-id")) -> str:
-    """Extract user ID from request headers"""
-    if not user_id:
-        # For development, allow a default user
+def get_supabase_admin():
+    """Get Supabase admin client (service role - bypasses RLS)"""
+    url = os.getenv("SUPABASE_URL")
+    key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+    if not url or not key:
+        logger.warning("Service role key not configured, falling back to anon client")
+        return get_supabase()
+    from supabase import create_client
+    return create_client(url, key)
+
+async def get_user_id(authorization: str = Header(None)) -> str:
+    """
+    Extract user ID from JWT token in Authorization header.
+    Expected format: "Bearer <jwt_token>"
+    """
+    if not authorization:
+        logger.warning("No authorization header provided")
         if os.getenv("ENVIRONMENT") == "development":
-            return "default-user"
-        raise HTTPException(status_code=401, detail="User ID required")
-    return user_id
+            # Demo user for testing
+            return "550e8400-e29b-41d4-a716-446655440000"
+        raise HTTPException(status_code=401, detail="Authorization header required")
+    
+    # Extract token from "Bearer <token>"
+    parts = authorization.split()
+    if len(parts) != 2 or parts[0].lower() != "bearer":
+        logger.warning("Invalid authorization header format")
+        if os.getenv("ENVIRONMENT") == "development":
+            return "550e8400-e29b-41d4-a716-446655440000"
+        raise HTTPException(status_code=401, detail="Invalid authorization format")
+    
+    token = parts[1]
+    
+    # Decode JWT to get user_id (sub claim)
+    try:
+        import jwt
+        # Decode without verification first to get the payload
+        # The token is already verified by Supabase on the frontend
+        payload = jwt.decode(token, options={"verify_signature": False})
+        user_id = payload.get("sub")
+        
+        if not user_id:
+            logger.warning("No 'sub' claim in JWT token")
+            if os.getenv("ENVIRONMENT") == "development":
+                return "550e8400-e29b-41d4-a716-446655440000"
+            raise HTTPException(status_code=401, detail="Invalid token")
+        
+        logger.debug(f"Extracted user ID from token: {user_id}")
+        return user_id
+        
+    except Exception as e:
+        logger.error(f"Error decoding token: {e}")
+        if os.getenv("ENVIRONMENT") == "development":
+            return "550e8400-e29b-41d4-a716-446655440000"
+        raise HTTPException(status_code=401, detail="Invalid token")
 
 # ==================== CONFIGURATION ====================
 

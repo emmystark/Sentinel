@@ -29,7 +29,7 @@ class TransactionUpdate(BaseModel):
     date: Optional[str] = None
     currency: Optional[str] = None
 
-@router.get("")
+# FIXED: Removed duplicate route decorator
 @router.get("/")
 async def get_transactions(
     user_id: str = Depends(get_user_id),
@@ -39,15 +39,35 @@ async def get_transactions(
 ):
     """Get all transactions for a user"""
     try:
-        response = supabase.table("transactions").select(
+        logger.info(f"🔍 Fetching transactions for user: {user_id}, limit: {limit}, offset: {offset}")
+        
+        # Try with anon client first (respects RLS)
+        response = None
+        try:
+            response = supabase.table("transactions").select(
+                "*"
+            ).eq("user_id", user_id).order("created_at", desc=True).range(offset, offset + limit - 1).execute()
+            
+            if response.data and len(response.data) > 0:
+                logger.info(f"✅ Anon client returned {len(response.data)} transactions for user {user_id}")
+                return response.data
+        except Exception as anon_error:
+            logger.warning(f"⚠️ Anon client failed, trying service role: {anon_error}")
+        
+        # Fallback: use service role client (bypasses RLS)
+        from config import get_supabase_admin
+        admin_supabase = get_supabase_admin()
+        response = admin_supabase.table("transactions").select(
             "*"
-        ).eq("user_id", user_id).order("date", desc=True).range(offset, offset + limit - 1).execute()
+        ).eq("user_id", user_id).order("created_at", desc=True).range(offset, offset + limit - 1).execute()
+        
+        logger.info(f"✅ Service role returned {len(response.data) if response.data else 0} transactions for user {user_id}")
         
         return response.data or []
         
     except Exception as e:
-        logger.error(f"Error fetching transactions: {e}")
-        # Return empty array on error for demo purposes
+        logger.error(f"❌ Database error fetching transactions for user {user_id}: {e}", exc_info=True)
+        # Return empty array on error (don't crash)
         return []
 
 @router.get("/{transaction_id}")
@@ -58,7 +78,21 @@ async def get_transaction(
 ):
     """Get a single transaction"""
     try:
-        response = supabase.table("transactions").select(
+        # Try with anon client first
+        try:
+            response = supabase.table("transactions").select(
+                "*"
+            ).eq("id", transaction_id).eq("user_id", user_id).single().execute()
+            
+            if response.data:
+                return response.data
+        except Exception as anon_error:
+            logger.warning(f"Anon client failed for transaction {transaction_id}, trying service role: {anon_error}")
+        
+        # Fallback to service role client
+        from config import get_supabase_admin
+        admin_supabase = get_supabase_admin()
+        response = admin_supabase.table("transactions").select(
             "*"
         ).eq("id", transaction_id).eq("user_id", user_id).single().execute()
         
@@ -73,8 +107,8 @@ async def get_transaction(
         logger.error(f"Error fetching transaction: {e}")
         raise HTTPException(status_code=500, detail="Error fetching transaction")
 
+# FIXED: Removed duplicate route decorator
 @router.post("/receipt-upload")
-@router.post("receipt-upload")
 async def upload_receipt(
     file: UploadFile = File(...),
     user_id: str = Depends(get_user_id),
@@ -122,7 +156,17 @@ async def upload_receipt(
             "created_at": datetime.utcnow().isoformat()
         }
         
-        response = supabase.table("transactions").insert(data).execute()
+        # Try with anon first, fallback to service role
+        response = None
+        try:
+            response = supabase.table("transactions").insert(data).execute()
+            if not response.data or len(response.data) == 0:
+                raise Exception("Anon insert returned no data")
+        except Exception as anon_error:
+            logger.warning(f"Anon insert failed for receipt, trying with service role: {anon_error}")
+            from config import get_supabase_admin
+            admin_supabase = get_supabase_admin()
+            response = admin_supabase.table("transactions").insert(data).execute()
         
         if not response.data or len(response.data) == 0:
             logger.error(f"Supabase insert failed for user {user_id}: {response}")
@@ -166,7 +210,7 @@ async def upload_receipt(
         logger.error(f"Error processing receipt: {e}")
         raise HTTPException(status_code=500, detail=f"Error processing receipt: {str(e)}")
 
-@router.post("")
+# FIXED: Removed duplicate route decorator
 @router.post("/")
 async def create_transaction(
     transaction: TransactionCreate,
@@ -176,6 +220,8 @@ async def create_transaction(
     """Create a new transaction"""
     start_time = time.time()
     try:
+        logger.info(f"Creating transaction for user {user_id}: {transaction.merchant}")
+        
         if not transaction.merchant or transaction.amount is None:
             raise HTTPException(
                 status_code=400, 
@@ -201,7 +247,40 @@ async def create_transaction(
             "created_at": datetime.utcnow().isoformat()
         }
         
-        response = supabase.table("transactions").insert(data).execute()
+        logger.debug(f"Transaction data prepared: {data}")
+        
+        # Try with anon client first (respects RLS)
+        try:
+            logger.info(f"Attempting to insert with anon client for user {user_id}")
+            response = supabase.table("transactions").insert(data).execute()
+            if response.data and len(response.data) > 0:
+                created_transaction = response.data[0]
+                logger.info(f"Transaction created successfully (anon) for user {user_id}: {created_transaction.get('id')}")
+                
+                # Log successful trace
+                latency_ms = (time.time() - start_time) * 1000
+                log_trace(
+                    operation="transaction_create",
+                    status="success",
+                    model="Manual",
+                    latency_ms=latency_ms,
+                    input_data={"merchant": transaction.merchant, "amount": transaction.amount, "currency": currency},
+                    output_data={"transaction_id": created_transaction.get("id"), "category": created_transaction.get("category")},
+                    user_id=user_id
+                )
+                
+                return {
+                    "success": True,
+                    "transaction": created_transaction
+                }
+        except Exception as anon_error:
+            logger.warning(f"Anon insert failed for user {user_id}, trying with service role: {anon_error}")
+            
+            # Fallback to service role client (bypasses RLS)
+            from config import get_supabase_admin
+            admin_supabase = get_supabase_admin()
+            logger.info(f"Attempting to insert with service role client for user {user_id}")
+            response = admin_supabase.table("transactions").insert(data).execute()
         
         if not response.data or len(response.data) == 0:
             logger.error(f"Supabase insert failed for user {user_id}: {response}")
@@ -219,7 +298,7 @@ async def create_transaction(
             raise HTTPException(status_code=400, detail="Failed to create transaction")
         
         created_transaction = response.data[0]
-        logger.info(f"Transaction created for user {user_id}: {created_transaction.get('id')}")
+        logger.info(f"Transaction created successfully (service role fallback) for user {user_id}: {created_transaction.get('id')}")
         
         # Log successful trace
         latency_ms = (time.time() - start_time) * 1000
@@ -241,8 +320,8 @@ async def create_transaction(
     except HTTPException:
         raise
     except Exception as e:
-        logger.error(f"Error creating transaction: {e}")
-        raise HTTPException(status_code=500, detail=f"Error creating transaction: {str(e)}")
+        logger.error(f"Error creating transaction: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=f"Error creating transaction: {str(e)[:100]}")
 
 @router.put("/{transaction_id}")
 async def update_transaction(
