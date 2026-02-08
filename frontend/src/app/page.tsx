@@ -27,7 +27,7 @@ interface UserProfile {
 }
 
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://sentinel-pchb.onrender.com';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://sentinel-o0yb.onrender.com';
 
 export default function Dashboard() {
   const { user, loading: authLoading, signOut, accessToken } = useAuth();
