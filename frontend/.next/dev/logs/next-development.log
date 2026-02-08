@@ -2861,3 +2861,4 @@ Import traces:
 [02:54:10.784] Server  LOG       Reload env: .env
 [02:54:12.013] Server  LOG       Reload env: .env
 [02:54:22.902] Server  LOG       Reload env: .env
+[02:55:02.927] Server  LOG     ✓ Compiled in 199ms

@@ -1192,7 +1192,7 @@
     padding-bottom: 20px !important;
     min-height: calc(100vh - 150px);
     position: relative;
-    top: -20px;
+    top: -40px;
   }
 
   /* Ensure bottom nav has proper padding for iOS notch */
