@@ -35,7 +35,6 @@ def extract_text_from_image(image_source: str) -> str:
     """
     Extract text from image using Tesseract OCR.
     Supports base64 encoded images and URLs.
-    Falls back gracefully if Tesseract is not available.
     """
     try:
         # Handle different image formats
@@ -54,39 +53,14 @@ def extract_text_from_image(image_source: str) -> str:
             image_data = base64.b64decode(image_source)
             image = Image.open(BytesIO(image_data))
         
-        # Pre-process image for better OCR results
-        # Convert to grayscale for better text extraction
-        if image.mode != 'L':
-            image = image.convert('L')
-        
-        # Upscale image if too small (improves OCR accuracy)
-        if image.size[0] < 400 or image.size[1] < 400:
-            image = image.resize((image.size[0] * 2, image.size[1] * 2), Image.Resampling.LANCZOS)
-        
-        # Extract text using Tesseract OCR with better config
-        logger.info("Extracting text from image using Tesseract OCR...")
-        
-        # Use PSM (Page Segmentation Mode) 6: assume single block of text
-        # Use OEM (OCR Engine Mode) 3: use both legacy and LSTM if available
-        config = r'--psm 6 --oem 3'
-        
-        try:
-            extracted_text = pytesseract.image_to_string(image, config=config, lang='eng')
-            logger.info(f"OCR extracted {len(extracted_text)} characters using Tesseract")
-            return extracted_text if extracted_text.strip() else ""
-        except Exception as tesseract_error:
-            logger.warning(f"Tesseract extraction failed: {tesseract_error}")
-            # Try without config as fallback
-            try:
-                extracted_text = pytesseract.image_to_string(image)
-                logger.info(f"OCR extracted {len(extracted_text)} characters (fallback mode)")
-                return extracted_text if extracted_text.strip() else ""
-            except Exception as fallback_error:
-                logger.error(f"All OCR methods failed: {fallback_error}")
-                return ""
+        # Extract text using Tesseract OCR
+        logger.info("Extracting text from image using OCR...")
+        extracted_text = pytesseract.image_to_string(image)
+        logger.info(f"OCR extracted {len(extracted_text)} characters")
+        return extracted_text if extracted_text.strip() else ""
         
     except Exception as e:
-        logger.error(f"OCR extraction failed: {e}", exc_info=True)
+        logger.error(f"OCR extraction failed: {e}")
         return ""
 
 
@@ -119,39 +93,48 @@ async def parse_receipt_with_qwen(image_source: str) -> Dict[str, Any]:
         # Step 1: Extract text from image using OCR
         ocr_text = extract_text_from_image(image_source)
         
-        if not ocr_text or len(ocr_text.strip()) < 10:
-            logger.warning("OCR extraction failed or returned minimal text, returning defaults")
+        if not ocr_text:
+            logger.warning("OCR extraction returned empty text")
             return _get_default_extraction()
         
-        logger.info(f"OCR extracted text ({len(ocr_text)} chars): {ocr_text[:300]}...")
+        logger.info(f"OCR extracted text ({len(ocr_text)} chars): {ocr_text[:200]}...")
         
-        # Step 2: Build improved prompt for Qwen to structure the OCR text  
-        extraction_prompt = f"""You are a receipt analysis expert. Extract transaction information from this OCR text.
+        # Step 2: Build prompt for Qwen to structure the OCR text  
+        extraction_prompt = f"""CRITICAL: You are a receipt data extraction system. Analyze the receipt text below.
+
+YOUR TASK: Extract receipt information and respond with ONLY valid JSON. Nothing else.
 
 OCR TEXT FROM RECEIPT:
----
 {ocr_text}
----
 
-Return ONLY a valid JSON object. No markdown, no explanations:
+STRICT JSON OUTPUT FORMAT - RESPOND ONLY WITH THIS EXACT STRUCTURE:
 {{
-  "merchant": "Store/business name from receipt header area - must be actual merchant name",
-  "amount": total_amount_as_number,
-  "currency": "Currency code (detected from receipt or USD as default)",
-  "date": "YYYY-MM-DD or null",
-  "items": ["items listed"],
-  "category": "Food|Transport|Entertainment|Shopping|Bills|Utilities|Health|Education|Other",
-  "description": "One-line description"
+  "merchant": "extracted business/store name - MUST NOT BE EMPTY",
+  "amount": extracted_total_amount_as_positive_number,
+  "currency": "currency code like USD, EUR, GBP",
+  "date": "YYYY-MM-DD format or null if not visible",
+  "items": ["item name", "item name"],
+  "category": "Food OR Transport OR Entertainment OR Shopping OR Bills OR Utilities OR Health OR Education OR Other",
+  "description": "brief description of purchase"
 }}
 
-EXTRACTION GUIDELINES:
-- Merchant: Look at top of receipt for company/store name - be specific, not generic
-- Amount: Extract total transaction value as a number
-- Currency: Detect from receipt symbols/text ($ for USD, ₦ for NGN, etc.), default USD
-- Date: YYYY-MM-DD format if visible, else null
-- Items: List main items purchased
-- Category: Auto-detect based on merchant type
-- Respond with ONLY, the JSON object - no code blocks"""
+EXTRACTION RULES:
+1. merchant: Business/store name MUST be identified - cannot be empty or 'Unknown'
+2. amount: TOTAL transaction amount - must be a positive number, not text
+3. currency: Auto-detect currency (USD, EUR, GBP, etc.)
+4. date: Extract as YYYY-MM-DD if visible, else null (not string "null")
+5. items: List of items purchased - provide at least main items
+6. category: Must be exactly one of the listed categories based on merchant type
+7. description: One sentence summary of the purchase
+
+CRITICAL INSTRUCTIONS:
+- Return ONLY valid JSON - no markdown, no code blocks, no explanations
+- Do not include backticks or json language tags
+- Ensure all string values are properly quoted
+- Ensure amount is a number not a string
+- If date not visible, use null (not "null")
+- Items array must contain strings
+- Respond with ONLY the JSON object"""
 
         try:
             # Step 3: Call Qwen API with extracted text (NO images - text only!)

@@ -19,7 +19,8 @@ opik
 litellm
 gunicorn
 tesseract
-fastapi
-uvicorn[standard]
-pytesseract  
+transformers
+torch
 pillow
+pytesseract==0.3.10
+opencv-python-headless==4.8.1.78
