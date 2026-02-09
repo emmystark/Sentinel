@@ -17,9 +17,9 @@ logger = logging.getLogger(__name__)
 # ==================== CONFIGURATION ====================
 
 # Environment variables
-OPIK_PROJECT_NAME = os.getenv("OPIK_PROJECT_NAME")
-OPIK_API_KEY = os.getenv("OPIK_API_KEY") or os.getenv("COMET_API_KEY")
-OPIK_WORKSPACE = os.getenv("OPIK_WORKSPACE") or os.getenv("COMET_WORKSPACE")
+OPIK_PROJECT_NAME = os.getenv("OPIK_PROJECT_NAME", "sentinel-monitoring")  # Default project name
+OPIK_API_KEY = os.getenv("OPIK_API_KEY") 
+OPIK_WORKSPACE = os.getenv("OPIK_WORKSPACE")
 OPIK_URL = os.getenv("OPIK_URL_OVERRIDE")
 USE_LOCAL_OPIK = os.getenv("USE_LOCAL_OPIK", "false").lower() == "true"
 ENVIRONMENT = os.getenv("ENVIRONMENT", "production")
@@ -29,7 +29,7 @@ ENVIRONMENT = os.getenv("ENVIRONMENT", "production")
 OPIK_AVAILABLE = False
 OPIK_CONFIGURED = False
 opik_client = None
-track = None
+# track = None
 
 try:
     import opik
@@ -132,7 +132,7 @@ def _create_fallback_track():
 # Assign track (real or fallback)
 if not OPIK_AVAILABLE or track is None:
     track = _create_fallback_track()
-    logger.info("⚠️ Using fallback @track decorator (Opik disabled)")
+    logger.info("ℹ️ Opik not configured - using no-op tracking decorator (requires OPIK_API_KEY + OPIK_WORKSPACE)")
 
 
 # ==================== DECORATOR FOR QWEN MONITORING ====================
@@ -461,7 +461,7 @@ if OPIK_AVAILABLE and OPIK_CONFIGURED:
     logger.info(f"   Project: {OPIK_PROJECT_NAME}")
     logger.info(f"   Workspace: {OPIK_WORKSPACE}")
 else:
-    logger.info("⚠️ Opik monitoring is DISABLED")
+    logger.info("ℹ️ Opik monitoring is not configured (app will run normally without monitoring)")
 
 
 # ==================== USAGE EXAMPLES ====================

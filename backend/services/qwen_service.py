@@ -13,8 +13,8 @@ import pytesseract
 logger = logging.getLogger(__name__)
 
 # Configure pytesseract to use static binary from Render build
-# This file is in backend/services/, so go up 2 levels to project root
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# This file is in backend/services/, so go up 3 levels to project root
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 TESSERACT_CMD = os.path.join(PROJECT_ROOT, 'bin', 'tesseract')
 TESSDATA_DIR = os.path.join(PROJECT_ROOT, 'tessdata')
 
