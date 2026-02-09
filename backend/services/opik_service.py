@@ -14,10 +14,16 @@ from functools import wraps
 
 logger = logging.getLogger(__name__)
 
+
+
+import opik
+from opik import track as opik_track
+# from opik.api_objects import opik_context
+
 # ==================== CONFIGURATION ====================
 
 # Environment variables
-OPIK_PROJECT_NAME = os.getenv("OPIK_PROJECT_NAME", "sentinel-monitoring")  # Default project name
+OPIK_PROJECT_NAME = os.getenv("OPIK_PROJECT_NAME")  # Default project name
 OPIK_API_KEY = os.getenv("OPIK_API_KEY") 
 OPIK_WORKSPACE = os.getenv("OPIK_WORKSPACE")
 OPIK_URL = os.getenv("OPIK_URL_OVERRIDE")
@@ -26,9 +32,9 @@ ENVIRONMENT = os.getenv("ENVIRONMENT", "production")
 
 # ==================== OPIK INITIALIZATION ====================
 
-OPIK_AVAILABLE = False
-OPIK_CONFIGURED = False
-opik_client = None
+OPIK_AVAILABLE = True
+OPIK_CONFIGURED = True
+# opik_client = opik.Opik()
 # track = None
 
 try:
