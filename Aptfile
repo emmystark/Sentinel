@@ -1,0 +1,25 @@
+# System packages for Sentinel - Render Buildpack
+# Render reads this file and installs packages using apt-get
+# For OCR recognition with Tesseract
+
+# Tesseract OCR engine - Required for receipt scanning
+tesseract-ocr
+
+# English language data for Tesseract
+tesseract-ocr-eng
+
+# Tesseract development libraries
+libtesseract-dev
+
+# Image processing library dependencies
+libleptonica-dev
+
+# Graphics libraries for OpenCV
+libgl1-mesa-glx
+libsm6
+libxext6
+
+# Additional build tools
+build-essential
+libssl-dev
+libffi-dev

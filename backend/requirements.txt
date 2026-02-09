@@ -13,14 +13,10 @@ requests
 APScheduler
 httpx
 openai
-pytesseract
 python-multipart
 opik
 litellm
-gunicorn
-tesseract
 transformers
 torch
-pillow
 pytesseract==0.3.10
 opencv-python-headless==4.8.1.78
