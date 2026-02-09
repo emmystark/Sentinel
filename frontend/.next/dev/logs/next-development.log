@@ -800,3 +800,65 @@
 [07:04:05.871] Browser LOG     🔵 API Call: POST /api/ai/health-tips
 [07:04:05.871] Browser LOG     Profile and transactions loaded, regenerating tips...
 [07:04:06.369] Browser LOG     ✅ API Success: POST /api/ai/health-tips {"success":true,"tips":["Good job! You're spending only 28% of your income.","💰 Your highest spending is in Transport: ₦50,000. Look for ways to optimize this category.","📝 Track at least 10-15 transactions for better spending pattern analysis.","Good diversification across 3 spending categories."]}
+[07:19:54.285] Browser LOG     Auth ready, fetching profile and transactions...
+[07:19:54.286] Browser LOG     🔵 API Call: GET /api/auth/profile
+[07:19:54.286] Browser LOG     📊 Fetching transactions from API...
+[07:19:54.286] Browser LOG     🔵 API Call: GET /api/transactions
+[07:19:54.286] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[07:19:54.286] Browser LOG     Auth ready, fetching profile and transactions...
+[07:19:54.286] Browser LOG     🔵 API Call: GET /api/auth/profile
+[07:19:54.286] Browser LOG     📊 Fetching transactions from API...
+[07:19:54.286] Browser LOG     🔵 API Call: GET /api/transactions
+[07:19:54.286] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[07:19:54.286] Browser ERROR   ❌ API Error: Load failed
+[07:19:54.286] Browser ERROR   ❌ Failed to fetch transactions: {}
+[07:19:54.286] Browser ERROR   ❌ API Error: Load failed
+[07:19:54.286] Browser ERROR   ❌ API Error: Load failed
+[07:19:54.286] Browser WARN    Could not fetch profile: {}
+[07:19:54.286] Browser ERROR   ❌ API Error: Load failed
+[07:19:54.286] Browser ERROR   ❌ Failed to fetch transactions: {}
+[07:19:54.286] Browser ERROR   ❌ API Error: Load failed
+[07:19:54.286] Browser ERROR   ❌ API Error: Load failed
+[07:19:54.286] Browser WARN    Could not fetch profile: {}
+[07:19:54.447] Browser LOG     ⚠️ Keeping previous transactions: 3
+[07:19:54.447] Browser LOG     ⚠️ Keeping previous transactions: 3
+[07:19:54.447] Browser LOG     ⚠️ Keeping previous transactions: 3
+[07:19:54.447] Browser LOG     ⚠️ Keeping previous transactions: 3
+[07:19:54.447] Browser LOG     Auth ready, fetching profile and transactions...
+[07:19:54.447] Browser LOG     🔵 API Call: GET /api/auth/profile
+[07:19:54.447] Browser LOG     📊 Fetching transactions from API...
+[07:19:54.447] Browser LOG     🔵 API Call: GET /api/transactions
+[07:19:54.447] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[07:19:54.447] Browser LOG     Profile and transactions loaded, regenerating tips...
+[07:19:54.447] Browser LOG     Auth ready, fetching profile and transactions...
+[07:19:54.447] Browser LOG     🔵 API Call: GET /api/auth/profile
+[07:19:54.447] Browser LOG     📊 Fetching transactions from API...
+[07:19:54.447] Browser LOG     🔵 API Call: GET /api/transactions
+[07:19:54.447] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[07:19:54.560] Browser ERROR   ❌ API Error: Load failed
+[07:19:54.560] Browser ERROR   ❌ API Error: Load failed
+[07:19:54.560] Browser WARN    Could not fetch profile: {}
+[07:19:54.560] Browser ERROR   ❌ API Error: Load failed
+[07:19:54.560] Browser ERROR   ❌ Failed to fetch transactions: {}
+[07:19:54.560] Browser ERROR   ❌ API Error: Load failed
+[07:19:54.560] Browser ERROR   ❌ API Error: Load failed
+[07:19:54.560] Browser ERROR   ❌ Failed to fetch transactions: {}
+[07:19:54.560] Browser WARN    Telegram integration not available (optional): {}
+[07:19:54.560] Browser WARN    Telegram integration not available (optional): {}
+[07:19:54.560] Browser ERROR   ❌ API Error: Load failed
+[07:19:54.560] Browser WARN    Could not fetch profile: {}
+[07:19:54.560] Browser LOG     ⚠️ Keeping previous transactions: 3
+[07:19:54.560] Browser LOG     ⚠️ Keeping previous transactions: 3
+[07:19:54.560] Browser LOG     ⚠️ Keeping previous transactions: 3
+[07:19:54.560] Browser LOG     ⚠️ Keeping previous transactions: 3
+[07:19:54.560] Browser LOG     Profile and transactions loaded, regenerating tips...
+[07:19:56.404] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[07:19:56.404] Browser LOG     🔵 API Call: GET /api/auth/profile
+[07:19:56.404] Browser LOG     📊 Fetching transactions from API...
+[07:19:56.404] Browser LOG     🔵 API Call: GET /api/transactions
+[07:19:56.404] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[07:19:56.404] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[07:19:56.404] Browser LOG     🔵 API Call: GET /api/auth/profile
+[07:19:56.404] Browser LOG     📊 Fetching transactions from API...
+[07:19:56.404] Browser LOG     🔵 API Call: GET /api/transactions
+[07:19:56.404] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
