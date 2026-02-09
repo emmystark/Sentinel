@@ -12,6 +12,20 @@ import pytesseract
 
 logger = logging.getLogger(__name__)
 
+# Configure pytesseract to use static binary from Render build
+# This file is in backend/services/, so go up 2 levels to project root
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TESSERACT_CMD = os.path.join(PROJECT_ROOT, 'bin', 'tesseract')
+TESSDATA_DIR = os.path.join(PROJECT_ROOT, 'tessdata')
+
+# Only set if the binary exists (for production Render), otherwise use system tesseract
+if os.path.exists(TESSERACT_CMD):
+    pytesseract.pytesseract.tesseract_cmd = TESSERACT_CMD
+    os.environ['TESSDATA_PREFIX'] = TESSDATA_DIR
+    logger.info(f"✅ Using static tesseract binary: {TESSERACT_CMD}")
+else:
+    logger.warning(f"⚠️ Static tesseract not found at {TESSERACT_CMD}, using system tesseract")
+
 # HuggingFace API Configuration
 HF_TOKEN = os.getenv("HF_TOKEN") or os.getenv("HUGGINGFACE_API_TOKEN")
 if not HF_TOKEN:

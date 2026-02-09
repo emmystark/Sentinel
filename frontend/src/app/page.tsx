@@ -99,14 +99,22 @@ export default function Dashboard() {
     }
   };
 
-  // Fetch transactions and profile on user load
+  // Fetch transactions and profile on user load - OPTIMIZED WITH PARALLEL REQUESTS
   useEffect(() => {
     if (authLoading || !user || !accessToken) return; // Wait for auth and token to load
     
-    console.log('Auth ready, fetching profile and transactions...');
-    fetchProfile();
-    fetchTransactions(); // This will call generateAiTips after fetching
-    verifyTelegramConnection();
+    console.log('Auth ready, fetching profile and transactions in parallel...');
+    
+    // Run all initial fetches in parallel for faster loading
+    Promise.all([
+      fetchProfile(),
+      fetchTransactions(),
+      verifyTelegramConnection()
+    ]).catch(err => {
+      console.error('Error during parallel fetch:', err);
+      // Each function handles its own errors, but log for debugging
+    });
+    
     setCurrentTime(new Date().toLocaleTimeString());
     
     // Update time every second
@@ -539,21 +547,19 @@ export default function Dashboard() {
       setTransactions(formattedData);
       console.log('✅ Transactions set in state, total:', formattedData.length);
       
-      // Calculate health score based on spending
+      // Calculate health score and generate tips in background (don't block UI)
+      // Use setTimeout to defer these operations so transactions appear immediately
       if (userProfile) {
-        calculateHealthScore(formattedData, userProfile.monthlyIncome);
+        void calculateHealthScore(formattedData, userProfile.monthlyIncome);
       }
       
-      // Generate tips after transactions are loaded
-      setTimeout(() => {
-        if (formattedData.length > 0) {
-          console.log('💡 Generating AI tips for', formattedData.length, 'transactions...');
-          generateAiTips();
-        } else {
-          console.log('💡 No transactions available, using default tip');
-          setAiTips(['Start logging expenses to get personalized financial tips!']);
-        }
-      }, 100);
+      // Generate AI tips in background (non-blocking)
+      if (formattedData.length > 0) {
+        console.log('💡 Generating AI tips for', formattedData.length, 'transactions...');
+        void generateAiTips();
+      } else {
+        setAiTips(['Start logging expenses to get personalized financial tips!']);
+      }
       
     } catch (err) {
       console.error('❌ Failed to fetch transactions:', err);
