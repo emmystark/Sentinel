@@ -121,13 +121,22 @@ def _parse_transaction_text(text: str) -> tuple[str | None, float | None]:
 
 @router.post("/webhook")
 async def telegram_webhook(update: TelegramUpdate):
-    """Receive updates from Telegram - link accounts, log transactions, provide financial advice"""
+    """
+    Receive updates from Telegram - link accounts, log transactions, provide financial advice
+    Supports: text messages, photo uploads with receipt scanning
+    """
     try:
         if not update.message:
             return {"status": "ok"}
+        
         chat_id = update.message.get("chat", {}).get("id")
         text = (update.message.get("text") or "").strip()
+        photo = update.message.get("photo")
         user = update.message.get("from", {})
+        
+        # Handle photo uploads (receipt images)
+        if photo and len(photo) > 0:
+            return await _handle_receipt_photo(chat_id, photo, user)
         
         # Handle /start command
         if text.startswith("/start"):
@@ -295,6 +304,129 @@ async def telegram_webhook(update: TelegramUpdate):
     except Exception as e:
         logger.error(f"Webhook error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
+async def _handle_receipt_photo(chat_id: int, photo: list, user: dict):
+    """Handle receipt photo uploads - extract data using OCR and Qwen"""
+    try:
+        await send_message(chat_id, "📸 Receipt received! Scanning with OCR... (this may take a few seconds)")
+        
+        # Get the largest photo (best quality)
+        largest_photo = max(photo, key=lambda p: p.get("width", 0) * p.get("height", 0))
+        file_id = largest_photo.get("file_id")
+        
+        if not file_id:
+            await send_message(chat_id, "❌ Could not extract photo. Try uploading a clearer image.")
+            return {"status": "ok"}
+        
+        # Download photo from Telegram
+        file_info_response = await _get_telegram_file(file_id)
+        if not file_info_response or not file_info_response.get("result"):
+            await send_message(chat_id, "❌ Could not download photo from Telegram.")
+            return {"status": "ok"}
+        
+        file_path = file_info_response["result"].get("file_path")
+        file_url = f"{TELEGRAM_API}/file/bot{BOT_TOKEN}/{file_path}"
+        
+        # Download and parse receipt with Qwen
+        logger.info(f"Downloading receipt from Telegram: {file_url}")
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            image_response = await client.get(file_url)
+            image_data = image_response.content
+        
+        # Encode to base64 for Qwen processing
+        import base64
+        base64_image = base64.b64encode(image_data).decode('utf-8')
+        receipt_data_uri = f"data:image/jpeg;base64,{base64_image}"
+        
+        # Parse receipt with Qwen
+        from services.qwen_service import parse_receipt_with_qwen
+        extracted_data = await parse_receipt_with_qwen(receipt_data_uri)
+        
+        # Validate extraction
+        if not extracted_data or extracted_data.get("merchant") == "Unknown Merchant":
+            await send_message(
+                chat_id,
+                "🤔 Could not read the receipt clearly.\n\n"
+                "Try:\n"
+                "• Make sure receipt is well-lit\n"
+                "• Take a straight-on photo\n"
+                "• Or log manually: `Merchant 5000`"
+            )
+            return {"status": "ok"}
+        
+        # Save to database
+        try:
+            supabase = get_supabase()
+            # Find user by telegram_chat_id
+            user_r = supabase.table("user_profiles").select("id").eq(
+                "telegram_chat_id", chat_id
+            ).execute()
+            
+            if not user_r.data or len(user_r.data) == 0:
+                await send_message(
+                    chat_id,
+                    "⚠️ Account not linked.\n\n"
+                    "Send /start and enter your 6-digit code to link now 🔗"
+                )
+                return {"status": "ok"}
+            
+            user_id = user_r.data[0]["id"]
+            
+            # Create transaction from extracted data
+            transaction_data = {
+                "user_id": user_id,
+                "merchant": extracted_data.get("merchant", "Unknown"),
+                "amount": float(extracted_data.get("amount", 0)),
+                "category": extracted_data.get("category", "Other"),
+                "description": extracted_data.get("description", "Receipt"),
+                "date": extracted_data.get("date"),
+                "currency": extracted_data.get("currency", "NGN"),
+                "source": "telegram_receipt",
+                "ai_categorized": True,
+            }
+            
+            # Use service role for insert
+            from config import get_supabase_admin
+            admin_supabase = get_supabase_admin()
+            result = admin_supabase.table("transactions").insert(transaction_data).execute()
+            
+            if result.data:
+                merchant = extracted_data.get("merchant", "Unknown")
+                amount = extracted_data.get("amount", 0)
+                category = extracted_data.get("category", "Other")
+                await send_message(
+                    chat_id,
+                    f"✅ Receipt saved!\n"
+                    f"Merchant: {merchant}\n"
+                    f"Amount: ₦{amount:,.0f}\n"
+                    f"Category: {category}"
+                )
+            else:
+                await send_message(chat_id, "❌ Could not save receipt. Try again.")
+        
+        except Exception as db_error:
+            logger.error(f"Error saving receipt from Telegram: {db_error}")
+            await send_message(chat_id, "❌ Database error. Please try again.")
+        
+        return {"status": "ok"}
+        
+    except Exception as e:
+        logger.error(f"Receipt photo handler error: {e}", exc_info=True)
+        await send_message(chat_id, "❌ Error processing receipt. Please try again.")
+        return {"status": "ok"}
+
+async def _get_telegram_file(file_id: str):
+    """Get file info from Telegram"""
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            response = await client.get(
+                f"{TELEGRAM_API}/bot{BOT_TOKEN}/getFile",
+                params={"file_id": file_id}
+            )
+            return response.json()
+    except Exception as e:
+        logger.error(f"Error getting Telegram file: {e}")
+        return None
 
 @router.post("/send-message")
 async def send_telegram_message(
