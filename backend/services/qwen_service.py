@@ -9,6 +9,7 @@ import requests
 from config import Config
 from openai import OpenAI
 import pytesseract
+from services.opik_service import monitor_qwen_call, OPIK_AVAILABLE, OPIK_CONFIGURED
 
 logger = logging.getLogger(__name__)
 
@@ -85,6 +86,7 @@ CATEGORIES = [
 ]
 
 
+@monitor_qwen_call("parse_receipt", tags=["ocr", "receipt", "qwen"])
 async def parse_receipt_with_qwen(image_source: str) -> Dict[str, Any]:
     """
     Parse receipt image using OCR + Qwen text analysis.
@@ -197,6 +199,7 @@ CRITICAL INSTRUCTIONS:
         return _get_default_extraction()
 
 
+@monitor_qwen_call("analyze_transaction", tags=["analysis", "transaction", "qwen"])
 async def analyze_transaction_with_qwen(
     merchant: str,
     amount: float,
