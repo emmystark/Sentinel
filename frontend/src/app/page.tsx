@@ -36,7 +36,16 @@ export default function Dashboard() {
   const [activeModal, setActiveModal] = useState<string | null>(null);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [selectedTransaction, setSelectedTransaction] = useState<Transaction | null>(null);
-  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+  // ✅ Initialize with default values so dashboard renders immediately
+  const [userProfile, setUserProfile] = useState<UserProfile>({
+    name: 'Loading...',
+    email: '',
+    monthlyIncome: 0,
+    fixedBills: 0,
+    savingsGoal: 0,
+    telegramConnected: false,
+    telegramUsername: ''
+  });
   const [profileLoaded, setProfileLoaded] = useState(false);
   const [newTransaction, setNewTransaction] = useState({
     description: '',
@@ -150,9 +159,9 @@ export default function Dashboard() {
       }
       const linked = !!(settingsRes && (settingsRes as { telegram_chat_id?: number }).telegram_chat_id);
       setTelegramVerified(linked);
-      if (linked && userProfile) {
-        setUserProfile(prev => prev ? { ...prev, telegramConnected: true, telegramUsername: prev.telegramUsername || '@linked' } : null);
-      }
+      // if (linked && userProfile) {
+      //   setUserProfile(prev => prev ? { ...prev, telegramConnected: true, telegramUsername: prev.telegramUsername || '@linked' } : null);
+      // }
     } catch (err) {
       setTelegramVerified(false);
       console.warn('Telegram integration not available (optional):', err);
@@ -173,7 +182,7 @@ export default function Dashboard() {
       const res = await apiCall('/api/telegram/link-with-code', 'POST', { code });
       if (res.success) {
         setTelegramVerified(true);
-        setUserProfile(prev => prev ? { ...prev, telegramConnected: true, telegramUsername: res.telegram_username ? `@${res.telegram_username}` : '@linked' } : null);
+        // setUserProfile(prev => prev ? { ...prev, telegramConnected: true, telegramUsername: res.telegram_username ? `@${res.telegram_username}` : '@linked' } : null);
         setTelegramLinkCode('');
         
         // Show success message
@@ -254,7 +263,7 @@ export default function Dashboard() {
 
   // Financial advisor chatbot - Enhanced handler
   const handleChatSubmit = async () => {
-    if (!chatInput.trim() || chatLoading || !userProfile) return;
+    if (!chatInput.trim() || chatLoading) return;
 
     const userMessage = chatInput;
     setChatInput('');
@@ -621,7 +630,6 @@ export default function Dashboard() {
   };
 
   const handleSaveProfile = async () => {
-    if (!userProfile) return;
     setOperationLoading(true);
     try {
       const result = await apiCall('/api/auth/profile', 'PUT', {
@@ -633,13 +641,13 @@ export default function Dashboard() {
       
       if (result.success) {
         // Update local state with confirmed data from backend
-        setUserProfile(prev => prev ? {
+        setUserProfile(prev => ({
           ...prev,
           monthlyIncome: result.profile?.monthly_income ?? prev.monthlyIncome,
           fixedBills: result.profile?.fixed_bills ?? prev.fixedBills,
           savingsGoal: result.profile?.savings_goal ?? prev.savingsGoal,
           name: result.profile?.name ?? prev.name
-        } : null);
+        }));
         
         // Show success message
         const tempAlert = document.createElement('div');
@@ -675,11 +683,9 @@ export default function Dashboard() {
   };
 
   const handleEditProfile = (field: string, newValue: number) => {
-    if (!userProfile) return;
-    setUserProfile({ ...userProfile, [field]: newValue });
+    setUserProfile(prev => ({ ...prev, [field]: newValue }));
     // Recalculate health score with new profile data
-    const newIncome = field === 'monthlyIncome' ? newValue : userProfile.monthlyIncome;
-    calculateHealthScore(transactions, newIncome);
+    calculateHealthScore(transactions, field === 'monthlyIncome' ? newValue : userProfile.monthlyIncome);
   };
 
   const handleUpdateTransaction = async () => {
@@ -702,9 +708,7 @@ export default function Dashboard() {
         setTransactions(updatedTransactions);
         
         // Recalculate health score
-        if (userProfile) {
-          calculateHealthScore(updatedTransactions, userProfile.monthlyIncome);
-        }
+        calculateHealthScore(updatedTransactions, userProfile.monthlyIncome);
         closeModal();
       } catch (err) {
         console.error('Failed to update transaction:', err);
@@ -721,7 +725,7 @@ export default function Dashboard() {
 // ADD THIS USEEFFECT (after other useEffects):
 // Async health score calculation - doesn't block UI
 useEffect(() => {
-  if (transactions.length > 0 && userProfile && profileLoaded) {
+  if (transactions.length > 0 && profileLoaded) {
     setHealthCalculating(true);
     
     // Calculate asynchronously to prevent UI blocking
@@ -730,7 +734,7 @@ useEffect(() => {
       setHealthCalculating(false);
     }, 50); // 50ms delay for smooth transition
   }
-}, [transactions, userProfile, profileLoaded]);
+}, [transactions, userProfile.monthlyIncome, profileLoaded]);
 
 
 
@@ -761,9 +765,7 @@ useEffect(() => {
     setTransactions(updatedTransactions);
 
     // Recalculate health score
-    if (userProfile) {
-      calculateHealthScore(updatedTransactions, userProfile.monthlyIncome);
-    }
+    calculateHealthScore(updatedTransactions, userProfile.monthlyIncome);
 
     // Show success message
     const tempAlert = document.createElement('div');
@@ -865,9 +867,7 @@ useEffect(() => {
       console.log('Transaction added successfully:', newTx);
       
       // Recalculate health score
-      if (userProfile) {
-        calculateHealthScore(updatedTransactions, userProfile.monthlyIncome);
-      }
+      calculateHealthScore(updatedTransactions, userProfile.monthlyIncome);
 
       // Show success message and close modal
       const tempAlert = document.createElement('div');
@@ -938,8 +938,9 @@ useEffect(() => {
     );
   }
 
-  // Show loading while auth and profile load - with proper spinner
-  if (authLoading || !profileLoaded || !userProfile) {
+  // ✅ SHOW DASHBOARD IMMEDIATELY ONCE AUTH IS DONE + USER EXISTS
+  // Don't wait for profile or transactions - load those in background
+  if (!authLoading && !user) {
     return (
       <div className={styles.app} style={{ 
         display: 'flex', 
