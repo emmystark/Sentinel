@@ -1,111 +1,879 @@
-[00:00:04.707] Server  LOG     ✓ Ready in 4.2s
-[00:00:09.577] Server  LOG     ○ Compiling / ...
-[00:00:12.897] Browser LOG     Auth ready, fetching profile and transactions in parallel...
-[00:00:12.897] Browser LOG     🔵 API Call: GET /api/auth/profile
-[00:00:12.897] Browser LOG     📊 Fetching transactions from API...
-[00:00:12.897] Browser LOG     🔵 API Call: GET /api/transactions
-[00:00:12.897] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
-[00:00:12.897] Browser LOG     Auth ready, fetching profile and transactions in parallel...
-[00:00:12.897] Browser LOG     🔵 API Call: GET /api/auth/profile
-[00:00:12.897] Browser LOG     📊 Fetching transactions from API...
-[00:00:12.897] Browser LOG     🔵 API Call: GET /api/transactions
-[00:00:12.897] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
-[00:00:19.039] Browser LOG     ✅ API Success: GET /api/auth/profile {"created_at":"2026-02-08T08:04:29.374705+00:00","email":"","fixed_bills":25000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":10000,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-02-08T08:09:24.32152+00:00"}
-[00:00:19.039] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
-[00:00:19.702] Browser LOG     ✅ API Success: GET /api/auth/profile {"created_at":"2026-02-08T08:04:29.374705+00:00","email":"","fixed_bills":25000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":10000,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-02-08T08:09:24.32152+00:00"}
-[00:00:20.742] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
-[00:00:21.507] Browser LOG     ✅ API Success: GET /api/transactions [{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:14:23.065773+00:00","currency":"NGN","date":"2026-02-08T11:14:23.026+00:00","description":"drugs","id":"a04131f2-05e4-4c45-8e60-6637703473e6","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:14:25.067141+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T11:05:17.853176+00:00","currency":"NGN","date":"2026-02-08T11:05:17.818+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"294d3e35-0971-492a-9109-e2bc8e66a285","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:05:20.067415+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:03:42.777153+00:00","currency":"NGN","date":"2026-02-08T11:03:42.73+00:00","description":"drugs","id":"77095631-eb17-4c22-9992-2f5a1227e816","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:03:46.507082+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T09:42:01.084106+00:00","currency":"USD","date":"2026-02-08T09:42:01.048+00:00","description":"padlock purchase","id":"7b5cca8b-2b8e-4fbc-97bc-08be4b8c3a29","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:42:02.792811+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:31:29.968074+00:00","currency":"NGN","date":"2026-02-08T09:31:29.934+00:00","description":"drugs","id":"285077c6-bd90-47e7-a143-d22160133738","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:31:31.922394+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:17:49.363883+00:00","currency":"NGN","date":"2026-02-08T09:17:49.345+00:00","description":"drugs","id":"383a5a34-8b65-4484-8db3-37576ab6ded3","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:17:51.802784+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:34:16.269704+00:00","currency":"USD","date":"2026-02-08T08:34:16.232+00:00","description":"spend and save","id":"f3721818-70aa-4a6a-8013-21882c39bc79","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:34:17.995733+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:33:55.235858+00:00","currency":"NGN","date":"2026-02-08T08:33:54.751+00:00","description":"drugs","id":"ecbc3380-5ced-4793-9e47-2e4c4db7d1be","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:33:57.050637+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:32:37.381711+00:00","currency":"NGN","date":"2026-02-08T08:32:37.325+00:00","description":"drugs","id":"1c3dc020-60c6-443f-88ab-66567f363ea5","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:32:39.095788+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:13:13.00637+00:00","currency":"USD","date":"2026-02-08T08:13:12.989+00:00","description":"spend and save","id":"ef5505be-c059-4704-ae0b-0335856aea51","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:13:14.791649+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:12:24.724649+00:00","currency":"NGN","date":"2026-02-08T08:12:24.692+00:00","description":"drugs","id":"2b398248-22bf-479c-82f3-fc8f05d84f89","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:12:26.257438+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T08:09:49.141739+00:00","currency":"USD","date":"2026-02-08T08:09:49.121+00:00","description":"padlock purchase","id":"0a2eba6c-51a9-437a-89c2-61a37cc5a315","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:09:50.756227+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T08:08:24.041346+00:00","currency":"NGN","date":"2026-02-08T08:08:24.02+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"4b5065e5-d5a5-4a29-a328-771252b18a92","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:08:25.628153+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:07:38.688951+00:00","currency":"NGN","date":"2026-02-08T08:07:38.671+00:00","description":"drugs","id":"63e109ef-46b2-45c9-a41b-bf5f6e150719","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:07:40.20689+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:05:18.12513+00:00","currency":"NGN","date":"2026-02-08T08:05:18.104+00:00","description":"drugs","id":"05642056-93fd-4f7d-8053-599903c3d7f0","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:05:19.723535+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"}]
-[00:00:21.507] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:14:23.065773+00:00","currency":"NGN","date":"2026-02-08T11:14:23.026+00:00","description":"drugs","id":"a04131f2-05e4-4c45-8e60-6637703473e6","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:14:25.067141+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T11:05:17.853176+00:00","currency":"NGN","date":"2026-02-08T11:05:17.818+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"294d3e35-0971-492a-9109-e2bc8e66a285","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:05:20.067415+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:03:42.777153+00:00","currency":"NGN","date":"2026-02-08T11:03:42.73+00:00","description":"drugs","id":"77095631-eb17-4c22-9992-2f5a1227e816","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:03:46.507082+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T09:42:01.084106+00:00","currency":"USD","date":"2026-02-08T09:42:01.048+00:00","description":"padlock purchase","id":"7b5cca8b-2b8e-4fbc-97bc-08be4b8c3a29","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:42:02.792811+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:31:29.968074+00:00","currency":"NGN","date":"2026-02-08T09:31:29.934+00:00","description":"drugs","id":"285077c6-bd90-47e7-a143-d22160133738","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:31:31.922394+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:17:49.363883+00:00","currency":"NGN","date":"2026-02-08T09:17:49.345+00:00","description":"drugs","id":"383a5a34-8b65-4484-8db3-37576ab6ded3","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:17:51.802784+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:34:16.269704+00:00","currency":"USD","date":"2026-02-08T08:34:16.232+00:00","description":"spend and save","id":"f3721818-70aa-4a6a-8013-21882c39bc79","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:34:17.995733+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:33:55.235858+00:00","currency":"NGN","date":"2026-02-08T08:33:54.751+00:00","description":"drugs","id":"ecbc3380-5ced-4793-9e47-2e4c4db7d1be","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:33:57.050637+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:32:37.381711+00:00","currency":"NGN","date":"2026-02-08T08:32:37.325+00:00","description":"drugs","id":"1c3dc020-60c6-443f-88ab-66567f363ea5","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:32:39.095788+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:13:13.00637+00:00","currency":"USD","date":"2026-02-08T08:13:12.989+00:00","description":"spend and save","id":"ef5505be-c059-4704-ae0b-0335856aea51","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:13:14.791649+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:12:24.724649+00:00","currency":"NGN","date":"2026-02-08T08:12:24.692+00:00","description":"drugs","id":"2b398248-22bf-479c-82f3-fc8f05d84f89","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:12:26.257438+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T08:09:49.141739+00:00","currency":"USD","date":"2026-02-08T08:09:49.121+00:00","description":"padlock purchase","id":"0a2eba6c-51a9-437a-89c2-61a37cc5a315","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:09:50.756227+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T08:08:24.041346+00:00","currency":"NGN","date":"2026-02-08T08:08:24.02+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"4b5065e5-d5a5-4a29-a328-771252b18a92","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:08:25.628153+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:07:38.688951+00:00","currency":"NGN","date":"2026-02-08T08:07:38.671+00:00","description":"drugs","id":"63e109ef-46b2-45c9-a41b-bf5f6e150719","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:07:40.20689+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:05:18.12513+00:00","currency":"NGN","date":"2026-02-08T08:05:18.104+00:00","description":"drugs","id":"05642056-93fd-4f7d-8053-599903c3d7f0","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:05:19.723535+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"}]
-[00:00:21.507] Browser LOG     ✅ Successfully fetched 15 transactions from database
-[00:00:21.507] Browser LOG     ✅ Transactions set in state, total: 15
-[00:00:21.507] Browser LOG     💡 Generating AI tips for 15 transactions...
-[00:00:21.507] Browser LOG     Profile and transactions loaded, regenerating tips...
-[00:00:21.507] Browser LOG     ✅ API Success: GET /api/transactions [{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:14:23.065773+00:00","currency":"NGN","date":"2026-02-08T11:14:23.026+00:00","description":"drugs","id":"a04131f2-05e4-4c45-8e60-6637703473e6","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:14:25.067141+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T11:05:17.853176+00:00","currency":"NGN","date":"2026-02-08T11:05:17.818+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"294d3e35-0971-492a-9109-e2bc8e66a285","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:05:20.067415+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:03:42.777153+00:00","currency":"NGN","date":"2026-02-08T11:03:42.73+00:00","description":"drugs","id":"77095631-eb17-4c22-9992-2f5a1227e816","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:03:46.507082+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T09:42:01.084106+00:00","currency":"USD","date":"2026-02-08T09:42:01.048+00:00","description":"padlock purchase","id":"7b5cca8b-2b8e-4fbc-97bc-08be4b8c3a29","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:42:02.792811+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:31:29.968074+00:00","currency":"NGN","date":"2026-02-08T09:31:29.934+00:00","description":"drugs","id":"285077c6-bd90-47e7-a143-d22160133738","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:31:31.922394+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:17:49.363883+00:00","currency":"NGN","date":"2026-02-08T09:17:49.345+00:00","description":"drugs","id":"383a5a34-8b65-4484-8db3-37576ab6ded3","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:17:51.802784+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:34:16.269704+00:00","currency":"USD","date":"2026-02-08T08:34:16.232+00:00","description":"spend and save","id":"f3721818-70aa-4a6a-8013-21882c39bc79","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:34:17.995733+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:33:55.235858+00:00","currency":"NGN","date":"2026-02-08T08:33:54.751+00:00","description":"drugs","id":"ecbc3380-5ced-4793-9e47-2e4c4db7d1be","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:33:57.050637+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:32:37.381711+00:00","currency":"NGN","date":"2026-02-08T08:32:37.325+00:00","description":"drugs","id":"1c3dc020-60c6-443f-88ab-66567f363ea5","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:32:39.095788+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:13:13.00637+00:00","currency":"USD","date":"2026-02-08T08:13:12.989+00:00","description":"spend and save","id":"ef5505be-c059-4704-ae0b-0335856aea51","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:13:14.791649+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:12:24.724649+00:00","currency":"NGN","date":"2026-02-08T08:12:24.692+00:00","description":"drugs","id":"2b398248-22bf-479c-82f3-fc8f05d84f89","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:12:26.257438+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T08:09:49.141739+00:00","currency":"USD","date":"2026-02-08T08:09:49.121+00:00","description":"padlock purchase","id":"0a2eba6c-51a9-437a-89c2-61a37cc5a315","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:09:50.756227+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T08:08:24.041346+00:00","currency":"NGN","date":"2026-02-08T08:08:24.02+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"4b5065e5-d5a5-4a29-a328-771252b18a92","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:08:25.628153+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:07:38.688951+00:00","currency":"NGN","date":"2026-02-08T08:07:38.671+00:00","description":"drugs","id":"63e109ef-46b2-45c9-a41b-bf5f6e150719","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:07:40.20689+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:05:18.12513+00:00","currency":"NGN","date":"2026-02-08T08:05:18.104+00:00","description":"drugs","id":"05642056-93fd-4f7d-8053-599903c3d7f0","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:05:19.723535+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"}]
-[00:00:21.507] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:14:23.065773+00:00","currency":"NGN","date":"2026-02-08T11:14:23.026+00:00","description":"drugs","id":"a04131f2-05e4-4c45-8e60-6637703473e6","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:14:25.067141+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T11:05:17.853176+00:00","currency":"NGN","date":"2026-02-08T11:05:17.818+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"294d3e35-0971-492a-9109-e2bc8e66a285","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:05:20.067415+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:03:42.777153+00:00","currency":"NGN","date":"2026-02-08T11:03:42.73+00:00","description":"drugs","id":"77095631-eb17-4c22-9992-2f5a1227e816","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:03:46.507082+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T09:42:01.084106+00:00","currency":"USD","date":"2026-02-08T09:42:01.048+00:00","description":"padlock purchase","id":"7b5cca8b-2b8e-4fbc-97bc-08be4b8c3a29","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:42:02.792811+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:31:29.968074+00:00","currency":"NGN","date":"2026-02-08T09:31:29.934+00:00","description":"drugs","id":"285077c6-bd90-47e7-a143-d22160133738","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:31:31.922394+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:17:49.363883+00:00","currency":"NGN","date":"2026-02-08T09:17:49.345+00:00","description":"drugs","id":"383a5a34-8b65-4484-8db3-37576ab6ded3","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:17:51.802784+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:34:16.269704+00:00","currency":"USD","date":"2026-02-08T08:34:16.232+00:00","description":"spend and save","id":"f3721818-70aa-4a6a-8013-21882c39bc79","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:34:17.995733+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:33:55.235858+00:00","currency":"NGN","date":"2026-02-08T08:33:54.751+00:00","description":"drugs","id":"ecbc3380-5ced-4793-9e47-2e4c4db7d1be","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:33:57.050637+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:32:37.381711+00:00","currency":"NGN","date":"2026-02-08T08:32:37.325+00:00","description":"drugs","id":"1c3dc020-60c6-443f-88ab-66567f363ea5","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:32:39.095788+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:13:13.00637+00:00","currency":"USD","date":"2026-02-08T08:13:12.989+00:00","description":"spend and save","id":"ef5505be-c059-4704-ae0b-0335856aea51","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:13:14.791649+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:12:24.724649+00:00","currency":"NGN","date":"2026-02-08T08:12:24.692+00:00","description":"drugs","id":"2b398248-22bf-479c-82f3-fc8f05d84f89","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:12:26.257438+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T08:09:49.141739+00:00","currency":"USD","date":"2026-02-08T08:09:49.121+00:00","description":"padlock purchase","id":"0a2eba6c-51a9-437a-89c2-61a37cc5a315","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:09:50.756227+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T08:08:24.041346+00:00","currency":"NGN","date":"2026-02-08T08:08:24.02+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"4b5065e5-d5a5-4a29-a328-771252b18a92","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:08:25.628153+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:07:38.688951+00:00","currency":"NGN","date":"2026-02-08T08:07:38.671+00:00","description":"drugs","id":"63e109ef-46b2-45c9-a41b-bf5f6e150719","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:07:40.20689+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:05:18.12513+00:00","currency":"NGN","date":"2026-02-08T08:05:18.104+00:00","description":"drugs","id":"05642056-93fd-4f7d-8053-599903c3d7f0","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:05:19.723535+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"}]
-[00:00:21.507] Browser LOG     ✅ Successfully fetched 15 transactions from database
-[00:00:21.508] Browser LOG     ✅ Transactions set in state, total: 15
-[00:00:21.508] Browser LOG     💡 Generating AI tips for 15 transactions...
-[00:00:21.508] Browser LOG     Profile and transactions loaded, regenerating tips...
-[00:01:30.976] Browser LOG     Auth ready, fetching profile and transactions in parallel...
-[00:01:30.976] Browser LOG     🔵 API Call: GET /api/auth/profile
-[00:01:30.976] Browser LOG     📊 Fetching transactions from API...
-[00:01:30.976] Browser LOG     🔵 API Call: GET /api/transactions
-[00:01:30.976] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
-[00:01:33.180] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
-[00:01:34.311] Browser LOG     ✅ API Success: GET /api/auth/profile {"created_at":"2026-02-08T08:04:29.374705+00:00","email":"","fixed_bills":25000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":10000,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-02-08T08:09:24.32152+00:00"}
-[00:01:34.311] Browser LOG     ✅ API Success: GET /api/transactions [{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:14:23.065773+00:00","currency":"NGN","date":"2026-02-08T11:14:23.026+00:00","description":"drugs","id":"a04131f2-05e4-4c45-8e60-6637703473e6","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:14:25.067141+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T11:05:17.853176+00:00","currency":"NGN","date":"2026-02-08T11:05:17.818+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"294d3e35-0971-492a-9109-e2bc8e66a285","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:05:20.067415+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:03:42.777153+00:00","currency":"NGN","date":"2026-02-08T11:03:42.73+00:00","description":"drugs","id":"77095631-eb17-4c22-9992-2f5a1227e816","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:03:46.507082+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T09:42:01.084106+00:00","currency":"USD","date":"2026-02-08T09:42:01.048+00:00","description":"padlock purchase","id":"7b5cca8b-2b8e-4fbc-97bc-08be4b8c3a29","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:42:02.792811+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:31:29.968074+00:00","currency":"NGN","date":"2026-02-08T09:31:29.934+00:00","description":"drugs","id":"285077c6-bd90-47e7-a143-d22160133738","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:31:31.922394+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:17:49.363883+00:00","currency":"NGN","date":"2026-02-08T09:17:49.345+00:00","description":"drugs","id":"383a5a34-8b65-4484-8db3-37576ab6ded3","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:17:51.802784+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:34:16.269704+00:00","currency":"USD","date":"2026-02-08T08:34:16.232+00:00","description":"spend and save","id":"f3721818-70aa-4a6a-8013-21882c39bc79","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:34:17.995733+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:33:55.235858+00:00","currency":"NGN","date":"2026-02-08T08:33:54.751+00:00","description":"drugs","id":"ecbc3380-5ced-4793-9e47-2e4c4db7d1be","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:33:57.050637+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:32:37.381711+00:00","currency":"NGN","date":"2026-02-08T08:32:37.325+00:00","description":"drugs","id":"1c3dc020-60c6-443f-88ab-66567f363ea5","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:32:39.095788+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:13:13.00637+00:00","currency":"USD","date":"2026-02-08T08:13:12.989+00:00","description":"spend and save","id":"ef5505be-c059-4704-ae0b-0335856aea51","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:13:14.791649+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:12:24.724649+00:00","currency":"NGN","date":"2026-02-08T08:12:24.692+00:00","description":"drugs","id":"2b398248-22bf-479c-82f3-fc8f05d84f89","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:12:26.257438+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T08:09:49.141739+00:00","currency":"USD","date":"2026-02-08T08:09:49.121+00:00","description":"padlock purchase","id":"0a2eba6c-51a9-437a-89c2-61a37cc5a315","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:09:50.756227+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T08:08:24.041346+00:00","currency":"NGN","date":"2026-02-08T08:08:24.02+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"4b5065e5-d5a5-4a29-a328-771252b18a92","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:08:25.628153+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:07:38.688951+00:00","currency":"NGN","date":"2026-02-08T08:07:38.671+00:00","description":"drugs","id":"63e109ef-46b2-45c9-a41b-bf5f6e150719","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:07:40.20689+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:05:18.12513+00:00","currency":"NGN","date":"2026-02-08T08:05:18.104+00:00","description":"drugs","id":"05642056-93fd-4f7d-8053-599903c3d7f0","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:05:19.723535+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"}]
-[00:01:34.311] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:14:23.065773+00:00","currency":"NGN","date":"2026-02-08T11:14:23.026+00:00","description":"drugs","id":"a04131f2-05e4-4c45-8e60-6637703473e6","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:14:25.067141+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T11:05:17.853176+00:00","currency":"NGN","date":"2026-02-08T11:05:17.818+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"294d3e35-0971-492a-9109-e2bc8e66a285","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:05:20.067415+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:03:42.777153+00:00","currency":"NGN","date":"2026-02-08T11:03:42.73+00:00","description":"drugs","id":"77095631-eb17-4c22-9992-2f5a1227e816","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:03:46.507082+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T09:42:01.084106+00:00","currency":"USD","date":"2026-02-08T09:42:01.048+00:00","description":"padlock purchase","id":"7b5cca8b-2b8e-4fbc-97bc-08be4b8c3a29","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:42:02.792811+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:31:29.968074+00:00","currency":"NGN","date":"2026-02-08T09:31:29.934+00:00","description":"drugs","id":"285077c6-bd90-47e7-a143-d22160133738","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:31:31.922394+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:17:49.363883+00:00","currency":"NGN","date":"2026-02-08T09:17:49.345+00:00","description":"drugs","id":"383a5a34-8b65-4484-8db3-37576ab6ded3","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:17:51.802784+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:34:16.269704+00:00","currency":"USD","date":"2026-02-08T08:34:16.232+00:00","description":"spend and save","id":"f3721818-70aa-4a6a-8013-21882c39bc79","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:34:17.995733+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:33:55.235858+00:00","currency":"NGN","date":"2026-02-08T08:33:54.751+00:00","description":"drugs","id":"ecbc3380-5ced-4793-9e47-2e4c4db7d1be","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:33:57.050637+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:32:37.381711+00:00","currency":"NGN","date":"2026-02-08T08:32:37.325+00:00","description":"drugs","id":"1c3dc020-60c6-443f-88ab-66567f363ea5","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:32:39.095788+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:13:13.00637+00:00","currency":"USD","date":"2026-02-08T08:13:12.989+00:00","description":"spend and save","id":"ef5505be-c059-4704-ae0b-0335856aea51","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:13:14.791649+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:12:24.724649+00:00","currency":"NGN","date":"2026-02-08T08:12:24.692+00:00","description":"drugs","id":"2b398248-22bf-479c-82f3-fc8f05d84f89","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:12:26.257438+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T08:09:49.141739+00:00","currency":"USD","date":"2026-02-08T08:09:49.121+00:00","description":"padlock purchase","id":"0a2eba6c-51a9-437a-89c2-61a37cc5a315","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:09:50.756227+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T08:08:24.041346+00:00","currency":"NGN","date":"2026-02-08T08:08:24.02+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"4b5065e5-d5a5-4a29-a328-771252b18a92","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:08:25.628153+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:07:38.688951+00:00","currency":"NGN","date":"2026-02-08T08:07:38.671+00:00","description":"drugs","id":"63e109ef-46b2-45c9-a41b-bf5f6e150719","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:07:40.20689+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:05:18.12513+00:00","currency":"NGN","date":"2026-02-08T08:05:18.104+00:00","description":"drugs","id":"05642056-93fd-4f7d-8053-599903c3d7f0","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:05:19.723535+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"}]
-[00:01:34.311] Browser LOG     ✅ Successfully fetched 15 transactions from database
-[00:01:34.311] Browser LOG     ✅ Transactions set in state, total: 15
-[00:01:34.311] Browser LOG     💡 Generating AI tips for 15 transactions...
-[00:01:34.311] Browser LOG     🔵 API Call: POST /api/ai/health-tips
-[00:01:34.311] Browser LOG     Profile and transactions loaded, regenerating tips...
-[00:01:35.472] Browser LOG     Auth ready, fetching profile and transactions in parallel...
-[00:01:35.473] Browser LOG     🔵 API Call: GET /api/auth/profile
-[00:01:35.473] Browser LOG     📊 Fetching transactions from API...
-[00:01:35.473] Browser LOG     🔵 API Call: GET /api/transactions
-[00:01:35.473] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
-[00:01:35.473] Browser LOG     Auth ready, fetching profile and transactions in parallel...
-[00:01:35.473] Browser LOG     🔵 API Call: GET /api/auth/profile
-[00:01:35.473] Browser LOG     📊 Fetching transactions from API...
-[00:01:35.473] Browser LOG     🔵 API Call: GET /api/transactions
-[00:01:35.473] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
-[00:01:38.662] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
-[00:01:40.452] Browser LOG     ✅ API Success: GET /api/transactions [{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:14:23.065773+00:00","currency":"NGN","date":"2026-02-08T11:14:23.026+00:00","description":"drugs","id":"a04131f2-05e4-4c45-8e60-6637703473e6","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:14:25.067141+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T11:05:17.853176+00:00","currency":"NGN","date":"2026-02-08T11:05:17.818+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"294d3e35-0971-492a-9109-e2bc8e66a285","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:05:20.067415+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:03:42.777153+00:00","currency":"NGN","date":"2026-02-08T11:03:42.73+00:00","description":"drugs","id":"77095631-eb17-4c22-9992-2f5a1227e816","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:03:46.507082+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T09:42:01.084106+00:00","currency":"USD","date":"2026-02-08T09:42:01.048+00:00","description":"padlock purchase","id":"7b5cca8b-2b8e-4fbc-97bc-08be4b8c3a29","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:42:02.792811+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:31:29.968074+00:00","currency":"NGN","date":"2026-02-08T09:31:29.934+00:00","description":"drugs","id":"285077c6-bd90-47e7-a143-d22160133738","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:31:31.922394+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:17:49.363883+00:00","currency":"NGN","date":"2026-02-08T09:17:49.345+00:00","description":"drugs","id":"383a5a34-8b65-4484-8db3-37576ab6ded3","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:17:51.802784+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:34:16.269704+00:00","currency":"USD","date":"2026-02-08T08:34:16.232+00:00","description":"spend and save","id":"f3721818-70aa-4a6a-8013-21882c39bc79","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:34:17.995733+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:33:55.235858+00:00","currency":"NGN","date":"2026-02-08T08:33:54.751+00:00","description":"drugs","id":"ecbc3380-5ced-4793-9e47-2e4c4db7d1be","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:33:57.050637+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:32:37.381711+00:00","currency":"NGN","date":"2026-02-08T08:32:37.325+00:00","description":"drugs","id":"1c3dc020-60c6-443f-88ab-66567f363ea5","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:32:39.095788+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:13:13.00637+00:00","currency":"USD","date":"2026-02-08T08:13:12.989+00:00","description":"spend and save","id":"ef5505be-c059-4704-ae0b-0335856aea51","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:13:14.791649+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:12:24.724649+00:00","currency":"NGN","date":"2026-02-08T08:12:24.692+00:00","description":"drugs","id":"2b398248-22bf-479c-82f3-fc8f05d84f89","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:12:26.257438+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T08:09:49.141739+00:00","currency":"USD","date":"2026-02-08T08:09:49.121+00:00","description":"padlock purchase","id":"0a2eba6c-51a9-437a-89c2-61a37cc5a315","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:09:50.756227+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T08:08:24.041346+00:00","currency":"NGN","date":"2026-02-08T08:08:24.02+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"4b5065e5-d5a5-4a29-a328-771252b18a92","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:08:25.628153+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:07:38.688951+00:00","currency":"NGN","date":"2026-02-08T08:07:38.671+00:00","description":"drugs","id":"63e109ef-46b2-45c9-a41b-bf5f6e150719","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:07:40.20689+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:05:18.12513+00:00","currency":"NGN","date":"2026-02-08T08:05:18.104+00:00","description":"drugs","id":"05642056-93fd-4f7d-8053-599903c3d7f0","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:05:19.723535+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"}]
-[00:01:40.452] Browser LOG     ✅ API Success: GET /api/auth/profile {"created_at":"2026-02-08T08:04:29.374705+00:00","email":"","fixed_bills":25000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":10000,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-02-08T08:09:24.32152+00:00"}
-[00:01:40.453] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:14:23.065773+00:00","currency":"NGN","date":"2026-02-08T11:14:23.026+00:00","description":"drugs","id":"a04131f2-05e4-4c45-8e60-6637703473e6","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:14:25.067141+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T11:05:17.853176+00:00","currency":"NGN","date":"2026-02-08T11:05:17.818+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"294d3e35-0971-492a-9109-e2bc8e66a285","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:05:20.067415+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:03:42.777153+00:00","currency":"NGN","date":"2026-02-08T11:03:42.73+00:00","description":"drugs","id":"77095631-eb17-4c22-9992-2f5a1227e816","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:03:46.507082+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T09:42:01.084106+00:00","currency":"USD","date":"2026-02-08T09:42:01.048+00:00","description":"padlock purchase","id":"7b5cca8b-2b8e-4fbc-97bc-08be4b8c3a29","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:42:02.792811+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:31:29.968074+00:00","currency":"NGN","date":"2026-02-08T09:31:29.934+00:00","description":"drugs","id":"285077c6-bd90-47e7-a143-d22160133738","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:31:31.922394+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:17:49.363883+00:00","currency":"NGN","date":"2026-02-08T09:17:49.345+00:00","description":"drugs","id":"383a5a34-8b65-4484-8db3-37576ab6ded3","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:17:51.802784+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:34:16.269704+00:00","currency":"USD","date":"2026-02-08T08:34:16.232+00:00","description":"spend and save","id":"f3721818-70aa-4a6a-8013-21882c39bc79","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:34:17.995733+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:33:55.235858+00:00","currency":"NGN","date":"2026-02-08T08:33:54.751+00:00","description":"drugs","id":"ecbc3380-5ced-4793-9e47-2e4c4db7d1be","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:33:57.050637+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:32:37.381711+00:00","currency":"NGN","date":"2026-02-08T08:32:37.325+00:00","description":"drugs","id":"1c3dc020-60c6-443f-88ab-66567f363ea5","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:32:39.095788+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:13:13.00637+00:00","currency":"USD","date":"2026-02-08T08:13:12.989+00:00","description":"spend and save","id":"ef5505be-c059-4704-ae0b-0335856aea51","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:13:14.791649+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:12:24.724649+00:00","currency":"NGN","date":"2026-02-08T08:12:24.692+00:00","description":"drugs","id":"2b398248-22bf-479c-82f3-fc8f05d84f89","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:12:26.257438+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T08:09:49.141739+00:00","currency":"USD","date":"2026-02-08T08:09:49.121+00:00","description":"padlock purchase","id":"0a2eba6c-51a9-437a-89c2-61a37cc5a315","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:09:50.756227+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T08:08:24.041346+00:00","currency":"NGN","date":"2026-02-08T08:08:24.02+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"4b5065e5-d5a5-4a29-a328-771252b18a92","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:08:25.628153+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:07:38.688951+00:00","currency":"NGN","date":"2026-02-08T08:07:38.671+00:00","description":"drugs","id":"63e109ef-46b2-45c9-a41b-bf5f6e150719","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:07:40.20689+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:05:18.12513+00:00","currency":"NGN","date":"2026-02-08T08:05:18.104+00:00","description":"drugs","id":"05642056-93fd-4f7d-8053-599903c3d7f0","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:05:19.723535+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"}]
-[00:01:40.453] Browser LOG     ✅ Successfully fetched 15 transactions from database
-[00:01:40.453] Browser LOG     ✅ Transactions set in state, total: 15
-[00:01:40.453] Browser LOG     💡 Generating AI tips for 15 transactions...
-[00:01:40.453] Browser LOG     Profile and transactions loaded, regenerating tips...
-[00:01:40.843] Browser LOG     ✅ API Success: GET /api/auth/profile {"created_at":"2026-02-08T08:04:29.374705+00:00","email":"","fixed_bills":25000,"id":"76d0da43-d646-45b1-8526-27aebee69e0b","monthly_income":100000,"name":"User","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":10000,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-02-08T08:09:24.32152+00:00"}
-[00:01:40.843] Browser LOG     Profile and transactions loaded, regenerating tips...
-[00:01:42.414] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
-[00:01:42.414] Browser LOG     ✅ API Success: GET /api/transactions [{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:14:23.065773+00:00","currency":"NGN","date":"2026-02-08T11:14:23.026+00:00","description":"drugs","id":"a04131f2-05e4-4c45-8e60-6637703473e6","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:14:25.067141+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T11:05:17.853176+00:00","currency":"NGN","date":"2026-02-08T11:05:17.818+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"294d3e35-0971-492a-9109-e2bc8e66a285","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:05:20.067415+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:03:42.777153+00:00","currency":"NGN","date":"2026-02-08T11:03:42.73+00:00","description":"drugs","id":"77095631-eb17-4c22-9992-2f5a1227e816","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:03:46.507082+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T09:42:01.084106+00:00","currency":"USD","date":"2026-02-08T09:42:01.048+00:00","description":"padlock purchase","id":"7b5cca8b-2b8e-4fbc-97bc-08be4b8c3a29","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:42:02.792811+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:31:29.968074+00:00","currency":"NGN","date":"2026-02-08T09:31:29.934+00:00","description":"drugs","id":"285077c6-bd90-47e7-a143-d22160133738","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:31:31.922394+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:17:49.363883+00:00","currency":"NGN","date":"2026-02-08T09:17:49.345+00:00","description":"drugs","id":"383a5a34-8b65-4484-8db3-37576ab6ded3","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:17:51.802784+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:34:16.269704+00:00","currency":"USD","date":"2026-02-08T08:34:16.232+00:00","description":"spend and save","id":"f3721818-70aa-4a6a-8013-21882c39bc79","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:34:17.995733+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:33:55.235858+00:00","currency":"NGN","date":"2026-02-08T08:33:54.751+00:00","description":"drugs","id":"ecbc3380-5ced-4793-9e47-2e4c4db7d1be","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:33:57.050637+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:32:37.381711+00:00","currency":"NGN","date":"2026-02-08T08:32:37.325+00:00","description":"drugs","id":"1c3dc020-60c6-443f-88ab-66567f363ea5","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:32:39.095788+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:13:13.00637+00:00","currency":"USD","date":"2026-02-08T08:13:12.989+00:00","description":"spend and save","id":"ef5505be-c059-4704-ae0b-0335856aea51","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:13:14.791649+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:12:24.724649+00:00","currency":"NGN","date":"2026-02-08T08:12:24.692+00:00","description":"drugs","id":"2b398248-22bf-479c-82f3-fc8f05d84f89","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:12:26.257438+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T08:09:49.141739+00:00","currency":"USD","date":"2026-02-08T08:09:49.121+00:00","description":"padlock purchase","id":"0a2eba6c-51a9-437a-89c2-61a37cc5a315","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:09:50.756227+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T08:08:24.041346+00:00","currency":"NGN","date":"2026-02-08T08:08:24.02+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"4b5065e5-d5a5-4a29-a328-771252b18a92","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:08:25.628153+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:07:38.688951+00:00","currency":"NGN","date":"2026-02-08T08:07:38.671+00:00","description":"drugs","id":"63e109ef-46b2-45c9-a41b-bf5f6e150719","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:07:40.20689+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:05:18.12513+00:00","currency":"NGN","date":"2026-02-08T08:05:18.104+00:00","description":"drugs","id":"05642056-93fd-4f7d-8053-599903c3d7f0","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:05:19.723535+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"}]
-[00:01:42.414] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:14:23.065773+00:00","currency":"NGN","date":"2026-02-08T11:14:23.026+00:00","description":"drugs","id":"a04131f2-05e4-4c45-8e60-6637703473e6","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:14:25.067141+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T11:05:17.853176+00:00","currency":"NGN","date":"2026-02-08T11:05:17.818+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"294d3e35-0971-492a-9109-e2bc8e66a285","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:05:20.067415+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T11:03:42.777153+00:00","currency":"NGN","date":"2026-02-08T11:03:42.73+00:00","description":"drugs","id":"77095631-eb17-4c22-9992-2f5a1227e816","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T11:03:46.507082+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T09:42:01.084106+00:00","currency":"USD","date":"2026-02-08T09:42:01.048+00:00","description":"padlock purchase","id":"7b5cca8b-2b8e-4fbc-97bc-08be4b8c3a29","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:42:02.792811+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:31:29.968074+00:00","currency":"NGN","date":"2026-02-08T09:31:29.934+00:00","description":"drugs","id":"285077c6-bd90-47e7-a143-d22160133738","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:31:31.922394+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T09:17:49.363883+00:00","currency":"NGN","date":"2026-02-08T09:17:49.345+00:00","description":"drugs","id":"383a5a34-8b65-4484-8db3-37576ab6ded3","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T09:17:51.802784+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:34:16.269704+00:00","currency":"USD","date":"2026-02-08T08:34:16.232+00:00","description":"spend and save","id":"f3721818-70aa-4a6a-8013-21882c39bc79","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:34:17.995733+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:33:55.235858+00:00","currency":"NGN","date":"2026-02-08T08:33:54.751+00:00","description":"drugs","id":"ecbc3380-5ced-4793-9e47-2e4c4db7d1be","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:33:57.050637+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:32:37.381711+00:00","currency":"NGN","date":"2026-02-08T08:32:37.325+00:00","description":"drugs","id":"1c3dc020-60c6-443f-88ab-66567f363ea5","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:32:39.095788+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":100,"category":"Shopping","created_at":"2026-02-08T08:13:13.00637+00:00","currency":"USD","date":"2026-02-08T08:13:12.989+00:00","description":"spend and save","id":"ef5505be-c059-4704-ae0b-0335856aea51","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:13:14.791649+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:12:24.724649+00:00","currency":"NGN","date":"2026-02-08T08:12:24.692+00:00","description":"drugs","id":"2b398248-22bf-479c-82f3-fc8f05d84f89","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:12:26.257438+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":200,"category":"Shopping","created_at":"2026-02-08T08:09:49.141739+00:00","currency":"USD","date":"2026-02-08T08:09:49.121+00:00","description":"padlock purchase","id":"0a2eba6c-51a9-437a-89c2-61a37cc5a315","merchant":"Opay Digital Services Limited","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:09:50.756227+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1000,"category":"Shopping","created_at":"2026-02-08T08:08:24.041346+00:00","currency":"NGN","date":"2026-02-08T08:08:24.02+00:00","description":"Data Bundle 1.2GB Monthly Plan, FREE 2GB for YouTube, 200MB for YouTube Music, Smins._4%1000.00","id":"4b5065e5-d5a5-4a29-a328-771252b18a92","merchant":"OPay","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:08:25.628153+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:07:38.688951+00:00","currency":"NGN","date":"2026-02-08T08:07:38.671+00:00","description":"drugs","id":"63e109ef-46b2-45c9-a41b-bf5f6e150719","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:07:40.20689+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"},{"ai_categorized":false,"amount":1500,"category":"Health","created_at":"2026-02-08T08:05:18.12513+00:00","currency":"NGN","date":"2026-02-08T08:05:18.104+00:00","description":"drugs","id":"05642056-93fd-4f7d-8053-599903c3d7f0","merchant":"G-Aghas Medicine Store","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-08T08:05:19.723535+00:00","user_id":"76d0da43-d646-45b1-8526-27aebee69e0b"}]
-[00:01:42.414] Browser LOG     ✅ Successfully fetched 15 transactions from database
-[00:01:42.414] Browser LOG     ✅ Transactions set in state, total: 15
-[00:01:42.414] Browser LOG     💡 Generating AI tips for 15 transactions...
-[00:01:42.414] Browser LOG     Profile and transactions loaded, regenerating tips...
-[00:02:25.409] Browser LOG     Auth ready, fetching profile and transactions in parallel...
-[00:02:25.409] Browser LOG     🔵 API Call: GET /api/auth/profile
-[00:02:25.409] Browser LOG     📊 Fetching transactions from API...
-[00:02:25.409] Browser LOG     🔵 API Call: GET /api/transactions
-[00:02:25.409] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
-[00:02:28.107] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
-[00:02:28.762] Browser LOG     ✅ API Success: GET /api/transactions [{"ai_categorized":false,"amount":80000,"category":"Transport","created_at":"2026-02-14T14:51:00.420798+00:00","currency":"NGN","date":"2026-02-14T14:50:59.283+00:00","description":"","id":"d6bd196e-cc7f-4248-bc42-2d8e85a6eda9","merchant":"gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-14T14:51:01.238365+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"}]
-[00:02:28.762] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":80000,"category":"Transport","created_at":"2026-02-14T14:51:00.420798+00:00","currency":"NGN","date":"2026-02-14T14:50:59.283+00:00","description":"","id":"d6bd196e-cc7f-4248-bc42-2d8e85a6eda9","merchant":"gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-14T14:51:01.238365+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"}]
-[00:02:28.762] Browser LOG     ✅ Successfully fetched 1 transactions from database
-[00:02:28.762] Browser LOG     ✅ Transactions set in state, total: 1
-[00:02:28.762] Browser LOG     💡 Generating AI tips for 1 transactions...
-[00:02:29.538] Browser LOG     ✅ API Success: GET /api/auth/profile {"created_at":"2026-02-08T07:42:12.910943+00:00","email":"nkememmanuel5505@gmail.com","fixed_bills":0,"id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d","monthly_income":190000,"name":"Nkereuwem Emmanuel","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-02-08T18:21:34.568894+00:00"}
-[00:02:29.538] Browser LOG     Profile and transactions loaded, regenerating tips...
-[00:03:14.839] Server  LOG     ✓ Compiled in 2.3s
-[00:03:17.721] Server  LOG     ✓ Compiled in 383ms
-[00:03:18.376] Browser LOG     Auth ready, fetching profile and transactions in parallel...
-[00:03:18.376] Browser LOG     🔵 API Call: GET /api/auth/profile
-[00:03:18.377] Browser LOG     📊 Fetching transactions from API...
-[00:03:18.377] Browser LOG     🔵 API Call: GET /api/transactions
-[00:03:18.377] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
-[00:03:20.014] Browser WARN    Telegram integration not available (optional): {}
-[00:03:20.014] Browser ERROR   ❌ API Error: Load failed
-[00:03:20.014] Browser WARN    Could not fetch profile: {}
-[00:03:20.014] Browser ERROR   ❌ API Error: Load failed
-[00:03:20.014] Browser ERROR   ❌ API Error: Load failed
-[00:03:20.014] Browser ERROR   ❌ Failed to fetch transactions: {}
-[00:03:20.014] Browser LOG     ⚠️ Keeping previous transactions: 1
-[00:03:20.014] Browser LOG     ⚠️ Keeping previous transactions: 1
-[00:03:20.014] Browser LOG     Profile and transactions loaded, regenerating tips...
-[00:03:20.464] Browser LOG     Auth ready, fetching profile and transactions in parallel...
-[00:03:20.464] Browser LOG     🔵 API Call: GET /api/auth/profile
-[00:03:20.464] Browser LOG     📊 Fetching transactions from API...
-[00:03:20.464] Browser LOG     🔵 API Call: GET /api/transactions
-[00:03:20.465] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
-[00:03:22.869] Browser LOG     ✅ API Success: GET /api/auth/profile {"created_at":"2026-02-08T07:42:12.910943+00:00","email":"nkememmanuel5505@gmail.com","fixed_bills":0,"id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d","monthly_income":190000,"name":"Nkereuwem Emmanuel","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-02-08T18:21:34.568894+00:00"}
-[00:03:23.994] Browser LOG     ✅ API Success: GET /api/transactions [{"ai_categorized":false,"amount":80000,"category":"Transport","created_at":"2026-02-14T14:51:00.420798+00:00","currency":"NGN","date":"2026-02-14T14:50:59.283+00:00","description":"","id":"d6bd196e-cc7f-4248-bc42-2d8e85a6eda9","merchant":"gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-14T14:51:01.238365+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"}]
-[00:03:23.994] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":80000,"category":"Transport","created_at":"2026-02-14T14:51:00.420798+00:00","currency":"NGN","date":"2026-02-14T14:50:59.283+00:00","description":"","id":"d6bd196e-cc7f-4248-bc42-2d8e85a6eda9","merchant":"gas","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-02-14T14:51:01.238365+00:00","user_id":"bc77972b-1a72-4e7d-b1fb-06e989f5fa7d"}]
-[00:03:23.994] Browser LOG     ✅ Successfully fetched 1 transactions from database
-[00:03:23.994] Browser LOG     ✅ Transactions set in state, total: 1
-[00:03:23.994] Browser LOG     💡 Generating AI tips for 1 transactions...
-[00:03:23.994] Browser LOG     Profile and transactions loaded, regenerating tips...
-[00:03:24.261] Browser LOG     ✅ API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:00:02.822] Server  LOG     ✓ Ready in 2.5s
+[00:00:05.877] Server  LOG     ○ Compiling / ...
+[00:00:10.252] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:00:10.253] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:00:10.253] Browser LOG     📊 Fetching transactions from API...
+[00:00:10.253] Browser LOG     🔵 API Call: GET /api/transactions
+[00:00:10.253] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:00:10.253] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:00:10.253] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:00:10.253] Browser LOG     📊 Fetching transactions from API...
+[00:00:10.253] Browser LOG     🔵 API Call: GET /api/transactions
+[00:00:10.253] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:00:10.253] Browser ERROR   ❌ API Error: Load failed
+[00:00:10.253] Browser WARN    Could not fetch profile: {}
+[00:00:10.253] Browser ERROR   ❌ API Error: Load failed
+[00:00:10.253] Browser ERROR   ❌ Failed to fetch transactions: {}
+[00:00:10.253] Browser WARN    Telegram integration not available (optional): {}
+[00:00:10.253] Browser ERROR   ❌ API Error: Load failed
+[00:00:10.253] Browser LOG      Keeping previous transactions: 0
+[00:00:10.253] Browser LOG      Keeping previous transactions: 0
+[00:00:10.253] Browser ERROR   ❌ API Error: Load failed
+[00:00:10.253] Browser WARN    Could not fetch profile: {}
+[00:00:10.253] Browser ERROR   ❌ API Error: Load failed
+[00:00:10.253] Browser ERROR   ❌ Failed to fetch transactions: {}
+[00:00:10.253] Browser WARN    Telegram integration not available (optional): {}
+[00:00:10.253] Browser ERROR   ❌ API Error: Load failed
+[00:00:10.253] Browser LOG      Keeping previous transactions: 0
+[00:00:10.253] Browser LOG      Keeping previous transactions: 0
+[00:00:28.807] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:00:28.807] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:00:28.807] Browser LOG     📊 Fetching transactions from API...
+[00:00:28.807] Browser LOG     🔵 API Call: GET /api/transactions
+[00:00:28.807] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:00:31.920] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:00:31.920] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:00:31.920] Browser ERROR   ❌ API Error: Error fetching profile
+[00:00:31.920] Browser WARN    Could not fetch profile: {}
+[00:00:32.931] Browser LOG      API Success: GET /api/transactions []
+[00:00:32.931] Browser LOG     📦 Raw transaction data received: []
+[00:00:32.931] Browser LOG      Successfully fetched 0 transactions from database
+[00:00:32.931] Browser LOG      Transactions set in state, total: 0
+[00:00:51.249] Browser LOG     🔵 API Call: PUT /api/auth/profile
+[00:00:52.619] Browser ERROR   ❌ API Error 400: {"error":"Failed to update profile","path":"http://localhost:8000/api/auth/profile","status_code":400}
+[00:00:52.619] Browser ERROR   ❌ API Error: Failed to update profile
+[00:00:52.619] Browser ERROR   Failed to save profile: {}
+[00:00:59.031] Browser LOG     🔵 API Call: PUT /api/auth/profile
+[00:01:00.475] Browser ERROR   ❌ API Error 400: {"error":"Failed to update profile","path":"http://localhost:8000/api/auth/profile","status_code":400}
+[00:01:00.475] Browser ERROR   ❌ API Error: Failed to update profile
+[00:01:00.475] Browser ERROR   Failed to save profile: {}
+[00:01:09.191] Browser LOG     🔵 API Call: POST /api/ai/analyze-receipt
+[00:01:11.549] Browser LOG      API Success: POST /api/ai/analyze-receipt {"amount":3000,"category":"Food","currency":"NGN","date":"2026-05-28","description":"bread","items":["bread"],"merchant":"Kuda","model":"Qwen2.5-7B-Instruct","success":true}
+[00:01:13.284] Browser LOG     🔵 API Call: POST /api/transactions
+[00:01:14.663] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:01:14.663] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:01:14.663] Browser ERROR   Failed to add transaction: {}
+[00:01:19.268] Browser LOG     🔵 API Call: POST /api/transactions
+[00:01:20.394] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:01:20.395] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:01:20.395] Browser ERROR   Failed to add transaction: {}
+[00:01:35.583] Browser LOG     🔵 API Call: PUT /api/auth/profile
+[00:01:36.379] Browser ERROR   ❌ API Error 400: {"error":"Failed to update profile","path":"http://localhost:8000/api/auth/profile","status_code":400}
+[00:01:36.379] Browser ERROR   ❌ API Error: Failed to update profile
+[00:01:36.379] Browser ERROR   Failed to save profile: {}
+[00:01:45.569] Browser LOG     🔵 API Call: POST /api/ai/chat
+[00:01:46.528] Browser LOG      API Success: POST /api/ai/chat {"advice":"Hello. Welcome to our financial tracking. You've just started, and no transactions are recorded yet. Let's begin tracking your expenses to work towards your ₦500,000 savings goal.","duration":926,"success":true}
+[00:01:58.892] Browser LOG     🔵 API Call: POST /api/ai/analyze-receipt
+[00:02:00.457] Browser LOG      API Success: POST /api/ai/analyze-receipt {"amount":4000,"category":"Other","currency":"USD","date":"2026-05-26","description":"refund","items":["refund"],"merchant":"Opay Digital Services Limited","model":"Qwen2.5-7B-Instruct","success":true}
+[00:02:03.152] Browser LOG     🔵 API Call: POST /api/transactions
+[00:02:04.458] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:02:04.458] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:02:04.458] Browser ERROR   Failed to add transaction: {}
+[00:02:42.594] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:02:42.594] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:02:42.594] Browser LOG     📊 Fetching transactions from API...
+[00:02:42.594] Browser LOG     🔵 API Call: GET /api/transactions
+[00:02:42.594] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:02:42.594] Browser ERROR   ❌ API Error: Load failed
+[00:02:42.594] Browser WARN    Could not fetch profile: {}
+[00:02:42.594] Browser ERROR   ❌ API Error: Load failed
+[00:02:42.594] Browser ERROR   ❌ Failed to fetch transactions: {}
+[00:02:42.594] Browser WARN    Telegram integration not available (optional): {}
+[00:02:42.594] Browser ERROR   ❌ API Error: Load failed
+[00:02:42.594] Browser LOG      Keeping previous transactions: 0
+[00:02:42.594] Browser LOG      Keeping previous transactions: 0
+[00:02:43.286] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:02:43.286] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:02:43.286] Browser LOG     📊 Fetching transactions from API...
+[00:02:43.286] Browser LOG     🔵 API Call: GET /api/transactions
+[00:02:43.286] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:02:43.286] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:02:43.286] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:02:43.286] Browser LOG     📊 Fetching transactions from API...
+[00:02:43.286] Browser LOG     🔵 API Call: GET /api/transactions
+[00:02:43.286] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:02:46.694] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:02:46.694] Browser ERROR   ❌ API Error: Error fetching profile
+[00:02:46.694] Browser WARN    Could not fetch profile: {}
+[00:02:46.694] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:02:46.694] Browser ERROR   ❌ API Error: Error fetching profile
+[00:02:46.694] Browser WARN    Could not fetch profile: {}
+[00:02:47.287] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:02:48.098] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:02:49.732] Browser LOG      API Success: GET /api/transactions []
+[00:02:49.732] Browser LOG     📦 Raw transaction data received: []
+[00:02:49.732] Browser LOG      Successfully fetched 0 transactions from database
+[00:02:49.732] Browser LOG      Transactions set in state, total: 0
+[00:02:49.732] Browser LOG      API Success: GET /api/transactions []
+[00:02:49.732] Browser LOG     📦 Raw transaction data received: []
+[00:02:49.732] Browser LOG      Successfully fetched 0 transactions from database
+[00:02:49.732] Browser LOG      Transactions set in state, total: 0
+[00:04:06.418] Server  LOG       Reload env: .env
+[00:04:08.530] Server  LOG       Reload env: .env
+[00:04:10.065] Server  LOG       Reload env: .env
+[00:04:30.609] Server  LOG       Reload env: .env
+[00:05:20.326] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:05:20.326] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:05:20.326] Browser LOG     📊 Fetching transactions from API...
+[00:05:20.326] Browser LOG     🔵 API Call: GET /api/transactions
+[00:05:20.326] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:05:22.476] Browser ERROR   ❌ API Error: Load failed
+[00:05:22.476] Browser ERROR   ❌ Failed to fetch transactions: {}
+[00:05:22.476] Browser WARN    Telegram integration not available (optional): {}
+[00:05:22.476] Browser ERROR   ❌ API Error: Load failed
+[00:05:22.476] Browser ERROR   ❌ API Error: Load failed
+[00:05:22.476] Browser WARN    Could not fetch profile: {}
+[00:05:22.476] Browser LOG      Keeping previous transactions: 0
+[00:05:22.476] Browser LOG      Keeping previous transactions: 0
+[00:05:22.866] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:05:22.866] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:05:22.866] Browser LOG     📊 Fetching transactions from API...
+[00:05:22.866] Browser LOG     🔵 API Call: GET /api/transactions
+[00:05:22.866] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:05:22.866] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:05:22.866] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:05:22.866] Browser LOG     📊 Fetching transactions from API...
+[00:05:22.866] Browser LOG     🔵 API Call: GET /api/transactions
+[00:05:22.866] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:05:29.106] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:05:29.106] Browser ERROR   ❌ API Error: Error fetching profile
+[00:05:29.106] Browser WARN    Could not fetch profile: {}
+[00:05:30.389] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:05:30.389] Browser ERROR   ❌ API Error: Error fetching profile
+[00:05:30.389] Browser WARN    Could not fetch profile: {}
+[00:05:31.801] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:05:32.838] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:05:34.073] Browser LOG      API Success: GET /api/transactions []
+[00:05:34.073] Browser LOG     📦 Raw transaction data received: []
+[00:05:34.073] Browser LOG      Successfully fetched 0 transactions from database
+[00:05:34.073] Browser LOG      Transactions set in state, total: 0
+[00:05:35.650] Browser LOG      API Success: GET /api/transactions []
+[00:05:35.650] Browser LOG     📦 Raw transaction data received: []
+[00:05:35.650] Browser LOG      Successfully fetched 0 transactions from database
+[00:05:35.650] Browser LOG      Transactions set in state, total: 0
+[00:05:36.880] Browser LOG     🔵 API Call: POST /api/ai/analyze-receipt
+[00:05:38.631] Browser LOG      API Success: POST /api/ai/analyze-receipt {"amount":3000,"category":"Food","currency":"NGN","date":"2026-05-28","description":"bread","items":["bread"],"merchant":"Opay Digital Services Limited","model":"Qwen2.5-7B-Instruct","success":true}
+[00:06:09.653] Browser LOG     🔵 API Call: POST /api/ai/analyze-receipt
+[00:06:11.350] Browser LOG      API Success: POST /api/ai/analyze-receipt {"amount":3000,"category":"Food","currency":"NGN","date":"2026-05-28","description":"bread","items":["bread"],"merchant":"Kuda","model":"Qwen2.5-7B-Instruct","success":true}
+[00:06:12.112] Browser LOG     🔵 API Call: POST /api/transactions
+[00:06:13.041] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:06:13.042] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:06:13.042] Browser ERROR   Failed to add transaction: {}
+[00:06:19.579] Browser LOG     🔵 API Call: POST /api/transactions
+[00:06:20.604] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:06:20.604] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:06:20.604] Browser ERROR   Failed to add transaction: {}
+[00:06:37.358] Browser LOG     🔵 API Call: POST /api/ai/analyze-receipt
+[00:06:39.896] Browser LOG      API Success: POST /api/ai/analyze-receipt {"amount":3000,"category":"Food","currency":"NGN","date":"2026-05-28","description":"bread","items":["bread"],"merchant":"Kuda","model":"Qwen2.5-7B-Instruct","success":true}
+[00:06:43.546] Browser LOG     🔵 API Call: POST /api/transactions
+[00:06:44.380] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:06:44.380] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:06:44.380] Browser ERROR   Failed to add transaction: {}
+[00:06:52.677] Browser LOG     🔵 API Call: POST /api/ai/analyze-receipt
+[00:06:54.238] Browser LOG      API Success: POST /api/ai/analyze-receipt {"amount":3000,"category":"Food","currency":"NGN","date":"2026-05-28","description":"bread","items":["bread"],"merchant":"Kuda","model":"Qwen2.5-7B-Instruct","success":true}
+[00:06:54.964] Browser LOG     🔵 API Call: POST /api/transactions
+[00:06:55.966] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:06:55.966] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:06:55.966] Browser ERROR   Failed to add transaction: {}
+[00:07:27.267] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:07:27.270] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:07:27.270] Browser LOG     📊 Fetching transactions from API...
+[00:07:27.270] Browser LOG     🔵 API Call: GET /api/transactions
+[00:07:27.270] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:07:28.750] Browser LOG     🔵 API Call: POST /api/transactions
+[00:07:32.160] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:07:32.160] Browser ERROR   ❌ API Error: Error fetching profile
+[00:07:32.160] Browser WARN    Could not fetch profile: {}
+[00:07:37.073] Browser LOG      API Success: GET /api/transactions []
+[00:07:37.073] Browser LOG     📦 Raw transaction data received: []
+[00:07:37.073] Browser LOG      Successfully fetched 0 transactions from database
+[00:07:37.073] Browser LOG      Transactions set in state, total: 0
+[00:07:37.073] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:07:38.919] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:07:38.920] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:07:38.920] Browser ERROR   Failed to add transaction: {}
+[00:07:48.340] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:07:48.340] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:07:48.340] Browser LOG     📊 Fetching transactions from API...
+[00:07:48.340] Browser LOG     🔵 API Call: GET /api/transactions
+[00:07:48.340] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:07:48.340] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:07:48.340] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:07:48.340] Browser LOG     📊 Fetching transactions from API...
+[00:07:48.340] Browser LOG     🔵 API Call: GET /api/transactions
+[00:07:48.340] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:07:49.142] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:07:52.931] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:07:52.931] Browser ERROR   ❌ API Error: Error fetching profile
+[00:07:52.931] Browser LOG      API Success: GET /api/transactions []
+[00:07:52.931] Browser WARN    Could not fetch profile: {}
+[00:07:52.931] Browser LOG     📦 Raw transaction data received: []
+[00:07:52.931] Browser LOG      Successfully fetched 0 transactions from database
+[00:07:52.931] Browser LOG      Transactions set in state, total: 0
+[00:07:52.931] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:07:52.931] Browser ERROR   ❌ API Error: Error fetching profile
+[00:07:52.931] Browser WARN    Could not fetch profile: {}
+[00:07:54.914] Browser LOG      API Success: GET /api/transactions []
+[00:07:54.914] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:07:54.914] Browser LOG     📦 Raw transaction data received: []
+[00:07:54.914] Browser LOG      Successfully fetched 0 transactions from database
+[00:07:54.914] Browser LOG      Transactions set in state, total: 0
+[00:08:03.311] Browser LOG     🔵 API Call: POST /api/ai/analyze-receipt
+[00:08:08.809] Browser LOG      API Success: POST /api/ai/analyze-receipt {"amount":3000,"category":"Food","currency":"NGN","date":"2026-05-28","description":"bread","items":["bread"],"merchant":"Kuda","model":"Qwen2.5-7B-Instruct","success":true}
+[00:08:10.835] Browser LOG     🔵 API Call: POST /api/transactions
+[00:08:13.152] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:08:13.152] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:08:13.152] Browser ERROR   Failed to add transaction: {}
+[00:08:24.371] Browser LOG     🔵 API Call: POST /api/transactions
+[00:08:26.315] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:08:26.315] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:08:26.315] Browser ERROR   Failed to add transaction: {}
+[00:08:30.153] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:08:30.153] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:08:30.153] Browser LOG     📊 Fetching transactions from API...
+[00:08:30.153] Browser LOG     🔵 API Call: GET /api/transactions
+[00:08:30.153] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:08:31.425] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:08:31.425] Browser ERROR   ❌ API Error: Error fetching profile
+[00:08:31.425] Browser WARN    Could not fetch profile: {}
+[00:08:33.179] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:08:33.179] Browser LOG      API Success: GET /api/transactions []
+[00:08:33.179] Browser LOG     📦 Raw transaction data received: []
+[00:08:33.179] Browser LOG      Successfully fetched 0 transactions from database
+[00:08:33.179] Browser LOG      Transactions set in state, total: 0
+[00:08:34.825] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:08:34.825] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:08:34.825] Browser LOG     📊 Fetching transactions from API...
+[00:08:34.825] Browser LOG     🔵 API Call: GET /api/transactions
+[00:08:34.825] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:08:36.086] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:08:36.086] Browser ERROR   ❌ API Error: Error fetching profile
+[00:08:36.086] Browser WARN    Could not fetch profile: {}
+[00:08:36.988] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:08:37.921] Browser LOG      API Success: GET /api/transactions []
+[00:08:37.921] Browser LOG     📦 Raw transaction data received: []
+[00:08:37.921] Browser LOG      Successfully fetched 0 transactions from database
+[00:08:37.921] Browser LOG      Transactions set in state, total: 0
+[00:09:06.613] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:09:06.613] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:09:06.613] Browser LOG     📊 Fetching transactions from API...
+[00:09:06.613] Browser LOG     🔵 API Call: GET /api/transactions
+[00:09:06.613] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:09:10.343] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:09:10.343] Browser ERROR   ❌ API Error: Error fetching profile
+[00:09:10.343] Browser WARN    Could not fetch profile: {}
+[00:09:10.343] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:09:10.343] Browser LOG      API Success: GET /api/transactions []
+[00:09:10.343] Browser LOG     📦 Raw transaction data received: []
+[00:09:10.343] Browser LOG      Successfully fetched 0 transactions from database
+[00:09:10.343] Browser LOG      Transactions set in state, total: 0
+[00:09:12.786] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:09:12.786] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:09:12.786] Browser LOG     📊 Fetching transactions from API...
+[00:09:12.786] Browser LOG     🔵 API Call: GET /api/transactions
+[00:09:12.786] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:09:13.837] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:09:13.837] Browser ERROR   ❌ API Error: Error fetching profile
+[00:09:13.837] Browser WARN    Could not fetch profile: {}
+[00:09:14.465] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:09:14.465] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:09:14.465] Browser LOG     📊 Fetching transactions from API...
+[00:09:14.465] Browser LOG     🔵 API Call: GET /api/transactions
+[00:09:14.465] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:09:15.509] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:09:15.509] Browser LOG      API Success: GET /api/transactions []
+[00:09:15.509] Browser LOG     📦 Raw transaction data received: []
+[00:09:15.509] Browser LOG      Successfully fetched 0 transactions from database
+[00:09:15.509] Browser LOG      Transactions set in state, total: 0
+[00:09:17.907] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:09:17.907] Browser ERROR   ❌ API Error: Error fetching profile
+[00:09:17.907] Browser WARN    Could not fetch profile: {}
+[00:09:17.907] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:09:19.060] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:09:19.060] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:09:19.060] Browser LOG     📊 Fetching transactions from API...
+[00:09:19.060] Browser LOG     🔵 API Call: GET /api/transactions
+[00:09:19.060] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:09:19.060] Browser LOG      API Success: GET /api/transactions []
+[00:09:19.060] Browser LOG     📦 Raw transaction data received: []
+[00:09:19.060] Browser LOG      Successfully fetched 0 transactions from database
+[00:09:19.060] Browser LOG      Transactions set in state, total: 0
+[00:09:20.117] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:09:20.117] Browser ERROR   ❌ API Error: Error fetching profile
+[00:09:20.117] Browser WARN    Could not fetch profile: {}
+[00:09:22.271] Browser LOG      API Success: GET /api/transactions []
+[00:09:22.271] Browser LOG     📦 Raw transaction data received: []
+[00:09:22.271] Browser LOG      Successfully fetched 0 transactions from database
+[00:09:22.271] Browser LOG      Transactions set in state, total: 0
+[00:09:22.271] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:09:32.794] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:09:32.794] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:09:32.794] Browser LOG     📊 Fetching transactions from API...
+[00:09:32.794] Browser LOG     🔵 API Call: GET /api/transactions
+[00:09:32.794] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:09:34.087] Browser LOG     🔵 API Call: POST /api/transactions
+[00:09:36.769] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:09:36.769] Browser ERROR   ❌ API Error: Error fetching profile
+[00:09:36.769] Browser WARN    Could not fetch profile: {}
+[00:09:36.769] Browser LOG      API Success: GET /api/transactions []
+[00:09:36.769] Browser LOG     📦 Raw transaction data received: []
+[00:09:36.769] Browser LOG      Successfully fetched 0 transactions from database
+[00:09:36.769] Browser LOG      Transactions set in state, total: 0
+[00:09:36.769] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:09:37.724] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:09:37.724] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:09:37.724] Browser ERROR   Failed to add transaction: {}
+[00:09:49.857] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:09:49.857] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:09:49.857] Browser LOG     📊 Fetching transactions from API...
+[00:09:49.857] Browser LOG     🔵 API Call: GET /api/transactions
+[00:09:49.857] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:09:52.875] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:09:52.875] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:09:52.875] Browser LOG     📊 Fetching transactions from API...
+[00:09:52.875] Browser LOG     🔵 API Call: GET /api/transactions
+[00:09:52.875] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:09:53.534] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:09:53.534] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:09:53.534] Browser ERROR   ❌ API Error: Error fetching profile
+[00:09:53.534] Browser WARN    Could not fetch profile: {}
+[00:09:53.534] Browser LOG      API Success: GET /api/transactions []
+[00:09:53.534] Browser LOG     📦 Raw transaction data received: []
+[00:09:53.534] Browser LOG      Successfully fetched 0 transactions from database
+[00:09:53.534] Browser LOG      Transactions set in state, total: 0
+[00:09:56.519] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:09:56.519] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:09:56.519] Browser ERROR   ❌ API Error: Error fetching profile
+[00:09:56.519] Browser WARN    Could not fetch profile: {}
+[00:09:57.904] Browser LOG      API Success: GET /api/transactions []
+[00:09:57.904] Browser LOG     📦 Raw transaction data received: []
+[00:09:57.904] Browser LOG      Successfully fetched 0 transactions from database
+[00:09:57.904] Browser LOG      Transactions set in state, total: 0
+[00:16:19.109] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:16:19.110] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:16:19.110] Browser LOG     📊 Fetching transactions from API...
+[00:16:19.110] Browser LOG     🔵 API Call: GET /api/transactions
+[00:16:19.110] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:16:21.117] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:16:22.021] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:16:22.021] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:16:22.021] Browser LOG     📊 Fetching transactions from API...
+[00:16:22.021] Browser LOG     🔵 API Call: GET /api/transactions
+[00:16:22.021] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:16:23.586] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:16:23.586] Browser ERROR   ❌ API Error: Error fetching profile
+[00:16:23.586] Browser WARN    Could not fetch profile: {}
+[00:16:23.586] Browser LOG      API Success: GET /api/transactions []
+[00:16:23.586] Browser LOG     📦 Raw transaction data received: []
+[00:16:23.586] Browser LOG      Successfully fetched 0 transactions from database
+[00:16:23.586] Browser LOG      Transactions set in state, total: 0
+[00:16:26.541] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:16:26.541] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:16:26.541] Browser ERROR   ❌ API Error: Error fetching profile
+[00:16:26.541] Browser WARN    Could not fetch profile: {}
+[00:16:27.498] Browser LOG      API Success: GET /api/transactions []
+[00:16:27.498] Browser LOG     📦 Raw transaction data received: []
+[00:16:27.498] Browser LOG      Successfully fetched 0 transactions from database
+[00:16:27.498] Browser LOG      Transactions set in state, total: 0
+[00:17:52.962] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:17:52.962] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:17:52.963] Browser LOG     📊 Fetching transactions from API...
+[00:17:52.963] Browser LOG     🔵 API Call: GET /api/transactions
+[00:17:52.963] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:17:54.818] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:17:54.818] Browser ERROR   ❌ API Error: Error fetching profile
+[00:17:54.818] Browser WARN    Could not fetch profile: {}
+[00:17:54.818] Browser LOG      API Success: GET /api/transactions []
+[00:17:54.818] Browser LOG     📦 Raw transaction data received: []
+[00:17:54.818] Browser LOG      Successfully fetched 0 transactions from database
+[00:17:54.818] Browser LOG      Transactions set in state, total: 0
+[00:17:55.786] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:18:06.063] Browser LOG     🔵 API Call: POST /api/ai/analyze-receipt
+[00:18:07.816] Browser LOG      API Success: POST /api/ai/analyze-receipt {"amount":3000,"category":"Food","currency":"NGN","date":"2026-05-28","description":"bread","items":["bread"],"merchant":"Kuda","model":"Qwen2.5-7B-Instruct","success":true}
+[00:18:09.121] Browser LOG     🔵 API Call: POST /api/transactions
+[00:18:10.058] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:18:10.058] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:18:10.058] Browser ERROR   Failed to add transaction: {}
+[00:18:21.004] Browser LOG     🔵 API Call: POST /api/transactions
+[00:18:21.937] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:18:21.937] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:18:21.937] Browser ERROR   Failed to add transaction: {}
+[00:18:30.426] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:18:30.426] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:18:30.426] Browser LOG     📊 Fetching transactions from API...
+[00:18:30.426] Browser LOG     🔵 API Call: GET /api/transactions
+[00:18:30.426] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:18:32.125] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:18:32.125] Browser ERROR   ❌ API Error: Error fetching profile
+[00:18:32.125] Browser WARN    Could not fetch profile: {}
+[00:18:35.080] Browser LOG      API Success: GET /api/transactions []
+[00:18:35.080] Browser LOG     📦 Raw transaction data received: []
+[00:18:35.080] Browser LOG      Successfully fetched 0 transactions from database
+[00:18:35.080] Browser LOG      Transactions set in state, total: 0
+[00:18:35.080] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:18:40.703] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:18:40.703] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:18:40.703] Browser LOG     📊 Fetching transactions from API...
+[00:18:40.703] Browser LOG     🔵 API Call: GET /api/transactions
+[00:18:40.703] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:18:42.483] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:18:42.483] Browser ERROR   ❌ API Error: Error fetching profile
+[00:18:42.483] Browser WARN    Could not fetch profile: {}
+[00:18:44.748] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:18:44.748] Browser LOG      API Success: GET /api/transactions []
+[00:18:44.748] Browser LOG     📦 Raw transaction data received: []
+[00:18:44.748] Browser LOG      Successfully fetched 0 transactions from database
+[00:18:44.748] Browser LOG      Transactions set in state, total: 0
+[00:19:30.721] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:19:30.722] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:19:30.722] Browser LOG     📊 Fetching transactions from API...
+[00:19:30.722] Browser LOG     🔵 API Call: GET /api/transactions
+[00:19:30.722] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:19:32.025] Browser LOG     🔵 API Call: POST /api/transactions
+[00:19:34.806] Browser LOG      API Success: GET /api/transactions []
+[00:19:34.806] Browser LOG     📦 Raw transaction data received: []
+[00:19:34.806] Browser LOG      Successfully fetched 0 transactions from database
+[00:19:34.809] Browser LOG      Transactions set in state, total: 0
+[00:19:34.809] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:19:34.809] Browser ERROR   ❌ API Error: Error fetching profile
+[00:19:34.809] Browser WARN    Could not fetch profile: {}
+[00:19:37.362] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:19:38.579] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:19:38.579] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:19:38.579] Browser ERROR   Failed to add transaction: {}
+[00:19:46.062] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:19:46.062] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:19:46.062] Browser LOG     📊 Fetching transactions from API...
+[00:19:46.062] Browser LOG     🔵 API Call: GET /api/transactions
+[00:19:46.062] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:19:46.062] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:19:46.062] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:19:46.062] Browser LOG     📊 Fetching transactions from API...
+[00:19:46.062] Browser LOG     🔵 API Call: GET /api/transactions
+[00:19:46.062] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:19:51.737] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:20:02.662] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:20:02.662] Browser ERROR   ❌ API Error: Error fetching profile
+[00:20:02.662] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:20:02.662] Browser WARN    Could not fetch profile: {}
+[00:20:06.492] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:20:06.492] Browser ERROR   ❌ API Error: Error fetching profile
+[00:20:06.492] Browser WARN    Could not fetch profile: {}
+[00:20:11.101] Browser LOG     🔵 API Call: POST /api/ai/analyze-receipt
+[00:20:11.101] Browser LOG      API Success: GET /api/transactions []
+[00:20:11.101] Browser LOG     📦 Raw transaction data received: []
+[00:20:11.101] Browser LOG      Successfully fetched 0 transactions from database
+[00:20:11.101] Browser LOG      Transactions set in state, total: 0
+[00:20:11.101] Browser LOG      API Success: GET /api/transactions []
+[00:20:11.101] Browser LOG     📦 Raw transaction data received: []
+[00:20:11.101] Browser LOG      Successfully fetched 0 transactions from database
+[00:20:11.101] Browser LOG      Transactions set in state, total: 0
+[00:20:12.542] Browser LOG      API Success: POST /api/ai/analyze-receipt {"amount":3000,"category":"Food","currency":"NGN","date":"2026-05-28","description":"bread","items":["bread"],"merchant":"Kuda","model":"Qwen2.5-7B-Instruct","success":true}
+[00:20:15.108] Browser LOG     🔵 API Call: POST /api/transactions
+[00:20:16.077] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:20:16.077] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:20:16.077] Browser ERROR   Failed to add transaction: {}
+[00:20:53.413] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:20:53.413] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:20:53.413] Browser LOG     📊 Fetching transactions from API...
+[00:20:53.413] Browser LOG     🔵 API Call: GET /api/transactions
+[00:20:53.413] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:21:03.199] Browser LOG      API Success: GET /api/transactions []
+[00:21:03.200] Browser LOG     📦 Raw transaction data received: []
+[00:21:03.200] Browser LOG      Successfully fetched 0 transactions from database
+[00:21:03.200] Browser LOG      Transactions set in state, total: 0
+[00:21:03.200] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:21:03.200] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:21:03.200] Browser ERROR   ❌ API Error: Error fetching profile
+[00:21:03.200] Browser WARN    Could not fetch profile: {}
+[00:21:04.463] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:21:04.463] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:21:04.463] Browser LOG     📊 Fetching transactions from API...
+[00:21:04.463] Browser LOG     🔵 API Call: GET /api/transactions
+[00:21:04.463] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:21:05.243] Browser LOG     🔵 API Call: POST /api/transactions
+[00:21:06.567] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:21:06.567] Browser ERROR   ❌ API Error: Error fetching profile
+[00:21:06.568] Browser WARN    Could not fetch profile: {}
+[00:21:09.404] Browser LOG      API Success: GET /api/transactions []
+[00:21:09.404] Browser LOG     📦 Raw transaction data received: []
+[00:21:09.404] Browser LOG      Successfully fetched 0 transactions from database
+[00:21:09.404] Browser LOG      Transactions set in state, total: 0
+[00:21:09.404] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:21:10.916] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:21:10.916] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:21:10.916] Browser ERROR   Failed to add transaction: {}
+[00:21:16.875] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:21:16.875] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:21:16.875] Browser LOG     📊 Fetching transactions from API...
+[00:21:16.875] Browser LOG     🔵 API Call: GET /api/transactions
+[00:21:16.875] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:21:18.834] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:21:18.834] Browser ERROR   ❌ API Error: Error fetching profile
+[00:21:18.834] Browser WARN    Could not fetch profile: {}
+[00:21:21.303] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:21:21.303] Browser LOG      API Success: GET /api/transactions []
+[00:21:21.303] Browser LOG     📦 Raw transaction data received: []
+[00:21:21.303] Browser LOG      Successfully fetched 0 transactions from database
+[00:21:21.303] Browser LOG      Transactions set in state, total: 0
+[00:21:53.396] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:21:53.396] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:21:53.396] Browser LOG     📊 Fetching transactions from API...
+[00:21:53.396] Browser LOG     🔵 API Call: GET /api/transactions
+[00:21:53.396] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:21:56.080] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:21:56.080] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:21:56.080] Browser LOG     📊 Fetching transactions from API...
+[00:21:56.080] Browser LOG     🔵 API Call: GET /api/transactions
+[00:21:56.080] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:21:57.136] Browser LOG      API Success: GET /api/transactions []
+[00:21:57.136] Browser LOG     📦 Raw transaction data received: []
+[00:21:57.136] Browser LOG      Successfully fetched 0 transactions from database
+[00:21:57.136] Browser LOG      Transactions set in state, total: 0
+[00:21:57.136] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:21:57.136] Browser ERROR   ❌ API Error: Error fetching profile
+[00:21:57.137] Browser WARN    Could not fetch profile: {}
+[00:21:57.137] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:21:57.955] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:21:59.145] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:21:59.146] Browser ERROR   ❌ API Error: Error fetching profile
+[00:21:59.146] Browser WARN    Could not fetch profile: {}
+[00:21:59.962] Browser LOG      API Success: GET /api/transactions []
+[00:21:59.962] Browser LOG     📦 Raw transaction data received: []
+[00:21:59.962] Browser LOG      Successfully fetched 0 transactions from database
+[00:21:59.962] Browser LOG      Transactions set in state, total: 0
+[00:22:01.629] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:22:01.629] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:22:01.629] Browser LOG     📊 Fetching transactions from API...
+[00:22:01.629] Browser LOG     🔵 API Call: GET /api/transactions
+[00:22:01.629] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:22:02.854] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:22:02.854] Browser ERROR   ❌ API Error: Error fetching profile
+[00:22:02.854] Browser WARN    Could not fetch profile: {}
+[00:22:04.863] Browser LOG      API Success: GET /api/transactions []
+[00:22:04.863] Browser LOG     📦 Raw transaction data received: []
+[00:22:04.863] Browser LOG      Successfully fetched 0 transactions from database
+[00:22:04.863] Browser LOG      Transactions set in state, total: 0
+[00:22:04.863] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:22:06.938] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:22:06.938] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:22:06.938] Browser LOG     📊 Fetching transactions from API...
+[00:22:06.938] Browser LOG     🔵 API Call: GET /api/transactions
+[00:22:06.938] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:22:07.882] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:22:10.246] Browser LOG      API Success: GET /api/transactions []
+[00:22:10.246] Browser LOG     📦 Raw transaction data received: []
+[00:22:10.246] Browser LOG      Successfully fetched 0 transactions from database
+[00:22:10.246] Browser LOG      Transactions set in state, total: 0
+[00:22:10.246] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:22:10.246] Browser ERROR   ❌ API Error: Error fetching profile
+[00:22:10.246] Browser WARN    Could not fetch profile: {}
+[00:22:20.634] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:22:20.635] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:22:20.635] Browser LOG     📊 Fetching transactions from API...
+[00:22:20.635] Browser LOG     🔵 API Call: GET /api/transactions
+[00:22:20.635] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:22:23.867] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:22:23.867] Browser ERROR   ❌ API Error: Error fetching profile
+[00:22:23.867] Browser LOG      API Success: GET /api/transactions []
+[00:22:23.867] Browser WARN    Could not fetch profile: {}
+[00:22:23.867] Browser LOG     📦 Raw transaction data received: []
+[00:22:23.867] Browser LOG      Successfully fetched 0 transactions from database
+[00:22:23.867] Browser LOG      Transactions set in state, total: 0
+[00:22:24.989] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:22:40.943] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:22:40.943] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:22:40.943] Browser LOG     📊 Fetching transactions from API...
+[00:22:40.943] Browser LOG     🔵 API Call: GET /api/transactions
+[00:22:40.943] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:22:43.725] Browser LOG      API Success: GET /api/transactions []
+[00:22:43.725] Browser LOG     📦 Raw transaction data received: []
+[00:22:43.725] Browser LOG      Successfully fetched 0 transactions from database
+[00:22:43.725] Browser LOG      Transactions set in state, total: 0
+[00:22:43.725] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:22:43.725] Browser ERROR   ❌ API Error: Error fetching profile
+[00:22:43.725] Browser WARN    Could not fetch profile: {}
+[00:22:44.747] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:23:07.116] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:23:07.116] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:23:07.116] Browser LOG     📊 Fetching transactions from API...
+[00:23:07.116] Browser LOG     🔵 API Call: GET /api/transactions
+[00:23:07.116] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:23:12.258] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:23:12.258] Browser ERROR   ❌ API Error: Error fetching profile
+[00:23:12.258] Browser WARN    Could not fetch profile: {}
+[00:23:13.738] Browser LOG      API Success: GET /api/transactions []
+[00:23:13.739] Browser LOG     📦 Raw transaction data received: []
+[00:23:13.739] Browser LOG      Successfully fetched 0 transactions from database
+[00:23:13.739] Browser LOG      Transactions set in state, total: 0
+[00:23:14.998] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:24:12.381] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:24:12.381] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:24:12.381] Browser LOG     📊 Fetching transactions from API...
+[00:24:12.381] Browser LOG     🔵 API Call: GET /api/transactions
+[00:24:12.381] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:24:14.632] Browser LOG     🔵 API Call: POST /api/transactions
+[00:24:17.291] Browser LOG      API Success: GET /api/transactions []
+[00:24:17.291] Browser LOG     📦 Raw transaction data received: []
+[00:24:17.291] Browser LOG      Successfully fetched 0 transactions from database
+[00:24:17.291] Browser LOG      Transactions set in state, total: 0
+[00:24:17.291] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:24:18.928] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:24:18.928] Browser ERROR   ❌ API Error: Error fetching profile
+[00:24:18.928] Browser WARN    Could not fetch profile: {}
+[00:24:20.723] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:24:20.723] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:24:20.723] Browser ERROR   Failed to add transaction: {}
+[00:24:38.251] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:24:38.251] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:24:38.251] Browser LOG     📊 Fetching transactions from API...
+[00:24:38.251] Browser LOG     🔵 API Call: GET /api/transactions
+[00:24:38.251] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:24:41.805] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:24:41.805] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:24:41.805] Browser ERROR   ❌ API Error: Error fetching profile
+[00:24:41.805] Browser WARN    Could not fetch profile: {}
+[00:24:41.805] Browser LOG      API Success: GET /api/transactions []
+[00:24:41.805] Browser LOG     📦 Raw transaction data received: []
+[00:24:41.805] Browser LOG      Successfully fetched 0 transactions from database
+[00:24:41.805] Browser LOG      Transactions set in state, total: 0
+[00:24:54.353] Browser LOG     🔵 API Call: POST /api/ai/analyze-receipt
+[00:24:56.871] Browser LOG      API Success: POST /api/ai/analyze-receipt {"amount":3000,"category":"Food","currency":"NGN","date":"2026-05-28","description":"bread","items":["bread"],"merchant":"Kuda","model":"Qwen2.5-7B-Instruct","success":true}
+[00:25:00.160] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:25:00.161] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:25:00.161] Browser LOG     📊 Fetching transactions from API...
+[00:25:00.161] Browser LOG     🔵 API Call: GET /api/transactions
+[00:25:00.161] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:25:02.356] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:25:02.356] Browser ERROR   ❌ API Error: Error fetching profile
+[00:25:02.356] Browser WARN    Could not fetch profile: {}
+[00:25:02.356] Browser LOG     🔵 API Call: POST /api/transactions
+[00:25:06.083] Browser LOG      API Success: GET /api/transactions []
+[00:25:06.083] Browser LOG     📦 Raw transaction data received: []
+[00:25:06.083] Browser LOG      Successfully fetched 0 transactions from database
+[00:25:06.083] Browser LOG      Transactions set in state, total: 0
+[00:25:06.083] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:25:08.788] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:25:08.788] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:25:08.788] Browser ERROR   Failed to add transaction: {}
+[00:25:28.467] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:25:28.467] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:25:28.467] Browser LOG     📊 Fetching transactions from API...
+[00:25:28.467] Browser LOG     🔵 API Call: GET /api/transactions
+[00:25:28.467] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:25:34.869] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:25:34.869] Browser ERROR   ❌ API Error: Error fetching profile
+[00:25:34.869] Browser WARN    Could not fetch profile: {}
+[00:25:34.870] Browser LOG      API Success: GET /api/transactions []
+[00:25:34.870] Browser LOG     📦 Raw transaction data received: []
+[00:25:34.870] Browser LOG      Successfully fetched 0 transactions from database
+[00:25:34.870] Browser LOG      Transactions set in state, total: 0
+[00:25:37.261] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:26:02.576] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:26:02.577] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:26:02.577] Browser LOG     📊 Fetching transactions from API...
+[00:26:02.577] Browser LOG     🔵 API Call: GET /api/transactions
+[00:26:02.577] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:26:06.251] Browser LOG      API Success: GET /api/transactions []
+[00:26:06.251] Browser LOG     📦 Raw transaction data received: []
+[00:26:06.251] Browser LOG      Successfully fetched 0 transactions from database
+[00:26:06.251] Browser LOG      Transactions set in state, total: 0
+[00:26:06.251] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:26:06.251] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:26:06.251] Browser ERROR   ❌ API Error: Error fetching profile
+[00:26:06.251] Browser WARN    Could not fetch profile: {}
+[00:26:18.902] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:26:18.902] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:26:18.902] Browser LOG     📊 Fetching transactions from API...
+[00:26:18.902] Browser LOG     🔵 API Call: GET /api/transactions
+[00:26:18.902] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:26:20.141] Browser LOG     🔵 API Call: POST /api/transactions
+[00:26:21.369] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:26:21.369] Browser LOG      API Success: GET /api/transactions []
+[00:26:21.369] Browser LOG     📦 Raw transaction data received: []
+[00:26:21.369] Browser LOG      Successfully fetched 0 transactions from database
+[00:26:21.369] Browser LOG      Transactions set in state, total: 0
+[00:26:23.251] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:26:23.251] Browser ERROR   ❌ API Error: Error fetching profile
+[00:26:23.251] Browser WARN    Could not fetch profile: {}
+[00:26:24.925] Browser ERROR   ❌ API Error 500: {"error":"Error creating transaction: {'message': 'new row violates row-level security policy for table \"transactions\"', 'code': '42501', ","path":"http://localhost:8000/api/transactions/","status_code":500}
+[00:26:24.925] Browser ERROR   ❌ API Error: Error creating transaction: {'message': 'new row violates row-level security policy for table "transactions"', 'code': '42501', 
+[00:26:24.925] Browser ERROR   Failed to add transaction: {}
+[00:26:29.823] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:26:29.823] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:26:29.823] Browser LOG     📊 Fetching transactions from API...
+[00:26:29.823] Browser LOG     🔵 API Call: GET /api/transactions
+[00:26:29.823] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:26:32.808] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:26:32.808] Browser ERROR   ❌ API Error: Error fetching profile
+[00:26:32.808] Browser WARN    Could not fetch profile: {}
+[00:26:37.597] Browser LOG      API Success: GET /api/transactions []
+[00:26:37.597] Browser LOG     📦 Raw transaction data received: []
+[00:26:37.597] Browser LOG      Successfully fetched 0 transactions from database
+[00:26:37.597] Browser LOG      Transactions set in state, total: 0
+[00:26:37.597] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:27:22.714] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:27:22.715] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:27:22.715] Browser LOG     📊 Fetching transactions from API...
+[00:27:22.715] Browser LOG     🔵 API Call: GET /api/transactions
+[00:27:22.715] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:27:28.022] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:27:28.022] Browser LOG      API Success: GET /api/transactions []
+[00:27:28.022] Browser LOG     📦 Raw transaction data received: []
+[00:27:28.022] Browser LOG      Successfully fetched 0 transactions from database
+[00:27:28.022] Browser LOG      Transactions set in state, total: 0
+[00:27:28.022] Browser ERROR   ❌ API Error 500: {"error":"Error fetching profile","path":"http://localhost:8000/api/auth/profile","status_code":500}
+[00:27:28.022] Browser ERROR   ❌ API Error: Error fetching profile
+[00:27:28.022] Browser WARN    Could not fetch profile: {}
+[00:27:36.526] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:27:36.526] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:27:36.526] Browser LOG     📊 Fetching transactions from API...
+[00:27:36.526] Browser LOG     🔵 API Call: GET /api/transactions
+[00:27:36.526] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:27:38.004] Browser LOG      API Success: GET /api/auth/profile {"created_at":"2026-05-29T11:11:37.407641+00:00","email":"nkereuwememmanueliboro5@gmail.com","fixed_bills":0,"id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800","monthly_income":0,"name":"Emmanuel Nkereuwem","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-05-29T11:11:37.407641+00:00"}
+[00:27:40.836] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:27:40.836] Browser LOG      API Success: GET /api/transactions []
+[00:27:40.836] Browser LOG     📦 Raw transaction data received: []
+[00:27:40.836] Browser LOG      Successfully fetched 0 transactions from database
+[00:27:40.836] Browser LOG      Transactions set in state, total: 0
+[00:27:44.190] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:27:44.190] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:27:44.190] Browser LOG     📊 Fetching transactions from API...
+[00:27:44.190] Browser LOG     🔵 API Call: GET /api/transactions
+[00:27:44.190] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:27:45.670] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:27:46.692] Browser LOG     🔵 API Call: POST /api/transactions
+[00:27:49.402] Browser LOG      API Success: GET /api/auth/profile {"created_at":"2026-05-29T11:11:37.407641+00:00","email":"nkereuwememmanueliboro5@gmail.com","fixed_bills":0,"id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800","monthly_income":0,"name":"Emmanuel Nkereuwem","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-05-29T11:11:37.407641+00:00"}
+[00:27:49.402] Browser LOG      API Success: GET /api/transactions []
+[00:27:49.402] Browser LOG     📦 Raw transaction data received: []
+[00:27:49.402] Browser LOG      Successfully fetched 0 transactions from database
+[00:27:49.402] Browser LOG      Transactions set in state, total: 0
+[00:27:51.107] Browser LOG      API Success: POST /api/transactions {"success":true,"transaction":{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:03:20.919916+00:00","currency":"NGN","date":"2026-05-29T12:03:18.194+00:00","description":"bread","id":"4cff7ce7-088c-4de6-9782-36165a52d552","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:03:22.329521+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}}
+[00:27:51.107] Browser LOG     Transaction added successfully: {"ai_categorized":false,"amount":-3000,"category":"Food","created_at":"2026-05-29T12:03:20.919916+00:00","currency":"NGN","date":"2026-05-29T12:03:18.194+00:00","description":"bread","icon":"🍔","id":"4cff7ce7-088c-4de6-9782-36165a52d552","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:03:22.329521+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}
+[00:27:51.107] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:27:55.527] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:27:55.527] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:27:55.527] Browser LOG     📊 Fetching transactions from API...
+[00:27:55.527] Browser LOG     🔵 API Call: GET /api/transactions
+[00:27:55.527] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:27:56.965] Browser LOG      API Success: GET /api/auth/profile {"created_at":"2026-05-29T11:11:37.407641+00:00","email":"nkereuwememmanueliboro5@gmail.com","fixed_bills":0,"id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800","monthly_income":0,"name":"Emmanuel Nkereuwem","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-05-29T11:11:37.407641+00:00"}
+[00:27:56.965] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:28:00.591] Browser LOG      API Success: GET /api/transactions [{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:03:20.919916+00:00","currency":"NGN","date":"2026-05-29T12:03:18.194+00:00","description":"bread","id":"4cff7ce7-088c-4de6-9782-36165a52d552","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:03:22.329521+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}]
+[00:28:00.591] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:03:20.919916+00:00","currency":"NGN","date":"2026-05-29T12:03:18.194+00:00","description":"bread","id":"4cff7ce7-088c-4de6-9782-36165a52d552","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:03:22.329521+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}]
+[00:28:00.591] Browser LOG      Successfully fetched 1 transactions from database
+[00:28:00.591] Browser LOG      Transactions set in state, total: 1
+[00:28:00.591] Browser LOG     💡 Generating AI tips for 1 transactions...
+[00:28:00.591] Browser LOG     🔵 API Call: POST /api/ai/health-tips
+[00:28:00.591] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:28:00.591] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:28:00.591] Browser LOG      API Success: POST /api/ai/health-tips {"success":true,"tips":["💰 Your highest spending is in Food: ₦3,000. Look for ways to optimize this category.","📝 Track at least 10-15 transactions for better spending pattern analysis.","🎯 Consider diversifying your spending across more categories for better budgeting."]}
+[00:28:02.435] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:28:02.436] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:28:02.436] Browser LOG     📊 Fetching transactions from API...
+[00:28:02.436] Browser LOG     🔵 API Call: GET /api/transactions
+[00:28:02.436] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:28:02.436] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:28:02.436] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:28:02.436] Browser LOG     📊 Fetching transactions from API...
+[00:28:02.436] Browser LOG     🔵 API Call: GET /api/transactions
+[00:28:02.436] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:28:04.219] Browser LOG      API Success: GET /api/auth/profile {"created_at":"2026-05-29T11:11:37.407641+00:00","email":"nkereuwememmanueliboro5@gmail.com","fixed_bills":0,"id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800","monthly_income":0,"name":"Emmanuel Nkereuwem","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-05-29T11:11:37.407641+00:00"}
+[00:28:05.736] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:28:09.629] Browser LOG      API Success: GET /api/auth/profile {"created_at":"2026-05-29T11:11:37.407641+00:00","email":"nkereuwememmanueliboro5@gmail.com","fixed_bills":0,"id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800","monthly_income":0,"name":"Emmanuel Nkereuwem","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-05-29T11:11:37.407641+00:00"}
+[00:28:09.629] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:28:11.574] Browser LOG      API Success: GET /api/transactions [{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:03:20.919916+00:00","currency":"NGN","date":"2026-05-29T12:03:18.194+00:00","description":"bread","id":"4cff7ce7-088c-4de6-9782-36165a52d552","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:03:22.329521+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}]
+[00:28:11.574] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:03:20.919916+00:00","currency":"NGN","date":"2026-05-29T12:03:18.194+00:00","description":"bread","id":"4cff7ce7-088c-4de6-9782-36165a52d552","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:03:22.329521+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}]
+[00:28:11.574] Browser LOG      Successfully fetched 1 transactions from database
+[00:28:11.574] Browser LOG      Transactions set in state, total: 1
+[00:28:11.574] Browser LOG     💡 Generating AI tips for 1 transactions...
+[00:28:11.574] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:28:15.247] Browser LOG      API Success: GET /api/transactions [{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:03:20.919916+00:00","currency":"NGN","date":"2026-05-29T12:03:18.194+00:00","description":"bread","id":"4cff7ce7-088c-4de6-9782-36165a52d552","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:03:22.329521+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}]
+[00:28:15.247] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:03:20.919916+00:00","currency":"NGN","date":"2026-05-29T12:03:18.194+00:00","description":"bread","id":"4cff7ce7-088c-4de6-9782-36165a52d552","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:03:22.329521+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}]
+[00:28:15.247] Browser LOG      Successfully fetched 1 transactions from database
+[00:28:15.247] Browser LOG      Transactions set in state, total: 1
+[00:28:15.247] Browser LOG     💡 Generating AI tips for 1 transactions...
+[00:28:15.247] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:28:51.437] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:28:51.437] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:28:51.437] Browser LOG     📊 Fetching transactions from API...
+[00:28:51.437] Browser LOG     🔵 API Call: GET /api/transactions
+[00:28:51.437] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:28:54.593] Browser LOG      API Success: GET /api/auth/profile {"created_at":"2026-05-29T11:11:37.407641+00:00","email":"nkereuwememmanueliboro5@gmail.com","fixed_bills":0,"id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800","monthly_income":0,"name":"Emmanuel Nkereuwem","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-05-29T11:11:37.407641+00:00"}
+[00:28:54.593] Browser LOG      API Success: GET /api/transactions [{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:03:20.919916+00:00","currency":"NGN","date":"2026-05-29T12:03:18.194+00:00","description":"bread","id":"4cff7ce7-088c-4de6-9782-36165a52d552","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:03:22.329521+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}]
+[00:28:54.593] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:03:20.919916+00:00","currency":"NGN","date":"2026-05-29T12:03:18.194+00:00","description":"bread","id":"4cff7ce7-088c-4de6-9782-36165a52d552","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:03:22.329521+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}]
+[00:28:54.593] Browser LOG      Successfully fetched 1 transactions from database
+[00:28:54.593] Browser LOG      Transactions set in state, total: 1
+[00:28:54.593] Browser LOG     💡 Generating AI tips for 1 transactions...
+[00:28:54.593] Browser LOG     🔵 API Call: POST /api/ai/health-tips
+[00:28:54.593] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:28:56.335] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:28:56.335] Browser LOG      API Success: POST /api/ai/health-tips {"success":true,"tips":["💰 Your highest spending is in Food: ₦3,000. Look for ways to optimize this category.","📝 Track at least 10-15 transactions for better spending pattern analysis.","🎯 Consider diversifying your spending across more categories for better budgeting."]}
+[00:29:38.427] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:29:38.427] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:29:38.427] Browser LOG     📊 Fetching transactions from API...
+[00:29:38.427] Browser LOG     🔵 API Call: GET /api/transactions
+[00:29:38.427] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:29:40.016] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:29:40.016] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:29:40.016] Browser LOG     📊 Fetching transactions from API...
+[00:29:40.016] Browser LOG     🔵 API Call: GET /api/transactions
+[00:29:40.016] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:29:41.828] Browser LOG      API Success: GET /api/transactions [{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:03:20.919916+00:00","currency":"NGN","date":"2026-05-29T12:03:18.194+00:00","description":"bread","id":"4cff7ce7-088c-4de6-9782-36165a52d552","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:03:22.329521+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}]
+[00:29:41.828] Browser LOG      API Success: GET /api/auth/profile {"created_at":"2026-05-29T11:11:37.407641+00:00","email":"nkereuwememmanueliboro5@gmail.com","fixed_bills":0,"id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800","monthly_income":0,"name":"Emmanuel Nkereuwem","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-05-29T11:11:37.407641+00:00"}
+[00:29:41.828] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:03:20.919916+00:00","currency":"NGN","date":"2026-05-29T12:03:18.194+00:00","description":"bread","id":"4cff7ce7-088c-4de6-9782-36165a52d552","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:03:22.329521+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}]
+[00:29:41.828] Browser LOG      Successfully fetched 1 transactions from database
+[00:29:41.828] Browser LOG      Transactions set in state, total: 1
+[00:29:41.828] Browser LOG     💡 Generating AI tips for 1 transactions...
+[00:29:41.828] Browser LOG     🔵 API Call: POST /api/ai/health-tips
+[00:29:41.828] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:29:41.828] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:29:41.828] Browser LOG      API Success: POST /api/ai/health-tips {"success":true,"tips":["💰 Your highest spending is in Food: ₦3,000. Look for ways to optimize this category.","📝 Track at least 10-15 transactions for better spending pattern analysis.","🎯 Consider diversifying your spending across more categories for better budgeting."]}
+[00:29:43.964] Browser LOG      API Success: GET /api/auth/profile {"created_at":"2026-05-29T11:11:37.407641+00:00","email":"nkereuwememmanueliboro5@gmail.com","fixed_bills":0,"id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800","monthly_income":0,"name":"Emmanuel Nkereuwem","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-05-29T11:11:37.407641+00:00"}
+[00:29:43.964] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:29:43.964] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:29:45.353] Browser LOG      API Success: GET /api/transactions [{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:03:20.919916+00:00","currency":"NGN","date":"2026-05-29T12:03:18.194+00:00","description":"bread","id":"4cff7ce7-088c-4de6-9782-36165a52d552","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:03:22.329521+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}]
+[00:29:45.353] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:03:20.919916+00:00","currency":"NGN","date":"2026-05-29T12:03:18.194+00:00","description":"bread","id":"4cff7ce7-088c-4de6-9782-36165a52d552","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:03:22.329521+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}]
+[00:29:45.353] Browser LOG      Successfully fetched 1 transactions from database
+[00:29:45.353] Browser LOG      Transactions set in state, total: 1
+[00:29:45.353] Browser LOG     💡 Generating AI tips for 1 transactions...
+[00:29:45.353] Browser LOG     🔵 API Call: POST /api/ai/health-tips
+[00:29:45.353] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:29:45.353] Browser LOG      API Success: POST /api/ai/health-tips {"success":true,"tips":["💰 Your highest spending is in Food: ₦3,000. Look for ways to optimize this category.","📝 Track at least 10-15 transactions for better spending pattern analysis.","🎯 Consider diversifying your spending across more categories for better budgeting."]}
+[00:30:04.906] Browser LOG     🔵 API Call: POST /api/ai/chat
+[00:30:06.710] Browser LOG      API Success: POST /api/ai/chat {"advice":"It seems like you've shared your financial profile. You've spent ₦3,000 on food via Kuda. Let's work together to manage your finances. What's your next step?","duration":1766,"success":true}
+[00:30:41.453] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:30:41.453] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:30:41.454] Browser LOG     📊 Fetching transactions from API...
+[00:30:41.454] Browser LOG     🔵 API Call: GET /api/transactions
+[00:30:41.454] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:30:43.957] Browser LOG      API Success: GET /api/transactions [{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:03:20.919916+00:00","currency":"NGN","date":"2026-05-29T12:03:18.194+00:00","description":"bread","id":"4cff7ce7-088c-4de6-9782-36165a52d552","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:03:22.329521+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}]
+[00:30:43.957] Browser LOG      API Success: GET /api/auth/profile {"created_at":"2026-05-29T11:11:37.407641+00:00","email":"nkereuwememmanueliboro5@gmail.com","fixed_bills":0,"id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800","monthly_income":0,"name":"Emmanuel Nkereuwem","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-05-29T11:11:37.407641+00:00"}
+[00:30:43.957] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:03:20.919916+00:00","currency":"NGN","date":"2026-05-29T12:03:18.194+00:00","description":"bread","id":"4cff7ce7-088c-4de6-9782-36165a52d552","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:03:22.329521+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}]
+[00:30:43.957] Browser LOG      Successfully fetched 1 transactions from database
+[00:30:43.957] Browser LOG      Transactions set in state, total: 1
+[00:30:43.957] Browser LOG     💡 Generating AI tips for 1 transactions...
+[00:30:43.957] Browser LOG     🔵 API Call: POST /api/ai/health-tips
+[00:30:43.957] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:30:45.356] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
+[00:30:45.356] Browser LOG      API Success: POST /api/ai/health-tips {"success":true,"tips":["💰 Your highest spending is in Food: ₦3,000. Look for ways to optimize this category.","📝 Track at least 10-15 transactions for better spending pattern analysis.","🎯 Consider diversifying your spending across more categories for better budgeting."]}
+[00:30:59.169] Browser LOG     🔵 API Call: POST /api/ai/analyze-receipt
+[00:31:00.903] Browser LOG      API Success: POST /api/ai/analyze-receipt {"amount":3000,"category":"Food","currency":"NGN","date":"2026-05-28","description":"bread","items":["bread"],"merchant":"Kuda","model":"Qwen2.5-7B-Instruct","success":true}
+[00:31:06.031] Browser LOG     🔵 API Call: POST /api/transactions
+[00:31:06.856] Browser LOG      API Success: POST /api/transactions {"success":true,"transaction":{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:06:37.576361+00:00","currency":"NGN","date":"2026-05-29T12:06:37.531+00:00","description":"bread","id":"d6ee19d7-607e-4b65-913c-0cf3f7c59a66","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:06:38.27196+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}}
+[00:31:06.856] Browser LOG     Transaction added successfully: {"ai_categorized":false,"amount":-3000,"category":"Food","created_at":"2026-05-29T12:06:37.576361+00:00","currency":"NGN","date":"2026-05-29T12:06:37.531+00:00","description":"bread","icon":"🍔","id":"d6ee19d7-607e-4b65-913c-0cf3f7c59a66","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:06:38.27196+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}
+[00:31:06.856] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:38:06.008] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:38:06.517] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:38:06.700] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:38:06.855] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:38:07.557] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:38:08.923] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:38:13.708] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:38:13.830] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:38:13.964] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:38:14.247] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:38:18.272] Browser LOG     🔵 API Call: PUT /api/auth/profile
+[00:38:21.089] Browser LOG      API Success: PUT /api/auth/profile {"message":"Profile updated","profile":{"created_at":"2026-05-29T11:11:37.407641+00:00","email":"nkereuwememmanueliboro5@gmail.com","fixed_bills":10000,"id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800","monthly_income":2000000,"name":"Emmanuel Nkereuwem","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-05-29T12:13:52.454606+00:00"},"success":true}
+[00:38:21.089] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:43:56.782] Server  LOG       Reload env: .env
+[00:43:58.017] Server  LOG       Reload env: .env

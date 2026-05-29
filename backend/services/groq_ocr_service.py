@@ -7,9 +7,8 @@ from PIL import Image
 from io import BytesIO
 import requests
 from config import Config
-from openai import OpenAI
 import pytesseract
-from services.opik_service import monitor_qwen_call, OPIK_AVAILABLE, OPIK_CONFIGURED
+from groq import Groq
 
 logger = logging.getLogger(__name__)
 
@@ -23,27 +22,22 @@ TESSDATA_DIR = os.path.join(PROJECT_ROOT, 'tessdata')
 if os.path.exists(TESSERACT_CMD):
     pytesseract.pytesseract.tesseract_cmd = TESSERACT_CMD
     os.environ['TESSDATA_PREFIX'] = TESSDATA_DIR
-    logger.info(f"✅ Using static tesseract binary: {TESSERACT_CMD}")
+    logger.info(f" Using static tesseract binary: {TESSERACT_CMD}")
 else:
-    logger.warning(f"⚠️ Static tesseract not found at {TESSERACT_CMD}, using system tesseract")
+    logger.warning(f" Static tesseract not found at {TESSERACT_CMD}, using system tesseract")
 
-# HuggingFace API Configuration
-HF_TOKEN = os.getenv("HF_TOKEN") or os.getenv("HUGGINGFACE_API_TOKEN")
-if not HF_TOKEN:
-    logger.warning("HF_TOKEN/HUGGINGFACE_API_TOKEN not configured")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+if not GROQ_API_KEY:
+    logger.warning("GROQ_API_KEY not configured")
 
-# Initialize OpenAI client pointing to HuggingFace router
 try:
-    client = OpenAI(
-        base_url="https://router.huggingface.co/v1",
-        api_key=HF_TOKEN,
-    )
+    client = Groq(api_key=GROQ_API_KEY)
 except Exception as e:
-    logger.warning(f"Failed to initialize HF client: {e}")
+    logger.warning(f"Failed to initialize Groq client: {e}")
     client = None
 
 # Qwen model identifier (TEXT-ONLY - NO VISION SUPPORT!)
-MODEL_ID = "Qwen/Qwen2.5-7B-Instruct:together"
+MODEL_ID = "llama-3.3-70b-versatile"
 
 # OCR module - extract text from images since Qwen doesn't support vision
 def extract_text_from_image(image_source: str) -> str:

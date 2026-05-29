@@ -12,10 +12,10 @@ This guide walks you through setting up Supabase for the Sentinel personal finan
 
 ## Prerequisites
 
-- ✅ Supabase account created at https://supabase.com
-- ✅ Project created in Supabase dashboard
-- ✅ Project URL and API keys copied to `.env` files
-- ✅ PostgreSQL database available (included with Supabase)
+-  Supabase account created at https://supabase.com
+-  Project created in Supabase dashboard
+-  Project URL and API keys copied to `.env` files
+-  PostgreSQL database available (included with Supabase)
 
 ---
 
@@ -33,19 +33,19 @@ This guide walks you through setting up Supabase for the Sentinel personal finan
 ### Option A: Complete Setup (Recommended)
 
 This includes everything:
-- ✅ All 6 tables (user_profiles, transactions, telegram_links, chat_history, operation_traces, user_preferences)
-- ✅ Indexes for performance
-- ✅ Row Level Security (RLS) policies
-- ✅ Automatic triggers for profile creation
-- ✅ Timestamp management
-- ✅ Helpful views
+-  All 6 tables (user_profiles, transactions, telegram_links, chat_history, operation_traces, user_preferences)
+-  Indexes for performance
+-  Row Level Security (RLS) policies
+-  Automatic triggers for profile creation
+-  Timestamp management
+-  Helpful views
 
 **Steps:**
 1. Copy the entire content from: `/backend/database/supabase_complete_setup.sql`
 2. Paste into the Supabase SQL Editor
 3. Click **Run**
 4. Wait for all queries to complete (usually 30 seconds)
-5. You should see: "✅ Success" for each table creation
+5. You should see: " Success" for each table creation
 
 ### Option B: Run Individual Setup Files
 
@@ -141,7 +141,7 @@ supabase = create_client(
 
 # Test read
 data = supabase.table("user_profiles").select("*").execute()
-print("✅ Connected!" if data else "❌ Failed")
+print(" Connected!" if data else "❌ Failed")
 ```
 
 ### From Frontend
@@ -155,7 +155,7 @@ const { data, error } = await supabase
   .select('*')
   .limit(1);
 
-console.log(error ? '❌ Error' : '✅ Connected');
+console.log(error ? '❌ Error' : ' Connected');
 ```
 
 ---
@@ -261,7 +261,7 @@ RLS ensures users can ONLY access their own data:
 
 ```
 ❌ Without RLS: User A can see User B's transactions
-✅ With RLS: User A can only see User A's transactions
+ With RLS: User A can only see User A's transactions
 ```
 
 ### Policy Types
@@ -402,25 +402,25 @@ ORDER BY pg_total_relation_size(schemaname||'.'||tablename) DESC;
 
 ## Security Checklist
 
-- ✅ RLS enabled on all tables
-- ✅ Service role key kept secret (backend only)
-- ✅ Anon key can be public (frontend)
-- ✅ Email verification disabled (for UX)
-- ✅ Password minimum 8 characters enforced
-- ✅ User data isolated by RLS policies
-- ✅ Never trust client-submitted user_id (use auth.uid())
+-  RLS enabled on all tables
+-  Service role key kept secret (backend only)
+-  Anon key can be public (frontend)
+-  Email verification disabled (for UX)
+-  Password minimum 8 characters enforced
+-  User data isolated by RLS policies
+-  Never trust client-submitted user_id (use auth.uid())
 
 ---
 
 ## Next Steps
 
-1. ✅ Run setup script in SQL Editor
-2. ✅ Verify tables created (see Step 3)
-3. ✅ Disable email verification
-4. ✅ Set environment variables
-5. ✅ Test connection from frontend & backend
-6. ✅ Create test user account
-7. ✅ Verify user can only see own data
+1.  Run setup script in SQL Editor
+2.  Verify tables created (see Step 3)
+3.  Disable email verification
+4.  Set environment variables
+5.  Test connection from frontend & backend
+6.  Create test user account
+7.  Verify user can only see own data
 
 ---
 
@@ -467,4 +467,4 @@ ORDER BY month DESC;
 
 **📝 Last Updated**: February 2026  
 **Version**: 1.0  
-**Status**: Production Ready ✅
+**Status**: Production Ready 

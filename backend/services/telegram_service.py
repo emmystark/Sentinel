@@ -7,7 +7,7 @@ from telegram.ext import ApplicationBuilder
 
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 from config import Config
-from services.gemini_service import get_spending_advice
+from backend.services.ai_service import get_spending_advice
 import json
 
 
@@ -68,9 +68,9 @@ Budget used: {budget_percentage:.1f}%
 """
         
         if budget_percentage >= 100:
-            alert_message += "⚠️ You've exceeded your budget!"
+            alert_message += " You've exceeded your budget!"
         elif budget_percentage >= 80:
-            alert_message += "⚠️ You're approaching your budget limit. Be careful with remaining expenses."
+            alert_message += " You're approaching your budget limit. Be careful with remaining expenses."
         
         return await send_telegram_message(username, alert_message)
         

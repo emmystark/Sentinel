@@ -36,7 +36,7 @@ export default function Dashboard() {
   const [activeModal, setActiveModal] = useState<string | null>(null);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [selectedTransaction, setSelectedTransaction] = useState<Transaction | null>(null);
-  // ✅ Initialize with default values so dashboard renders immediately
+  //  Initialize with default values so dashboard renders immediately
   const [userProfile, setUserProfile] = useState<UserProfile>({
     name: 'Loading...',
     email: '',
@@ -186,7 +186,7 @@ export default function Dashboard() {
         setTelegramLinkCode('');
         
         // Show success message
-        const successMsg = `✅ Telegram connected successfully!\nYou can now send expense messages like "Chicken Republic 4500" to log transactions.`;
+        const successMsg = ` Telegram connected successfully!\nYou can now send expense messages like "Chicken Republic 4500" to log transactions.`;
         setError(null); // Clear any errors
         
         // Set a temporary success alert
@@ -200,7 +200,7 @@ export default function Dashboard() {
         tempAlert.style.borderRadius = '8px';
         tempAlert.style.zIndex = '9999';
         tempAlert.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
-        tempAlert.textContent = '✅ Telegram linked successfully!';
+        tempAlert.textContent = ' Telegram linked successfully!';
         document.body.appendChild(tempAlert);
         
         setTimeout(() => {
@@ -300,7 +300,7 @@ export default function Dashboard() {
       console.error('Chat error:', err);
       setChatMessages(prev => [...prev, { 
         role: 'advisor', 
-        content: `⚠️ Error: ${errorMsg}. Please try again.`
+        content: ` Error: ${errorMsg}. Please try again.`
       }]);
     } finally {
       setChatLoading(false);
@@ -493,7 +493,7 @@ export default function Dashboard() {
       }
 
       const data = await response.json();
-      console.log(`✅ API Success: ${method} ${endpoint}`, data);
+      console.log(` API Success: ${method} ${endpoint}`, data);
       return data;
     } catch (err) {
       const message = err instanceof Error ? err.message : 'An error occurred';
@@ -507,7 +507,7 @@ export default function Dashboard() {
   const fetchTransactions = async () => {
     try {
       if (!accessToken) {
-        console.warn('⚠️ No access token available, skipping transaction fetch');
+        console.warn(' No access token available, skipping transaction fetch');
         setTransactions([]);
         return;
       }
@@ -533,12 +533,12 @@ export default function Dashboard() {
         // Single transaction object
         transactionArray = [data];
       } else {
-        console.warn('⚠️ Unexpected transaction data format:', data);
+        console.warn(' Unexpected transaction data format:', data);
         setTransactions([]);
         return;
       }
       
-      console.log(`✅ Successfully fetched ${transactionArray.length} transactions from database`);
+      console.log(` Successfully fetched ${transactionArray.length} transactions from database`);
       
       // Convert to display format with icons
       const formattedData = transactionArray.map((t: any) => ({
@@ -554,7 +554,7 @@ export default function Dashboard() {
       }));
       
       setTransactions(formattedData);
-      console.log('✅ Transactions set in state, total:', formattedData.length);
+      console.log(' Transactions set in state, total:', formattedData.length);
       
       // Calculate health score and generate tips in background (don't block UI)
       // Use setTimeout to defer these operations so transactions appear immediately
@@ -574,7 +574,7 @@ export default function Dashboard() {
       console.error('❌ Failed to fetch transactions:', err);
       // Don't clear transactions on error - keep previous data if available
       setTransactions(prev => {
-        console.log('⚠️ Keeping previous transactions:', prev?.length || 0);
+        console.log(' Keeping previous transactions:', prev?.length || 0);
         return prev || [];
       });
     }
@@ -758,7 +758,7 @@ useEffect(() => {
     // Call delete API
     const response = await apiCall(`/api/transactions/${selectedTransaction.id}`, 'DELETE');
     
-    console.log('✅ Delete response:', response);
+    console.log(' Delete response:', response);
 
     // Remove from local state
     const updatedTransactions = transactions.filter(t => t.id !== selectedTransaction.id);
@@ -781,7 +781,7 @@ useEffect(() => {
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       font-weight: 500;
     `;
-    tempAlert.textContent = '✅ Transaction deleted successfully!';
+    tempAlert.textContent = ' Transaction deleted successfully!';
     document.body.appendChild(tempAlert);
 
     setTimeout(() => {
@@ -938,7 +938,7 @@ useEffect(() => {
     );
   }
 
-  // ✅ SHOW DASHBOARD IMMEDIATELY ONCE AUTH IS DONE + USER EXISTS
+  //  SHOW DASHBOARD IMMEDIATELY ONCE AUTH IS DONE + USER EXISTS
   // Don't wait for profile or transactions - load those in background
   if (!authLoading && !user) {
     return (
@@ -1428,7 +1428,7 @@ useEffect(() => {
                     <button 
                       className={styles.analyzeButton}
                       onClick={() => {
-                        const bot = telegramBotUsername || process.env.NEXT_PUBLIC_TELEGRAM_BOT_USERNAME || 'SentinelFinanceBot';
+                        const bot = telegramBotUsername || process.env.TELEGRAM_BOT_USERNAME || 'SentinelFinanceBot';
                         window.open(`https://t.me/${bot.replace('@', '')}?start=connect`, '_blank');
                       }}
                       disabled={telegramVerifying}

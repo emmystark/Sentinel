@@ -66,15 +66,15 @@ def apply_migration(supabase):
         # Try to access the tables to see what exists
         try:
             user_profiles = supabase.table("user_profiles").select("id").limit(1).execute()
-            logger.info("✅ user_profiles table exists")
+            logger.info(" user_profiles table exists")
         except Exception as e:
             logger.error(f"❌ user_profiles table error: {e}")
         
         try:
             transactions = supabase.table("transactions").select("id").limit(1).execute()
-            logger.info("✅ transactions table exists")
+            logger.info(" transactions table exists")
         except Exception as e:
-            logger.warning(f"⚠️ transactions table may not exist: {e}")
+            logger.warning(f" transactions table may not exist: {e}")
         
         print_migration_instructions()
         return True
@@ -95,15 +95,15 @@ def verify_database(supabase):
         for table in tables:
             try:
                 response = supabase.table(table).select("*").limit(1).execute()
-                logger.info(f"✅ Table '{table}' exists")
+                logger.info(f" Table '{table}' exists")
             except Exception as e:
-                logger.warning(f"⚠️ Table '{table}' may not exist: {str(e)[:80]}")
+                logger.warning(f" Table '{table}' may not exist: {str(e)[:80]}")
                 all_good = False
         
         # Check critical column
         try:
             response = supabase.table("user_profiles").select("telegram_chat_id").limit(1).execute()
-            logger.info("✅ Column 'telegram_chat_id' exists - MIGRATION APPLIED!")
+            logger.info(" Column 'telegram_chat_id' exists - MIGRATION APPLIED!")
             return True
         except Exception as e:
             logger.error(f"\n❌ Column 'telegram_chat_id' missing - MIGRATION NEEDED")

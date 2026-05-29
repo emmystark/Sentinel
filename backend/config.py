@@ -120,7 +120,7 @@ class Config:
     BACKEND_PORT = int(os.getenv("BACKEND_PORT", 3000))
     FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3001")
     ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
-    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+    GROQ_API_KEY = os.getenv("GROQ_API_KEY")
     TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
     TELEGRAM_WEBHOOK_URL = os.getenv("TELEGRAM_WEBHOOK_URL")
     TELEGRAM_BOT_USERNAME = os.getenv("TELEGRAM_BOT_USERNAME", "")  # e.g. SentinelFinanceBot

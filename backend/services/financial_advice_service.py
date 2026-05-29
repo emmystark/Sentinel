@@ -2,7 +2,7 @@ import logging
 from typing import Dict, Any, List, Optional
 from datetime import datetime, timedelta
 from supabase import Client
-from services.qwen_service import analyze_transaction_with_qwen
+from services.groq_ocr_service import analyze_transaction_with_qwen
 
 logger = logging.getLogger(__name__)
 

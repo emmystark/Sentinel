@@ -7,7 +7,7 @@ import logging
 import secrets
 from datetime import datetime, timedelta
 from config import get_user_id, get_supabase
-from services.qwen_chat_service import chat_with_advisor, categorize_transaction
+from services.groq_chat_service import chat_with_advisor, categorize_transaction
 
 router = APIRouter(tags=["telegram"])
 logger = logging.getLogger(__name__)
@@ -178,7 +178,7 @@ async def telegram_webhook(update: TelegramUpdate):
                     # Valid code - but we need user_id from app, so just confirm
                     await send_message(
                         chat_id,
-                        f"✅ Code `{code}` accepted!\n\n"
+                        f" Code `{code}` accepted!\n\n"
                         f"Go to Sentinel app → Profile → Connect Telegram\n"
                         f"and confirm to complete linking.\n\n"
                         f"Once linked, you can:\n"
@@ -203,7 +203,7 @@ async def telegram_webhook(update: TelegramUpdate):
                     if datetime.utcnow() <= entry["expires"]:
                         await send_message(
                             chat_id,
-                            f"✅ Code `{code}` accepted!\n\n"
+                            f" Code `{code}` accepted!\n\n"
                             f"Go to Sentinel app → Profile → Connect Telegram\n"
                             f"and confirm to complete linking."
                         )
@@ -238,11 +238,11 @@ async def telegram_webhook(update: TelegramUpdate):
                         "source": "telegram",
                         "ai_categorized": True,
                     }).execute()
-                    await send_message(chat_id, f"✅ Logged: {merchant} – ₦{amount:,.0f} ({category})")
+                    await send_message(chat_id, f" Logged: {merchant} – ₦{amount:,.0f} ({category})")
                 else:
                     await send_message(
                         chat_id,
-                        "⚠️ Account not linked.\n\n"
+                        " Account not linked.\n\n"
                         "Send /start and enter your 6-digit code to link now 🔗"
                     )
             except Exception as e:
@@ -339,7 +339,7 @@ async def _handle_receipt_photo(chat_id: int, photo: list, user: dict):
         receipt_data_uri = f"data:image/jpeg;base64,{base64_image}"
         
         # Parse receipt with Qwen
-        from services.qwen_service import parse_receipt_with_qwen
+        from backend.services.groq_ocr_service import parse_receipt_with_qwen
         extracted_data = await parse_receipt_with_qwen(receipt_data_uri)
         
         # Validate extraction
@@ -365,7 +365,7 @@ async def _handle_receipt_photo(chat_id: int, photo: list, user: dict):
             if not user_r.data or len(user_r.data) == 0:
                 await send_message(
                     chat_id,
-                    "⚠️ Account not linked.\n\n"
+                    " Account not linked.\n\n"
                     "Send /start and enter your 6-digit code to link now 🔗"
                 )
                 return {"status": "ok"}
@@ -396,7 +396,7 @@ async def _handle_receipt_photo(chat_id: int, photo: list, user: dict):
                 category = extracted_data.get("category", "Other")
                 await send_message(
                     chat_id,
-                    f"✅ Receipt saved!\n"
+                    f" Receipt saved!\n"
                     f"Merchant: {merchant}\n"
                     f"Amount: ₦{amount:,.0f}\n"
                     f"Category: {category}"
@@ -493,7 +493,7 @@ async def link_with_code(
         try:
             await send_message(
                 telegram_id,
-                "✅ Your Telegram account is now linked to Sentinel!\n\n"
+                " Your Telegram account is now linked to Sentinel!\n\n"
                 "You can now:\n"
                 "• Log expenses by sending messages like: `Chicken Republic 4500`\n"
                 "• Receive spending alerts and financial advice\n"
@@ -506,7 +506,7 @@ async def link_with_code(
         logger.info(f"Successfully linked telegram {telegram_id} to user {user_id}")
         return {
             "success": True, 
-            "message": "Telegram linked successfully ✅",
+            "message": "Telegram linked successfully ",
             "telegram_id": telegram_id,
             "telegram_username": telegram_username
         }
@@ -561,7 +561,7 @@ async def link_direct_admin(
         logger.info(f"Successfully linked telegram {request.telegram_id} to user {request.user_id}")
         return {
             "success": True,
-            "message": "Telegram linked successfully ✅",
+            "message": "Telegram linked successfully ",
             "telegram_id": request.telegram_id,
             "user_id": request.user_id
         }
@@ -617,7 +617,7 @@ async def setup_telegram_webhook(request_body: dict = None):
             if response.status_code == 200:
                 result = response.json()
                 if result.get("ok"):
-                    logger.info(f"✅ Telegram webhook configured: {full_webhook_url}")
+                    logger.info(f" Telegram webhook configured: {full_webhook_url}")
                     
                     # Also get webhook info to confirm
                     info_response = await client.get(

@@ -33,48 +33,48 @@ from services.scheduler_service import initialize_scheduler, stop_scheduler
 async def lifespan(app: FastAPI):
     """Manage application startup and shutdown."""
     # Startup
-    logger.info("🚀 Sentinel Backend starting up...")
+    logger.info("Sentinel Backend starting up...")
     logger.info(f"   Environment: {os.getenv('ENVIRONMENT', 'production')}")
     logger.info(f"   Port: {os.getenv('PORT', '8000')}")
     
     try:
         # Initialize scheduler for periodic tasks
         initialize_scheduler()
-        logger.info("✅ Scheduler initialized")
+        logger.info(" Scheduler initialized")
     except Exception as e:
-        logger.error(f"⚠️ Scheduler initialization failed: {e}")
+        logger.error(f"Scheduler initialization failed: {e}")
     
     # Check critical services
     try:
         supabase = get_supabase()
-        logger.info("✅ Database connection verified")
+        logger.info(" Database connection verified")
     except Exception as e:
-        logger.error(f"❌ Database connection failed: {e}")
+        logger.error(f" Database connection failed: {e}")
     
     # Check Opik monitoring
     try:
         from services.opik_monitoring import check_opik_health
         opik_health = check_opik_health()
         if opik_health['enabled']:
-            logger.info(f"✅ Opik monitoring enabled ({opik_health.get('mode', 'unknown')} mode)")
+            logger.info(f"Opik monitoring enabled ({opik_health.get('mode', 'unknown')} mode)")
         else:
-            logger.warning("⚠️ Opik monitoring disabled")
+            logger.warning(" Opik monitoring disabled")
     except Exception as e:
-        logger.warning(f"⚠️ Opik monitoring check failed: {e}")
+        logger.warning(f" Opik monitoring check failed: {e}")
     
-    logger.info("✅ Backend startup complete!")
+    logger.info(" Backend startup complete!")
     
     yield
     
     # Shutdown
-    logger.info("🛑 Sentinel Backend shutting down...")
+    logger.info(" Sentinel Backend shutting down...")
     try:
         stop_scheduler()
-        logger.info("✅ Scheduler stopped")
+        logger.info(" Scheduler stopped")
     except Exception as e:
-        logger.error(f"⚠️ Scheduler shutdown error: {e}")
+        logger.error(f" Scheduler shutdown error: {e}")
     
-    logger.info("✅ Backend shutdown complete")
+    logger.info(" Backend shutdown complete")
 
 
 # ==================== FASTAPI APP ====================
@@ -205,8 +205,9 @@ async def detailed_status():
     
     # AI models status
     status["ai_models"] = {
-        "huggingface_token": "configured" if os.getenv("HF_TOKEN") else "missing",
-        "qwen_model": "Qwen2.5-7B-Instruct"
+    "groq_api_key": "configured" if os.getenv("GROQ_API_KEY") else "missing",
+    "vision_model": "meta-llama/llama-4-scout-17b-16e-instruct",
+    "chat_model": "llama-3.3-70b-versatile"
     }
     
     return status
@@ -220,7 +221,7 @@ app.include_router(ai.router, prefix="/api/ai", tags=["ai"])
 app.include_router(telegram.router, prefix="/api/telegram", tags=["telegram"])
 app.include_router(monitoring.router, prefix="/api/monitoring", tags=["monitoring"])
 
-logger.info("✅ All routes registered")
+logger.info(" All routes registered")
 
 # ==================== ERROR HANDLING ====================
 
@@ -279,7 +280,7 @@ if __name__ == "__main__":
     logger.info(f"Starting server on {host}:{port}")
     
     uvicorn.run(
-        "main:app",  # Use string reference for auto-reload
+        "app:app",  # Use string reference for auto-reload
         host=host,
         port=port,
         log_level="info",

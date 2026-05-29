@@ -3,11 +3,11 @@ from pydantic import BaseModel
 from typing import Optional, List
 from datetime import datetime
 from config import get_supabase, get_user_id
-from services.qwen_service import (
+from services.groq_ocr_service import (
     parse_receipt_with_qwen,
     analyze_transaction_with_qwen
 )
-from services.qwen_chat_service import (
+from services.groq_chat_service import (
     chat_with_advisor,
     categorize_transaction,
     analyze_spending_pattern
@@ -409,7 +409,7 @@ async def get_health_tips_endpoint(
         if monthly_income > 0:
             spending_ratio = (total_spent / monthly_income) * 100
             if spending_ratio > 90:
-                tips.append(f"⚠️ You're spending {spending_ratio:.0f}% of your income. Try to reduce discretionary spending.")
+                tips.append(f" You're spending {spending_ratio:.0f}% of your income. Try to reduce discretionary spending.")
             elif spending_ratio > 70:
                 tips.append(f"You're spending {spending_ratio:.0f}% of your income. Consider setting aside more for savings.")
             else:
@@ -426,7 +426,7 @@ async def get_health_tips_endpoint(
         if savings_goal > 0:
             monthly_after_bills = monthly_income - fixed_bills - total_spent
             if monthly_after_bills >= savings_goal:
-                tips.append(f"✅ Great! You can save ₦{monthly_after_bills:,.0f} this month, exceeding your goal of ₦{savings_goal:,.0f}.")
+                tips.append(f" Great! You can save ₦{monthly_after_bills:,.0f} this month, exceeding your goal of ₦{savings_goal:,.0f}.")
             else:
                 remaining_needed = savings_goal - monthly_after_bills
                 tips.append(f"📊 You need to save ₦{remaining_needed:,.0f} more to reach your monthly savings goal of ₦{savings_goal:,.0f}.")

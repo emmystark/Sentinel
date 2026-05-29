@@ -49,10 +49,10 @@ async def get_transactions(
             ).eq("user_id", user_id).order("created_at", desc=True).range(offset, offset + limit - 1).execute()
             
             if response.data and len(response.data) > 0:
-                logger.info(f"✅ Anon client returned {len(response.data)} transactions for user {user_id}")
+                logger.info(f" Anon client returned {len(response.data)} transactions for user {user_id}")
                 return response.data
         except Exception as anon_error:
-            logger.warning(f"⚠️ Anon client failed, trying service role: {anon_error}")
+            logger.warning(f" Anon client failed, trying service role: {anon_error}")
         
         # Fallback: use service role client (bypasses RLS)
         from config import get_supabase_admin
@@ -61,7 +61,7 @@ async def get_transactions(
             "*"
         ).eq("user_id", user_id).order("created_at", desc=True).range(offset, offset + limit - 1).execute()
         
-        logger.info(f"✅ Service role returned {len(response.data) if response.data else 0} transactions for user {user_id}")
+        logger.info(f" Service role returned {len(response.data) if response.data else 0} transactions for user {user_id}")
         
         return response.data or []
         
@@ -132,7 +132,7 @@ async def upload_receipt(
         image_data = f"data:{file.content_type};base64,{base64_image}"
         
         # Use Gemini to parse receipt
-        from services.gemini_service import parse_receipt
+        from backend.services.ai_service import parse_receipt
         extracted_data = await parse_receipt(image_data)
         
         # Create transaction in database

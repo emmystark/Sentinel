@@ -53,7 +53,7 @@ try:
             OPIK_AVAILABLE = True
             OPIK_CONFIGURED = True
             track = opik_track
-            logger.info("✅ Opik configured for local instance (http://localhost:5173)")
+            logger.info(" Opik configured for local instance (http://localhost:5173)")
         except Exception as e:
             logger.error(f"❌ Local Opik configuration failed: {e}")
             OPIK_AVAILABLE = False
@@ -79,7 +79,7 @@ try:
             OPIK_CONFIGURED = True
             track = opik_track
             
-            logger.info(f"✅ Opik monitoring enabled")
+            logger.info(f" Opik monitoring enabled")
             logger.info(f"   Project: {OPIK_PROJECT_NAME}")
             logger.info(f"   Workspace: {OPIK_WORKSPACE}")
             if OPIK_URL:
@@ -90,14 +90,14 @@ try:
             OPIK_AVAILABLE = False
             
     else:
-        logger.warning("⚠️ Opik credentials not configured - monitoring disabled")
+        logger.warning(" Opik credentials not configured - monitoring disabled")
         logger.info("To enable Opik, set one of:")
         logger.info("  1. OPIK_API_KEY + OPIK_WORKSPACE (or COMET_API_KEY + COMET_WORKSPACE)")
         logger.info("  2. USE_LOCAL_OPIK=true (for local Docker instance)")
         OPIK_AVAILABLE = False
         
 except ImportError:
-    logger.warning("⚠️ Opik not installed. Run: pip install opik")
+    logger.warning(" Opik not installed. Run: pip install opik")
     OPIK_AVAILABLE = False
 except Exception as e:
     logger.error(f"❌ Failed to initialize Opik: {e}", exc_info=True)
@@ -260,7 +260,7 @@ class OpikMonitor:
                 + (f" | Latency: {latency_ms:.2f}ms" if latency_ms else "")
             )
         else:
-            msg = f"✅ AI Operation: {model} - {operation_name}"
+            msg = f" AI Operation: {model} - {operation_name}"
             if latency_ms:
                 msg += f" | Latency: {latency_ms:.2f}ms"
             if tokens_used:

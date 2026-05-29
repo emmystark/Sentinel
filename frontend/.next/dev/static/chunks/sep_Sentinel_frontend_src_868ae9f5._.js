@@ -100,8 +100,8 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/sep/Sentinel/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f40$supabase$2f$supabase$2d$js$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/sep/Sentinel/frontend/node_modules/@supabase/supabase-js/dist/index.mjs [app-client] (ecmascript) <locals>");
 ;
-const supabaseUrl = ("TURBOPACK compile-time value", "https://sujjlcdrihmffpttdbpr.supabase.co") || '';
-const supabaseAnonKey = ("TURBOPACK compile-time value", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN1ampsY2RyaWhtZmZwdHRkYnByIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA0ODczNjgsImV4cCI6MjA4NjA2MzM2OH0.i2H_fiC4L_uPGiRb8pPe3ULO5t7H6X1SjPBcQXPyoWw") || '';
+const supabaseUrl = ("TURBOPACK compile-time value", "https://rtqobulizjswutwxznqz.supabase.co") || '';
+const supabaseAnonKey = ("TURBOPACK compile-time value", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ0cW9idWxpempzd3V0d3h6bnF6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAwMjA5OTAsImV4cCI6MjA5NTU5Njk5MH0.JLFSq-foCQqgZlDxGEcEOaU2Q_DhBXSCzT2YWGCSFRs") || '';
 const supabase = ("TURBOPACK compile-time truthy", 1) ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f40$supabase$2f$supabase$2d$js$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createClient"])(supabaseUrl, supabaseAnonKey) : "TURBOPACK unreachable";
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
@@ -219,7 +219,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-const BACKEND_URL = ("TURBOPACK compile-time value", "https://sentinel-o0yb.onrender.com") || 'https://sentinel-o0yb.onrender.com';
+const BACKEND_URL = ("TURBOPACK compile-time value", "http://localhost:8000") || 'https://sentinel-o0yb.onrender.com';
 function Dashboard() {
     _s();
     const { user, loading: authLoading, signOut, accessToken } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$hooks$2f$useAuth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"])();
@@ -227,7 +227,7 @@ function Dashboard() {
     const [activeModal, setActiveModal] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [transactions, setTransactions] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [selectedTransaction, setSelectedTransaction] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    // ✅ Initialize with default values so dashboard renders immediately
+    //  Initialize with default values so dashboard renders immediately
     const [userProfile, setUserProfile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
         name: 'Loading...',
         email: '',
@@ -385,7 +385,7 @@ function Dashboard() {
                 // setUserProfile(prev => prev ? { ...prev, telegramConnected: true, telegramUsername: res.telegram_username ? `@${res.telegram_username}` : '@linked' } : null);
                 setTelegramLinkCode('');
                 // Show success message
-                const successMsg = `✅ Telegram connected successfully!\nYou can now send expense messages like "Chicken Republic 4500" to log transactions.`;
+                const successMsg = ` Telegram connected successfully!\nYou can now send expense messages like "Chicken Republic 4500" to log transactions.`;
                 setError(null); // Clear any errors
                 // Set a temporary success alert
                 const tempAlert = document.createElement('div');
@@ -398,7 +398,7 @@ function Dashboard() {
                 tempAlert.style.borderRadius = '8px';
                 tempAlert.style.zIndex = '9999';
                 tempAlert.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
-                tempAlert.textContent = '✅ Telegram linked successfully!';
+                tempAlert.textContent = ' Telegram linked successfully!';
                 document.body.appendChild(tempAlert);
                 setTimeout(()=>{
                     tempAlert.remove();
@@ -506,7 +506,7 @@ function Dashboard() {
                     ...prev_0,
                     {
                         role: 'advisor',
-                        content: `⚠️ Error: ${errorMsg}. Please try again.`
+                        content: ` Error: ${errorMsg}. Please try again.`
                     }
                 ]);
         } finally{
@@ -682,7 +682,7 @@ function Dashboard() {
                 throw new Error(errorData.detail || errorData.error || 'API request failed');
             }
             const data_1 = await response_2.json();
-            console.log(`✅ API Success: ${method} ${endpoint}`, data_1);
+            console.log(` API Success: ${method} ${endpoint}`, data_1);
             return data_1;
         } catch (err_7) {
             const message = err_7 instanceof Error ? err_7.message : 'An error occurred';
@@ -695,7 +695,7 @@ function Dashboard() {
     const fetchTransactions = async ()=>{
         try {
             if (!accessToken) {
-                console.warn('⚠️ No access token available, skipping transaction fetch');
+                console.warn(' No access token available, skipping transaction fetch');
                 setTransactions([]);
                 return;
             }
@@ -719,11 +719,11 @@ function Dashboard() {
                     data_2
                 ];
             } else {
-                console.warn('⚠️ Unexpected transaction data format:', data_2);
+                console.warn(' Unexpected transaction data format:', data_2);
                 setTransactions([]);
                 return;
             }
-            console.log(`✅ Successfully fetched ${transactionArray.length} transactions from database`);
+            console.log(` Successfully fetched ${transactionArray.length} transactions from database`);
             // Convert to display format with icons
             const formattedData = transactionArray.map((t_0)=>({
                     id: t_0.id || t_0.transaction_id || String(Math.random()),
@@ -738,7 +738,7 @@ function Dashboard() {
                     currency: t_0.currency || 'NGN'
                 }));
             setTransactions(formattedData);
-            console.log('✅ Transactions set in state, total:', formattedData.length);
+            console.log(' Transactions set in state, total:', formattedData.length);
             // Calculate health score and generate tips in background (don't block UI)
             // Use setTimeout to defer these operations so transactions appear immediately
             if (userProfile) {
@@ -757,7 +757,7 @@ function Dashboard() {
             console.error('❌ Failed to fetch transactions:', err_8);
             // Don't clear transactions on error - keep previous data if available
             setTransactions((prev_4)=>{
-                console.log('⚠️ Keeping previous transactions:', prev_4?.length || 0);
+                console.log(' Keeping previous transactions:', prev_4?.length || 0);
                 return prev_4 || [];
             });
         }
@@ -926,7 +926,7 @@ function Dashboard() {
         try {
             // Call delete API
             const response_3 = await apiCall(`/api/transactions/${selectedTransaction.id}`, 'DELETE');
-            console.log('✅ Delete response:', response_3);
+            console.log(' Delete response:', response_3);
             // Remove from local state
             const updatedTransactions_0 = transactions.filter((t_2)=>t_2.id !== selectedTransaction.id);
             setTransactions(updatedTransactions_0);
@@ -946,7 +946,7 @@ function Dashboard() {
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       font-weight: 500;
     `;
-            tempAlert_2.textContent = '✅ Transaction deleted successfully!';
+            tempAlert_2.textContent = ' Transaction deleted successfully!';
             document.body.appendChild(tempAlert_2);
             setTimeout(()=>{
                 tempAlert_2.remove();
@@ -1145,7 +1145,7 @@ function Dashboard() {
             columnNumber: 12
         }, this);
     }
-    // ✅ SHOW DASHBOARD IMMEDIATELY ONCE AUTH IS DONE + USER EXISTS
+    //  SHOW DASHBOARD IMMEDIATELY ONCE AUTH IS DONE + USER EXISTS
     // Don't wait for profile or transactions - load those in background
     if (!authLoading && !user) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2462,7 +2462,7 @@ function Dashboard() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$src$2f$app$2f$components$2f$styles$2f$Dashboard$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].analyzeButton,
                                                     onClick: ()=>{
-                                                        const bot = telegramBotUsername || ("TURBOPACK compile-time value", "Sentinel_budget_bot") || 'SentinelFinanceBot';
+                                                        const bot = telegramBotUsername || __TURBOPACK__imported__module__$5b$project$5d2f$sep$2f$Sentinel$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.TELEGRAM_BOT_USERNAME || 'SentinelFinanceBot';
                                                         window.open(`https://t.me/${bot.replace('@', '')}?start=connect`, '_blank');
                                                     },
                                                     disabled: telegramVerifying,

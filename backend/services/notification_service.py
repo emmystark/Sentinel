@@ -261,7 +261,7 @@ async def send_budget_alert(
         message = f"You've spent ${spent_amount:.2f} of your ${budget_amount:.2f} {category} budget."
         emoji_prefix = "🔴"
     elif percentage >= 90:
-        title = f"⚠️ {category} Budget Alert"
+        title = f" {category} Budget Alert"
         message = f"You're at {percentage:.0f}% of your {category} budget (${spent_amount:.2f} of ${budget_amount:.2f})."
         emoji_prefix = "🟠"
     elif percentage >= 80:
@@ -269,7 +269,7 @@ async def send_budget_alert(
         message = f"You've used {percentage:.0f}% of your {category} budget."
         emoji_prefix = "🟡"
     else:
-        title = f"✅ {category} Budget Status"
+        title = f" {category} Budget Status"
         message = f"You've used {percentage:.0f}% of your {category} budget."
         emoji_prefix = "🟢"
     

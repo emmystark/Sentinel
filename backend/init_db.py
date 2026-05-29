@@ -41,7 +41,7 @@ def main():
     try:
         print("1️⃣  Connecting to Supabase...")
         supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
-        print("✅ Connected to Supabase")
+        print(" Connected to Supabase")
         print()
         
         # Check if tables exist
@@ -50,9 +50,9 @@ def main():
         try:
             # Try to query users table
             response = supabase.table("users").select("id").limit(1).execute()
-            print("✅ 'users' table exists")
+            print(" 'users' table exists")
         except Exception as e:
-            print("⚠️  'users' table not found")
+            print("  'users' table not found")
             print("   Please run the SQL schema in Supabase:")
             print("   1. Go to https://supabase.com/dashboard")
             print("   2. Open your project")
@@ -65,21 +65,21 @@ def main():
         
         try:
             response = supabase.table("transactions").select("id").limit(1).execute()
-            print("✅ 'transactions' table exists")
+            print(" 'transactions' table exists")
         except:
-            print("⚠️  'transactions' table not found")
+            print("  'transactions' table not found")
             return False
         
         try:
             response = supabase.table("telegram_links").select("id").limit(1).execute()
-            print("✅ 'telegram_links' table exists")
+            print(" 'telegram_links' table exists")
         except:
-            print("⚠️  'telegram_links' table not found")
+            print("  'telegram_links' table not found")
             return False
         
         print()
         print("=" * 50)
-        print("✅ Database Setup Complete!")
+        print(" Database Setup Complete!")
         print("=" * 50)
         print()
         print("Your Sentinel backend is ready to use!")

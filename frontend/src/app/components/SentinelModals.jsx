@@ -122,7 +122,7 @@ export default function SentinelModals() {
 
               <div className={styles.telegramSection}>
                 <h4>Telegram Connection</h4>
-                <p className={styles.telegramStatus}>Connected as @User123 ✅</p>
+                <p className={styles.telegramStatus}>Connected as @User123 </p>
                 <button className={styles.disconnectButton}>Disconnect</button>
               </div>
 
