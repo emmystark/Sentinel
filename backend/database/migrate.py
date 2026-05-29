@@ -68,7 +68,7 @@ def apply_migration(supabase):
             user_profiles = supabase.table("user_profiles").select("id").limit(1).execute()
             logger.info(" user_profiles table exists")
         except Exception as e:
-            logger.error(f"❌ user_profiles table error: {e}")
+            logger.error(f" user_profiles table error: {e}")
         
         try:
             transactions = supabase.table("transactions").select("id").limit(1).execute()
@@ -80,7 +80,7 @@ def apply_migration(supabase):
         return True
         
     except Exception as e:
-        logger.error(f"❌ Migration check failed: {e}")
+        logger.error(f" Migration check failed: {e}")
         print_migration_instructions()
         return False
 def verify_database(supabase):
@@ -106,13 +106,13 @@ def verify_database(supabase):
             logger.info(" Column 'telegram_chat_id' exists - MIGRATION APPLIED!")
             return True
         except Exception as e:
-            logger.error(f"\n❌ Column 'telegram_chat_id' missing - MIGRATION NEEDED")
+            logger.error(f"\n Column 'telegram_chat_id' missing - MIGRATION NEEDED")
             logger.error(f"Error: {str(e)[:100]}\n")
             print_migration_instructions()
             return False
         
     except Exception as e:
-        logger.error(f"❌ Database verification failed: {e}")
+        logger.error(f" Database verification failed: {e}")
         print_migration_instructions()
         return False
 

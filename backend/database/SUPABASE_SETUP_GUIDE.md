@@ -141,7 +141,7 @@ supabase = create_client(
 
 # Test read
 data = supabase.table("user_profiles").select("*").execute()
-print(" Connected!" if data else "❌ Failed")
+print(" Connected!" if data else " Failed")
 ```
 
 ### From Frontend
@@ -155,7 +155,7 @@ const { data, error } = await supabase
   .select('*')
   .limit(1);
 
-console.log(error ? '❌ Error' : ' Connected');
+console.log(error ? ' Error' : ' Connected');
 ```
 
 ---
@@ -260,7 +260,7 @@ receive_tips            - Get AI tips?
 RLS ensures users can ONLY access their own data:
 
 ```
-❌ Without RLS: User A can see User B's transactions
+ Without RLS: User A can see User B's transactions
  With RLS: User A can only see User A's transactions
 ```
 

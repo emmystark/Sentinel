@@ -18,14 +18,14 @@ echo -e "${NC}"
 
 # Check if we're in the backend directory
 if [ ! -f "requirements.txt" ]; then
-    echo -e "${RED}❌ Error: Please run this script from the backend directory${NC}"
+    echo -e "${RED} Error: Please run this script from the backend directory${NC}"
     exit 1
 fi
 
 # 1. Check Python
 echo -e "${YELLOW}1️⃣  Checking Python...${NC}"
 if ! command -v python3 &> /dev/null; then
-    echo -e "${RED}❌ Python 3 not found. Please install Python 3.11+${NC}"
+    echo -e "${RED} Python 3 not found. Please install Python 3.11+${NC}"
     exit 1
 fi
 echo -e "${GREEN} Python $(python3 --version | cut -d' ' -f2) found${NC}\n"
@@ -59,7 +59,7 @@ if [ ! -f ".env" ]; then
         echo "   SUPABASE_URL, SUPABASE_KEY, TELEGRAM_BOT_TOKEN, GEMINI_API_KEY, HF_TOKEN"
         echo ""
     else
-        echo -e "${RED}❌ .env file not found. Create it with your API keys${NC}"
+        echo -e "${RED} .env file not found. Create it with your API keys${NC}"
         exit 1
     fi
 fi

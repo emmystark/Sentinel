@@ -55,7 +55,7 @@ try:
             track = opik_track
             logger.info(" Opik configured for local instance (http://localhost:5173)")
         except Exception as e:
-            logger.error(f"❌ Local Opik configuration failed: {e}")
+            logger.error(f" Local Opik configuration failed: {e}")
             OPIK_AVAILABLE = False
             
     elif OPIK_API_KEY and OPIK_WORKSPACE:
@@ -86,7 +86,7 @@ try:
                 logger.info(f"   URL: {OPIK_URL}")
                 
         except Exception as e:
-            logger.error(f"❌ Opik configuration failed: {e}")
+            logger.error(f" Opik configuration failed: {e}")
             OPIK_AVAILABLE = False
             
     else:
@@ -100,7 +100,7 @@ except ImportError:
     logger.warning(" Opik not installed. Run: pip install opik")
     OPIK_AVAILABLE = False
 except Exception as e:
-    logger.error(f"❌ Failed to initialize Opik: {e}", exc_info=True)
+    logger.error(f" Failed to initialize Opik: {e}", exc_info=True)
     OPIK_AVAILABLE = False
 
 

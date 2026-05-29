@@ -22,7 +22,7 @@ def main():
     SUPABASE_KEY = os.getenv("SUPABASE_KEY")
     
     if not SUPABASE_URL or not SUPABASE_KEY:
-        print("❌ Error: Supabase credentials not found")
+        print(" Error: Supabase credentials not found")
         print()
         print("Please set the following environment variables in .env:")
         print("  - SUPABASE_URL")
@@ -34,7 +34,7 @@ def main():
     try:
         from supabase import create_client
     except ImportError:
-        print("❌ Error: supabase package not installed")
+        print(" Error: supabase package not installed")
         print("Run: pip install supabase")
         return False
     
@@ -92,7 +92,7 @@ def main():
         return True
         
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         print()
         print("Troubleshooting:")
         print("- Check your internet connection")

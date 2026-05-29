@@ -92,9 +92,9 @@ app = FastAPI(
 
 # Get allowed origins from config or environment
 allowed_origins = Config.ALLOWED_ORIGINS if hasattr(Config, 'ALLOWED_ORIGINS') else [
-    "http://localhost:3000",
-    "http://localhost:5173",
-    "https://sentinel-pchb.onrender.com",
+    # "http://localhost:3000",
+    # "http://localhost:5173",
+    # "https://sentinel-pchb.onrender.com",
     "https://*.onrender.com",  # Allow all Render subdomains
 ]
 

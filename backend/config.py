@@ -118,7 +118,7 @@ async def get_user_id(authorization: str = Header(None)) -> str:
 class Config:
     """Application configuration"""
     BACKEND_PORT = int(os.getenv("BACKEND_PORT", 3000))
-    FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3001")
+    FRONTEND_URL = os.getenv("FRONTEND_URL", "")
     ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
     GROQ_API_KEY = os.getenv("GROQ_API_KEY")
     TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
@@ -128,7 +128,7 @@ class Config:
     # CORS Configuration
     ALLOWED_ORIGINS = [
         FRONTEND_URL,
-        "http://localhost:3000",
-        "http://localhost:3001",
         "https://sentinel-tau-hazel.vercel.app"
+        # "http://localhost:3000",
+        # "http://localhost:3001",
     ]

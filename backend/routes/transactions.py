@@ -66,7 +66,7 @@ async def get_transactions(
         return response.data or []
         
     except Exception as e:
-        logger.error(f"❌ Database error fetching transactions for user {user_id}: {e}", exc_info=True)
+        logger.error(f" Database error fetching transactions for user {user_id}: {e}", exc_info=True)
         # Return empty array on error (don't crash)
         return []
 

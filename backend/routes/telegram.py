@@ -247,7 +247,7 @@ async def telegram_webhook(update: TelegramUpdate):
                     )
             except Exception as e:
                 logger.error(f"Webhook save transaction error: {e}")
-                await send_message(chat_id, "❌ Could not save expense. Try again.")
+                await send_message(chat_id, " Could not save expense. Try again.")
                 return {"status": "ok"}
         else:
             # Not an expense format - treat as a question and use Qwen for advice
@@ -315,13 +315,13 @@ async def _handle_receipt_photo(chat_id: int, photo: list, user: dict):
         file_id = largest_photo.get("file_id")
         
         if not file_id:
-            await send_message(chat_id, "❌ Could not extract photo. Try uploading a clearer image.")
+            await send_message(chat_id, " Could not extract photo. Try uploading a clearer image.")
             return {"status": "ok"}
         
         # Download photo from Telegram
         file_info_response = await _get_telegram_file(file_id)
         if not file_info_response or not file_info_response.get("result"):
-            await send_message(chat_id, "❌ Could not download photo from Telegram.")
+            await send_message(chat_id, " Could not download photo from Telegram.")
             return {"status": "ok"}
         
         file_path = file_info_response["result"].get("file_path")
@@ -402,17 +402,17 @@ async def _handle_receipt_photo(chat_id: int, photo: list, user: dict):
                     f"Category: {category}"
                 )
             else:
-                await send_message(chat_id, "❌ Could not save receipt. Try again.")
+                await send_message(chat_id, " Could not save receipt. Try again.")
         
         except Exception as db_error:
             logger.error(f"Error saving receipt from Telegram: {db_error}")
-            await send_message(chat_id, "❌ Database error. Please try again.")
+            await send_message(chat_id, " Database error. Please try again.")
         
         return {"status": "ok"}
         
     except Exception as e:
         logger.error(f"Receipt photo handler error: {e}", exc_info=True)
-        await send_message(chat_id, "❌ Error processing receipt. Please try again.")
+        await send_message(chat_id, " Error processing receipt. Please try again.")
         return {"status": "ok"}
 
 async def _get_telegram_file(file_id: str):
