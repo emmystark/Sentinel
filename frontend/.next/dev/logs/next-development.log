@@ -877,3 +877,19 @@
 [00:38:21.089] Browser LOG     Profile and transactions loaded, regenerating tips...
 [00:43:56.782] Server  LOG       Reload env: .env
 [00:43:58.017] Server  LOG       Reload env: .env
+[00:46:37.084] Browser LOG     Auth ready, fetching profile and transactions in parallel...
+[00:46:37.084] Browser LOG     🔵 API Call: GET /api/auth/profile
+[00:46:37.084] Browser LOG     📊 Fetching transactions from API...
+[00:46:37.084] Browser LOG     🔵 API Call: GET /api/transactions
+[00:46:37.084] Browser LOG     🔵 API Call: GET /api/ai/telegram/settings
+[00:46:43.404] Browser LOG      API Success: GET /api/transactions [{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:06:37.576361+00:00","currency":"NGN","date":"2026-05-29T12:06:37.531+00:00","description":"bread","id":"d6ee19d7-607e-4b65-913c-0cf3f7c59a66","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:06:38.27196+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"},{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:03:20.919916+00:00","currency":"NGN","date":"2026-05-29T12:03:18.194+00:00","description":"bread","id":"4cff7ce7-088c-4de6-9782-36165a52d552","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:03:22.329521+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}]
+[00:46:43.404] Browser LOG     📦 Raw transaction data received: [{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:06:37.576361+00:00","currency":"NGN","date":"2026-05-29T12:06:37.531+00:00","description":"bread","id":"d6ee19d7-607e-4b65-913c-0cf3f7c59a66","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:06:38.27196+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"},{"ai_categorized":false,"amount":3000,"category":"Food","created_at":"2026-05-29T12:03:20.919916+00:00","currency":"NGN","date":"2026-05-29T12:03:18.194+00:00","description":"bread","id":"4cff7ce7-088c-4de6-9782-36165a52d552","merchant":"Kuda","notes":null,"receipt_image_url":null,"source":"manual","telegram_message_id":null,"updated_at":"2026-05-29T12:03:22.329521+00:00","user_id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800"}]
+[00:46:43.404] Browser LOG      Successfully fetched 2 transactions from database
+[00:46:43.404] Browser LOG      Transactions set in state, total: 2
+[00:46:43.404] Browser LOG     💡 Generating AI tips for 2 transactions...
+[00:46:43.404] Browser LOG     🔵 API Call: POST /api/ai/health-tips
+[00:46:43.404] Browser LOG      API Success: GET /api/auth/profile {"created_at":"2026-05-29T11:11:37.407641+00:00","email":"nkereuwememmanueliboro5@gmail.com","fixed_bills":10000,"id":"2c2ae9f6-d80e-4828-8ad7-e001345e6800","monthly_income":2000000,"name":"Emmanuel Nkereuwem","preferred_currency":"NGN","push_notification_enabled":true,"savings_goal":0,"telegram_chat_id":null,"telegram_connected":false,"telegram_username":null,"updated_at":"2026-05-29T12:13:52.454606+00:00"}
+[00:46:43.404] Browser LOG     Profile and transactions loaded, regenerating tips...
+[00:46:44.349] Browser ERROR   ❌ API Error: Load failed
+[00:46:44.349] Browser ERROR   Failed to generate tips: {}
+[00:46:44.349] Browser LOG      API Success: GET /api/ai/telegram/settings {"notifications_enabled":false,"success":true,"telegram_chat_id":null}
